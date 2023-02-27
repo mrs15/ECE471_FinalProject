@@ -1,0 +1,311 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F4331 ]
+[d frameptr 4065 ]
+"16 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\main.c
+[e E2814 . `uc
+INIT_STATE 0
+IDLE_STATE 1
+WATER_PLANTS 2
+CHECK_MOISTURE 3
+]
+"18 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SoilMoistureSensor.c
+[e E2817 . `uc
+INIT_STATE 0
+IDLE_STATE 1
+WATER_PLANTS 2
+CHECK_MOISTURE 3
+]
+"3 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\FSM_states.c
+[e E2813 . `uc
+INIT_STATE 0
+IDLE_STATE 1
+WATER_PLANTS 2
+CHECK_MOISTURE 3
+]
+"13 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+[e E2814 . `uc
+INIT_STATE 0
+IDLE_STATE 1
+WATER_PLANTS 2
+CHECK_MOISTURE 3
+]
+"4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"5 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\FSM_states.c
+[v _get_current_state get_current_state `(E2817  1 e 1 0 ]
+"9
+[v _set_state set_state `(v  1 e 1 0 ]
+"14 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\main.c
+[v _main main `(v  1 e 1 0 ]
+"13 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_ADC.c
+[v _ADC_start ADC_start `(v  1 s 1 ADC_start ]
+"19
+[v _ADC_stop ADC_stop `(v  1 s 1 ADC_stop ]
+"24
+[v _ADC_init ADC_init `(v  1 e 1 0 ]
+"53
+[v _ADC_in_progress ADC_in_progress `(uc  1 s 1 ADC_in_progress ]
+"60
+[v _ADC_Read ADC_Read `(us  1 e 2 0 ]
+"5 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_Timer.c
+[v _timer_overflow_isr timer_overflow_isr `IIH(v  1 e 1 0 ]
+"8 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SoilMoistureSensor.c
+[v _SMS_init SMS_init `(v  1 e 1 0 ]
+"13
+[v _SMS_read_and_set_state SMS_read_and_set_state `(v  1 e 1 0 ]
+"5 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+[v _FSM_begin FSM_begin `(v  1 e 1 0 ]
+[s S271 . 1 `uc 1 SASEL 1 0 :2:0 
+`uc 1 SCSEL 1 0 :2:2 
+`uc 1 SBSEL 1 0 :2:4 
+`uc 1 SDSEL 1 0 :2:6 
+]
+"3297 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
+[s S276 . 1 `uc 1 GASEL0 1 0 :1:0 
+`uc 1 GASEL1 1 0 :1:1 
+`uc 1 GCSEL0 1 0 :1:2 
+`uc 1 GCSEL1 1 0 :1:3 
+`uc 1 GBSEL0 1 0 :1:4 
+`uc 1 GBSEL1 1 0 :1:5 
+`uc 1 GDSEL0 1 0 :1:6 
+`uc 1 GDSEL1 1 0 :1:7 
+]
+[s S285 . 1 `uc 1 SASEL0 1 0 :1:0 
+`uc 1 SASEL1 1 0 :1:1 
+`uc 1 SCSEL0 1 0 :1:2 
+`uc 1 SCSEL1 1 0 :1:3 
+`uc 1 SBSEL0 1 0 :1:4 
+`uc 1 SBSEL1 1 0 :1:5 
+`uc 1 SDSEL0 1 0 :1:6 
+`uc 1 SDSEL1 1 0 :1:7 
+]
+[u S294 . 1 `S271 1 . 1 0 `S276 1 . 1 0 `S285 1 . 1 0 ]
+[v _ADCHSbits ADCHSbits `VES294  1 e 1 @3993 ]
+[s S350 . 1 `uc 1 ANS0 1 0 :1:0 
+`uc 1 ANS1 1 0 :1:1 
+`uc 1 ANS2 1 0 :1:2 
+`uc 1 ANS3 1 0 :1:3 
+`uc 1 ANS4 1 0 :1:4 
+`uc 1 ANS5 1 0 :1:5 
+`uc 1 ANS6 1 0 :1:6 
+`uc 1 ANS7 1 0 :1:7 
+]
+"5170
+[u S359 . 1 `S350 1 . 1 0 ]
+[v _ANSEL0bits ANSEL0bits `VES359  1 e 1 @4024 ]
+[s S322 . 1 `uc 1 ADCS 1 0 :3:0 
+`uc 1 ACQT 1 0 :4:3 
+`uc 1 ADFM 1 0 :1:7 
+]
+"5456
+[s S326 . 1 `uc 1 ADCS0 1 0 :1:0 
+`uc 1 ADCS1 1 0 :1:1 
+`uc 1 ADCS2 1 0 :1:2 
+`uc 1 ACQT0 1 0 :1:3 
+`uc 1 ACQT1 1 0 :1:4 
+`uc 1 ACQT2 1 0 :1:5 
+`uc 1 ACQT3 1 0 :1:6 
+]
+[u S334 . 1 `S322 1 . 1 0 `S326 1 . 1 0 ]
+[v _ADCON2bits ADCON2bits `VES334  1 e 1 @4032 ]
+[s S225 . 1 `uc 1 ADPNT 1 0 :2:0 
+`uc 1 BFOVFL 1 0 :1:2 
+`uc 1 BFEMT 1 0 :1:3 
+`uc 1 FIFOEN 1 0 :1:4 
+`uc 1 . 1 0 :1:5 
+`uc 1 VCFG 1 0 :2:6 
+]
+"5542
+[s S232 . 1 `uc 1 ADPNT0 1 0 :1:0 
+`uc 1 ADPNT1 1 0 :1:1 
+`uc 1 . 1 0 :4:2 
+`uc 1 VCFG0 1 0 :1:6 
+`uc 1 VCFG1 1 0 :1:7 
+]
+[s S238 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 FFOVFL 1 0 :1:2 
+]
+[s S241 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 CHSN3 1 0 :1:3 
+`uc 1 VCFG01 1 0 :1:4 
+]
+[u S245 . 1 `S225 1 . 1 0 `S232 1 . 1 0 `S238 1 . 1 0 `S241 1 . 1 0 ]
+[v _ADCON1bits ADCON1bits `VES245  1 e 1 @4033 ]
+[s S157 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"5651
+[s S160 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 ACMOD 1 0 :2:2 
+`uc 1 ACSCH 1 0 :1:4 
+`uc 1 ACONV 1 0 :1:5 
+]
+[s S166 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+`uc 1 ACMOD0 1 0 :1:2 
+`uc 1 ACMOD1 1 0 :1:3 
+]
+[s S171 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S174 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[s S177 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S180 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S183 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S186 . 1 `S157 1 . 1 0 `S160 1 . 1 0 `S166 1 . 1 0 `S171 1 . 1 0 `S174 1 . 1 0 `S177 1 . 1 0 `S180 1 . 1 0 `S183 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES186  1 e 1 @4034 ]
+"5733
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"5740
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
+[s S93 . 1 `uc 1 T0PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+`uc 1 T016BIT 1 0 :1:6 
+`uc 1 TMR0ON 1 0 :1:7 
+]
+"6810
+[s S100 . 1 `uc 1 T0PS0 1 0 :1:0 
+`uc 1 T0PS1 1 0 :1:1 
+`uc 1 T0PS2 1 0 :1:2 
+`uc 1 T0PS3 1 0 :1:3 
+]
+[u S105 . 1 `S93 1 . 1 0 `S100 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES105  1 e 1 @4053 ]
+"6872
+[v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
+[s S43 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"7340
+[s S52 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S61 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S65 . 1 `S43 1 . 1 0 `S52 1 . 1 0 `S61 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES65  1 e 1 @4082 ]
+"3 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\FSM_states.c
+[v _FSM_state FSM_state `E2813  1 e 1 0 ]
+[s S151 . 2 `uc 1 result_low 1 0 `uc 1 result_high 1 1 ]
+"11 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_ADC.c
+[u S154 . 2 `us 1 ADC_Raw 2 0 `S151 1 ADCRES_Members 2 0 ]
+[v _ADC ADC `S154  1 s 2 ADC ]
+"3 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_Timer.c
+[v _tmr0Counter tmr0Counter `VEus  1 s 2 tmr0Counter ]
+"14 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"20
+} 0
+"5 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+[v _FSM_begin FSM_begin `(v  1 e 1 0 ]
+{
+"54
+} 0
+"13 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SoilMoistureSensor.c
+[v _SMS_read_and_set_state SMS_read_and_set_state `(v  1 e 1 0 ]
+{
+"22
+[v SMS_read_and_set_state@current_state current_state `E2817  1 a 1 2 ]
+"15
+[v SMS_read_and_set_state@moisture moisture `us  1 a 2 3 ]
+"25
+} 0
+"9 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\FSM_states.c
+[v _set_state set_state `(v  1 e 1 0 ]
+{
+[v set_state@state_to_set state_to_set `E2813  1 a 1 wreg ]
+[v set_state@state_to_set state_to_set `E2813  1 a 1 wreg ]
+"11
+[v set_state@state_to_set state_to_set `E2813  1 a 1 0 ]
+"12
+} 0
+"5
+[v _get_current_state get_current_state `(E2817  1 e 1 0 ]
+{
+"8
+} 0
+"60 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_ADC.c
+[v _ADC_Read ADC_Read `(us  1 e 2 0 ]
+{
+"73
+} 0
+"13
+[v _ADC_start ADC_start `(v  1 s 1 ADC_start ]
+{
+"17
+} 0
+"53
+[v _ADC_in_progress ADC_in_progress `(uc  1 s 1 ADC_in_progress ]
+{
+"58
+} 0
+"8 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SoilMoistureSensor.c
+[v _SMS_init SMS_init `(v  1 e 1 0 ]
+{
+"11
+} 0
+"24 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_ADC.c
+[v _ADC_init ADC_init `(v  1 e 1 0 ]
+{
+"51
+} 0
+"19
+[v _ADC_stop ADC_stop `(v  1 s 1 ADC_stop ]
+{
+"22
+} 0
+"5 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_Timer.c
+[v _timer_overflow_isr timer_overflow_isr `IIH(v  1 e 1 0 ]
+{
+"44
+} 0
