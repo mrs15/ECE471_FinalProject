@@ -56,7 +56,7 @@ CHECK_MOISTURE 3
 "91 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
 "5 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\FSM_states.c
-[v _get_current_state get_current_state `(E2817  1 e 1 0 ]
+[v _get_current_state get_current_state `(E2813  1 e 1 0 ]
 "9
 [v _set_state set_state `(v  1 e 1 0 ]
 "14 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\main.c
@@ -251,13 +251,16 @@ CHECK_MOISTURE 3
 {
 "54
 } 0
+"5 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\FSM_states.c
+[v _get_current_state get_current_state `(E2813  1 e 1 0 ]
+{
+"8
+} 0
 "13 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SoilMoistureSensor.c
 [v _SMS_read_and_set_state SMS_read_and_set_state `(v  1 e 1 0 ]
 {
-"22
-[v SMS_read_and_set_state@current_state current_state `E2817  1 a 1 2 ]
 "15
-[v SMS_read_and_set_state@moisture moisture `us  1 a 2 3 ]
+[v SMS_read_and_set_state@moisture moisture `us  1 a 2 2 ]
 "25
 } 0
 "9 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\FSM_states.c
@@ -268,11 +271,6 @@ CHECK_MOISTURE 3
 "11
 [v set_state@state_to_set state_to_set `E2813  1 a 1 0 ]
 "12
-} 0
-"5
-[v _get_current_state get_current_state `(E2817  1 e 1 0 ]
-{
-"8
 } 0
 "60 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_ADC.c
 [v _ADC_Read ADC_Read `(us  1 e 2 0 ]

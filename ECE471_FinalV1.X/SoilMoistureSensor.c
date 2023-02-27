@@ -19,7 +19,7 @@ void SMS_read_and_set_state(void)
     }
     else if(moisture >= WET_SOIL && moisture < DRY_SOIL)
     {
-        STATES current_state = get_current_state();
-        set_state(current_state);
+        //goto IDLE state as the soil moisture levels don't need watering
+        set_state(IDLE_STATE);
     }
 }

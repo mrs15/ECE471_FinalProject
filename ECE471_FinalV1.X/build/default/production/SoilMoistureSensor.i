@@ -5340,7 +5340,7 @@ void SMS_read_and_set_state(void)
     }
     else if(moisture >= (239) && moisture < (595))
     {
-        STATES current_state = get_current_state();
-        set_state(current_state);
+
+        set_state(IDLE_STATE);
     }
 }

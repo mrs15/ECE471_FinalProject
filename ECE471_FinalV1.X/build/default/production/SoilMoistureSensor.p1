@@ -12,9 +12,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21 ./FSM_states.h
 [; ;./FSM_states.h: 21: void set_state(STATES state_to_set);
 [v _set_state `(v ~T0 @X0 0 ef1`E2817 ]
-"20
-[; ;./FSM_states.h: 20: STATES get_current_state(void);
-[v _get_current_state `(E2817 ~T0 @X0 0 ef ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 55: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -664,13 +661,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "21
 [; ;SoilMoistureSensor.c: 21:     {
 {
-"22
-[; ;SoilMoistureSensor.c: 22:         STATES current_state = get_current_state();
-[v _current_state `E2817 ~T0 @X0 1 a ]
-[e = _current_state ( _get_current_state ..  ]
 "23
-[; ;SoilMoistureSensor.c: 23:         set_state(current_state);
-[e ( _set_state (1 _current_state ]
+[; ;SoilMoistureSensor.c: 23:         set_state(IDLE_STATE);
+[e ( _set_state (1 . `E2817 1 ]
 "24
 [; ;SoilMoistureSensor.c: 24:     }
 }
