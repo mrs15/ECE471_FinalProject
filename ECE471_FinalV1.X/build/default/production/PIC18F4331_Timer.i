@@ -5225,10 +5225,23 @@ unsigned char __t3rd16on(void);
 # 13 "./PIC18F4331_Timer.h" 2
 
 
+
 void Timer0_init(void);
 void Timer0_start(void);
 void Timer0_stop(void);
 # 1 "PIC18F4331_Timer.c" 2
+
+# 1 "./SystemTimerMiddleware.h" 1
+# 11 "./SystemTimerMiddleware.h"
+typedef void (*Callback_t)(void);
+
+void TimerMiddleware_Init(Callback_t callback_executive);
+void OneSecond_Timer_Middleware(void);
+# 2 "PIC18F4331_Timer.c" 2
+
+
+
+
 
 
 static volatile uint16_t tmr0Counter=0;
@@ -5238,10 +5251,14 @@ void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
 
     INTCONbits.GIEH = 0;
     INTCONbits.GIEL = 1;
-# 25 "PIC18F4331_Timer.c"
-    if(TMR0L < 6)
+# 28 "PIC18F4331_Timer.c"
+    if(TMR0L < (0x7C))
     {
-        TMR0L = 6;
+        TMR0L = (0x7C);
+    }
+    if(TMR0H < (0xE1))
+    {
+        TMR0H = (0xE1);
     }
 
 
@@ -5249,6 +5266,9 @@ void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
     {
 
         tmr0Counter++;
+
+
+        OneSecond_Timer_Middleware();
 
 
         INTCONbits.TMR0IF = 0;
@@ -5263,10 +5283,10 @@ void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
 
 void Timer0_init(void)
 {
-# 60 "PIC18F4331_Timer.c"
-    T0CONbits.T0PS0 = 0;
+# 68 "PIC18F4331_Timer.c"
+    T0CONbits.T0PS0 = 1;
     T0CONbits.T0PS1 = 1;
-    T0CONbits.T0PS2 = 0;
+    T0CONbits.T0PS2 = 1;
 
 
     T0CONbits.PSA = 0;
@@ -5275,7 +5295,7 @@ void Timer0_init(void)
     T0CONbits.T0CS = 0;
 
 
-    T0CONbits.T016BIT = 1;
+    T0CONbits.T016BIT = 0;
 
 
 }

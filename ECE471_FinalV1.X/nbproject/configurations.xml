@@ -12,18 +12,26 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <logicalFolder name="f1" displayName="Drivers" projectFiles="true">
+        <itemPath>PIC18F4331_ADC.c</itemPath>
+        <itemPath>PIC18F4331_ADC.h</itemPath>
+        <itemPath>PIC18F4331_Timer.c</itemPath>
+        <itemPath>PIC18F4331_Timer.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2" displayName="Middleware" projectFiles="true">
+        <itemPath>SystemTimerMiddleware.c</itemPath>
+        <itemPath>SystemTimerMiddleware.h</itemPath>
+      </logicalFolder>
       <itemPath>SystemConfiguration.h</itemPath>
       <itemPath>main.c</itemPath>
-      <itemPath>PIC18F4331_Timer.h</itemPath>
-      <itemPath>PIC18F4331_Timer.c</itemPath>
-      <itemPath>PIC18F4331_ADC.h</itemPath>
-      <itemPath>PIC18F4331_ADC.c</itemPath>
       <itemPath>SoilMoistureSensor.h</itemPath>
       <itemPath>SoilMoistureSensor.c</itemPath>
       <itemPath>FSM_states.h</itemPath>
       <itemPath>FSM_states.c</itemPath>
       <itemPath>System_FSM.h</itemPath>
       <itemPath>System_FSM.c</itemPath>
+      <itemPath>SystemCallbacks.h</itemPath>
+      <itemPath>SystemCallbacks.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

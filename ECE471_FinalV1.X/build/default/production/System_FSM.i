@@ -5229,7 +5229,7 @@ void FSM_begin(void);
 # 1 "System_FSM.c" 2
 
 # 1 "./FSM_states.h" 1
-# 13 "./FSM_states.h"
+# 11 "./FSM_states.h"
 typedef enum{
     INIT_STATE,
     IDLE_STATE,
@@ -5253,6 +5253,27 @@ void SMS_init(void);
 void SMS_read_and_set_state(void);
 # 3 "System_FSM.c" 2
 
+# 1 "./PIC18F4331_Timer.h" 1
+# 16 "./PIC18F4331_Timer.h"
+void Timer0_init(void);
+void Timer0_start(void);
+void Timer0_stop(void);
+# 4 "System_FSM.c" 2
+
+# 1 "./SystemCallbacks.h" 1
+# 11 "./SystemCallbacks.h"
+typedef void (*time_callback_t)(void);
+
+typedef struct{
+    int expiry_time;
+    time_callback_t callback;
+}Callback_Config_t;
+
+void SystemCallbacks_Init(void);
+void OneSecond_ExecutiveCallback(void);
+void Register_Callback(Callback_Config_t *config);
+# 5 "System_FSM.c" 2
+
 
 void FSM_begin(void)
 {
@@ -5262,6 +5283,8 @@ void FSM_begin(void)
         {
 
             SMS_init();
+            Timer0_init();
+            SystemCallbacks_Init();
             set_state(IDLE_STATE);
             break;
         }

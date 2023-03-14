@@ -8,8 +8,6 @@
 #ifndef FSM_STATES_H
 #define	FSM_STATES_H
 
-#include <xc.h> 
-
 typedef enum{
     INIT_STATE,
     IDLE_STATE,

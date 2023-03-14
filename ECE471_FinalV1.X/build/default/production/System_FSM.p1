@@ -2,15 +2,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 ./SoilMoistureSensor.h
 [; ;./SoilMoistureSensor.h: 16: void SMS_init(void);
 [v _SMS_init `(v ~T0 @X0 0 ef ]
-"13 System_FSM.c
-[; ;System_FSM.c: 13:             set_state(IDLE_STATE);
+"16 ./PIC18F4331_Timer.h
+[; ;./PIC18F4331_Timer.h: 16: void Timer0_init(void);
+[v _Timer0_init `(v ~T0 @X0 0 ef ]
+"18 ./SystemCallbacks.h
+[; ;./SystemCallbacks.h: 18: void SystemCallbacks_Init(void);
+[v _SystemCallbacks_Init `(v ~T0 @X0 0 ef ]
+"17 System_FSM.c
+[; ;System_FSM.c: 17:             set_state(IDLE_STATE);
 [c E2814 0 1 2 3 .. ]
 [n E2814 . INIT_STATE IDLE_STATE WATER_PLANTS CHECK_MOISTURE  ]
-"21 ./FSM_states.h
-[; ;./FSM_states.h: 21: void set_state(STATES state_to_set);
+"19 ./FSM_states.h
+[; ;./FSM_states.h: 19: void set_state(STATES state_to_set);
 [v _set_state `(v ~T0 @X0 0 ef1`E2814 ]
-"20
-[; ;./FSM_states.h: 20: STATES get_current_state(void);
+"18
+[; ;./FSM_states.h: 18: STATES get_current_state(void);
 [v _get_current_state `(E2814 ~T0 @X0 0 ef ]
 "23 ./SoilMoistureSensor.h
 [; ;./SoilMoistureSensor.h: 23: void SMS_read_and_set_state(void);
@@ -555,119 +561,125 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7617
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7617: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"5 System_FSM.c
-[; ;System_FSM.c: 5: void FSM_begin(void)
+"7 System_FSM.c
+[; ;System_FSM.c: 7: void FSM_begin(void)
 [v _FSM_begin `(v ~T0 @X0 1 ef ]
-"6
-[; ;System_FSM.c: 6: {
+"8
+[; ;System_FSM.c: 8: {
 {
 [e :U _FSM_begin ]
 [f ]
-"7
-[; ;System_FSM.c: 7:     switch(get_current_state())
-[e $U 316  ]
-"8
-[; ;System_FSM.c: 8:     {
-{
 "9
-[; ;System_FSM.c: 9:         case INIT_STATE:
-[e :U 317 ]
+[; ;System_FSM.c: 9:     switch(get_current_state())
+[e $U 317  ]
 "10
-[; ;System_FSM.c: 10:         {
+[; ;System_FSM.c: 10:     {
 {
-"12
-[; ;System_FSM.c: 12:             SMS_init();
-[e ( _SMS_init ..  ]
-"13
-[; ;System_FSM.c: 13:             set_state(IDLE_STATE);
-[e ( _set_state (1 . `E2814 1 ]
-"14
-[; ;System_FSM.c: 14:             break;
-[e $U 315  ]
-"15
-[; ;System_FSM.c: 15:         }
-}
-"17
-[; ;System_FSM.c: 17:         case IDLE_STATE:
+"11
+[; ;System_FSM.c: 11:         case INIT_STATE:
 [e :U 318 ]
+"12
+[; ;System_FSM.c: 12:         {
+{
+"14
+[; ;System_FSM.c: 14:             SMS_init();
+[e ( _SMS_init ..  ]
+"15
+[; ;System_FSM.c: 15:             Timer0_init();
+[e ( _Timer0_init ..  ]
+"16
+[; ;System_FSM.c: 16:             SystemCallbacks_Init();
+[e ( _SystemCallbacks_Init ..  ]
+"17
+[; ;System_FSM.c: 17:             set_state(IDLE_STATE);
+[e ( _set_state (1 . `E2814 1 ]
 "18
-[; ;System_FSM.c: 18:         {
-{
+[; ;System_FSM.c: 18:             break;
+[e $U 316  ]
 "19
-[; ;System_FSM.c: 19:             while(get_current_state() == IDLE_STATE)
-[e $U 319  ]
-[e :U 320 ]
-"20
-[; ;System_FSM.c: 20:             {
-{
-"22
-[; ;System_FSM.c: 22:             }
+[; ;System_FSM.c: 19:         }
 }
+"21
+[; ;System_FSM.c: 21:         case IDLE_STATE:
 [e :U 319 ]
-"19
-[; ;System_FSM.c: 19:             while(get_current_state() == IDLE_STATE)
-[e $ == -> ( _get_current_state ..  `ui -> . `E2814 1 `ui 320  ]
+"22
+[; ;System_FSM.c: 22:         {
+{
+"23
+[; ;System_FSM.c: 23:             while(get_current_state() == IDLE_STATE)
+[e $U 320  ]
 [e :U 321 ]
 "24
-[; ;System_FSM.c: 24:             break;
-[e $U 315  ]
-"25
-[; ;System_FSM.c: 25:         }
+[; ;System_FSM.c: 24:             {
+{
+"26
+[; ;System_FSM.c: 26:             }
 }
-"27
-[; ;System_FSM.c: 27:         case WATER_PLANTS:
+[e :U 320 ]
+"23
+[; ;System_FSM.c: 23:             while(get_current_state() == IDLE_STATE)
+[e $ == -> ( _get_current_state ..  `ui -> . `E2814 1 `ui 321  ]
 [e :U 322 ]
 "28
-[; ;System_FSM.c: 28:         {
-{
-"34
-[; ;System_FSM.c: 34:             break;
-[e $U 315  ]
-"35
-[; ;System_FSM.c: 35:         }
+[; ;System_FSM.c: 28:             break;
+[e $U 316  ]
+"29
+[; ;System_FSM.c: 29:         }
 }
-"37
-[; ;System_FSM.c: 37:         case CHECK_MOISTURE:
+"31
+[; ;System_FSM.c: 31:         case WATER_PLANTS:
 [e :U 323 ]
+"32
+[; ;System_FSM.c: 32:         {
+{
 "38
-[; ;System_FSM.c: 38:         {
-{
+[; ;System_FSM.c: 38:             break;
+[e $U 316  ]
+"39
+[; ;System_FSM.c: 39:         }
+}
 "41
-[; ;System_FSM.c: 41:             SMS_read_and_set_state();
-[e ( _SMS_read_and_set_state ..  ]
-"42
-[; ;System_FSM.c: 42:             break;
-[e $U 315  ]
-"43
-[; ;System_FSM.c: 43:         }
-}
-"45
-[; ;System_FSM.c: 45:         default:
+[; ;System_FSM.c: 41:         case CHECK_MOISTURE:
 [e :U 324 ]
-"46
-[; ;System_FSM.c: 46:         {
+"42
+[; ;System_FSM.c: 42:         {
 {
+"45
+[; ;System_FSM.c: 45:             SMS_read_and_set_state();
+[e ( _SMS_read_and_set_state ..  ]
+"46
+[; ;System_FSM.c: 46:             break;
+[e $U 316  ]
 "47
-[; ;System_FSM.c: 47:             set_state(INIT_STATE);
-[e ( _set_state (1 . `E2814 0 ]
-"48
-[; ;System_FSM.c: 48:             break;
-[e $U 315  ]
+[; ;System_FSM.c: 47:         }
+}
 "49
-[; ;System_FSM.c: 49:         }
-}
+[; ;System_FSM.c: 49:         default:
+[e :U 325 ]
+"50
+[; ;System_FSM.c: 50:         {
+{
+"51
+[; ;System_FSM.c: 51:             set_state(INIT_STATE);
+[e ( _set_state (1 . `E2814 0 ]
 "52
-[; ;System_FSM.c: 52:     }
+[; ;System_FSM.c: 52:             break;
+[e $U 316  ]
+"53
+[; ;System_FSM.c: 53:         }
 }
-[e $U 315  ]
+"56
+[; ;System_FSM.c: 56:     }
+}
+[e $U 316  ]
+[e :U 317 ]
+[e [\ -> ( _get_current_state ..  `ui , $ -> . `E2814 0 `ui 318
+ , $ -> . `E2814 1 `ui 319
+ , $ -> . `E2814 2 `ui 323
+ , $ -> . `E2814 3 `ui 324
+ 325 ]
 [e :U 316 ]
-[e [\ -> ( _get_current_state ..  `ui , $ -> . `E2814 0 `ui 317
- , $ -> . `E2814 1 `ui 318
- , $ -> . `E2814 2 `ui 322
- , $ -> . `E2814 3 `ui 323
- 324 ]
-[e :U 315 ]
-"54
-[; ;System_FSM.c: 54: }
-[e :UE 314 ]
+"58
+[; ;System_FSM.c: 58: }
+[e :UE 315 ]
 }

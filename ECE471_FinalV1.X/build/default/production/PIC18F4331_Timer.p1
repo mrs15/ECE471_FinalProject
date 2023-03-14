@@ -23,7 +23,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "6872
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6872: extern volatile unsigned char TMR0L __attribute__((address(0xFD6)));
 [v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
-"6795
+"6879
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6879: extern volatile unsigned char TMR0H __attribute__((address(0xFD7)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
+"14 ./SystemTimerMiddleware.h
+[; ;./SystemTimerMiddleware.h: 14: void OneSecond_Timer_Middleware(void);
+[v _OneSecond_Timer_Middleware `(v ~T0 @X0 0 ef ]
+"6795 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6795:     struct {
 [s S295 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S295 . T0PS PSA T0SE T0CS T016BIT TMR0ON ]
@@ -578,123 +584,139 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7617
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7617: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"3 PIC18F4331_Timer.c
-[; ;PIC18F4331_Timer.c: 3: static volatile uint16_t tmr0Counter=0;
+"8 PIC18F4331_Timer.c
+[; ;PIC18F4331_Timer.c: 8: static volatile uint16_t tmr0Counter=0;
 [v _tmr0Counter `Vus ~T0 @X0 1 s ]
 [i _tmr0Counter
 -> -> 0 `i `us
 ]
 [v $root$_timer_overflow_isr `(v ~T0 @X0 0 e ]
-"5
-[; ;PIC18F4331_Timer.c: 5: void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
+"10
+[; ;PIC18F4331_Timer.c: 10: void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
 [v _timer_overflow_isr `(v ~T36 @X0 1 ef ]
-"6
-[; ;PIC18F4331_Timer.c: 6: {
+"11
+[; ;PIC18F4331_Timer.c: 11: {
 {
 [e :U _timer_overflow_isr ]
 [f ]
-"8
-[; ;PIC18F4331_Timer.c: 8:     INTCONbits.GIEH = 0;
+"13
+[; ;PIC18F4331_Timer.c: 13:     INTCONbits.GIEH = 0;
 [e = . . _INTCONbits 2 2 -> -> 0 `i `uc ]
-"9
-[; ;PIC18F4331_Timer.c: 9:     INTCONbits.GIEL = 1;
+"14
+[; ;PIC18F4331_Timer.c: 14:     INTCONbits.GIEL = 1;
 [e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
-"25
-[; ;PIC18F4331_Timer.c: 25:     if(TMR0L < 6)
-[e $ ! < -> _TMR0L `i -> 6 `i 315  ]
-"26
-[; ;PIC18F4331_Timer.c: 26:     {
-{
-"27
-[; ;PIC18F4331_Timer.c: 27:         TMR0L = 6;
-[e = _TMR0L -> -> 6 `i `uc ]
 "28
-[; ;PIC18F4331_Timer.c: 28:     }
+[; ;PIC18F4331_Timer.c: 28:     if(TMR0L < (0x7C))
+[e $ ! < -> _TMR0L `i -> 124 `i 315  ]
+"29
+[; ;PIC18F4331_Timer.c: 29:     {
+{
+"30
+[; ;PIC18F4331_Timer.c: 30:         TMR0L = (0x7C);
+[e = _TMR0L -> -> 124 `i `uc ]
+"31
+[; ;PIC18F4331_Timer.c: 31:     }
 }
 [e :U 315 ]
-"31
-[; ;PIC18F4331_Timer.c: 31:     if(INTCONbits.TMR0IF)
-[e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 316  ]
 "32
-[; ;PIC18F4331_Timer.c: 32:     {
+[; ;PIC18F4331_Timer.c: 32:     if(TMR0H < (0xE1))
+[e $ ! < -> _TMR0H `i -> 225 `i 316  ]
+"33
+[; ;PIC18F4331_Timer.c: 33:     {
 {
 "34
-[; ;PIC18F4331_Timer.c: 34:         tmr0Counter++;
-[e ++ _tmr0Counter -> -> 1 `i `Vus ]
-"37
-[; ;PIC18F4331_Timer.c: 37:         INTCONbits.TMR0IF = 0;
-[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
-"38
-[; ;PIC18F4331_Timer.c: 38:     }
+[; ;PIC18F4331_Timer.c: 34:         TMR0H = (0xE1);
+[e = _TMR0H -> -> 225 `i `uc ]
+"35
+[; ;PIC18F4331_Timer.c: 35:     }
 }
 [e :U 316 ]
+"38
+[; ;PIC18F4331_Timer.c: 38:     if(INTCONbits.TMR0IF)
+[e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 317  ]
+"39
+[; ;PIC18F4331_Timer.c: 39:     {
+{
 "41
-[; ;PIC18F4331_Timer.c: 41:     INTCONbits.GIEH = 1;
-[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
-"42
-[; ;PIC18F4331_Timer.c: 42:     INTCONbits.GIEL = 1;
-[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+[; ;PIC18F4331_Timer.c: 41:         tmr0Counter++;
+[e ++ _tmr0Counter -> -> 1 `i `Vus ]
 "44
-[; ;PIC18F4331_Timer.c: 44: }
+[; ;PIC18F4331_Timer.c: 44:         OneSecond_Timer_Middleware();
+[e ( _OneSecond_Timer_Middleware ..  ]
+"47
+[; ;PIC18F4331_Timer.c: 47:         INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"48
+[; ;PIC18F4331_Timer.c: 48:     }
+}
+[e :U 317 ]
+"51
+[; ;PIC18F4331_Timer.c: 51:     INTCONbits.GIEH = 1;
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
+"52
+[; ;PIC18F4331_Timer.c: 52:     INTCONbits.GIEL = 1;
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+"54
+[; ;PIC18F4331_Timer.c: 54: }
 [e :UE 314 ]
 }
-"47
-[; ;PIC18F4331_Timer.c: 47: void Timer0_init(void)
+"57
+[; ;PIC18F4331_Timer.c: 57: void Timer0_init(void)
 [v _Timer0_init `(v ~T0 @X0 1 ef ]
-"48
-[; ;PIC18F4331_Timer.c: 48: {
+"58
+[; ;PIC18F4331_Timer.c: 58: {
 {
 [e :U _Timer0_init ]
 [f ]
-"60
-[; ;PIC18F4331_Timer.c: 60:     T0CONbits.T0PS0 = 0;
-[e = . . _T0CONbits 1 0 -> -> 0 `i `uc ]
-"61
-[; ;PIC18F4331_Timer.c: 61:     T0CONbits.T0PS1 = 1;
-[e = . . _T0CONbits 1 1 -> -> 1 `i `uc ]
-"62
-[; ;PIC18F4331_Timer.c: 62:     T0CONbits.T0PS2 = 0;
-[e = . . _T0CONbits 1 2 -> -> 0 `i `uc ]
-"65
-[; ;PIC18F4331_Timer.c: 65:     T0CONbits.PSA = 0;
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
 "68
-[; ;PIC18F4331_Timer.c: 68:     T0CONbits.T0CS = 0;
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
-"71
-[; ;PIC18F4331_Timer.c: 71:     T0CONbits.T016BIT = 1;
-[e = . . _T0CONbits 0 4 -> -> 1 `i `uc ]
-"74
-[; ;PIC18F4331_Timer.c: 74: }
-[e :UE 317 ]
-}
+[; ;PIC18F4331_Timer.c: 68:     T0CONbits.T0PS0 = 1;
+[e = . . _T0CONbits 1 0 -> -> 1 `i `uc ]
+"69
+[; ;PIC18F4331_Timer.c: 69:     T0CONbits.T0PS1 = 1;
+[e = . . _T0CONbits 1 1 -> -> 1 `i `uc ]
+"70
+[; ;PIC18F4331_Timer.c: 70:     T0CONbits.T0PS2 = 1;
+[e = . . _T0CONbits 1 2 -> -> 1 `i `uc ]
+"73
+[; ;PIC18F4331_Timer.c: 73:     T0CONbits.PSA = 0;
+[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
 "76
-[; ;PIC18F4331_Timer.c: 76: void Timer0_start(void)
+[; ;PIC18F4331_Timer.c: 76:     T0CONbits.T0CS = 0;
+[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+"79
+[; ;PIC18F4331_Timer.c: 79:     T0CONbits.T016BIT = 0;
+[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
+"82
+[; ;PIC18F4331_Timer.c: 82: }
+[e :UE 318 ]
+}
+"84
+[; ;PIC18F4331_Timer.c: 84: void Timer0_start(void)
 [v _Timer0_start `(v ~T0 @X0 1 ef ]
-"77
-[; ;PIC18F4331_Timer.c: 77: {
+"85
+[; ;PIC18F4331_Timer.c: 85: {
 {
 [e :U _Timer0_start ]
 [f ]
-"78
-[; ;PIC18F4331_Timer.c: 78:     T0CONbits.TMR0ON = 1;
+"86
+[; ;PIC18F4331_Timer.c: 86:     T0CONbits.TMR0ON = 1;
 [e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"80
-[; ;PIC18F4331_Timer.c: 80: }
-[e :UE 318 ]
+"88
+[; ;PIC18F4331_Timer.c: 88: }
+[e :UE 319 ]
 }
-"82
-[; ;PIC18F4331_Timer.c: 82: void Timer0_stop(void)
+"90
+[; ;PIC18F4331_Timer.c: 90: void Timer0_stop(void)
 [v _Timer0_stop `(v ~T0 @X0 1 ef ]
-"83
-[; ;PIC18F4331_Timer.c: 83: {
+"91
+[; ;PIC18F4331_Timer.c: 91: {
 {
 [e :U _Timer0_stop ]
 [f ]
-"84
-[; ;PIC18F4331_Timer.c: 84:     T0CONbits.TMR0ON = 0;
+"92
+[; ;PIC18F4331_Timer.c: 92:     T0CONbits.TMR0ON = 0;
 [e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
-"85
-[; ;PIC18F4331_Timer.c: 85: }
-[e :UE 319 ]
+"93
+[; ;PIC18F4331_Timer.c: 93: }
+[e :UE 320 ]
 }

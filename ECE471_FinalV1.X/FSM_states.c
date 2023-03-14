@@ -1,6 +1,6 @@
 #include "FSM_states.h"
 
-STATES FSM_state = INIT_STATE;
+static STATES FSM_state = INIT_STATE;
 
 STATES get_current_state(void)
 {

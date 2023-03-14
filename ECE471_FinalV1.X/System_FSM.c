@@ -1,6 +1,8 @@
 #include "System_FSM.h"
 #include "FSM_states.h"
 #include "SoilMoistureSensor.h"
+#include "PIC18F4331_Timer.h"
+#include "SystemCallbacks.h"
 
 void FSM_begin(void)
 {
@@ -10,6 +12,8 @@ void FSM_begin(void)
         {
             //TODO: initialization
             SMS_init();
+            Timer0_init();
+            SystemCallbacks_Init();
             set_state(IDLE_STATE);
             break;
         }//INIT_STATE

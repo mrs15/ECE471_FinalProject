@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c PIC18F4331_Timer.c PIC18F4331_ADC.c SoilMoistureSensor.c FSM_states.c System_FSM.c
+SOURCEFILES_QUOTED_IF_SPACED=PIC18F4331_ADC.c PIC18F4331_Timer.c main.c SoilMoistureSensor.c FSM_states.c System_FSM.c SystemTimerMiddleware.c SystemCallbacks.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.p1 ${OBJECTDIR}/PIC18F4331_Timer.p1 ${OBJECTDIR}/PIC18F4331_ADC.p1 ${OBJECTDIR}/SoilMoistureSensor.p1 ${OBJECTDIR}/FSM_states.p1 ${OBJECTDIR}/System_FSM.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.p1.d ${OBJECTDIR}/PIC18F4331_Timer.p1.d ${OBJECTDIR}/PIC18F4331_ADC.p1.d ${OBJECTDIR}/SoilMoistureSensor.p1.d ${OBJECTDIR}/FSM_states.p1.d ${OBJECTDIR}/System_FSM.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/PIC18F4331_ADC.p1 ${OBJECTDIR}/PIC18F4331_Timer.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/SoilMoistureSensor.p1 ${OBJECTDIR}/FSM_states.p1 ${OBJECTDIR}/System_FSM.p1 ${OBJECTDIR}/SystemTimerMiddleware.p1 ${OBJECTDIR}/SystemCallbacks.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/PIC18F4331_ADC.p1.d ${OBJECTDIR}/PIC18F4331_Timer.p1.d ${OBJECTDIR}/main.p1.d ${OBJECTDIR}/SoilMoistureSensor.p1.d ${OBJECTDIR}/FSM_states.p1.d ${OBJECTDIR}/System_FSM.p1.d ${OBJECTDIR}/SystemTimerMiddleware.p1.d ${OBJECTDIR}/SystemCallbacks.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.p1 ${OBJECTDIR}/PIC18F4331_Timer.p1 ${OBJECTDIR}/PIC18F4331_ADC.p1 ${OBJECTDIR}/SoilMoistureSensor.p1 ${OBJECTDIR}/FSM_states.p1 ${OBJECTDIR}/System_FSM.p1
+OBJECTFILES=${OBJECTDIR}/PIC18F4331_ADC.p1 ${OBJECTDIR}/PIC18F4331_Timer.p1 ${OBJECTDIR}/main.p1 ${OBJECTDIR}/SoilMoistureSensor.p1 ${OBJECTDIR}/FSM_states.p1 ${OBJECTDIR}/System_FSM.p1 ${OBJECTDIR}/SystemTimerMiddleware.p1 ${OBJECTDIR}/SystemCallbacks.p1
 
 # Source Files
-SOURCEFILES=main.c PIC18F4331_Timer.c PIC18F4331_ADC.c SoilMoistureSensor.c FSM_states.c System_FSM.c
+SOURCEFILES=PIC18F4331_ADC.c PIC18F4331_Timer.c main.c SoilMoistureSensor.c FSM_states.c System_FSM.c SystemTimerMiddleware.c SystemCallbacks.c
 
 
 
@@ -88,13 +88,13 @@ MP_PROCESSOR_OPTION=18F4331
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/PIC18F4331_ADC.p1: PIC18F4331_ADC.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/main.p1.d 
-	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
-	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/PIC18F4331_ADC.p1.d 
+	@${RM} ${OBJECTDIR}/PIC18F4331_ADC.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PIC18F4331_ADC.p1 PIC18F4331_ADC.c 
+	@-${MV} ${OBJECTDIR}/PIC18F4331_ADC.d ${OBJECTDIR}/PIC18F4331_ADC.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PIC18F4331_ADC.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/PIC18F4331_Timer.p1: PIC18F4331_Timer.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -104,13 +104,13 @@ ${OBJECTDIR}/PIC18F4331_Timer.p1: PIC18F4331_Timer.c  nbproject/Makefile-${CND_C
 	@-${MV} ${OBJECTDIR}/PIC18F4331_Timer.d ${OBJECTDIR}/PIC18F4331_Timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/PIC18F4331_Timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/PIC18F4331_ADC.p1: PIC18F4331_ADC.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/PIC18F4331_ADC.p1.d 
-	@${RM} ${OBJECTDIR}/PIC18F4331_ADC.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PIC18F4331_ADC.p1 PIC18F4331_ADC.c 
-	@-${MV} ${OBJECTDIR}/PIC18F4331_ADC.d ${OBJECTDIR}/PIC18F4331_ADC.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/PIC18F4331_ADC.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/main.p1.d 
+	@${RM} ${OBJECTDIR}/main.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
+	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/SoilMoistureSensor.p1: SoilMoistureSensor.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -136,14 +136,30 @@ ${OBJECTDIR}/System_FSM.p1: System_FSM.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/System_FSM.d ${OBJECTDIR}/System_FSM.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/System_FSM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-else
-${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/SystemTimerMiddleware.p1: SystemTimerMiddleware.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/main.p1.d 
-	@${RM} ${OBJECTDIR}/main.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
-	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/SystemTimerMiddleware.p1.d 
+	@${RM} ${OBJECTDIR}/SystemTimerMiddleware.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/SystemTimerMiddleware.p1 SystemTimerMiddleware.c 
+	@-${MV} ${OBJECTDIR}/SystemTimerMiddleware.d ${OBJECTDIR}/SystemTimerMiddleware.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/SystemTimerMiddleware.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/SystemCallbacks.p1: SystemCallbacks.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/SystemCallbacks.p1.d 
+	@${RM} ${OBJECTDIR}/SystemCallbacks.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=none   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/SystemCallbacks.p1 SystemCallbacks.c 
+	@-${MV} ${OBJECTDIR}/SystemCallbacks.d ${OBJECTDIR}/SystemCallbacks.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/SystemCallbacks.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+else
+${OBJECTDIR}/PIC18F4331_ADC.p1: PIC18F4331_ADC.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/PIC18F4331_ADC.p1.d 
+	@${RM} ${OBJECTDIR}/PIC18F4331_ADC.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PIC18F4331_ADC.p1 PIC18F4331_ADC.c 
+	@-${MV} ${OBJECTDIR}/PIC18F4331_ADC.d ${OBJECTDIR}/PIC18F4331_ADC.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/PIC18F4331_ADC.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/PIC18F4331_Timer.p1: PIC18F4331_Timer.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -153,13 +169,13 @@ ${OBJECTDIR}/PIC18F4331_Timer.p1: PIC18F4331_Timer.c  nbproject/Makefile-${CND_C
 	@-${MV} ${OBJECTDIR}/PIC18F4331_Timer.d ${OBJECTDIR}/PIC18F4331_Timer.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/PIC18F4331_Timer.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
-${OBJECTDIR}/PIC18F4331_ADC.p1: PIC18F4331_ADC.c  nbproject/Makefile-${CND_CONF}.mk 
+${OBJECTDIR}/main.p1: main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/PIC18F4331_ADC.p1.d 
-	@${RM} ${OBJECTDIR}/PIC18F4331_ADC.p1 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/PIC18F4331_ADC.p1 PIC18F4331_ADC.c 
-	@-${MV} ${OBJECTDIR}/PIC18F4331_ADC.d ${OBJECTDIR}/PIC18F4331_ADC.p1.d 
-	@${FIXDEPS} ${OBJECTDIR}/PIC18F4331_ADC.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	@${RM} ${OBJECTDIR}/main.p1.d 
+	@${RM} ${OBJECTDIR}/main.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/main.p1 main.c 
+	@-${MV} ${OBJECTDIR}/main.d ${OBJECTDIR}/main.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/main.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 ${OBJECTDIR}/SoilMoistureSensor.p1: SoilMoistureSensor.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}" 
@@ -184,6 +200,22 @@ ${OBJECTDIR}/System_FSM.p1: System_FSM.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/System_FSM.p1 System_FSM.c 
 	@-${MV} ${OBJECTDIR}/System_FSM.d ${OBJECTDIR}/System_FSM.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/System_FSM.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/SystemTimerMiddleware.p1: SystemTimerMiddleware.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/SystemTimerMiddleware.p1.d 
+	@${RM} ${OBJECTDIR}/SystemTimerMiddleware.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/SystemTimerMiddleware.p1 SystemTimerMiddleware.c 
+	@-${MV} ${OBJECTDIR}/SystemTimerMiddleware.d ${OBJECTDIR}/SystemTimerMiddleware.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/SystemTimerMiddleware.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/SystemCallbacks.p1: SystemCallbacks.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/SystemCallbacks.p1.d 
+	@${RM} ${OBJECTDIR}/SystemCallbacks.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -fno-short-double -fno-short-float -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -I"../../../../Program Files/Microchip/xc8/v2.40/pic/include/proc" -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mdefault-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/SystemCallbacks.p1 SystemCallbacks.c 
+	@-${MV} ${OBJECTDIR}/SystemCallbacks.d ${OBJECTDIR}/SystemCallbacks.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/SystemCallbacks.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 
