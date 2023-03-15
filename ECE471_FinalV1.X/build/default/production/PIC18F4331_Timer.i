@@ -5231,12 +5231,27 @@ void Timer0_start(void);
 void Timer0_stop(void);
 # 1 "PIC18F4331_Timer.c" 2
 
-# 1 "./SystemTimerMiddleware.h" 1
-# 11 "./SystemTimerMiddleware.h"
-typedef void (*Callback_t)(void);
+# 1 "./SystemCallbacks.h" 1
+# 11 "./SystemCallbacks.h"
+# 1 "./Types.h" 1
+# 11 "./Types.h"
+typedef unsigned char U8;
+typedef unsigned short U16;
+# 11 "./SystemCallbacks.h" 2
 
-void TimerMiddleware_Init(Callback_t callback_executive);
-void OneSecond_Timer_Middleware(void);
+
+typedef void (*time_callback_t)(void);
+
+typedef struct{
+    U16 expiry_time;
+    time_callback_t callback;
+}Callback_Config_t;
+
+void Callbacks_Reset_Counter(void);
+U16 Callbacks_GetCount(void);
+U8 Callbacks_GetCallbackCount(void);
+void Callbacks_Manager(void);
+U8 Register_Callback(Callback_Config_t *config);
 # 2 "PIC18F4331_Timer.c" 2
 
 
@@ -5267,8 +5282,7 @@ void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
 
         tmr0Counter++;
 
-
-        OneSecond_Timer_Middleware();
+        Callbacks_Manager();
 
 
         INTCONbits.TMR0IF = 0;
@@ -5283,7 +5297,7 @@ void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
 
 void Timer0_init(void)
 {
-# 68 "PIC18F4331_Timer.c"
+# 67 "PIC18F4331_Timer.c"
     T0CONbits.T0PS0 = 1;
     T0CONbits.T0PS1 = 1;
     T0CONbits.T0PS2 = 1;

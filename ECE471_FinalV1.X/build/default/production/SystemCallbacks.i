@@ -9,68 +9,94 @@
 # 1 "SystemCallbacks.c" 2
 # 1 "./SystemCallbacks.h" 1
 # 11 "./SystemCallbacks.h"
+# 1 "./Types.h" 1
+# 11 "./Types.h"
+typedef unsigned char U8;
+typedef unsigned short U16;
+# 11 "./SystemCallbacks.h" 2
+
+
 typedef void (*time_callback_t)(void);
 
 typedef struct{
-    int expiry_time;
+    U16 expiry_time;
     time_callback_t callback;
 }Callback_Config_t;
 
-void SystemCallbacks_Init(void);
-void OneSecond_ExecutiveCallback(void);
-void Register_Callback(Callback_Config_t *config);
+void Callbacks_Reset_Counter(void);
+U16 Callbacks_GetCount(void);
+U8 Callbacks_GetCallbackCount(void);
+void Callbacks_Manager(void);
+U8 Register_Callback(Callback_Config_t *config);
 # 1 "SystemCallbacks.c" 2
 
-# 1 "./SystemTimerMiddleware.h" 1
-# 11 "./SystemTimerMiddleware.h"
-typedef void (*Callback_t)(void);
-
-void TimerMiddleware_Init(Callback_t callback_executive);
-void OneSecond_Timer_Middleware(void);
-# 2 "SystemCallbacks.c" 2
 
 
 
 
 
-static int number_of_callbacks=0;
-static int system_count=0;
-static Callback_Config_t registered_callbacks[(100)] = {0};
+static U8 number_of_callbacks = 1;
+static U16 system_count = (2);
+static Callback_Config_t registered_callbacks[(10)] = {0};
 
+void Callbacks_Reset_Counter(void)
+{
+    system_count = (2);
+}
 
-void OneSecond_ExecutiveCallback(void)
+U16 Callbacks_GetCount(void)
+{
+    return system_count;
+}
+
+U8 Callbacks_GetCallbackCount(void)
+{
+    return number_of_callbacks;
+}
+
+void Callbacks_Manager(void)
 {
 
 
 
 
     system_count++;
-    if(system_count == (600))
+    if (system_count == (65000))
     {
-        system_count=0;
+        system_count = (2);
     }
 
-    for(int callbacks=0; callbacks<number_of_callbacks; callbacks++)
+    if(number_of_callbacks == 0)
     {
-        if(registered_callbacks[callbacks].expiry_time == system_count)
+        return;
+    }
+
+    for (U8 callbacks = 0; callbacks < number_of_callbacks; callbacks++)
+    {
+        if (system_count % ((registered_callbacks[callbacks].expiry_time)+(2)) == 0)
         {
-            if(registered_callbacks[callbacks].callback != 0)
+            if ((registered_callbacks[callbacks].callback))
             {
-             registered_callbacks[callbacks].callback();
+                registered_callbacks[callbacks].callback();
             }
         }
     }
-
 }
 
-void SystemCallbacks_Init(void)
+U8 Register_Callback(Callback_Config_t *config)
 {
-    TimerMiddleware_Init(OneSecond_ExecutiveCallback);
-}
+    if (!(config->callback))
+    {
 
-void Register_Callback(Callback_Config_t *config)
-{
-    registered_callbacks[number_of_callbacks].expiry_time = config->expiry_time;
-    registered_callbacks[number_of_callbacks].callback = config->callback;
-    number_of_callbacks+=1;
+        return 100;
+    }
+    if (number_of_callbacks <= (10))
+    {
+
+        registered_callbacks[number_of_callbacks].expiry_time = (config->expiry_time);
+        registered_callbacks[number_of_callbacks].callback = config->callback;
+        number_of_callbacks++;
+    }
+
+    return 0;
 }

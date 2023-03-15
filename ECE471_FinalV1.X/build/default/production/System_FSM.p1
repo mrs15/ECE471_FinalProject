@@ -5,11 +5,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16 ./PIC18F4331_Timer.h
 [; ;./PIC18F4331_Timer.h: 16: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
-"18 ./SystemCallbacks.h
-[; ;./SystemCallbacks.h: 18: void SystemCallbacks_Init(void);
-[v _SystemCallbacks_Init `(v ~T0 @X0 0 ef ]
-"17 System_FSM.c
-[; ;System_FSM.c: 17:             set_state(IDLE_STATE);
+"16 System_FSM.c
+[; ;System_FSM.c: 16:             set_state(IDLE_STATE);
 [c E2814 0 1 2 3 .. ]
 [n E2814 . INIT_STATE IDLE_STATE WATER_PLANTS CHECK_MOISTURE  ]
 "19 ./FSM_states.h
@@ -588,88 +585,85 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;System_FSM.c: 15:             Timer0_init();
 [e ( _Timer0_init ..  ]
 "16
-[; ;System_FSM.c: 16:             SystemCallbacks_Init();
-[e ( _SystemCallbacks_Init ..  ]
-"17
-[; ;System_FSM.c: 17:             set_state(IDLE_STATE);
+[; ;System_FSM.c: 16:             set_state(IDLE_STATE);
 [e ( _set_state (1 . `E2814 1 ]
-"18
-[; ;System_FSM.c: 18:             break;
+"17
+[; ;System_FSM.c: 17:             break;
 [e $U 316  ]
-"19
-[; ;System_FSM.c: 19:         }
+"18
+[; ;System_FSM.c: 18:         }
 }
-"21
-[; ;System_FSM.c: 21:         case IDLE_STATE:
+"20
+[; ;System_FSM.c: 20:         case IDLE_STATE:
 [e :U 319 ]
-"22
-[; ;System_FSM.c: 22:         {
+"21
+[; ;System_FSM.c: 21:         {
 {
-"23
-[; ;System_FSM.c: 23:             while(get_current_state() == IDLE_STATE)
+"22
+[; ;System_FSM.c: 22:             while(get_current_state() == IDLE_STATE)
 [e $U 320  ]
 [e :U 321 ]
-"24
-[; ;System_FSM.c: 24:             {
+"23
+[; ;System_FSM.c: 23:             {
 {
-"26
-[; ;System_FSM.c: 26:             }
+"25
+[; ;System_FSM.c: 25:             }
 }
 [e :U 320 ]
-"23
-[; ;System_FSM.c: 23:             while(get_current_state() == IDLE_STATE)
+"22
+[; ;System_FSM.c: 22:             while(get_current_state() == IDLE_STATE)
 [e $ == -> ( _get_current_state ..  `ui -> . `E2814 1 `ui 321  ]
 [e :U 322 ]
+"27
+[; ;System_FSM.c: 27:             break;
+[e $U 316  ]
 "28
-[; ;System_FSM.c: 28:             break;
-[e $U 316  ]
-"29
-[; ;System_FSM.c: 29:         }
+[; ;System_FSM.c: 28:         }
 }
-"31
-[; ;System_FSM.c: 31:         case WATER_PLANTS:
+"30
+[; ;System_FSM.c: 30:         case WATER_PLANTS:
 [e :U 323 ]
-"32
-[; ;System_FSM.c: 32:         {
+"31
+[; ;System_FSM.c: 31:         {
 {
+"37
+[; ;System_FSM.c: 37:             break;
+[e $U 316  ]
 "38
-[; ;System_FSM.c: 38:             break;
-[e $U 316  ]
-"39
-[; ;System_FSM.c: 39:         }
+[; ;System_FSM.c: 38:         }
 }
-"41
-[; ;System_FSM.c: 41:         case CHECK_MOISTURE:
+"40
+[; ;System_FSM.c: 40:         case CHECK_MOISTURE:
 [e :U 324 ]
-"42
-[; ;System_FSM.c: 42:         {
+"41
+[; ;System_FSM.c: 41:         {
 {
-"45
-[; ;System_FSM.c: 45:             SMS_read_and_set_state();
+"44
+[; ;System_FSM.c: 44:             SMS_read_and_set_state();
 [e ( _SMS_read_and_set_state ..  ]
+"45
+[; ;System_FSM.c: 45:             break;
+[e $U 316  ]
 "46
-[; ;System_FSM.c: 46:             break;
-[e $U 316  ]
-"47
-[; ;System_FSM.c: 47:         }
+[; ;System_FSM.c: 46:         }
 }
-"49
-[; ;System_FSM.c: 49:         default:
+"48
+[; ;System_FSM.c: 48:         default:
 [e :U 325 ]
-"50
-[; ;System_FSM.c: 50:         {
+"49
+[; ;System_FSM.c: 49:         {
 {
-"51
-[; ;System_FSM.c: 51:             set_state(INIT_STATE);
+"50
+[; ;System_FSM.c: 50:             set_state(INIT_STATE);
 [e ( _set_state (1 . `E2814 0 ]
-"52
-[; ;System_FSM.c: 52:             break;
+"51
+[; ;System_FSM.c: 51:             break;
 [e $U 316  ]
-"53
-[; ;System_FSM.c: 53:         }
+"52
+[; ;System_FSM.c: 52:         }
 }
-"56
-[; ;System_FSM.c: 56:     }
+"55
+[; ;System_FSM.c: 55:     }
 }
 [e $U 316  ]
 [e :U 317 ]
@@ -679,7 +673,7 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E2814 3 `ui 324
  325 ]
 [e :U 316 ]
-"58
-[; ;System_FSM.c: 58: }
+"57
+[; ;System_FSM.c: 57: }
 [e :UE 315 ]
 }

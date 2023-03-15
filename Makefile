@@ -1,9 +1,9 @@
 SOURCES = ../ECE471_FinalV1.X/FSM_states.c\
-		  ../ECE471_FinalV1.X/SystemTimerMiddleware.c\
 		  ../ECE471_FinalV1.X/SystemCallbacks.c
 INCLUDE_FILES = ../ECE471_FinalV1.X/FSM_states.h\
-				../ECE471_FinalV1.X/SystemTimerMiddleware.h\
+				../ECE471_FinalV1.X/Types.h\
 				../ECE471_FinalV1.X/SystemCallbacks.h
+				
 
 TEST_SOURCES := $(wildcard UnitTests/*.cpp)
 

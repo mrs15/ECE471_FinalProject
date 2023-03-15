@@ -13,7 +13,6 @@ void FSM_begin(void)
             //TODO: initialization
             SMS_init();
             Timer0_init();
-            SystemCallbacks_Init();
             set_state(IDLE_STATE);
             break;
         }//INIT_STATE

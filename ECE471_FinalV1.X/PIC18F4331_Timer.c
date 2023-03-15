@@ -1,5 +1,5 @@
 #include "PIC18F4331_Timer.h"
-#include "SystemTimerMiddleware.h"
+#include "SystemCallbacks.h"
 
 
 #define TIMER0_LOW_OFFSET  (0x7C)
@@ -40,9 +40,8 @@ void __interrupt() timer_overflow_isr(void)
         //increment counter
         tmr0Counter++;
         
-        //call the middleware callback
-        OneSecond_Timer_Middleware();
-       
+        Callbacks_Manager();
+        
         //clear the flag
         INTCONbits.TMR0IF = 0;
     }

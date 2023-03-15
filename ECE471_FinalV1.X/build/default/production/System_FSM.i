@@ -5262,16 +5262,25 @@ void Timer0_stop(void);
 
 # 1 "./SystemCallbacks.h" 1
 # 11 "./SystemCallbacks.h"
+# 1 "./Types.h" 1
+# 11 "./Types.h"
+typedef unsigned char U8;
+typedef unsigned short U16;
+# 11 "./SystemCallbacks.h" 2
+
+
 typedef void (*time_callback_t)(void);
 
 typedef struct{
-    int expiry_time;
+    U16 expiry_time;
     time_callback_t callback;
 }Callback_Config_t;
 
-void SystemCallbacks_Init(void);
-void OneSecond_ExecutiveCallback(void);
-void Register_Callback(Callback_Config_t *config);
+void Callbacks_Reset_Counter(void);
+U16 Callbacks_GetCount(void);
+U8 Callbacks_GetCallbackCount(void);
+void Callbacks_Manager(void);
+U8 Register_Callback(Callback_Config_t *config);
 # 5 "System_FSM.c" 2
 
 
@@ -5284,7 +5293,6 @@ void FSM_begin(void)
 
             SMS_init();
             Timer0_init();
-            SystemCallbacks_Init();
             set_state(IDLE_STATE);
             break;
         }

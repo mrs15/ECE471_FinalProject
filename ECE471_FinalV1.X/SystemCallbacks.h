@@ -8,16 +8,20 @@
 #ifndef SYSTEMCALLBACKS_H
 #define	SYSTEMCALLBACKS_H
 
+#include "Types.h"
+
 typedef void (*time_callback_t)(void);
 
 typedef struct{
-    int expiry_time;
+    U16 expiry_time;
     time_callback_t callback;    
 }Callback_Config_t;
 
-void SystemCallbacks_Init(void);
-void OneSecond_ExecutiveCallback(void);
-void Register_Callback(Callback_Config_t *config);
+void Callbacks_Reset_Counter(void);
+U16 Callbacks_GetCount(void);
+U8 Callbacks_GetCallbackCount(void);
+void Callbacks_Manager(void);
+U8 Register_Callback(Callback_Config_t *config);
 
 
 #endif	/* SYSTEMCALLBACKS_H */

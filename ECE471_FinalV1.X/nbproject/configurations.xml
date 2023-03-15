@@ -18,10 +18,6 @@
         <itemPath>PIC18F4331_Timer.c</itemPath>
         <itemPath>PIC18F4331_Timer.h</itemPath>
       </logicalFolder>
-      <logicalFolder name="f2" displayName="Middleware" projectFiles="true">
-        <itemPath>SystemTimerMiddleware.c</itemPath>
-        <itemPath>SystemTimerMiddleware.h</itemPath>
-      </logicalFolder>
       <itemPath>SystemConfiguration.h</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>SoilMoistureSensor.h</itemPath>
@@ -32,6 +28,7 @@
       <itemPath>System_FSM.c</itemPath>
       <itemPath>SystemCallbacks.h</itemPath>
       <itemPath>SystemCallbacks.c</itemPath>
+      <itemPath>Types.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -47,7 +44,7 @@
         <targetDevice>PIC18F4331</targetDevice>
         <targetHeader></targetHeader>
         <targetPluginBoard></targetPluginBoard>
-        <platformTool>Simulator</platformTool>
+        <platformTool>noID</platformTool>
         <languageToolchain>XC8</languageToolchain>
         <languageToolchainVersion>2.40</languageToolchainVersion>
         <platform>3</platform>

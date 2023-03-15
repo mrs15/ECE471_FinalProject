@@ -1,1519 +1,1498 @@
 
 
 Microchip MPLAB XC8 Assembler V2.40 build 20220703182018 
-                                                                                               Tue Mar 14 17:52:35 2023
+                                                                                               Wed Mar 15 12:09:48 2023
 
 Microchip MPLAB XC8 C Compiler v2.40 (Free license) build 20220703182018 Og1 
      1                           	processor	18F4331
      2                           	fnconf	rparam,??,?,0
      3                           	pagewidth 120
      4                           	opt	flic
-     5                           	psect	nvCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
-     6                           	psect	cinit,global,reloc=2,class=CODE,delta=1
-     7                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
-     8                           	psect	bssBIGRAM,global,class=BIGRAM,space=1,delta=1,noexec
-     9                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
-    10                           	psect	text0,global,reloc=2,class=CODE,delta=1
-    11                           	psect	text1,global,reloc=2,class=CODE,delta=1
-    12                           	psect	text2,global,reloc=2,class=CODE,delta=1
-    13                           	psect	text3,global,reloc=2,class=CODE,delta=1
-    14                           	psect	text4,global,reloc=2,class=CODE,delta=1
-    15                           	psect	text5,global,reloc=2,class=CODE,delta=1
-    16                           	psect	text6,global,reloc=2,class=CODE,delta=1
-    17                           	psect	text7,global,reloc=2,class=CODE,delta=1
-    18                           	psect	text8,global,reloc=2,class=CODE,delta=1
-    19                           	psect	text9,global,reloc=2,class=CODE,delta=1
-    20                           	psect	text10,global,reloc=2,class=CODE,delta=1
-    21                           	psect	text11,global,reloc=2,class=CODE,delta=1
-    22                           	psect	text12,global,reloc=2,class=CODE,delta=1
-    23                           	psect	text13,global,reloc=2,class=CODE,delta=1
-    24                           	psect	intcode,global,reloc=2,class=CODE,delta=1
-    25                           	psect	text15,global,reloc=2,class=CODE,delta=1
-    26                           	psect	text16,global,reloc=2,class=CODE,delta=1
-    27                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
-    28                           	psect	text17,global,reloc=2,class=CODE,delta=1
-    29                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
-    30                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
-    31                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=1,noexec
-    32                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
-    33   000000                     
-    34                           ; Version 2.40
-    35                           ; Generated 17/11/2021 GMT
-    36                           ; 
-    37                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    38                           ; All rights reserved.
-    39                           ; 
-    40                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+     5                           	psect	idataCOMRAM,global,class=CODE,delta=1,noexec
+     6                           	psect	nvCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     7                           	psect	cinit,global,reloc=2,class=CODE,delta=1
+     8                           	psect	bssCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+     9                           	psect	dataCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+    10                           	psect	cstackCOMRAM,global,class=COMRAM,space=1,delta=1,lowdata,noexec
+    11                           	psect	text0,global,reloc=2,class=CODE,delta=1
+    12                           	psect	text1,global,reloc=2,class=CODE,delta=1
+    13                           	psect	text2,global,reloc=2,class=CODE,delta=1
+    14                           	psect	text3,global,reloc=2,class=CODE,delta=1
+    15                           	psect	text4,global,reloc=2,class=CODE,delta=1
+    16                           	psect	text5,global,reloc=2,class=CODE,delta=1
+    17                           	psect	text6,global,reloc=2,class=CODE,delta=1
+    18                           	psect	text7,global,reloc=2,class=CODE,delta=1
+    19                           	psect	text8,global,reloc=2,class=CODE,delta=1
+    20                           	psect	text9,global,reloc=2,class=CODE,delta=1
+    21                           	psect	text10,global,reloc=2,class=CODE,delta=1
+    22                           	psect	text11,global,reloc=2,class=CODE,delta=1
+    23                           	psect	intcode,global,reloc=2,class=CODE,delta=1
+    24                           	psect	text13,global,reloc=2,class=CODE,delta=1
+    25                           	psect	text14,global,reloc=2,class=CODE,delta=1,group=1
+    26                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    27                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    28                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
+    29                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=1,noexec
+    30                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
+    31   000000                     
+    32                           ; Version 2.40
+    33                           ; Generated 17/11/2021 GMT
+    34                           ; 
+    35                           ; Copyright © 2021, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    36                           ; All rights reserved.
+    37                           ; 
+    38                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    41                           ; 
-    42                           ; Redistribution and use in source and binary forms, with or without modification, are
-    43                           ; permitted provided that the following conditions are met:
-    44                           ; 
-    45                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    39                           ; 
+    40                           ; Redistribution and use in source and binary forms, with or without modification, are
+    41                           ; permitted provided that the following conditions are met:
+    42                           ; 
+    43                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    46                           ;        conditions and the following disclaimer.
-    47                           ; 
-    48                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    44                           ;        conditions and the following disclaimer.
+    45                           ; 
+    46                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    49                           ;        of conditions and the following disclaimer in the documentation and/or other
-    50                           ;        materials provided with the distribution. Publication is not required when
-    51                           ;        this file is used in an embedded application.
-    52                           ; 
-    53                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    47                           ;        of conditions and the following disclaimer in the documentation and/or other
+    48                           ;        materials provided with the distribution. Publication is not required when
+    49                           ;        this file is used in an embedded application.
+    50                           ; 
+    51                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    54                           ;        software without specific prior written permission.
-    55                           ; 
-    56                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    57                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    52                           ;        software without specific prior written permission.
+    53                           ; 
+    54                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    55                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    58                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    56                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    59                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    60                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    61                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    57                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    58                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    59                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    62                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    60                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    63                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    64                           ; 
+    61                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    62                           ; 
+    63                           ; 
+    64                           ; Code-generator required, PIC18F4331 Definitions
     65                           ; 
-    66                           ; Code-generator required, PIC18F4331 Definitions
-    67                           ; 
-    68                           ; SFR Addresses
-    69   000000                     _ADRESL	set	4035
-    70   000000                     _ADRESH	set	4036
+    66                           ; SFR Addresses
+    67   000000                     
+    68                           	psect	idataCOMRAM
+    69   00030C                     __pidataCOMRAM:
+    70                           	callstack 0
     71                           
-    72                           	psect	nvCOMRAM
-    73   000018                     __pnvCOMRAM:
-    74                           	callstack 0
-    75   000018                     _FSM_state:
-    76                           	callstack 0
-    77   000018                     	ds	1
-    78   000000                     _ADCHSbits	set	3993
-    79   000000                     _ADCON1bits	set	4033
-    80   000000                     _ADCON0bits	set	4034
-    81   000000                     _ANSEL0bits	set	4024
-    82   000000                     _ADCON2bits	set	4032
-    83   000000                     _T0CONbits	set	4053
-    84   000000                     _TMR0L	set	4054
-    85   000000                     _INTCONbits	set	4082
-    86   000000                     _TMR0H	set	4055
-    87                           
-    88                           ; #config settings
-    89                           
-    90                           	psect	cinit
-    91   0001B0                     __pcinit:
-    92                           	callstack 0
-    93   0001B0                     start_initialization:
-    94                           	callstack 0
-    95   0001B0                     __initialization:
-    96                           	callstack 0
+    72                           ;initializer for _system_count
+    73   00030C  0002               	dw	2
+    74                           
+    75                           ;initializer for _number_of_callbacks
+    76   00030E  01                 	db	1
+    77   000000                     _ADRESL	set	4035
+    78   000000                     _ADRESH	set	4036
+    79                           
+    80                           	psect	nvCOMRAM
+    81   000042                     __pnvCOMRAM:
+    82                           	callstack 0
+    83   000042                     _FSM_state:
+    84                           	callstack 0
+    85   000042                     	ds	1
+    86   000000                     _ADCHSbits	set	3993
+    87   000000                     _ADCON1bits	set	4033
+    88   000000                     _ADCON0bits	set	4034
+    89   000000                     _ANSEL0bits	set	4024
+    90   000000                     _ADCON2bits	set	4032
+    91   000000                     _T0CONbits	set	4053
+    92   000000                     _TMR0L	set	4054
+    93   000000                     _INTCONbits	set	4082
+    94   000000                     _TMR0H	set	4055
+    95                           
+    96                           ; #config settings
     97                           
-    98                           ; Clear objects allocated to BIGRAM (400 bytes)
-    99   0001B0  EE01  F070         	lfsr	0,__pbssBIGRAM
-   100   0001B4  EE11 F090          	lfsr	1,400
-   101   0001B8                     clear_0:
-   102   0001B8  6AEE               	clrf	postinc0,c
-   103   0001BA  50E5               	movf	postdec1,w,c
-   104   0001BC  50E1               	movf	fsr1l,w,c
-   105   0001BE  E1FC               	bnz	clear_0
-   106   0001C0  50E2               	movf	fsr1h,w,c
-   107   0001C2  E1FA               	bnz	clear_0
-   108                           
-   109                           ; Clear objects allocated to COMRAM (10 bytes)
-   110   0001C4  EE00  F00E         	lfsr	0,__pbssCOMRAM
-   111   0001C8  0E0A               	movlw	10
-   112   0001CA                     clear_1:
-   113   0001CA  6AEE               	clrf	postinc0,c
-   114   0001CC  06E8               	decf	wreg,f,c
-   115   0001CE  E1FD               	bnz	clear_1
-   116   0001D0                     end_of_initialization:
-   117                           	callstack 0
-   118   0001D0                     __end_of__initialization:
-   119                           	callstack 0
-   120   0001D0  9019               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
-   121   0001D2  9219               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
-   122   0001D4  0E00               	movlw	low (__Lmediumconst shr (0+16))
-   123   0001D6  6EF8               	movwf	tblptru,c
-   124   0001D8  0100               	movlb	0
-   125   0001DA  EF2A  F001         	goto	_main	;jump to C main() function
-   126                           
-   127                           	psect	bssCOMRAM
-   128   00000E                     __pbssCOMRAM:
+    98                           	psect	cinit
+    99   000242                     __pcinit:
+   100                           	callstack 0
+   101   000242                     start_initialization:
+   102                           	callstack 0
+   103   000242                     __initialization:
+   104                           	callstack 0
+   105                           
+   106                           ; Initialize objects allocated to COMRAM (3 bytes)
+   107                           ; load TBLPTR registers with __pidataCOMRAM
+   108   000242  0E0C               	movlw	low __pidataCOMRAM
+   109   000244  6EF6               	movwf	tblptrl,c
+   110   000246  0E03               	movlw	high __pidataCOMRAM
+   111   000248  6EF7               	movwf	tblptrh,c
+   112   00024A  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+   113   00024C  6EF8               	movwf	tblptru,c
+   114   00024E  0009               	tblrd		*+	;fetch initializer
+   115   000250  CFF5 F03F          	movff	tablat,__pdataCOMRAM
+   116   000254  0009               	tblrd		*+	;fetch initializer
+   117   000256  CFF5 F040          	movff	tablat,__pdataCOMRAM+1
+   118   00025A  0009               	tblrd		*+	;fetch initializer
+   119   00025C  CFF5 F041          	movff	tablat,__pdataCOMRAM+2
+   120                           
+   121                           ; Clear objects allocated to COMRAM (44 bytes)
+   122   000260  EE00  F001         	lfsr	0,__pbssCOMRAM
+   123   000264  0E2C               	movlw	44
+   124   000266                     clear_0:
+   125   000266  6AEE               	clrf	postinc0,c
+   126   000268  06E8               	decf	wreg,f,c
+   127   00026A  E1FD               	bnz	clear_0
+   128   00026C                     end_of_initialization:
    129                           	callstack 0
-   130   00000E                     _system_count:
+   130   00026C                     __end_of__initialization:
    131                           	callstack 0
-   132   00000E                     	ds	2
-   133   000010                     _number_of_callbacks:
-   134                           	callstack 0
-   135   000010                     	ds	2
-   136   000012                     _CallbackExecutive:
-   137                           	callstack 0
-   138   000012                     	ds	2
-   139   000014                     _tmr0Counter:
-   140                           	callstack 0
-   141   000014                     	ds	2
-   142   000016                     _ADC:
+   132   00026C  9043               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   133   00026E  9243               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   134   000270  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   135   000272  6EF8               	movwf	tblptru,c
+   136   000274  0100               	movlb	0
+   137   000276  EF6A  F001         	goto	_main	;jump to C main() function
+   138                           
+   139                           	psect	bssCOMRAM
+   140   000001                     __pbssCOMRAM:
+   141                           	callstack 0
+   142   000001                     _registered_callbacks:
    143                           	callstack 0
-   144   000016                     	ds	2
-   145                           
-   146                           	psect	bssBIGRAM
-   147   000170                     __pbssBIGRAM:
-   148                           	callstack 0
-   149   000170                     _registered_callbacks:
-   150                           	callstack 0
-   151   000170                     	ds	400
-   152                           
-   153                           	psect	cstackCOMRAM
-   154   000001                     __pcstackCOMRAM:
-   155                           	callstack 0
-   156   000001                     ??_OneSecond_ExecutiveCallback:
-   157                           
-   158                           ; 1 bytes @ 0x0
-   159   000001                     	ds	1
-   160   000002                     OneSecond_ExecutiveCallback@callbacks:
-   161                           	callstack 0
-   162                           
-   163                           ; 2 bytes @ 0x1
-   164   000002                     	ds	2
-   165   000004                     ??_timer_overflow_isr:
-   166                           
-   167                           ; 1 bytes @ 0x3
-   168   000004                     	ds	4
-   169   000008                     ?_ADC_Read:
-   170                           	callstack 0
-   171   000008                     set_state@state_to_set:
-   172                           	callstack 0
-   173   000008                     TimerMiddleware_Init@callback_executive:
-   174                           	callstack 0
-   175                           
-   176                           ; 2 bytes @ 0x7
-   177   000008                     	ds	2
-   178   00000A                     SMS_read_and_set_state@moisture:
-   179                           	callstack 0
-   180                           
-   181                           ; 2 bytes @ 0x9
-   182   00000A                     	ds	2
-   183   00000C                     ??_FSM_begin:
-   184                           
-   185                           ; 1 bytes @ 0xB
-   186   00000C                     	ds	2
-   187   00000E                     
-   188                           ; 1 bytes @ 0xD
-   189 ;;
-   190 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   191 ;;
-   192 ;; *************** function _main *****************
-   193 ;; Defined at:
-   194 ;;		line 14 in file "main.c"
-   195 ;; Parameters:    Size  Location     Type
-   196 ;;		None
-   197 ;; Auto vars:     Size  Location     Type
-   198 ;;		None
-   199 ;; Return value:  Size  Location     Type
-   200 ;;                  1    wreg      void 
-   201 ;; Registers used:
-   202 ;;		wreg, status,2, status,0, cstack
-   203 ;; Tracked objects:
-   204 ;;		On entry : 0/0
-   205 ;;		On exit  : 0/0
-   206 ;;		Unchanged: 0/0
-   207 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   208 ;;      Params:         0       0       0       0
-   209 ;;      Locals:         0       0       0       0
-   210 ;;      Temps:          0       0       0       0
-   211 ;;      Totals:         0       0       0       0
-   212 ;;Total ram usage:        0 bytes
-   213 ;; Hardware stack levels required when called: 7
-   214 ;; This function calls:
-   215 ;;		_FSM_begin
-   216 ;;		_set_state
-   217 ;; This function is called by:
-   218 ;;		Startup code after reset
-   219 ;; This function uses a non-reentrant model
-   220 ;;
-   221                           
-   222                           	psect	text0
-   223   000254                     __ptext0:
-   224                           	callstack 0
-   225   000254                     _main:
-   226                           	callstack 24
-   227   000254                     
-   228                           ;main.c: 16:     set_state(INIT_STATE);
-   229   000254  0E00               	movlw	0
-   230   000256  EC44  F001         	call	_set_state
-   231   00025A                     
-   232                           ;main.c: 17:     FSM_begin();
-   233   00025A  EC3D  F000         	call	_FSM_begin	;wreg free
-   234   00025E  EF3B  F000         	goto	start
-   235   000262                     __end_of_main:
-   236                           	callstack 0
-   237                           
-   238 ;; *************** function _FSM_begin *****************
-   239 ;; Defined at:
-   240 ;;		line 7 in file "System_FSM.c"
-   241 ;; Parameters:    Size  Location     Type
-   242 ;;		None
-   243 ;; Auto vars:     Size  Location     Type
-   244 ;;		None
-   245 ;; Return value:  Size  Location     Type
-   246 ;;                  1    wreg      void 
-   247 ;; Registers used:
-   248 ;;		wreg, status,2, status,0, cstack
-   249 ;; Tracked objects:
-   250 ;;		On entry : 0/0
-   251 ;;		On exit  : 0/0
-   252 ;;		Unchanged: 0/0
-   253 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   254 ;;      Params:         0       0       0       0
-   255 ;;      Locals:         0       0       0       0
-   256 ;;      Temps:          2       0       0       0
-   257 ;;      Totals:         2       0       0       0
-   258 ;;Total ram usage:        2 bytes
-   259 ;; Hardware stack levels used: 1
-   260 ;; Hardware stack levels required when called: 6
-   261 ;; This function calls:
-   262 ;;		_SMS_init
-   263 ;;		_SMS_read_and_set_state
-   264 ;;		_SystemCallbacks_Init
-   265 ;;		_Timer0_init
-   266 ;;		_get_current_state
-   267 ;;		_set_state
-   268 ;; This function is called by:
-   269 ;;		_main
-   270 ;; This function uses a non-reentrant model
-   271 ;;
-   272                           
-   273                           	psect	text1
-   274   00007A                     __ptext1:
-   275                           	callstack 0
-   276   00007A                     _FSM_begin:
-   277                           	callstack 24
-   278   00007A                     
-   279                           ;System_FSM.c: 9:     switch(get_current_state())
-   280   00007A  EF5F  F000         	goto	l1001
-   281   00007E                     l985:
-   282                           
-   283                           ;System_FSM.c: 12:         {;System_FSM.c: 14:             SMS_init();
-   284   00007E  EC4B  F001         	call	_SMS_init	;wreg free
-   285   000082                     
-   286                           ;System_FSM.c: 15:             Timer0_init();
-   287   000082  EC31  F001         	call	_Timer0_init	;wreg free
-   288   000086                     
-   289                           ;System_FSM.c: 16:             SystemCallbacks_Init();
-   290   000086  EC38  F001         	call	_SystemCallbacks_Init	;wreg free
-   291   00008A                     
-   292                           ;System_FSM.c: 17:             set_state(IDLE_STATE);
-   293   00008A  0E01               	movlw	1
-   294   00008C  EC44  F001         	call	_set_state
+   144   000001                     	ds	40
+   145   000029                     _tmr0Counter:
+   146                           	callstack 0
+   147   000029                     	ds	2
+   148   00002B                     _ADC:
+   149                           	callstack 0
+   150   00002B                     	ds	2
+   151                           
+   152                           	psect	dataCOMRAM
+   153   00003F                     __pdataCOMRAM:
+   154                           	callstack 0
+   155   00003F                     _system_count:
+   156                           	callstack 0
+   157   00003F                     	ds	2
+   158   000041                     _number_of_callbacks:
+   159                           	callstack 0
+   160   000041                     	ds	1
+   161                           
+   162                           	psect	cstackCOMRAM
+   163   00002D                     __pcstackCOMRAM:
+   164                           	callstack 0
+   165   00002D                     ?___lwmod:
+   166                           	callstack 0
+   167   00002D                     ___lwmod@dividend:
+   168                           	callstack 0
+   169                           
+   170                           ; 2 bytes @ 0x0
+   171   00002D                     	ds	2
+   172   00002F                     ___lwmod@divisor:
+   173                           	callstack 0
+   174                           
+   175                           ; 2 bytes @ 0x2
+   176   00002F                     	ds	2
+   177   000031                     ___lwmod@counter:
+   178                           	callstack 0
+   179                           
+   180                           ; 1 bytes @ 0x4
+   181   000031                     	ds	1
+   182   000032                     ??_Callbacks_Manager:
+   183                           
+   184                           ; 1 bytes @ 0x5
+   185   000032                     	ds	2
+   186   000034                     Callbacks_Manager@callbacks:
+   187                           	callstack 0
+   188                           
+   189                           ; 1 bytes @ 0x7
+   190   000034                     	ds	1
+   191   000035                     ??_timer_overflow_isr:
+   192                           
+   193                           ; 1 bytes @ 0x8
+   194   000035                     	ds	4
+   195   000039                     ?_ADC_Read:
+   196                           	callstack 0
+   197   000039                     set_state@state_to_set:
+   198                           	callstack 0
+   199                           
+   200                           ; 1 bytes @ 0xC
+   201   000039                     	ds	2
+   202   00003B                     SMS_read_and_set_state@moisture:
+   203                           	callstack 0
+   204                           
+   205                           ; 2 bytes @ 0xE
+   206   00003B                     	ds	2
+   207   00003D                     ??_FSM_begin:
+   208                           
+   209                           ; 1 bytes @ 0x10
+   210   00003D                     	ds	2
+   211   00003F                     
+   212                           ; 1 bytes @ 0x12
+   213 ;;
+   214 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   215 ;;
+   216 ;; *************** function _main *****************
+   217 ;; Defined at:
+   218 ;;		line 14 in file "main.c"
+   219 ;; Parameters:    Size  Location     Type
+   220 ;;		None
+   221 ;; Auto vars:     Size  Location     Type
+   222 ;;		None
+   223 ;; Return value:  Size  Location     Type
+   224 ;;                  1    wreg      void 
+   225 ;; Registers used:
+   226 ;;		wreg, status,2, status,0, cstack
+   227 ;; Tracked objects:
+   228 ;;		On entry : 0/0
+   229 ;;		On exit  : 0/0
+   230 ;;		Unchanged: 0/0
+   231 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   232 ;;      Params:         0       0       0       0
+   233 ;;      Locals:         0       0       0       0
+   234 ;;      Temps:          0       0       0       0
+   235 ;;      Totals:         0       0       0       0
+   236 ;;Total ram usage:        0 bytes
+   237 ;; Hardware stack levels required when called: 7
+   238 ;; This function calls:
+   239 ;;		_FSM_begin
+   240 ;;		_set_state
+   241 ;; This function is called by:
+   242 ;;		Startup code after reset
+   243 ;; This function uses a non-reentrant model
+   244 ;;
+   245                           
+   246                           	psect	text0
+   247   0002D4                     __ptext0:
+   248                           	callstack 0
+   249   0002D4                     _main:
+   250                           	callstack 24
+   251   0002D4                     
+   252                           ;main.c: 16:     set_state(INIT_STATE);
+   253   0002D4  0E00               	movlw	0
+   254   0002D6  EC78  F001         	call	_set_state
+   255   0002DA                     
+   256                           ;main.c: 17:     FSM_begin();
+   257   0002DA  EC80  F000         	call	_FSM_begin	;wreg free
+   258   0002DE  EF3B  F000         	goto	start
+   259   0002E2                     __end_of_main:
+   260                           	callstack 0
+   261                           
+   262 ;; *************** function _FSM_begin *****************
+   263 ;; Defined at:
+   264 ;;		line 7 in file "System_FSM.c"
+   265 ;; Parameters:    Size  Location     Type
+   266 ;;		None
+   267 ;; Auto vars:     Size  Location     Type
+   268 ;;		None
+   269 ;; Return value:  Size  Location     Type
+   270 ;;                  1    wreg      void 
+   271 ;; Registers used:
+   272 ;;		wreg, status,2, status,0, cstack
+   273 ;; Tracked objects:
+   274 ;;		On entry : 0/0
+   275 ;;		On exit  : 0/0
+   276 ;;		Unchanged: 0/0
+   277 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   278 ;;      Params:         0       0       0       0
+   279 ;;      Locals:         0       0       0       0
+   280 ;;      Temps:          2       0       0       0
+   281 ;;      Totals:         2       0       0       0
+   282 ;;Total ram usage:        2 bytes
+   283 ;; Hardware stack levels used: 1
+   284 ;; Hardware stack levels required when called: 6
+   285 ;; This function calls:
+   286 ;;		_SMS_init
+   287 ;;		_SMS_read_and_set_state
+   288 ;;		_Timer0_init
+   289 ;;		_get_current_state
+   290 ;;		_set_state
+   291 ;; This function is called by:
+   292 ;;		_main
+   293 ;; This function uses a non-reentrant model
+   294 ;;
    295                           
-   296                           ;System_FSM.c: 18:             break;
-   297   000090  EF7D  F000         	goto	l120
-   298   000094                     l993:
-   299                           
-   300                           ;System_FSM.c: 23:             while(get_current_state() == IDLE_STATE)
-   301   000094  EC4E  F001         	call	_get_current_state	;wreg free
-   302   000098  06E8               	decf	wreg,f,c
-   303   00009A  B4D8               	btfsc	status,2,c
-   304   00009C  EF52  F000         	goto	u171
-   305   0000A0  EF54  F000         	goto	u170
-   306   0000A4                     u171:
-   307   0000A4  EF4A  F000         	goto	l993
-   308   0000A8                     u170:
-   309   0000A8  EF7D  F000         	goto	l120
-   310   0000AC                     l995:
-   311                           
-   312                           ;System_FSM.c: 42:         {;System_FSM.c: 45:             SMS_read_and_set_state();
-   313   0000AC  EC7E  F000         	call	_SMS_read_and_set_state	;wreg free
-   314                           
-   315                           ;System_FSM.c: 46:             break;
-   316   0000B0  EF7D  F000         	goto	l120
-   317   0000B4                     l997:
-   318                           
-   319                           ;System_FSM.c: 50:         {;System_FSM.c: 51:             set_state(INIT_STATE);
-   320   0000B4  0E00               	movlw	0
-   321   0000B6  EC44  F001         	call	_set_state
-   322                           
-   323                           ;System_FSM.c: 52:             break;
-   324   0000BA  EF7D  F000         	goto	l120
-   325   0000BE                     l1001:
-   326   0000BE  EC4E  F001         	call	_get_current_state	;wreg free
-   327   0000C2  6E0C               	movwf	??_FSM_begin^0,c
-   328   0000C4  6A0D               	clrf	(??_FSM_begin+1)^0,c
-   329                           
-   330                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   296                           	psect	text1
+   297   000100                     __ptext1:
+   298                           	callstack 0
+   299   000100                     _FSM_begin:
+   300                           	callstack 24
+   301   000100                     
+   302                           ;System_FSM.c: 9:     switch(get_current_state())
+   303   000100  EFA0  F000         	goto	l1052
+   304   000104                     l1038:
+   305                           
+   306                           ;System_FSM.c: 12:         {;System_FSM.c: 14:             SMS_init();
+   307   000104  EC7F  F001         	call	_SMS_init	;wreg free
+   308   000108                     
+   309                           ;System_FSM.c: 15:             Timer0_init();
+   310   000108  EC71  F001         	call	_Timer0_init	;wreg free
+   311   00010C                     
+   312                           ;System_FSM.c: 16:             set_state(IDLE_STATE);
+   313   00010C  0E01               	movlw	1
+   314   00010E  EC78  F001         	call	_set_state
+   315                           
+   316                           ;System_FSM.c: 17:             break;
+   317   000112  EFBE  F000         	goto	l118
+   318   000116                     l1044:
+   319                           
+   320                           ;System_FSM.c: 22:             while(get_current_state() == IDLE_STATE)
+   321   000116  EC82  F001         	call	_get_current_state	;wreg free
+   322   00011A  06E8               	decf	wreg,f,c
+   323   00011C  B4D8               	btfsc	status,2,c
+   324   00011E  EF93  F000         	goto	u281
+   325   000122  EF95  F000         	goto	u280
+   326   000126                     u281:
+   327   000126  EF8B  F000         	goto	l1044
+   328   00012A                     u280:
+   329   00012A  EFBE  F000         	goto	l118
+   330   00012E                     l1046:
+   331                           
+   332                           ;System_FSM.c: 41:         {;System_FSM.c: 44:             SMS_read_and_set_state();
+   333   00012E  ECF1  F000         	call	_SMS_read_and_set_state	;wreg free
+   334                           
+   335                           ;System_FSM.c: 45:             break;
+   336   000132  EFBE  F000         	goto	l118
+   337   000136                     l1048:
+   338                           
+   339                           ;System_FSM.c: 49:         {;System_FSM.c: 50:             set_state(INIT_STATE);
+   340   000136  0E00               	movlw	0
+   341   000138  EC78  F001         	call	_set_state
+   342                           
+   343                           ;System_FSM.c: 51:             break;
+   344   00013C  EFBE  F000         	goto	l118
+   345   000140                     l1052:
+   346   000140  EC82  F001         	call	_get_current_state	;wreg free
+   347   000144  6E3D               	movwf	??_FSM_begin^0,c
+   348   000146  6A3E               	clrf	(??_FSM_begin+1)^0,c
+   349                           
+   350                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-   331                           ; Switch size 1, requested type "simple"
-   332                           ; Number of cases is 1, Range of values is 0 to 0
-   333                           ; switch strategies available:
-   334                           ; Name         Instructions Cycles
-   335                           ; simple_byte            4     3 (average)
-   336                           ;	Chosen strategy is simple_byte
-   337   0000C6  500D               	movf	(??_FSM_begin+1)^0,w,c
-   338   0000C8  0A00               	xorlw	0	; case 0
-   339   0000CA  B4D8               	btfsc	status,2,c
-   340   0000CC  EF6A  F000         	goto	l1017
-   341   0000D0  EF5A  F000         	goto	l997
-   342   0000D4                     l1017:
-   343                           
-   344                           ; Switch size 1, requested type "simple"
-   345                           ; Number of cases is 4, Range of values is 0 to 3
-   346                           ; switch strategies available:
-   347                           ; Name         Instructions Cycles
-   348                           ; simple_byte           13     7 (average)
-   349                           ;	Chosen strategy is simple_byte
-   350   0000D4  500C               	movf	??_FSM_begin^0,w,c
-   351   0000D6  0A00               	xorlw	0	; case 0
-   352   0000D8  B4D8               	btfsc	status,2,c
-   353   0000DA  EF3F  F000         	goto	l985
-   354   0000DE  0A01               	xorlw	1	; case 1
-   355   0000E0  B4D8               	btfsc	status,2,c
-   356   0000E2  EF4A  F000         	goto	l993
-   357   0000E6  0A03               	xorlw	3	; case 2
-   358   0000E8  B4D8               	btfsc	status,2,c
-   359   0000EA  EF7D  F000         	goto	l120
-   360   0000EE  0A01               	xorlw	1	; case 3
-   361   0000F0  B4D8               	btfsc	status,2,c
-   362   0000F2  EF56  F000         	goto	l995
-   363   0000F6  EF5A  F000         	goto	l997
-   364   0000FA                     l120:
-   365   0000FA  0012               	return		;funcret
-   366   0000FC                     __end_of_FSM_begin:
-   367                           	callstack 0
-   368                           
-   369 ;; *************** function _get_current_state *****************
-   370 ;; Defined at:
-   371 ;;		line 5 in file "FSM_states.c"
-   372 ;; Parameters:    Size  Location     Type
-   373 ;;		None
-   374 ;; Auto vars:     Size  Location     Type
-   375 ;;		None
-   376 ;; Return value:  Size  Location     Type
-   377 ;;                  1    wreg      enum E2
-   378 ;; Registers used:
-   379 ;;		wreg, status,2
-   380 ;; Tracked objects:
-   381 ;;		On entry : 0/0
-   382 ;;		On exit  : 0/0
-   383 ;;		Unchanged: 0/0
-   384 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   385 ;;      Params:         0       0       0       0
-   386 ;;      Locals:         0       0       0       0
-   387 ;;      Temps:          0       0       0       0
-   388 ;;      Totals:         0       0       0       0
-   389 ;;Total ram usage:        0 bytes
-   390 ;; Hardware stack levels used: 1
-   391 ;; Hardware stack levels required when called: 3
-   392 ;; This function calls:
-   393 ;;		Nothing
-   394 ;; This function is called by:
-   395 ;;		_FSM_begin
-   396 ;; This function uses a non-reentrant model
-   397 ;;
-   398                           
-   399                           	psect	text2
-   400   00029C                     __ptext2:
-   401                           	callstack 0
-   402   00029C                     _get_current_state:
-   403                           	callstack 26
-   404   00029C                     
-   405                           ;FSM_states.c: 7:     return FSM_state;
-   406   00029C  5018               	movf	_FSM_state^0,w,c
-   407   00029E  0012               	return		;funcret
-   408   0002A0                     __end_of_get_current_state:
-   409                           	callstack 0
-   410                           
-   411 ;; *************** function _Timer0_init *****************
-   412 ;; Defined at:
-   413 ;;		line 57 in file "PIC18F4331_Timer.c"
-   414 ;; Parameters:    Size  Location     Type
-   415 ;;		None
-   416 ;; Auto vars:     Size  Location     Type
-   417 ;;		None
-   418 ;; Return value:  Size  Location     Type
-   419 ;;                  1    wreg      void 
-   420 ;; Registers used:
-   421 ;;		None
-   422 ;; Tracked objects:
-   423 ;;		On entry : 0/0
-   424 ;;		On exit  : 0/0
-   425 ;;		Unchanged: 0/0
-   426 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   427 ;;      Params:         0       0       0       0
-   428 ;;      Locals:         0       0       0       0
-   429 ;;      Temps:          0       0       0       0
-   430 ;;      Totals:         0       0       0       0
-   431 ;;Total ram usage:        0 bytes
-   432 ;; Hardware stack levels used: 1
-   433 ;; Hardware stack levels required when called: 3
-   434 ;; This function calls:
-   435 ;;		Nothing
-   436 ;; This function is called by:
-   437 ;;		_FSM_begin
-   438 ;; This function uses a non-reentrant model
-   439 ;;
-   440                           
-   441                           	psect	text3
-   442   000262                     __ptext3:
-   443                           	callstack 0
-   444   000262                     _Timer0_init:
-   445                           	callstack 26
-   446   000262                     
-   447                           ;PIC18F4331_Timer.c: 68:     T0CONbits.T0PS0 = 1;
-   448   000262  80D5               	bsf	213,0,c	;volatile
-   449                           
-   450                           ;PIC18F4331_Timer.c: 69:     T0CONbits.T0PS1 = 1;
-   451   000264  82D5               	bsf	213,1,c	;volatile
-   452                           
-   453                           ;PIC18F4331_Timer.c: 70:     T0CONbits.T0PS2 = 1;
-   454   000266  84D5               	bsf	213,2,c	;volatile
-   455                           
-   456                           ;PIC18F4331_Timer.c: 73:     T0CONbits.PSA = 0;
-   457   000268  96D5               	bcf	213,3,c	;volatile
-   458                           
-   459                           ;PIC18F4331_Timer.c: 76:     T0CONbits.T0CS = 0;
-   460   00026A  9AD5               	bcf	213,5,c	;volatile
-   461                           
-   462                           ;PIC18F4331_Timer.c: 79:     T0CONbits.T016BIT = 0;
-   463   00026C  9CD5               	bcf	213,6,c	;volatile
-   464   00026E  0012               	return		;funcret
-   465   000270                     __end_of_Timer0_init:
-   466                           	callstack 0
-   467                           
-   468 ;; *************** function _SystemCallbacks_Init *****************
-   469 ;; Defined at:
-   470 ;;		line 37 in file "SystemCallbacks.c"
-   471 ;; Parameters:    Size  Location     Type
-   472 ;;		None
-   473 ;; Auto vars:     Size  Location     Type
-   474 ;;		None
-   475 ;; Return value:  Size  Location     Type
-   476 ;;                  1    wreg      void 
-   477 ;; Registers used:
-   478 ;;		wreg, status,2, status,0, cstack
-   479 ;; Tracked objects:
-   480 ;;		On entry : 0/0
-   481 ;;		On exit  : 0/0
-   482 ;;		Unchanged: 0/0
-   483 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   484 ;;      Params:         0       0       0       0
-   485 ;;      Locals:         0       0       0       0
-   486 ;;      Temps:          0       0       0       0
-   487 ;;      Totals:         0       0       0       0
-   488 ;;Total ram usage:        0 bytes
-   489 ;; Hardware stack levels used: 1
-   490 ;; Hardware stack levels required when called: 4
-   491 ;; This function calls:
-   492 ;;		_TimerMiddleware_Init
-   493 ;; This function is called by:
-   494 ;;		_FSM_begin
-   495 ;; This function uses a non-reentrant model
-   496 ;;
-   497                           
-   498                           	psect	text4
-   499   000270                     __ptext4:
-   500                           	callstack 0
-   501   000270                     _SystemCallbacks_Init:
-   502                           	callstack 25
-   503   000270                     
-   504                           ;SystemCallbacks.c: 39:     TimerMiddleware_Init(OneSecond_ExecutiveCallback);
-   505   000270  0E5C               	movlw	low _OneSecond_ExecutiveCallback
-   506   000272  6E08               	movwf	TimerMiddleware_Init@callback_executive^0,c
-   507   000274  0E01               	movlw	high _OneSecond_ExecutiveCallback
-   508   000276  6E09               	movwf	(TimerMiddleware_Init@callback_executive+1)^0,c
-   509   000278  EC3F  F001         	call	_TimerMiddleware_Init	;wreg free
-   510   00027C  0012               	return		;funcret
-   511   00027E                     __end_of_SystemCallbacks_Init:
-   512                           	callstack 0
-   513                           
-   514 ;; *************** function _TimerMiddleware_Init *****************
-   515 ;; Defined at:
-   516 ;;		line 6 in file "SystemTimerMiddleware.c"
-   517 ;; Parameters:    Size  Location     Type
-   518 ;;  callback_exe    2    7[COMRAM] PTR FTN()void 
-   519 ;;		 -> OneSecond_ExecutiveCallback(1), 
-   520 ;; Auto vars:     Size  Location     Type
-   521 ;;		None
-   522 ;; Return value:  Size  Location     Type
-   523 ;;                  1    wreg      void 
-   524 ;; Registers used:
-   525 ;;		wreg, status,2, status,0
-   526 ;; Tracked objects:
-   527 ;;		On entry : 0/0
-   528 ;;		On exit  : 0/0
-   529 ;;		Unchanged: 0/0
-   530 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   531 ;;      Params:         2       0       0       0
-   532 ;;      Locals:         0       0       0       0
-   533 ;;      Temps:          0       0       0       0
-   534 ;;      Totals:         2       0       0       0
-   535 ;;Total ram usage:        2 bytes
-   536 ;; Hardware stack levels used: 1
-   537 ;; Hardware stack levels required when called: 3
-   538 ;; This function calls:
-   539 ;;		Nothing
-   540 ;; This function is called by:
-   541 ;;		_SystemCallbacks_Init
-   542 ;; This function uses a non-reentrant model
-   543 ;;
-   544                           
-   545                           	psect	text5
-   546   00027E                     __ptext5:
-   547                           	callstack 0
-   548   00027E                     _TimerMiddleware_Init:
-   549                           	callstack 25
-   550   00027E                     
-   551                           ;SystemTimerMiddleware.c: 6: void TimerMiddleware_Init(Callback_t callback_executive);Sy
-      +                          stemTimerMiddleware.c: 7: {;SystemTimerMiddleware.c: 8:     CallbackExecutive = callback
-      +                          _executive;
-   552   00027E  C008  F012         	movff	TimerMiddleware_Init@callback_executive,_CallbackExecutive
-   553   000282  C009  F013         	movff	TimerMiddleware_Init@callback_executive+1,_CallbackExecutive+1
-   554   000286  0012               	return		;funcret
-   555   000288                     __end_of_TimerMiddleware_Init:
-   556                           	callstack 0
-   557                           
-   558 ;; *************** function _SMS_read_and_set_state *****************
-   559 ;; Defined at:
-   560 ;;		line 13 in file "SoilMoistureSensor.c"
-   561 ;; Parameters:    Size  Location     Type
-   562 ;;		None
-   563 ;; Auto vars:     Size  Location     Type
-   564 ;;  moisture        2    9[COMRAM] unsigned short 
-   565 ;; Return value:  Size  Location     Type
-   566 ;;                  1    wreg      void 
-   567 ;; Registers used:
-   568 ;;		wreg, status,2, status,0, cstack
-   569 ;; Tracked objects:
-   570 ;;		On entry : 0/0
-   571 ;;		On exit  : 0/0
-   572 ;;		Unchanged: 0/0
-   573 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   574 ;;      Params:         0       0       0       0
-   575 ;;      Locals:         2       0       0       0
-   576 ;;      Temps:          0       0       0       0
-   577 ;;      Totals:         2       0       0       0
-   578 ;;Total ram usage:        2 bytes
-   579 ;; Hardware stack levels used: 1
-   580 ;; Hardware stack levels required when called: 5
-   581 ;; This function calls:
-   582 ;;		_ADC_Read
-   583 ;;		_set_state
-   584 ;; This function is called by:
-   585 ;;		_FSM_begin
-   586 ;; This function uses a non-reentrant model
-   587 ;;
-   588                           
-   589                           	psect	text6
-   590   0000FC                     __ptext6:
-   591                           	callstack 0
-   592   0000FC                     _SMS_read_and_set_state:
-   593                           	callstack 24
-   594   0000FC                     
-   595                           ;SoilMoistureSensor.c: 15:     uint16_t moisture = ADC_Read();
-   596   0000FC  ECEF  F000         	call	_ADC_Read	;wreg free
-   597   000100  C008  F00A         	movff	?_ADC_Read,SMS_read_and_set_state@moisture
-   598   000104  C009  F00B         	movff	?_ADC_Read+1,SMS_read_and_set_state@moisture+1
-   599   000108                     
-   600                           ;SoilMoistureSensor.c: 16:     if(moisture >= (595))
-   601   000108  0E53               	movlw	83
-   602   00010A  5C0A               	subwf	SMS_read_and_set_state@moisture^0,w,c
-   603   00010C  0E02               	movlw	2
-   604   00010E  580B               	subwfb	(SMS_read_and_set_state@moisture+1)^0,w,c
-   605   000110  A0D8               	btfss	status,0,c
-   606   000112  EF8D  F000         	goto	u141
-   607   000116  EF8F  F000         	goto	u140
-   608   00011A                     u141:
-   609   00011A  EF94  F000         	goto	l975
-   610   00011E                     u140:
-   611   00011E                     
-   612                           ;SoilMoistureSensor.c: 17:     {;SoilMoistureSensor.c: 18:         set_state(WATER_PLANT
+   351                           ; Switch size 1, requested type "simple"
+   352                           ; Number of cases is 1, Range of values is 0 to 0
+   353                           ; switch strategies available:
+   354                           ; Name         Instructions Cycles
+   355                           ; simple_byte            4     3 (average)
+   356                           ;	Chosen strategy is simple_byte
+   357   000148  503E               	movf	(??_FSM_begin+1)^0,w,c
+   358   00014A  0A00               	xorlw	0	; case 0
+   359   00014C  B4D8               	btfsc	status,2,c
+   360   00014E  EFAB  F000         	goto	l1090
+   361   000152  EF9B  F000         	goto	l1048
+   362   000156                     l1090:
+   363                           
+   364                           ; Switch size 1, requested type "simple"
+   365                           ; Number of cases is 4, Range of values is 0 to 3
+   366                           ; switch strategies available:
+   367                           ; Name         Instructions Cycles
+   368                           ; simple_byte           13     7 (average)
+   369                           ;	Chosen strategy is simple_byte
+   370   000156  503D               	movf	??_FSM_begin^0,w,c
+   371   000158  0A00               	xorlw	0	; case 0
+   372   00015A  B4D8               	btfsc	status,2,c
+   373   00015C  EF82  F000         	goto	l1038
+   374   000160  0A01               	xorlw	1	; case 1
+   375   000162  B4D8               	btfsc	status,2,c
+   376   000164  EF8B  F000         	goto	l1044
+   377   000168  0A03               	xorlw	3	; case 2
+   378   00016A  B4D8               	btfsc	status,2,c
+   379   00016C  EFBE  F000         	goto	l118
+   380   000170  0A01               	xorlw	1	; case 3
+   381   000172  B4D8               	btfsc	status,2,c
+   382   000174  EF97  F000         	goto	l1046
+   383   000178  EF9B  F000         	goto	l1048
+   384   00017C                     l118:
+   385   00017C  0012               	return		;funcret
+   386   00017E                     __end_of_FSM_begin:
+   387                           	callstack 0
+   388                           
+   389 ;; *************** function _get_current_state *****************
+   390 ;; Defined at:
+   391 ;;		line 5 in file "FSM_states.c"
+   392 ;; Parameters:    Size  Location     Type
+   393 ;;		None
+   394 ;; Auto vars:     Size  Location     Type
+   395 ;;		None
+   396 ;; Return value:  Size  Location     Type
+   397 ;;                  1    wreg      enum E2
+   398 ;; Registers used:
+   399 ;;		wreg, status,2
+   400 ;; Tracked objects:
+   401 ;;		On entry : 0/0
+   402 ;;		On exit  : 0/0
+   403 ;;		Unchanged: 0/0
+   404 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   405 ;;      Params:         0       0       0       0
+   406 ;;      Locals:         0       0       0       0
+   407 ;;      Temps:          0       0       0       0
+   408 ;;      Totals:         0       0       0       0
+   409 ;;Total ram usage:        0 bytes
+   410 ;; Hardware stack levels used: 1
+   411 ;; Hardware stack levels required when called: 3
+   412 ;; This function calls:
+   413 ;;		Nothing
+   414 ;; This function is called by:
+   415 ;;		_FSM_begin
+   416 ;; This function uses a non-reentrant model
+   417 ;;
+   418                           
+   419                           	psect	text2
+   420   000304                     __ptext2:
+   421                           	callstack 0
+   422   000304                     _get_current_state:
+   423                           	callstack 26
+   424   000304                     
+   425                           ;FSM_states.c: 7:     return FSM_state;
+   426   000304  5042               	movf	_FSM_state^0,w,c
+   427   000306  0012               	return		;funcret
+   428   000308                     __end_of_get_current_state:
+   429                           	callstack 0
+   430                           
+   431 ;; *************** function _Timer0_init *****************
+   432 ;; Defined at:
+   433 ;;		line 56 in file "PIC18F4331_Timer.c"
+   434 ;; Parameters:    Size  Location     Type
+   435 ;;		None
+   436 ;; Auto vars:     Size  Location     Type
+   437 ;;		None
+   438 ;; Return value:  Size  Location     Type
+   439 ;;                  1    wreg      void 
+   440 ;; Registers used:
+   441 ;;		None
+   442 ;; Tracked objects:
+   443 ;;		On entry : 0/0
+   444 ;;		On exit  : 0/0
+   445 ;;		Unchanged: 0/0
+   446 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   447 ;;      Params:         0       0       0       0
+   448 ;;      Locals:         0       0       0       0
+   449 ;;      Temps:          0       0       0       0
+   450 ;;      Totals:         0       0       0       0
+   451 ;;Total ram usage:        0 bytes
+   452 ;; Hardware stack levels used: 1
+   453 ;; Hardware stack levels required when called: 3
+   454 ;; This function calls:
+   455 ;;		Nothing
+   456 ;; This function is called by:
+   457 ;;		_FSM_begin
+   458 ;; This function uses a non-reentrant model
+   459 ;;
+   460                           
+   461                           	psect	text3
+   462   0002E2                     __ptext3:
+   463                           	callstack 0
+   464   0002E2                     _Timer0_init:
+   465                           	callstack 26
+   466   0002E2                     
+   467                           ;PIC18F4331_Timer.c: 67:     T0CONbits.T0PS0 = 1;
+   468   0002E2  80D5               	bsf	213,0,c	;volatile
+   469                           
+   470                           ;PIC18F4331_Timer.c: 68:     T0CONbits.T0PS1 = 1;
+   471   0002E4  82D5               	bsf	213,1,c	;volatile
+   472                           
+   473                           ;PIC18F4331_Timer.c: 69:     T0CONbits.T0PS2 = 1;
+   474   0002E6  84D5               	bsf	213,2,c	;volatile
+   475                           
+   476                           ;PIC18F4331_Timer.c: 72:     T0CONbits.PSA = 0;
+   477   0002E8  96D5               	bcf	213,3,c	;volatile
+   478                           
+   479                           ;PIC18F4331_Timer.c: 75:     T0CONbits.T0CS = 0;
+   480   0002EA  9AD5               	bcf	213,5,c	;volatile
+   481                           
+   482                           ;PIC18F4331_Timer.c: 78:     T0CONbits.T016BIT = 0;
+   483   0002EC  9CD5               	bcf	213,6,c	;volatile
+   484   0002EE  0012               	return		;funcret
+   485   0002F0                     __end_of_Timer0_init:
+   486                           	callstack 0
+   487                           
+   488 ;; *************** function _SMS_read_and_set_state *****************
+   489 ;; Defined at:
+   490 ;;		line 13 in file "SoilMoistureSensor.c"
+   491 ;; Parameters:    Size  Location     Type
+   492 ;;		None
+   493 ;; Auto vars:     Size  Location     Type
+   494 ;;  moisture        2   14[COMRAM] unsigned short 
+   495 ;; Return value:  Size  Location     Type
+   496 ;;                  1    wreg      void 
+   497 ;; Registers used:
+   498 ;;		wreg, status,2, status,0, cstack
+   499 ;; Tracked objects:
+   500 ;;		On entry : 0/0
+   501 ;;		On exit  : 0/0
+   502 ;;		Unchanged: 0/0
+   503 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   504 ;;      Params:         0       0       0       0
+   505 ;;      Locals:         2       0       0       0
+   506 ;;      Temps:          0       0       0       0
+   507 ;;      Totals:         2       0       0       0
+   508 ;;Total ram usage:        2 bytes
+   509 ;; Hardware stack levels used: 1
+   510 ;; Hardware stack levels required when called: 5
+   511 ;; This function calls:
+   512 ;;		_ADC_Read
+   513 ;;		_set_state
+   514 ;; This function is called by:
+   515 ;;		_FSM_begin
+   516 ;; This function uses a non-reentrant model
+   517 ;;
+   518                           
+   519                           	psect	text4
+   520   0001E2                     __ptext4:
+   521                           	callstack 0
+   522   0001E2                     _SMS_read_and_set_state:
+   523                           	callstack 24
+   524   0001E2                     
+   525                           ;SoilMoistureSensor.c: 15:     uint16_t moisture = ADC_Read();
+   526   0001E2  EC3D  F001         	call	_ADC_Read	;wreg free
+   527   0001E6  C039  F03B         	movff	?_ADC_Read,SMS_read_and_set_state@moisture
+   528   0001EA  C03A  F03C         	movff	?_ADC_Read+1,SMS_read_and_set_state@moisture+1
+   529   0001EE                     
+   530                           ;SoilMoistureSensor.c: 16:     if(moisture >= (595))
+   531   0001EE  0E53               	movlw	83
+   532   0001F0  5C3B               	subwf	SMS_read_and_set_state@moisture^0,w,c
+   533   0001F2  0E02               	movlw	2
+   534   0001F4  583C               	subwfb	(SMS_read_and_set_state@moisture+1)^0,w,c
+   535   0001F6  A0D8               	btfss	status,0,c
+   536   0001F8  EF00  F001         	goto	u191
+   537   0001FC  EF02  F001         	goto	u190
+   538   000200                     u191:
+   539   000200  EF07  F001         	goto	l996
+   540   000204                     u190:
+   541   000204                     
+   542                           ;SoilMoistureSensor.c: 17:     {;SoilMoistureSensor.c: 18:         set_state(WATER_PLANT
       +                          S);
-   613   00011E  0E02               	movlw	2
-   614   000120  EC44  F001         	call	_set_state
-   615                           
-   616                           ;SoilMoistureSensor.c: 19:     }
-   617   000124  EFAD  F000         	goto	l87
-   618   000128                     l975:
-   619   000128  500B               	movf	(SMS_read_and_set_state@moisture+1)^0,w,c
-   620   00012A  E109               	bnz	u150
-   621   00012C  0EEF               	movlw	239
-   622   00012E  5C0A               	subwf	SMS_read_and_set_state@moisture^0,w,c
-   623   000130  A0D8               	btfss	status,0,c
-   624   000132  EF9D  F000         	goto	u151
-   625   000136  EF9F  F000         	goto	u150
-   626   00013A                     u151:
-   627   00013A  EFAD  F000         	goto	l87
-   628   00013E                     u150:
-   629   00013E  0E53               	movlw	83
-   630   000140  5C0A               	subwf	SMS_read_and_set_state@moisture^0,w,c
-   631   000142  0E02               	movlw	2
-   632   000144  580B               	subwfb	(SMS_read_and_set_state@moisture+1)^0,w,c
-   633   000146  B0D8               	btfsc	status,0,c
-   634   000148  EFA8  F000         	goto	u161
-   635   00014C  EFAA  F000         	goto	u160
-   636   000150                     u161:
-   637   000150  EFAD  F000         	goto	l87
-   638   000154                     u160:
-   639   000154                     
-   640                           ;SoilMoistureSensor.c: 21:     {;SoilMoistureSensor.c: 23:         set_state(IDLE_STATE)
+   543   000204  0E02               	movlw	2
+   544   000206  EC78  F001         	call	_set_state
+   545                           
+   546                           ;SoilMoistureSensor.c: 19:     }
+   547   00020A  EF20  F001         	goto	l87
+   548   00020E                     l996:
+   549   00020E  503C               	movf	(SMS_read_and_set_state@moisture+1)^0,w,c
+   550   000210  E109               	bnz	u200
+   551   000212  0EEF               	movlw	239
+   552   000214  5C3B               	subwf	SMS_read_and_set_state@moisture^0,w,c
+   553   000216  A0D8               	btfss	status,0,c
+   554   000218  EF10  F001         	goto	u201
+   555   00021C  EF12  F001         	goto	u200
+   556   000220                     u201:
+   557   000220  EF20  F001         	goto	l87
+   558   000224                     u200:
+   559   000224  0E53               	movlw	83
+   560   000226  5C3B               	subwf	SMS_read_and_set_state@moisture^0,w,c
+   561   000228  0E02               	movlw	2
+   562   00022A  583C               	subwfb	(SMS_read_and_set_state@moisture+1)^0,w,c
+   563   00022C  B0D8               	btfsc	status,0,c
+   564   00022E  EF1B  F001         	goto	u211
+   565   000232  EF1D  F001         	goto	u210
+   566   000236                     u211:
+   567   000236  EF20  F001         	goto	l87
+   568   00023A                     u210:
+   569   00023A                     
+   570                           ;SoilMoistureSensor.c: 21:     {;SoilMoistureSensor.c: 23:         set_state(IDLE_STATE)
       +                          ;
-   641   000154  0E01               	movlw	1
-   642   000156  EC44  F001         	call	_set_state
-   643   00015A                     l87:
-   644   00015A  0012               	return		;funcret
-   645   00015C                     __end_of_SMS_read_and_set_state:
-   646                           	callstack 0
-   647                           
-   648 ;; *************** function _set_state *****************
-   649 ;; Defined at:
-   650 ;;		line 9 in file "FSM_states.c"
-   651 ;; Parameters:    Size  Location     Type
-   652 ;;  state_to_set    1    wreg     enum E2
-   653 ;; Auto vars:     Size  Location     Type
-   654 ;;  state_to_set    1    7[COMRAM] enum E2
-   655 ;; Return value:  Size  Location     Type
-   656 ;;                  1    wreg      void 
-   657 ;; Registers used:
-   658 ;;		wreg
-   659 ;; Tracked objects:
-   660 ;;		On entry : 0/0
-   661 ;;		On exit  : 0/0
-   662 ;;		Unchanged: 0/0
-   663 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   664 ;;      Params:         0       0       0       0
-   665 ;;      Locals:         1       0       0       0
-   666 ;;      Temps:          0       0       0       0
-   667 ;;      Totals:         1       0       0       0
-   668 ;;Total ram usage:        1 bytes
-   669 ;; Hardware stack levels used: 1
-   670 ;; Hardware stack levels required when called: 3
-   671 ;; This function calls:
-   672 ;;		Nothing
-   673 ;; This function is called by:
-   674 ;;		_main
-   675 ;;		_SMS_read_and_set_state
-   676 ;;		_FSM_begin
-   677 ;; This function uses a non-reentrant model
-   678 ;;
-   679                           
-   680                           	psect	text7
-   681   000288                     __ptext7:
-   682                           	callstack 0
-   683   000288                     _set_state:
-   684                           	callstack 27
-   685                           
-   686                           ;incstack = 0
-   687                           ;set_state@state_to_set stored from wreg
-   688   000288  6E08               	movwf	set_state@state_to_set^0,c
-   689   00028A                     
-   690                           ;FSM_states.c: 9: void set_state(STATES state_to_set);FSM_states.c: 10: {;FSM_states.c: 
+   571   00023A  0E01               	movlw	1
+   572   00023C  EC78  F001         	call	_set_state
+   573   000240                     l87:
+   574   000240  0012               	return		;funcret
+   575   000242                     __end_of_SMS_read_and_set_state:
+   576                           	callstack 0
+   577                           
+   578 ;; *************** function _set_state *****************
+   579 ;; Defined at:
+   580 ;;		line 9 in file "FSM_states.c"
+   581 ;; Parameters:    Size  Location     Type
+   582 ;;  state_to_set    1    wreg     enum E2
+   583 ;; Auto vars:     Size  Location     Type
+   584 ;;  state_to_set    1   12[COMRAM] enum E2
+   585 ;; Return value:  Size  Location     Type
+   586 ;;                  1    wreg      void 
+   587 ;; Registers used:
+   588 ;;		wreg
+   589 ;; Tracked objects:
+   590 ;;		On entry : 0/0
+   591 ;;		On exit  : 0/0
+   592 ;;		Unchanged: 0/0
+   593 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   594 ;;      Params:         0       0       0       0
+   595 ;;      Locals:         1       0       0       0
+   596 ;;      Temps:          0       0       0       0
+   597 ;;      Totals:         1       0       0       0
+   598 ;;Total ram usage:        1 bytes
+   599 ;; Hardware stack levels used: 1
+   600 ;; Hardware stack levels required when called: 3
+   601 ;; This function calls:
+   602 ;;		Nothing
+   603 ;; This function is called by:
+   604 ;;		_main
+   605 ;;		_SMS_read_and_set_state
+   606 ;;		_FSM_begin
+   607 ;; This function uses a non-reentrant model
+   608 ;;
+   609                           
+   610                           	psect	text5
+   611   0002F0                     __ptext5:
+   612                           	callstack 0
+   613   0002F0                     _set_state:
+   614                           	callstack 27
+   615                           
+   616                           ;incstack = 0
+   617                           ;set_state@state_to_set stored from wreg
+   618   0002F0  6E39               	movwf	set_state@state_to_set^0,c
+   619   0002F2                     
+   620                           ;FSM_states.c: 9: void set_state(STATES state_to_set);FSM_states.c: 10: {;FSM_states.c: 
       +                          11:     FSM_state = state_to_set;
-   691   00028A  C008  F018         	movff	set_state@state_to_set,_FSM_state
-   692   00028E  0012               	return		;funcret
-   693   000290                     __end_of_set_state:
-   694                           	callstack 0
-   695                           
-   696 ;; *************** function _ADC_Read *****************
-   697 ;; Defined at:
-   698 ;;		line 60 in file "PIC18F4331_ADC.c"
-   699 ;; Parameters:    Size  Location     Type
-   700 ;;		None
-   701 ;; Auto vars:     Size  Location     Type
-   702 ;;		None
-   703 ;; Return value:  Size  Location     Type
-   704 ;;                  2    7[COMRAM] unsigned short 
-   705 ;; Registers used:
-   706 ;;		wreg, status,2, cstack
-   707 ;; Tracked objects:
-   708 ;;		On entry : 0/0
-   709 ;;		On exit  : 0/0
-   710 ;;		Unchanged: 0/0
-   711 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   712 ;;      Params:         2       0       0       0
-   713 ;;      Locals:         0       0       0       0
-   714 ;;      Temps:          0       0       0       0
-   715 ;;      Totals:         2       0       0       0
-   716 ;;Total ram usage:        2 bytes
-   717 ;; Hardware stack levels used: 1
-   718 ;; Hardware stack levels required when called: 4
-   719 ;; This function calls:
-   720 ;;		_ADC_in_progress
-   721 ;;		_ADC_start
-   722 ;; This function is called by:
-   723 ;;		_SMS_read_and_set_state
-   724 ;; This function uses a non-reentrant model
-   725 ;;
+   621   0002F2  C039  F042         	movff	set_state@state_to_set,_FSM_state
+   622   0002F6  0012               	return		;funcret
+   623   0002F8                     __end_of_set_state:
+   624                           	callstack 0
+   625                           
+   626 ;; *************** function _ADC_Read *****************
+   627 ;; Defined at:
+   628 ;;		line 60 in file "PIC18F4331_ADC.c"
+   629 ;; Parameters:    Size  Location     Type
+   630 ;;		None
+   631 ;; Auto vars:     Size  Location     Type
+   632 ;;		None
+   633 ;; Return value:  Size  Location     Type
+   634 ;;                  2   12[COMRAM] unsigned short 
+   635 ;; Registers used:
+   636 ;;		wreg, status,2, cstack
+   637 ;; Tracked objects:
+   638 ;;		On entry : 0/0
+   639 ;;		On exit  : 0/0
+   640 ;;		Unchanged: 0/0
+   641 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   642 ;;      Params:         2       0       0       0
+   643 ;;      Locals:         0       0       0       0
+   644 ;;      Temps:          0       0       0       0
+   645 ;;      Totals:         2       0       0       0
+   646 ;;Total ram usage:        2 bytes
+   647 ;; Hardware stack levels used: 1
+   648 ;; Hardware stack levels required when called: 4
+   649 ;; This function calls:
+   650 ;;		_ADC_in_progress
+   651 ;;		_ADC_start
+   652 ;; This function is called by:
+   653 ;;		_SMS_read_and_set_state
+   654 ;; This function uses a non-reentrant model
+   655 ;;
+   656                           
+   657                           	psect	text6
+   658   00027A                     __ptext6:
+   659                           	callstack 0
+   660   00027A                     _ADC_Read:
+   661                           	callstack 24
+   662   00027A                     
+   663                           ;PIC18F4331_ADC.c: 62:     ADC_start();
+   664   00027A  EC7C  F001         	call	_ADC_start	;wreg free
+   665   00027E                     l988:
+   666   00027E  EC60  F001         	call	_ADC_in_progress	;wreg free
+   667   000282  0900               	iorlw	0
+   668   000284  A4D8               	btfss	status,2,c
+   669   000286  EF47  F001         	goto	u181
+   670   00028A  EF49  F001         	goto	u180
+   671   00028E                     u181:
+   672   00028E  EF3F  F001         	goto	l988
+   673   000292                     u180:
+   674   000292                     
+   675                           ;PIC18F4331_ADC.c: 68:     ADC.ADCRES_Members.result_high = ADRESH;
+   676   000292  CFC4 F02C          	movff	4036,_ADC+1	;volatile
+   677                           
+   678                           ;PIC18F4331_ADC.c: 69:     ADC.ADCRES_Members.result_low = ADRESL;
+   679   000296  CFC3 F02B          	movff	4035,_ADC	;volatile
+   680                           
+   681                           ;PIC18F4331_ADC.c: 72:     return (ADC.ADC_Raw);
+   682   00029A  C02B  F039         	movff	_ADC,?_ADC_Read
+   683   00029E  C02C  F03A         	movff	_ADC+1,?_ADC_Read+1
+   684   0002A2  0012               	return		;funcret
+   685   0002A4                     __end_of_ADC_Read:
+   686                           	callstack 0
+   687                           
+   688 ;; *************** function _ADC_start *****************
+   689 ;; Defined at:
+   690 ;;		line 13 in file "PIC18F4331_ADC.c"
+   691 ;; Parameters:    Size  Location     Type
+   692 ;;		None
+   693 ;; Auto vars:     Size  Location     Type
+   694 ;;		None
+   695 ;; Return value:  Size  Location     Type
+   696 ;;                  1    wreg      void 
+   697 ;; Registers used:
+   698 ;;		None
+   699 ;; Tracked objects:
+   700 ;;		On entry : 0/0
+   701 ;;		On exit  : 0/0
+   702 ;;		Unchanged: 0/0
+   703 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   704 ;;      Params:         0       0       0       0
+   705 ;;      Locals:         0       0       0       0
+   706 ;;      Temps:          0       0       0       0
+   707 ;;      Totals:         0       0       0       0
+   708 ;;Total ram usage:        0 bytes
+   709 ;; Hardware stack levels used: 1
+   710 ;; Hardware stack levels required when called: 3
+   711 ;; This function calls:
+   712 ;;		Nothing
+   713 ;; This function is called by:
+   714 ;;		_ADC_Read
+   715 ;; This function uses a non-reentrant model
+   716 ;;
+   717                           
+   718                           	psect	text7
+   719   0002F8                     __ptext7:
+   720                           	callstack 0
+   721   0002F8                     _ADC_start:
+   722                           	callstack 24
+   723   0002F8                     
+   724                           ;PIC18F4331_ADC.c: 15:     ADCON0bits.ADON = 1;
+   725   0002F8  80C2               	bsf	194,0,c	;volatile
    726                           
-   727                           	psect	text8
-   728   0001DE                     __ptext8:
-   729                           	callstack 0
-   730   0001DE                     _ADC_Read:
-   731                           	callstack 24
-   732   0001DE                     
-   733                           ;PIC18F4331_ADC.c: 62:     ADC_start();
-   734   0001DE  EC48  F001         	call	_ADC_start	;wreg free
-   735   0001E2                     l965:
-   736   0001E2  EC20  F001         	call	_ADC_in_progress	;wreg free
-   737   0001E6  0900               	iorlw	0
-   738   0001E8  A4D8               	btfss	status,2,c
-   739   0001EA  EFF9  F000         	goto	u131
-   740   0001EE  EFFB  F000         	goto	u130
-   741   0001F2                     u131:
-   742   0001F2  EFF1  F000         	goto	l965
-   743   0001F6                     u130:
-   744   0001F6                     
-   745                           ;PIC18F4331_ADC.c: 68:     ADC.ADCRES_Members.result_high = ADRESH;
-   746   0001F6  CFC4 F017          	movff	4036,_ADC+1	;volatile
-   747                           
-   748                           ;PIC18F4331_ADC.c: 69:     ADC.ADCRES_Members.result_low = ADRESL;
-   749   0001FA  CFC3 F016          	movff	4035,_ADC	;volatile
-   750                           
-   751                           ;PIC18F4331_ADC.c: 72:     return (ADC.ADC_Raw);
-   752   0001FE  C016  F008         	movff	_ADC,?_ADC_Read
-   753   000202  C017  F009         	movff	_ADC+1,?_ADC_Read+1
-   754   000206  0012               	return		;funcret
-   755   000208                     __end_of_ADC_Read:
-   756                           	callstack 0
-   757                           
-   758 ;; *************** function _ADC_start *****************
-   759 ;; Defined at:
-   760 ;;		line 13 in file "PIC18F4331_ADC.c"
-   761 ;; Parameters:    Size  Location     Type
-   762 ;;		None
-   763 ;; Auto vars:     Size  Location     Type
-   764 ;;		None
-   765 ;; Return value:  Size  Location     Type
-   766 ;;                  1    wreg      void 
-   767 ;; Registers used:
-   768 ;;		None
-   769 ;; Tracked objects:
-   770 ;;		On entry : 0/0
-   771 ;;		On exit  : 0/0
-   772 ;;		Unchanged: 0/0
-   773 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   774 ;;      Params:         0       0       0       0
-   775 ;;      Locals:         0       0       0       0
-   776 ;;      Temps:          0       0       0       0
-   777 ;;      Totals:         0       0       0       0
-   778 ;;Total ram usage:        0 bytes
-   779 ;; Hardware stack levels used: 1
-   780 ;; Hardware stack levels required when called: 3
-   781 ;; This function calls:
-   782 ;;		Nothing
-   783 ;; This function is called by:
-   784 ;;		_ADC_Read
-   785 ;; This function uses a non-reentrant model
-   786 ;;
-   787                           
-   788                           	psect	text9
-   789   000290                     __ptext9:
-   790                           	callstack 0
-   791   000290                     _ADC_start:
-   792                           	callstack 24
-   793   000290                     
-   794                           ;PIC18F4331_ADC.c: 15:     ADCON0bits.ADON = 1;
-   795   000290  80C2               	bsf	194,0,c	;volatile
-   796                           
-   797                           ;PIC18F4331_ADC.c: 16:     ADCON0bits.GODONE = 1;
-   798   000292  82C2               	bsf	194,1,c	;volatile
-   799   000294  0012               	return		;funcret
-   800   000296                     __end_of_ADC_start:
-   801                           	callstack 0
-   802                           
-   803 ;; *************** function _ADC_in_progress *****************
-   804 ;; Defined at:
-   805 ;;		line 53 in file "PIC18F4331_ADC.c"
-   806 ;; Parameters:    Size  Location     Type
-   807 ;;		None
-   808 ;; Auto vars:     Size  Location     Type
-   809 ;;		None
-   810 ;; Return value:  Size  Location     Type
-   811 ;;                  1    wreg      unsigned char 
-   812 ;; Registers used:
-   813 ;;		wreg
-   814 ;; Tracked objects:
-   815 ;;		On entry : 0/0
-   816 ;;		On exit  : 0/0
-   817 ;;		Unchanged: 0/0
-   818 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   819 ;;      Params:         0       0       0       0
-   820 ;;      Locals:         0       0       0       0
-   821 ;;      Temps:          0       0       0       0
-   822 ;;      Totals:         0       0       0       0
-   823 ;;Total ram usage:        0 bytes
-   824 ;; Hardware stack levels used: 1
-   825 ;; Hardware stack levels required when called: 3
-   826 ;; This function calls:
-   827 ;;		Nothing
-   828 ;; This function is called by:
-   829 ;;		_ADC_Read
-   830 ;; This function uses a non-reentrant model
-   831 ;;
-   832                           
-   833                           	psect	text10
-   834   000240                     __ptext10:
-   835                           	callstack 0
-   836   000240                     _ADC_in_progress:
-   837                           	callstack 24
-   838   000240                     
-   839                           ;PIC18F4331_ADC.c: 57:     return (ADCON0bits.GODONE);
-   840   000240  B2C2               	btfsc	194,1,c	;volatile
-   841   000242  EF25  F001         	goto	u11
-   842   000246  EF28  F001         	goto	u10
-   843   00024A                     u11:
-   844   00024A  0E01               	movlw	1
-   845   00024C  EF29  F001         	goto	u16
-   846   000250                     u10:
-   847   000250  0E00               	movlw	0
-   848   000252                     u16:
-   849   000252  0012               	return		;funcret
-   850   000254                     __end_of_ADC_in_progress:
-   851                           	callstack 0
-   852                           
-   853 ;; *************** function _SMS_init *****************
-   854 ;; Defined at:
-   855 ;;		line 8 in file "SoilMoistureSensor.c"
-   856 ;; Parameters:    Size  Location     Type
-   857 ;;		None
-   858 ;; Auto vars:     Size  Location     Type
-   859 ;;		None
-   860 ;; Return value:  Size  Location     Type
-   861 ;;                  1    wreg      void 
-   862 ;; Registers used:
-   863 ;;		wreg, status,2, cstack
-   864 ;; Tracked objects:
-   865 ;;		On entry : 0/0
-   866 ;;		On exit  : 0/0
-   867 ;;		Unchanged: 0/0
-   868 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   869 ;;      Params:         0       0       0       0
-   870 ;;      Locals:         0       0       0       0
-   871 ;;      Temps:          0       0       0       0
-   872 ;;      Totals:         0       0       0       0
-   873 ;;Total ram usage:        0 bytes
-   874 ;; Hardware stack levels used: 1
-   875 ;; Hardware stack levels required when called: 5
-   876 ;; This function calls:
-   877 ;;		_ADC_init
-   878 ;; This function is called by:
-   879 ;;		_FSM_begin
-   880 ;; This function uses a non-reentrant model
-   881 ;;
-   882                           
-   883                           	psect	text11
-   884   000296                     __ptext11:
-   885                           	callstack 0
-   886   000296                     _SMS_init:
-   887                           	callstack 24
-   888   000296                     
-   889                           ;SoilMoistureSensor.c: 10:     ADC_init();
-   890   000296  EC04  F001         	call	_ADC_init	;wreg free
-   891   00029A  0012               	return		;funcret
-   892   00029C                     __end_of_SMS_init:
-   893                           	callstack 0
-   894                           
-   895 ;; *************** function _ADC_init *****************
-   896 ;; Defined at:
-   897 ;;		line 24 in file "PIC18F4331_ADC.c"
-   898 ;; Parameters:    Size  Location     Type
-   899 ;;		None
-   900 ;; Auto vars:     Size  Location     Type
-   901 ;;		None
-   902 ;; Return value:  Size  Location     Type
-   903 ;;                  1    wreg      void 
-   904 ;; Registers used:
-   905 ;;		wreg, status,2, cstack
-   906 ;; Tracked objects:
-   907 ;;		On entry : 0/0
-   908 ;;		On exit  : 0/0
-   909 ;;		Unchanged: 0/0
-   910 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   911 ;;      Params:         0       0       0       0
-   912 ;;      Locals:         0       0       0       0
-   913 ;;      Temps:          0       0       0       0
-   914 ;;      Totals:         0       0       0       0
-   915 ;;Total ram usage:        0 bytes
-   916 ;; Hardware stack levels used: 1
-   917 ;; Hardware stack levels required when called: 4
-   918 ;; This function calls:
-   919 ;;		_ADC_stop
-   920 ;; This function is called by:
-   921 ;;		_SMS_init
-   922 ;; This function uses a non-reentrant model
-   923 ;;
-   924                           
-   925                           	psect	text12
-   926   000208                     __ptext12:
-   927                           	callstack 0
-   928   000208                     _ADC_init:
-   929                           	callstack 24
-   930   000208                     
-   931                           ;PIC18F4331_ADC.c: 27:     ADC_stop();
-   932   000208  EC50  F001         	call	_ADC_stop	;wreg free
-   933   00020C                     
-   934                           ;PIC18F4331_ADC.c: 30:     ADCON1bits.VCFG = 0;
-   935   00020C  0E3F               	movlw	-193
-   936   00020E  16C1               	andwf	193,f,c	;volatile
-   937   000210                     
-   938                           ;PIC18F4331_ADC.c: 33:     ADCHSbits.GASEL0 = 0;
-   939   000210  9099               	bcf	153,0,c	;volatile
-   940   000212                     
-   941                           ;PIC18F4331_ADC.c: 34:     ADCHSbits.GASEL1 = 0;
-   942   000212  9299               	bcf	153,1,c	;volatile
-   943   000214                     
-   944                           ;PIC18F4331_ADC.c: 37:     ADCON0bits.ACONV = 0;
-   945   000214  9AC2               	bcf	194,5,c	;volatile
-   946   000216                     
-   947                           ;PIC18F4331_ADC.c: 40:     ADCON2bits.ADCS = 0;
-   948   000216  0EF8               	movlw	-8
-   949   000218  16C0               	andwf	192,f,c	;volatile
-   950   00021A                     
-   951                           ;PIC18F4331_ADC.c: 43:     ADCON2bits.ADFM = 1;
-   952   00021A  8EC0               	bsf	192,7,c	;volatile
-   953   00021C                     
-   954                           ;PIC18F4331_ADC.c: 46:     ADCON2bits.ACQT = 0;
-   955   00021C  0E87               	movlw	-121
-   956   00021E  16C0               	andwf	192,f,c	;volatile
-   957   000220                     
-   958                           ;PIC18F4331_ADC.c: 49:     ANSEL0bits.ANS0 = 1;
-   959   000220  80B8               	bsf	184,0,c	;volatile
-   960   000222  0012               	return		;funcret
-   961   000224                     __end_of_ADC_init:
-   962                           	callstack 0
-   963                           
-   964 ;; *************** function _ADC_stop *****************
-   965 ;; Defined at:
-   966 ;;		line 19 in file "PIC18F4331_ADC.c"
-   967 ;; Parameters:    Size  Location     Type
-   968 ;;		None
-   969 ;; Auto vars:     Size  Location     Type
-   970 ;;		None
-   971 ;; Return value:  Size  Location     Type
-   972 ;;                  1    wreg      void 
-   973 ;; Registers used:
-   974 ;;		None
-   975 ;; Tracked objects:
-   976 ;;		On entry : 0/0
-   977 ;;		On exit  : 0/0
-   978 ;;		Unchanged: 0/0
-   979 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-   980 ;;      Params:         0       0       0       0
-   981 ;;      Locals:         0       0       0       0
-   982 ;;      Temps:          0       0       0       0
-   983 ;;      Totals:         0       0       0       0
-   984 ;;Total ram usage:        0 bytes
-   985 ;; Hardware stack levels used: 1
-   986 ;; Hardware stack levels required when called: 3
-   987 ;; This function calls:
-   988 ;;		Nothing
-   989 ;; This function is called by:
-   990 ;;		_ADC_init
-   991 ;; This function uses a non-reentrant model
-   992 ;;
-   993                           
-   994                           	psect	text13
-   995   0002A0                     __ptext13:
-   996                           	callstack 0
-   997   0002A0                     _ADC_stop:
-   998                           	callstack 24
-   999   0002A0                     
-  1000                           ;PIC18F4331_ADC.c: 21:     ADCON0bits.ADON = 0;
-  1001   0002A0  90C2               	bcf	194,0,c	;volatile
-  1002   0002A2  0012               	return		;funcret
-  1003   0002A4                     __end_of_ADC_stop:
-  1004                           	callstack 0
-  1005                           
-  1006 ;; *************** function _timer_overflow_isr *****************
-  1007 ;; Defined at:
-  1008 ;;		line 10 in file "PIC18F4331_Timer.c"
-  1009 ;; Parameters:    Size  Location     Type
-  1010 ;;		None
-  1011 ;; Auto vars:     Size  Location     Type
-  1012 ;;		None
-  1013 ;; Return value:  Size  Location     Type
-  1014 ;;                  1    wreg      void 
-  1015 ;; Registers used:
-  1016 ;;		wreg, fsr2l, fsr2h, status,2, status,0, pcl, pclath, pclatu, tosl, cstack
-  1017 ;; Tracked objects:
-  1018 ;;		On entry : 0/0
-  1019 ;;		On exit  : 0/0
-  1020 ;;		Unchanged: 0/0
-  1021 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-  1022 ;;      Params:         0       0       0       0
-  1023 ;;      Locals:         0       0       0       0
-  1024 ;;      Temps:          4       0       0       0
-  1025 ;;      Totals:         4       0       0       0
-  1026 ;;Total ram usage:        4 bytes
-  1027 ;; Hardware stack levels used: 1
-  1028 ;; Hardware stack levels required when called: 2
-  1029 ;; This function calls:
-  1030 ;;		_OneSecond_Timer_Middleware
-  1031 ;; This function is called by:
-  1032 ;;		Interrupt level 2
-  1033 ;; This function uses a non-reentrant model
-  1034 ;;
-  1035                           
-  1036                           	psect	intcode
-  1037   000008                     __pintcode:
-  1038                           	callstack 0
-  1039   000008                     _timer_overflow_isr:
-  1040                           	callstack 24
-  1041                           
-  1042                           ;incstack = 0
-  1043   000008  8219               	bsf	int$flags,1,c	;set compiler interrupt flag (level 2)
-  1044   00000A  CFFA F004          	movff	pclath,??_timer_overflow_isr
-  1045   00000E  CFFB F005          	movff	pclatu,??_timer_overflow_isr+1
-  1046   000012  CFD9 F006          	movff	fsr2l,??_timer_overflow_isr+2
-  1047   000016  CFDA F007          	movff	fsr2h,??_timer_overflow_isr+3
-  1048   00001A                     
-  1049                           ;PIC18F4331_Timer.c: 13:     INTCONbits.GIEH = 0;
-  1050   00001A  9EF2               	bcf	242,7,c	;volatile
-  1051                           
-  1052                           ;PIC18F4331_Timer.c: 14:     INTCONbits.GIEL = 1;
-  1053   00001C  8CF2               	bsf	242,6,c	;volatile
-  1054   00001E                     
-  1055                           ;PIC18F4331_Timer.c: 28:     if(TMR0L < (0x7C))
-  1056   00001E  0E7C               	movlw	124
-  1057   000020  60D6               	cpfslt	214,c	;volatile
-  1058   000022  EF15  F000         	goto	i2u10_41
-  1059   000026  EF17  F000         	goto	i2u10_40
-  1060   00002A                     i2u10_41:
-  1061   00002A  EF19  F000         	goto	i2l929
-  1062   00002E                     i2u10_40:
-  1063   00002E                     
-  1064                           ;PIC18F4331_Timer.c: 29:     {;PIC18F4331_Timer.c: 30:         TMR0L = (0x7C);
-  1065   00002E  0E7C               	movlw	124
-  1066   000030  6ED6               	movwf	214,c	;volatile
-  1067   000032                     i2l929:
-  1068                           
-  1069                           ;PIC18F4331_Timer.c: 32:     if(TMR0H < (0xE1))
-  1070   000032  0EE1               	movlw	225
-  1071   000034  60D7               	cpfslt	215,c	;volatile
-  1072   000036  EF1F  F000         	goto	i2u11_41
-  1073   00003A  EF21  F000         	goto	i2u11_40
-  1074   00003E                     i2u11_41:
-  1075   00003E  EF23  F000         	goto	i2l933
-  1076   000042                     i2u11_40:
-  1077   000042                     
-  1078                           ;PIC18F4331_Timer.c: 33:     {;PIC18F4331_Timer.c: 34:         TMR0H = (0xE1);
-  1079   000042  0EE1               	movlw	225
-  1080   000044  6ED7               	movwf	215,c	;volatile
-  1081   000046                     i2l933:
-  1082                           
-  1083                           ;PIC18F4331_Timer.c: 38:     if(INTCONbits.TMR0IF)
-  1084   000046  A4F2               	btfss	242,2,c	;volatile
-  1085   000048  EF28  F000         	goto	i2u12_41
-  1086   00004C  EF2A  F000         	goto	i2u12_40
-  1087   000050                     i2u12_41:
-  1088   000050  EF2F  F000         	goto	i2l941
-  1089   000054                     i2u12_40:
-  1090   000054                     
-  1091                           ;PIC18F4331_Timer.c: 39:     {;PIC18F4331_Timer.c: 41:         tmr0Counter++;
-  1092   000054  4A14               	infsnz	_tmr0Counter^0,f,c	;volatile
-  1093   000056  2A15               	incf	(_tmr0Counter+1)^0,f,c	;volatile
-  1094   000058                     
-  1095                           ;PIC18F4331_Timer.c: 44:         OneSecond_Timer_Middleware();
-  1096   000058  EC12  F001         	call	_OneSecond_Timer_Middleware	;wreg free
-  1097   00005C                     
-  1098                           ;PIC18F4331_Timer.c: 47:         INTCONbits.TMR0IF = 0;
-  1099   00005C  94F2               	bcf	242,2,c	;volatile
-  1100   00005E                     i2l941:
-  1101                           
-  1102                           ;PIC18F4331_Timer.c: 51:     INTCONbits.GIEH = 1;
-  1103   00005E  8EF2               	bsf	242,7,c	;volatile
-  1104   000060                     
-  1105                           ;PIC18F4331_Timer.c: 52:     INTCONbits.GIEL = 1;
-  1106   000060  8CF2               	bsf	242,6,c	;volatile
-  1107   000062  C007  FFDA         	movff	??_timer_overflow_isr+3,fsr2h
-  1108   000066  C006  FFD9         	movff	??_timer_overflow_isr+2,fsr2l
-  1109   00006A  C005  FFFB         	movff	??_timer_overflow_isr+1,pclatu
-  1110   00006E  C004  FFFA         	movff	??_timer_overflow_isr,pclath
-  1111   000072  9219               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
-  1112   000074  0011               	retfie		f
-  1113   000076                     __end_of_timer_overflow_isr:
-  1114                           	callstack 0
-  1115                           
-  1116 ;; *************** function _OneSecond_Timer_Middleware *****************
-  1117 ;; Defined at:
-  1118 ;;		line 12 in file "SystemTimerMiddleware.c"
-  1119 ;; Parameters:    Size  Location     Type
-  1120 ;;		None
-  1121 ;; Auto vars:     Size  Location     Type
-  1122 ;;		None
-  1123 ;; Return value:  Size  Location     Type
-  1124 ;;                  1    wreg      void 
-  1125 ;; Registers used:
-  1126 ;;		wreg, fsr2l, fsr2h, status,2, status,0, pcl, pclath, pclatu, tosl, cstack
-  1127 ;; Tracked objects:
-  1128 ;;		On entry : 0/0
-  1129 ;;		On exit  : 0/0
-  1130 ;;		Unchanged: 0/0
-  1131 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-  1132 ;;      Params:         0       0       0       0
-  1133 ;;      Locals:         0       0       0       0
-  1134 ;;      Temps:          0       0       0       0
-  1135 ;;      Totals:         0       0       0       0
-  1136 ;;Total ram usage:        0 bytes
-  1137 ;; Hardware stack levels used: 1
-  1138 ;; Hardware stack levels required when called: 1
-  1139 ;; This function calls:
-  1140 ;;		Absolute function
-  1141 ;;		_OneSecond_ExecutiveCallback
-  1142 ;; This function is called by:
-  1143 ;;		_timer_overflow_isr
-  1144 ;; This function uses a non-reentrant model
-  1145 ;;
-  1146                           
-  1147                           	psect	text15
-  1148   000224                     __ptext15:
-  1149                           	callstack 0
-  1150   000224                     _OneSecond_Timer_Middleware:
-  1151                           	callstack 24
-  1152   000224                     
-  1153                           ;SystemTimerMiddleware.c: 16:     CallbackExecutive();
-  1154   000224  D802               	call	i2u8_48
-  1155   000226  EF1F  F001         	goto	i2u8_49
-  1156   00022A                     i2u8_48:
-  1157   00022A  0005               	push	
-  1158   00022C  6EFA               	movwf	pclath,c
-  1159   00022E  5012               	movf	_CallbackExecutive^0,w,c
-  1160   000230  6EFD               	movwf	tosl,c
-  1161   000232  5013               	movf	(_CallbackExecutive+1)^0,w,c
-  1162   000234  6EFE               	movwf	tosh,c
-  1163   000236  50F8               	movf	tblptru,w,c
-  1164   000238  6EFF               	movwf	tosu,c
-  1165   00023A  50FA               	movf	pclath,w,c
-  1166   00023C  0012               	return		;indir
-  1167   00023E                     i2u8_49:
-  1168   00023E  0012               	return		;funcret
-  1169   000240                     __end_of_OneSecond_Timer_Middleware:
-  1170                           	callstack 0
-  1171                           
-  1172 ;; *************** function _OneSecond_ExecutiveCallback *****************
-  1173 ;; Defined at:
-  1174 ;;		line 12 in file "SystemCallbacks.c"
-  1175 ;; Parameters:    Size  Location     Type
-  1176 ;;		None
-  1177 ;; Auto vars:     Size  Location     Type
-  1178 ;;  callbacks       2    1[COMRAM] int 
-  1179 ;; Return value:  Size  Location     Type
-  1180 ;;                  1    wreg      void 
-  1181 ;; Registers used:
-  1182 ;;		wreg, fsr2l, fsr2h, status,2, status,0
-  1183 ;; Tracked objects:
-  1184 ;;		On entry : 0/0
-  1185 ;;		On exit  : 0/0
-  1186 ;;		Unchanged: 0/0
-  1187 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
-  1188 ;;      Params:         0       0       0       0
-  1189 ;;      Locals:         2       0       0       0
-  1190 ;;      Temps:          1       0       0       0
-  1191 ;;      Totals:         3       0       0       0
-  1192 ;;Total ram usage:        3 bytes
-  1193 ;; Hardware stack levels used: 1
-  1194 ;; This function calls:
-  1195 ;;		Nothing
-  1196 ;; This function is called by:
-  1197 ;;		_SystemCallbacks_Init
-  1198 ;;		_OneSecond_Timer_Middleware
-  1199 ;; This function uses a non-reentrant model
-  1200 ;;
-  1201                           
-  1202                           	psect	text16
-  1203   00015C                     __ptext16:
-  1204                           	callstack 0
-  1205   00015C                     _OneSecond_ExecutiveCallback:
-  1206                           	callstack 24
-  1207   00015C                     
-  1208                           ;SystemCallbacks.c: 18:     system_count++;
-  1209   00015C  4A0E               	infsnz	_system_count^0,f,c
-  1210   00015E  2A0F               	incf	(_system_count+1)^0,f,c
-  1211   000160                     
-  1212                           ;SystemCallbacks.c: 19:     if(system_count == (600))
-  1213   000160  0E58               	movlw	88
-  1214   000162  180E               	xorwf	_system_count^0,w,c
-  1215   000164  E107               	bnz	i2u6_41
-  1216   000166  0E02               	movlw	2
-  1217   000168  180F               	xorwf	(_system_count+1)^0,w,c
-  1218   00016A  A4D8               	btfss	status,2,c
-  1219   00016C  EFBA  F000         	goto	i2u6_41
-  1220   000170  EFBC  F000         	goto	i2u6_40
-  1221   000174                     i2u6_41:
-  1222   000174  EFC0  F000         	goto	i2l139
-  1223   000178                     i2u6_40:
-  1224   000178                     
-  1225                           ;SystemCallbacks.c: 20:     {;SystemCallbacks.c: 21:         system_count=0;
-  1226   000178  0E00               	movlw	0
-  1227   00017A  6E0F               	movwf	(_system_count+1)^0,c
-  1228   00017C  0E00               	movlw	0
-  1229   00017E  6E0E               	movwf	_system_count^0,c
-  1230   000180                     i2l139:
-  1231                           
-  1232                           ;SystemCallbacks.c: 24:     for(int callbacks=0; callbacks<number_of_callbacks; callback
-      +                          s++)
-  1233   000180  0E00               	movlw	0
-  1234   000182  6E03               	movwf	(OneSecond_ExecutiveCallback@callbacks+1)^0,c
-  1235   000184  0E00               	movlw	0
-  1236   000186  6E02               	movwf	OneSecond_ExecutiveCallback@callbacks^0,c
-  1237   000188  EFC8  F000         	goto	i2l895
-  1238   00018C                     i2l889:
-  1239   00018C                     
-  1240                           ;SystemCallbacks.c: 33:     }
-  1241   00018C  4A02               	infsnz	OneSecond_ExecutiveCallback@callbacks^0,f,c
-  1242   00018E  2A03               	incf	(OneSecond_ExecutiveCallback@callbacks+1)^0,f,c
-  1243   000190                     i2l895:
-  1244   000190  5010               	movf	_number_of_callbacks^0,w,c
-  1245   000192  5C02               	subwf	OneSecond_ExecutiveCallback@callbacks^0,w,c
-  1246   000194  5003               	movf	(OneSecond_ExecutiveCallback@callbacks+1)^0,w,c
-  1247   000196  0A80               	xorlw	128
-  1248   000198  6E01               	movwf	??_OneSecond_ExecutiveCallback^0,c
-  1249   00019A  5011               	movf	(_number_of_callbacks+1)^0,w,c
-  1250   00019C  0A80               	xorlw	128
-  1251   00019E  5801               	subwfb	??_OneSecond_ExecutiveCallback^0,w,c
-  1252   0001A0  A0D8               	btfss	status,0,c
-  1253   0001A2  EFD5  F000         	goto	i2u7_41
-  1254   0001A6  EFD7  F000         	goto	i2u7_40
-  1255   0001AA                     i2u7_41:
-  1256   0001AA  EFC6  F000         	goto	i2l889
-  1257   0001AE                     i2u7_40:
-  1258   0001AE  0012               	return		;funcret
-  1259   0001B0                     __end_of_OneSecond_ExecutiveCallback:
-  1260                           	callstack 0
-  1261   000000                     
-  1262                           	psect	text17
-  1263   000000                     __ptext17:
-  1264                           	callstack 0
-  1265   000000                     
-  1266                           	psect	rparam
-  1267   000000                     
-  1268                           	psect	temp
-  1269   000019                     btemp:
-  1270                           	callstack 0
-  1271   000019                     	ds	1
-  1272   000000                     int$flags	set	btemp
-  1273   000000                     wtemp8	set	btemp+1
-  1274   000000                     ttemp5	set	btemp+1
-  1275   000000                     ttemp6	set	btemp+4
-  1276   000000                     ttemp7	set	btemp+8
-  1277                           
-  1278                           	psect	idloc
+   727                           ;PIC18F4331_ADC.c: 16:     ADCON0bits.GODONE = 1;
+   728   0002FA  82C2               	bsf	194,1,c	;volatile
+   729   0002FC  0012               	return		;funcret
+   730   0002FE                     __end_of_ADC_start:
+   731                           	callstack 0
+   732                           
+   733 ;; *************** function _ADC_in_progress *****************
+   734 ;; Defined at:
+   735 ;;		line 53 in file "PIC18F4331_ADC.c"
+   736 ;; Parameters:    Size  Location     Type
+   737 ;;		None
+   738 ;; Auto vars:     Size  Location     Type
+   739 ;;		None
+   740 ;; Return value:  Size  Location     Type
+   741 ;;                  1    wreg      unsigned char 
+   742 ;; Registers used:
+   743 ;;		wreg
+   744 ;; Tracked objects:
+   745 ;;		On entry : 0/0
+   746 ;;		On exit  : 0/0
+   747 ;;		Unchanged: 0/0
+   748 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   749 ;;      Params:         0       0       0       0
+   750 ;;      Locals:         0       0       0       0
+   751 ;;      Temps:          0       0       0       0
+   752 ;;      Totals:         0       0       0       0
+   753 ;;Total ram usage:        0 bytes
+   754 ;; Hardware stack levels used: 1
+   755 ;; Hardware stack levels required when called: 3
+   756 ;; This function calls:
+   757 ;;		Nothing
+   758 ;; This function is called by:
+   759 ;;		_ADC_Read
+   760 ;; This function uses a non-reentrant model
+   761 ;;
+   762                           
+   763                           	psect	text8
+   764   0002C0                     __ptext8:
+   765                           	callstack 0
+   766   0002C0                     _ADC_in_progress:
+   767                           	callstack 24
+   768   0002C0                     
+   769                           ;PIC18F4331_ADC.c: 57:     return (ADCON0bits.GODONE);
+   770   0002C0  B2C2               	btfsc	194,1,c	;volatile
+   771   0002C2  EF65  F001         	goto	u11
+   772   0002C6  EF68  F001         	goto	u10
+   773   0002CA                     u11:
+   774   0002CA  0E01               	movlw	1
+   775   0002CC  EF69  F001         	goto	u16
+   776   0002D0                     u10:
+   777   0002D0  0E00               	movlw	0
+   778   0002D2                     u16:
+   779   0002D2  0012               	return		;funcret
+   780   0002D4                     __end_of_ADC_in_progress:
+   781                           	callstack 0
+   782                           
+   783 ;; *************** function _SMS_init *****************
+   784 ;; Defined at:
+   785 ;;		line 8 in file "SoilMoistureSensor.c"
+   786 ;; Parameters:    Size  Location     Type
+   787 ;;		None
+   788 ;; Auto vars:     Size  Location     Type
+   789 ;;		None
+   790 ;; Return value:  Size  Location     Type
+   791 ;;                  1    wreg      void 
+   792 ;; Registers used:
+   793 ;;		wreg, status,2, cstack
+   794 ;; Tracked objects:
+   795 ;;		On entry : 0/0
+   796 ;;		On exit  : 0/0
+   797 ;;		Unchanged: 0/0
+   798 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   799 ;;      Params:         0       0       0       0
+   800 ;;      Locals:         0       0       0       0
+   801 ;;      Temps:          0       0       0       0
+   802 ;;      Totals:         0       0       0       0
+   803 ;;Total ram usage:        0 bytes
+   804 ;; Hardware stack levels used: 1
+   805 ;; Hardware stack levels required when called: 5
+   806 ;; This function calls:
+   807 ;;		_ADC_init
+   808 ;; This function is called by:
+   809 ;;		_FSM_begin
+   810 ;; This function uses a non-reentrant model
+   811 ;;
+   812                           
+   813                           	psect	text9
+   814   0002FE                     __ptext9:
+   815                           	callstack 0
+   816   0002FE                     _SMS_init:
+   817                           	callstack 24
+   818   0002FE                     
+   819                           ;SoilMoistureSensor.c: 10:     ADC_init();
+   820   0002FE  EC52  F001         	call	_ADC_init	;wreg free
+   821   000302  0012               	return		;funcret
+   822   000304                     __end_of_SMS_init:
+   823                           	callstack 0
+   824                           
+   825 ;; *************** function _ADC_init *****************
+   826 ;; Defined at:
+   827 ;;		line 24 in file "PIC18F4331_ADC.c"
+   828 ;; Parameters:    Size  Location     Type
+   829 ;;		None
+   830 ;; Auto vars:     Size  Location     Type
+   831 ;;		None
+   832 ;; Return value:  Size  Location     Type
+   833 ;;                  1    wreg      void 
+   834 ;; Registers used:
+   835 ;;		wreg, status,2, cstack
+   836 ;; Tracked objects:
+   837 ;;		On entry : 0/0
+   838 ;;		On exit  : 0/0
+   839 ;;		Unchanged: 0/0
+   840 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   841 ;;      Params:         0       0       0       0
+   842 ;;      Locals:         0       0       0       0
+   843 ;;      Temps:          0       0       0       0
+   844 ;;      Totals:         0       0       0       0
+   845 ;;Total ram usage:        0 bytes
+   846 ;; Hardware stack levels used: 1
+   847 ;; Hardware stack levels required when called: 4
+   848 ;; This function calls:
+   849 ;;		_ADC_stop
+   850 ;; This function is called by:
+   851 ;;		_SMS_init
+   852 ;; This function uses a non-reentrant model
+   853 ;;
+   854                           
+   855                           	psect	text10
+   856   0002A4                     __ptext10:
+   857                           	callstack 0
+   858   0002A4                     _ADC_init:
+   859                           	callstack 24
+   860   0002A4                     
+   861                           ;PIC18F4331_ADC.c: 27:     ADC_stop();
+   862   0002A4  EC84  F001         	call	_ADC_stop	;wreg free
+   863   0002A8                     
+   864                           ;PIC18F4331_ADC.c: 30:     ADCON1bits.VCFG = 0;
+   865   0002A8  0E3F               	movlw	-193
+   866   0002AA  16C1               	andwf	193,f,c	;volatile
+   867   0002AC                     
+   868                           ;PIC18F4331_ADC.c: 33:     ADCHSbits.GASEL0 = 0;
+   869   0002AC  9099               	bcf	153,0,c	;volatile
+   870   0002AE                     
+   871                           ;PIC18F4331_ADC.c: 34:     ADCHSbits.GASEL1 = 0;
+   872   0002AE  9299               	bcf	153,1,c	;volatile
+   873   0002B0                     
+   874                           ;PIC18F4331_ADC.c: 37:     ADCON0bits.ACONV = 0;
+   875   0002B0  9AC2               	bcf	194,5,c	;volatile
+   876   0002B2                     
+   877                           ;PIC18F4331_ADC.c: 40:     ADCON2bits.ADCS = 0;
+   878   0002B2  0EF8               	movlw	-8
+   879   0002B4  16C0               	andwf	192,f,c	;volatile
+   880   0002B6                     
+   881                           ;PIC18F4331_ADC.c: 43:     ADCON2bits.ADFM = 1;
+   882   0002B6  8EC0               	bsf	192,7,c	;volatile
+   883   0002B8                     
+   884                           ;PIC18F4331_ADC.c: 46:     ADCON2bits.ACQT = 0;
+   885   0002B8  0E87               	movlw	-121
+   886   0002BA  16C0               	andwf	192,f,c	;volatile
+   887   0002BC                     
+   888                           ;PIC18F4331_ADC.c: 49:     ANSEL0bits.ANS0 = 1;
+   889   0002BC  80B8               	bsf	184,0,c	;volatile
+   890   0002BE  0012               	return		;funcret
+   891   0002C0                     __end_of_ADC_init:
+   892                           	callstack 0
+   893                           
+   894 ;; *************** function _ADC_stop *****************
+   895 ;; Defined at:
+   896 ;;		line 19 in file "PIC18F4331_ADC.c"
+   897 ;; Parameters:    Size  Location     Type
+   898 ;;		None
+   899 ;; Auto vars:     Size  Location     Type
+   900 ;;		None
+   901 ;; Return value:  Size  Location     Type
+   902 ;;                  1    wreg      void 
+   903 ;; Registers used:
+   904 ;;		None
+   905 ;; Tracked objects:
+   906 ;;		On entry : 0/0
+   907 ;;		On exit  : 0/0
+   908 ;;		Unchanged: 0/0
+   909 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   910 ;;      Params:         0       0       0       0
+   911 ;;      Locals:         0       0       0       0
+   912 ;;      Temps:          0       0       0       0
+   913 ;;      Totals:         0       0       0       0
+   914 ;;Total ram usage:        0 bytes
+   915 ;; Hardware stack levels used: 1
+   916 ;; Hardware stack levels required when called: 3
+   917 ;; This function calls:
+   918 ;;		Nothing
+   919 ;; This function is called by:
+   920 ;;		_ADC_init
+   921 ;; This function uses a non-reentrant model
+   922 ;;
+   923                           
+   924                           	psect	text11
+   925   000308                     __ptext11:
+   926                           	callstack 0
+   927   000308                     _ADC_stop:
+   928                           	callstack 24
+   929   000308                     
+   930                           ;PIC18F4331_ADC.c: 21:     ADCON0bits.ADON = 0;
+   931   000308  90C2               	bcf	194,0,c	;volatile
+   932   00030A  0012               	return		;funcret
+   933   00030C                     __end_of_ADC_stop:
+   934                           	callstack 0
+   935                           
+   936 ;; *************** function _timer_overflow_isr *****************
+   937 ;; Defined at:
+   938 ;;		line 10 in file "PIC18F4331_Timer.c"
+   939 ;; Parameters:    Size  Location     Type
+   940 ;;		None
+   941 ;; Auto vars:     Size  Location     Type
+   942 ;;		None
+   943 ;; Return value:  Size  Location     Type
+   944 ;;                  1    wreg      void 
+   945 ;; Registers used:
+   946 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+   947 ;; Tracked objects:
+   948 ;;		On entry : 0/0
+   949 ;;		On exit  : 0/0
+   950 ;;		Unchanged: 0/0
+   951 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+   952 ;;      Params:         0       0       0       0
+   953 ;;      Locals:         0       0       0       0
+   954 ;;      Temps:          4       0       0       0
+   955 ;;      Totals:         4       0       0       0
+   956 ;;Total ram usage:        4 bytes
+   957 ;; Hardware stack levels used: 1
+   958 ;; Hardware stack levels required when called: 2
+   959 ;; This function calls:
+   960 ;;		_Callbacks_Manager
+   961 ;; This function is called by:
+   962 ;;		Interrupt level 2
+   963 ;; This function uses a non-reentrant model
+   964 ;;
+   965                           
+   966                           	psect	intcode
+   967   000008                     __pintcode:
+   968                           	callstack 0
+   969   000008                     _timer_overflow_isr:
+   970                           	callstack 24
+   971                           
+   972                           ;incstack = 0
+   973   000008  8243               	bsf	int$flags,1,c	;set compiler interrupt flag (level 2)
+   974   00000A  CFD9 F035          	movff	fsr2l,??_timer_overflow_isr
+   975   00000E  CFDA F036          	movff	fsr2h,??_timer_overflow_isr+1
+   976   000012  CFF3 F037          	movff	prodl,??_timer_overflow_isr+2
+   977   000016  CFF4 F038          	movff	prodh,??_timer_overflow_isr+3
+   978   00001A                     
+   979                           ;PIC18F4331_Timer.c: 13:     INTCONbits.GIEH = 0;
+   980   00001A  9EF2               	bcf	242,7,c	;volatile
+   981                           
+   982                           ;PIC18F4331_Timer.c: 14:     INTCONbits.GIEL = 1;
+   983   00001C  8CF2               	bsf	242,6,c	;volatile
+   984   00001E                     
+   985                           ;PIC18F4331_Timer.c: 28:     if(TMR0L < (0x7C))
+   986   00001E  0E7C               	movlw	124
+   987   000020  60D6               	cpfslt	214,c	;volatile
+   988   000022  EF15  F000         	goto	i2u29_41
+   989   000026  EF17  F000         	goto	i2u29_40
+   990   00002A                     i2u29_41:
+   991   00002A  EF19  F000         	goto	i2l1064
+   992   00002E                     i2u29_40:
+   993   00002E                     
+   994                           ;PIC18F4331_Timer.c: 29:     {;PIC18F4331_Timer.c: 30:         TMR0L = (0x7C);
+   995   00002E  0E7C               	movlw	124
+   996   000030  6ED6               	movwf	214,c	;volatile
+   997   000032                     i2l1064:
+   998                           
+   999                           ;PIC18F4331_Timer.c: 32:     if(TMR0H < (0xE1))
+  1000   000032  0EE1               	movlw	225
+  1001   000034  60D7               	cpfslt	215,c	;volatile
+  1002   000036  EF1F  F000         	goto	i2u30_41
+  1003   00003A  EF21  F000         	goto	i2u30_40
+  1004   00003E                     i2u30_41:
+  1005   00003E  EF23  F000         	goto	i2l1068
+  1006   000042                     i2u30_40:
+  1007   000042                     
+  1008                           ;PIC18F4331_Timer.c: 33:     {;PIC18F4331_Timer.c: 34:         TMR0H = (0xE1);
+  1009   000042  0EE1               	movlw	225
+  1010   000044  6ED7               	movwf	215,c	;volatile
+  1011   000046                     i2l1068:
+  1012                           
+  1013                           ;PIC18F4331_Timer.c: 38:     if(INTCONbits.TMR0IF)
+  1014   000046  A4F2               	btfss	242,2,c	;volatile
+  1015   000048  EF28  F000         	goto	i2u31_41
+  1016   00004C  EF2A  F000         	goto	i2u31_40
+  1017   000050                     i2u31_41:
+  1018   000050  EF2F  F000         	goto	i2l1076
+  1019   000054                     i2u31_40:
+  1020   000054                     
+  1021                           ;PIC18F4331_Timer.c: 39:     {;PIC18F4331_Timer.c: 41:         tmr0Counter++;
+  1022   000054  4A29               	infsnz	_tmr0Counter^0,f,c	;volatile
+  1023   000056  2A2A               	incf	(_tmr0Counter+1)^0,f,c	;volatile
+  1024   000058                     
+  1025                           ;PIC18F4331_Timer.c: 43:         Callbacks_Manager();
+  1026   000058  EC3D  F000         	call	_Callbacks_Manager	;wreg free
+  1027   00005C                     
+  1028                           ;PIC18F4331_Timer.c: 46:         INTCONbits.TMR0IF = 0;
+  1029   00005C  94F2               	bcf	242,2,c	;volatile
+  1030   00005E                     i2l1076:
+  1031                           
+  1032                           ;PIC18F4331_Timer.c: 50:     INTCONbits.GIEH = 1;
+  1033   00005E  8EF2               	bsf	242,7,c	;volatile
+  1034   000060                     
+  1035                           ;PIC18F4331_Timer.c: 51:     INTCONbits.GIEL = 1;
+  1036   000060  8CF2               	bsf	242,6,c	;volatile
+  1037   000062  C038  FFF4         	movff	??_timer_overflow_isr+3,prodh
+  1038   000066  C037  FFF3         	movff	??_timer_overflow_isr+2,prodl
+  1039   00006A  C036  FFDA         	movff	??_timer_overflow_isr+1,fsr2h
+  1040   00006E  C035  FFD9         	movff	??_timer_overflow_isr,fsr2l
+  1041   000072  9243               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+  1042   000074  0011               	retfie		f
+  1043   000076                     __end_of_timer_overflow_isr:
+  1044                           	callstack 0
+  1045                           
+  1046 ;; *************** function _Callbacks_Manager *****************
+  1047 ;; Defined at:
+  1048 ;;		line 26 in file "SystemCallbacks.c"
+  1049 ;; Parameters:    Size  Location     Type
+  1050 ;;		None
+  1051 ;; Auto vars:     Size  Location     Type
+  1052 ;;  callbacks       1    7[COMRAM] unsigned char 
+  1053 ;; Return value:  Size  Location     Type
+  1054 ;;                  1    wreg      void 
+  1055 ;; Registers used:
+  1056 ;;		wreg, fsr2l, fsr2h, status,2, status,0, prodl, prodh, cstack
+  1057 ;; Tracked objects:
+  1058 ;;		On entry : 0/0
+  1059 ;;		On exit  : 0/0
+  1060 ;;		Unchanged: 0/0
+  1061 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+  1062 ;;      Params:         0       0       0       0
+  1063 ;;      Locals:         1       0       0       0
+  1064 ;;      Temps:          2       0       0       0
+  1065 ;;      Totals:         3       0       0       0
+  1066 ;;Total ram usage:        3 bytes
+  1067 ;; Hardware stack levels used: 1
+  1068 ;; Hardware stack levels required when called: 1
+  1069 ;; This function calls:
+  1070 ;;		___lwmod
+  1071 ;; This function is called by:
+  1072 ;;		_timer_overflow_isr
+  1073 ;; This function uses a non-reentrant model
+  1074 ;;
+  1075                           
+  1076                           	psect	text13
+  1077   00007A                     __ptext13:
+  1078                           	callstack 0
+  1079   00007A                     _Callbacks_Manager:
+  1080                           	callstack 24
+  1081   00007A                     
+  1082                           ;SystemCallbacks.c: 32:     system_count++;
+  1083   00007A  4A3F               	infsnz	_system_count^0,f,c
+  1084   00007C  2A40               	incf	(_system_count+1)^0,f,c
+  1085   00007E                     
+  1086                           ;SystemCallbacks.c: 33:     if (system_count == (65000))
+  1087   00007E  0EE8               	movlw	232
+  1088   000080  183F               	xorwf	_system_count^0,w,c
+  1089   000082  E107               	bnz	i2u25_41
+  1090   000084  0EFD               	movlw	253
+  1091   000086  1840               	xorwf	(_system_count+1)^0,w,c
+  1092   000088  A4D8               	btfss	status,2,c
+  1093   00008A  EF49  F000         	goto	i2u25_41
+  1094   00008E  EF4B  F000         	goto	i2u25_40
+  1095   000092                     i2u25_41:
+  1096   000092  EF4F  F000         	goto	i2l136
+  1097   000096                     i2u25_40:
+  1098   000096                     
+  1099                           ;SystemCallbacks.c: 34:     {;SystemCallbacks.c: 35:         system_count = (2);
+  1100   000096  0E00               	movlw	0
+  1101   000098  6E40               	movwf	(_system_count+1)^0,c
+  1102   00009A  0E02               	movlw	2
+  1103   00009C  6E3F               	movwf	_system_count^0,c
+  1104   00009E                     i2l136:
+  1105                           
+  1106                           ;SystemCallbacks.c: 38:     if(number_of_callbacks == 0)
+  1107   00009E  5041               	movf	_number_of_callbacks^0,w,c
+  1108   0000A0  A4D8               	btfss	status,2,c
+  1109   0000A2  EF55  F000         	goto	i2u26_41
+  1110   0000A6  EF57  F000         	goto	i2u26_40
+  1111   0000AA                     i2u26_41:
+  1112   0000AA  EF59  F000         	goto	i2l1026
+  1113   0000AE                     i2u26_40:
+  1114   0000AE  EF7F  F000         	goto	i2l138
+  1115   0000B2                     i2l1026:
+  1116                           
+  1117                           ;SystemCallbacks.c: 43:     for (U8 callbacks = 0; callbacks < number_of_callbacks; call
+      +                          backs++)
+  1118   0000B2  0E00               	movlw	0
+  1119   0000B4  6E34               	movwf	Callbacks_Manager@callbacks^0,c
+  1120   0000B6  EF76  F000         	goto	i2l1034
+  1121   0000BA                     i2l1028:
+  1122                           
+  1123                           ;SystemCallbacks.c: 44:     {;SystemCallbacks.c: 45:         if (system_count % ((regist
+      +                          ered_callbacks[callbacks].expiry_time)+(2)) == 0)
+  1124   0000BA  C03F  F02D         	movff	_system_count,___lwmod@dividend
+  1125   0000BE  C040  F02E         	movff	_system_count+1,___lwmod@dividend+1
+  1126   0000C2  5034               	movf	Callbacks_Manager@callbacks^0,w,c
+  1127   0000C4  0D04               	mullw	4
+  1128   0000C6  0E01               	movlw	low _registered_callbacks
+  1129   0000C8  24F3               	addwf	243,w,c
+  1130   0000CA  6ED9               	movwf	fsr2l,c
+  1131   0000CC  0E00               	movlw	high _registered_callbacks
+  1132   0000CE  20F4               	addwfc	prodh,w,c
+  1133   0000D0  6EDA               	movwf	fsr2h,c
+  1134   0000D2  CFDE F032          	movff	postinc2,??_Callbacks_Manager
+  1135   0000D6  CFDD F033          	movff	postdec2,??_Callbacks_Manager+1
+  1136   0000DA  0E02               	movlw	2
+  1137   0000DC  2432               	addwf	??_Callbacks_Manager^0,w,c
+  1138   0000DE  6E2F               	movwf	___lwmod@divisor^0,c
+  1139   0000E0  0E00               	movlw	0
+  1140   0000E2  2033               	addwfc	(??_Callbacks_Manager+1)^0,w,c
+  1141   0000E4  6E30               	movwf	(___lwmod@divisor+1)^0,c
+  1142   0000E6  ECBF  F000         	call	___lwmod	;wreg free
+  1143   0000EA                     
+  1144                           ;SystemCallbacks.c: 52:     }
+  1145   0000EA  2A34               	incf	Callbacks_Manager@callbacks^0,f,c
+  1146   0000EC                     i2l1034:
+  1147   0000EC  5041               	movf	_number_of_callbacks^0,w,c
+  1148   0000EE  5C34               	subwf	Callbacks_Manager@callbacks^0,w,c
+  1149   0000F0  A0D8               	btfss	status,0,c
+  1150   0000F2  EF7D  F000         	goto	i2u27_41
+  1151   0000F6  EF7F  F000         	goto	i2u27_40
+  1152   0000FA                     i2u27_41:
+  1153   0000FA  EF5D  F000         	goto	i2l1028
+  1154   0000FE                     i2u27_40:
+  1155   0000FE                     i2l138:
+  1156   0000FE  0012               	return		;funcret
+  1157   000100                     __end_of_Callbacks_Manager:
+  1158                           	callstack 0
+  1159                           
+  1160 ;; *************** function ___lwmod *****************
+  1161 ;; Defined at:
+  1162 ;;		line 7 in file "C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\lwmod.c"
+  1163 ;; Parameters:    Size  Location     Type
+  1164 ;;  dividend        2    0[COMRAM] unsigned int 
+  1165 ;;  divisor         2    2[COMRAM] unsigned int 
+  1166 ;; Auto vars:     Size  Location     Type
+  1167 ;;  counter         1    4[COMRAM] unsigned char 
+  1168 ;; Return value:  Size  Location     Type
+  1169 ;;                  2    0[COMRAM] unsigned int 
+  1170 ;; Registers used:
+  1171 ;;		wreg, status,2, status,0
+  1172 ;; Tracked objects:
+  1173 ;;		On entry : 0/0
+  1174 ;;		On exit  : 0/0
+  1175 ;;		Unchanged: 0/0
+  1176 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2
+  1177 ;;      Params:         4       0       0       0
+  1178 ;;      Locals:         1       0       0       0
+  1179 ;;      Temps:          0       0       0       0
+  1180 ;;      Totals:         5       0       0       0
+  1181 ;;Total ram usage:        5 bytes
+  1182 ;; Hardware stack levels used: 1
+  1183 ;; This function calls:
+  1184 ;;		Nothing
+  1185 ;; This function is called by:
+  1186 ;;		_Callbacks_Manager
+  1187 ;; This function uses a non-reentrant model
+  1188 ;;
+  1189                           
+  1190                           	psect	text14
+  1191   00017E                     __ptext14:
+  1192                           	callstack 0
+  1193   00017E                     ___lwmod:
+  1194                           	callstack 24
+  1195   00017E  502F               	movf	___lwmod@divisor^0,w,c
+  1196   000180  1030               	iorwf	(___lwmod@divisor+1)^0,w,c
+  1197   000182  B4D8               	btfsc	status,2,c
+  1198   000184  EFC6  F000         	goto	i2u22_41
+  1199   000188  EFC8  F000         	goto	i2u22_40
+  1200   00018C                     i2u22_41:
+  1201   00018C  EFEC  F000         	goto	i2l652
+  1202   000190                     i2u22_40:
+  1203   000190  0E01               	movlw	1
+  1204   000192  6E31               	movwf	___lwmod@counter^0,c
+  1205   000194  EFD0  F000         	goto	i2l1008
+  1206   000198                     i2l1006:
+  1207   000198  90D8               	bcf	status,0,c
+  1208   00019A  362F               	rlcf	___lwmod@divisor^0,f,c
+  1209   00019C  3630               	rlcf	(___lwmod@divisor+1)^0,f,c
+  1210   00019E  2A31               	incf	___lwmod@counter^0,f,c
+  1211   0001A0                     i2l1008:
+  1212   0001A0  AE30               	btfss	(___lwmod@divisor+1)^0,7,c
+  1213   0001A2  EFD5  F000         	goto	i2u23_41
+  1214   0001A6  EFD7  F000         	goto	i2u23_40
+  1215   0001AA                     i2u23_41:
+  1216   0001AA  EFCC  F000         	goto	i2l1006
+  1217   0001AE                     i2u23_40:
+  1218   0001AE                     i2l1010:
+  1219   0001AE  502F               	movf	___lwmod@divisor^0,w,c
+  1220   0001B0  5C2D               	subwf	___lwmod@dividend^0,w,c
+  1221   0001B2  5030               	movf	(___lwmod@divisor+1)^0,w,c
+  1222   0001B4  582E               	subwfb	(___lwmod@dividend+1)^0,w,c
+  1223   0001B6  A0D8               	btfss	status,0,c
+  1224   0001B8  EFE0  F000         	goto	i2u24_41
+  1225   0001BC  EFE2  F000         	goto	i2u24_40
+  1226   0001C0                     i2u24_41:
+  1227   0001C0  EFE6  F000         	goto	i2l1014
+  1228   0001C4                     i2u24_40:
+  1229   0001C4  502F               	movf	___lwmod@divisor^0,w,c
+  1230   0001C6  5E2D               	subwf	___lwmod@dividend^0,f,c
+  1231   0001C8  5030               	movf	(___lwmod@divisor+1)^0,w,c
+  1232   0001CA  5A2E               	subwfb	(___lwmod@dividend+1)^0,f,c
+  1233   0001CC                     i2l1014:
+  1234   0001CC  90D8               	bcf	status,0,c
+  1235   0001CE  3230               	rrcf	(___lwmod@divisor+1)^0,f,c
+  1236   0001D0  322F               	rrcf	___lwmod@divisor^0,f,c
+  1237   0001D2  2E31               	decfsz	___lwmod@counter^0,f,c
+  1238   0001D4  EFD7  F000         	goto	i2l1010
+  1239   0001D8                     i2l652:
+  1240   0001D8  C02D  F02D         	movff	___lwmod@dividend,?___lwmod
+  1241   0001DC  C02E  F02E         	movff	___lwmod@dividend+1,?___lwmod+1
+  1242   0001E0  0012               	return		;funcret
+  1243   0001E2                     __end_of___lwmod:
+  1244                           	callstack 0
+  1245   000000                     
+  1246                           	psect	rparam
+  1247   000000                     
+  1248                           	psect	temp
+  1249   000043                     btemp:
+  1250                           	callstack 0
+  1251   000043                     	ds	1
+  1252   000000                     int$flags	set	btemp
+  1253   000000                     wtemp8	set	btemp+1
+  1254   000000                     ttemp5	set	btemp+1
+  1255   000000                     ttemp6	set	btemp+4
+  1256   000000                     ttemp7	set	btemp+8
+  1257                           
+  1258                           	psect	idloc
+  1259                           
+  1260                           ;Config register IDLOC0 @ 0x200000
+  1261                           ;	unspecified, using default values
+  1262   200000                     	org	2097152
+  1263   200000  FF                 	db	255
+  1264                           
+  1265                           ;Config register IDLOC1 @ 0x200001
+  1266                           ;	unspecified, using default values
+  1267   200001                     	org	2097153
+  1268   200001  FF                 	db	255
+  1269                           
+  1270                           ;Config register IDLOC2 @ 0x200002
+  1271                           ;	unspecified, using default values
+  1272   200002                     	org	2097154
+  1273   200002  FF                 	db	255
+  1274                           
+  1275                           ;Config register IDLOC3 @ 0x200003
+  1276                           ;	unspecified, using default values
+  1277   200003                     	org	2097155
+  1278   200003  FF                 	db	255
   1279                           
-  1280                           ;Config register IDLOC0 @ 0x200000
+  1280                           ;Config register IDLOC4 @ 0x200004
   1281                           ;	unspecified, using default values
-  1282   200000                     	org	2097152
-  1283   200000  FF                 	db	255
+  1282   200004                     	org	2097156
+  1283   200004  FF                 	db	255
   1284                           
-  1285                           ;Config register IDLOC1 @ 0x200001
+  1285                           ;Config register IDLOC5 @ 0x200005
   1286                           ;	unspecified, using default values
-  1287   200001                     	org	2097153
-  1288   200001  FF                 	db	255
+  1287   200005                     	org	2097157
+  1288   200005  FF                 	db	255
   1289                           
-  1290                           ;Config register IDLOC2 @ 0x200002
+  1290                           ;Config register IDLOC6 @ 0x200006
   1291                           ;	unspecified, using default values
-  1292   200002                     	org	2097154
-  1293   200002  FF                 	db	255
+  1292   200006                     	org	2097158
+  1293   200006  FF                 	db	255
   1294                           
-  1295                           ;Config register IDLOC3 @ 0x200003
+  1295                           ;Config register IDLOC7 @ 0x200007
   1296                           ;	unspecified, using default values
-  1297   200003                     	org	2097155
-  1298   200003  FF                 	db	255
+  1297   200007                     	org	2097159
+  1298   200007  FF                 	db	255
   1299                           
-  1300                           ;Config register IDLOC4 @ 0x200004
-  1301                           ;	unspecified, using default values
-  1302   200004                     	org	2097156
-  1303   200004  FF                 	db	255
-  1304                           
-  1305                           ;Config register IDLOC5 @ 0x200005
-  1306                           ;	unspecified, using default values
-  1307   200005                     	org	2097157
-  1308   200005  FF                 	db	255
-  1309                           
-  1310                           ;Config register IDLOC6 @ 0x200006
-  1311                           ;	unspecified, using default values
-  1312   200006                     	org	2097158
-  1313   200006  FF                 	db	255
-  1314                           
-  1315                           ;Config register IDLOC7 @ 0x200007
-  1316                           ;	unspecified, using default values
-  1317   200007                     	org	2097159
-  1318   200007  FF                 	db	255
-  1319                           
-  1320                           	psect	config
-  1321                           
-  1322                           ; Padding undefined space
-  1323   300000                     	org	3145728
-  1324   300000  FF                 	db	255
+  1300                           	psect	config
+  1301                           
+  1302                           ; Padding undefined space
+  1303   300000                     	org	3145728
+  1304   300000  FF                 	db	255
+  1305                           
+  1306                           ;Config register CONFIG1H @ 0x300001
+  1307                           ;	Oscillator Selection bits
+  1308                           ;	OSC = IRCIO, Internal oscillator block, port function on RA6 and port function on RA7
+  1309                           ;	Fail-Safe Clock Monitor Enable bit
+  1310                           ;	FCMEN = ON, Fail-Safe Clock Monitor enabled
+  1311                           ;	Internal External Oscillator Switchover bit
+  1312                           ;	IESO = ON, Internal External Switchover mode enabled
+  1313   300001                     	org	3145729
+  1314   300001  C8                 	db	200
+  1315                           
+  1316                           ;Config register CONFIG2L @ 0x300002
+  1317                           ;	Power-up Timer Enable bit
+  1318                           ;	PWRTEN = OFF, PWRT disabled
+  1319                           ;	Brown-out Reset Enable bits
+  1320                           ;	BOREN = ON, Brown-out Reset enabled
+  1321                           ;	Brown Out Reset Voltage bits
+  1322                           ;	BORV = 0x3, unprogrammed default
+  1323   300002                     	org	3145730
+  1324   300002  0F                 	db	15
   1325                           
-  1326                           ;Config register CONFIG1H @ 0x300001
-  1327                           ;	Oscillator Selection bits
-  1328                           ;	OSC = IRCIO, Internal oscillator block, port function on RA6 and port function on RA7
-  1329                           ;	Fail-Safe Clock Monitor Enable bit
-  1330                           ;	FCMEN = ON, Fail-Safe Clock Monitor enabled
-  1331                           ;	Internal External Oscillator Switchover bit
-  1332                           ;	IESO = ON, Internal External Switchover mode enabled
-  1333   300001                     	org	3145729
-  1334   300001  C8                 	db	200
+  1326                           ;Config register CONFIG2H @ 0x300003
+  1327                           ;	Watchdog Timer Enable bit
+  1328                           ;	WDTEN = OFF, WDT disabled (control is placed on the SWDTEN bit)
+  1329                           ;	Watchdog Timer Postscale Select bits
+  1330                           ;	WDPS = 32768, 1:32768
+  1331                           ;	Watchdog Timer Window Enable bit
+  1332                           ;	WINEN = OFF, WDT window disabled
+  1333   300003                     	org	3145731
+  1334   300003  3E                 	db	62
   1335                           
-  1336                           ;Config register CONFIG2L @ 0x300002
-  1337                           ;	Power-up Timer Enable bit
-  1338                           ;	PWRTEN = OFF, PWRT disabled
-  1339                           ;	Brown-out Reset Enable bits
-  1340                           ;	BOREN = ON, Brown-out Reset enabled
-  1341                           ;	Brown Out Reset Voltage bits
-  1342                           ;	BORV = 0x3, unprogrammed default
-  1343   300002                     	org	3145730
-  1344   300002  0F                 	db	15
-  1345                           
-  1346                           ;Config register CONFIG2H @ 0x300003
-  1347                           ;	Watchdog Timer Enable bit
-  1348                           ;	WDTEN = OFF, WDT disabled (control is placed on the SWDTEN bit)
-  1349                           ;	Watchdog Timer Postscale Select bits
-  1350                           ;	WDPS = 32768, 1:32768
-  1351                           ;	Watchdog Timer Window Enable bit
-  1352                           ;	WINEN = OFF, WDT window disabled
-  1353   300003                     	org	3145731
-  1354   300003  3E                 	db	62
-  1355                           
-  1356                           ;Config register CONFIG3L @ 0x300004
-  1357                           ;	PWM output pins Reset state control
-  1358                           ;	PWMPIN = OFF, PWM outputs disabled upon Reset (default)
-  1359                           ;	Low-Side Transistors Polarity
-  1360                           ;	LPOL = HIGH, PWM0, 2, 4 and 6 are active-high
-  1361                           ;	High-Side Transistors Polarity
-  1362                           ;	HPOL = HIGH, PWM1, 3, 5 and 7 are active-high
-  1363                           ;	Timer1 Oscillator MUX
-  1364                           ;	T1OSCMX = ON, Low-power Timer1 operation when microcontroller is in Sleep mode
-  1365   300004                     	org	3145732
-  1366   300004  3C                 	db	60
-  1367                           
-  1368                           ;Config register CONFIG3H @ 0x300005
-  1369                           ;	FLTA MUX bit
-  1370                           ;	FLTAMX = RC1, FLTA input is multiplexed with RC1
-  1371                           ;	SSP I/O MUX bit
-  1372                           ;	SSPMX = RC7, SCK/SCL clocks and SDA/SDI data are multiplexed with RC5 and RC4, respect
+  1336                           ;Config register CONFIG3L @ 0x300004
+  1337                           ;	PWM output pins Reset state control
+  1338                           ;	PWMPIN = OFF, PWM outputs disabled upon Reset (default)
+  1339                           ;	Low-Side Transistors Polarity
+  1340                           ;	LPOL = HIGH, PWM0, 2, 4 and 6 are active-high
+  1341                           ;	High-Side Transistors Polarity
+  1342                           ;	HPOL = HIGH, PWM1, 3, 5 and 7 are active-high
+  1343                           ;	Timer1 Oscillator MUX
+  1344                           ;	T1OSCMX = ON, Low-power Timer1 operation when microcontroller is in Sleep mode
+  1345   300004                     	org	3145732
+  1346   300004  3C                 	db	60
+  1347                           
+  1348                           ;Config register CONFIG3H @ 0x300005
+  1349                           ;	FLTA MUX bit
+  1350                           ;	FLTAMX = RC1, FLTA input is multiplexed with RC1
+  1351                           ;	SSP I/O MUX bit
+  1352                           ;	SSPMX = RC7, SCK/SCL clocks and SDA/SDI data are multiplexed with RC5 and RC4, respect
       +                          ively. SDO output is multiplexed with RC7.
-  1373                           ;	PWM4 MUX bit
-  1374                           ;	PWM4MX = RB5, PWM4 output is multiplexed with RB5
-  1375                           ;	TMR0/T5CKI External clock MUX bit
-  1376                           ;	EXCLKMX = RC3, TMR0/T5CKI external clock input is multiplexed with RC3
-  1377                           ;	MCLR Pin Enable bit
-  1378                           ;	MCLRE = ON, Enabled
-  1379   300005                     	org	3145733
-  1380   300005  9D                 	db	157
-  1381                           
-  1382                           ;Config register CONFIG4L @ 0x300006
-  1383                           ;	Stack Full/Underflow Reset Enable bit
-  1384                           ;	STVREN = ON, Stack full/underflow will cause Reset
-  1385                           ;	Low-Voltage ICSP Enable bit
-  1386                           ;	LVP = ON, Low-voltage ICSP enabled
-  1387                           ;	Background Debugger Enable bit
-  1388                           ;	DEBUG = 0x1, unprogrammed default
-  1389   300006                     	org	3145734
-  1390   300006  85                 	db	133
+  1353                           ;	PWM4 MUX bit
+  1354                           ;	PWM4MX = RB5, PWM4 output is multiplexed with RB5
+  1355                           ;	TMR0/T5CKI External clock MUX bit
+  1356                           ;	EXCLKMX = RC3, TMR0/T5CKI external clock input is multiplexed with RC3
+  1357                           ;	MCLR Pin Enable bit
+  1358                           ;	MCLRE = ON, Enabled
+  1359   300005                     	org	3145733
+  1360   300005  9D                 	db	157
+  1361                           
+  1362                           ;Config register CONFIG4L @ 0x300006
+  1363                           ;	Stack Full/Underflow Reset Enable bit
+  1364                           ;	STVREN = ON, Stack full/underflow will cause Reset
+  1365                           ;	Low-Voltage ICSP Enable bit
+  1366                           ;	LVP = ON, Low-voltage ICSP enabled
+  1367                           ;	Background Debugger Enable bit
+  1368                           ;	DEBUG = 0x1, unprogrammed default
+  1369   300006                     	org	3145734
+  1370   300006  85                 	db	133
+  1371                           
+  1372                           ; Padding undefined space
+  1373   300007                     	org	3145735
+  1374   300007  FF                 	db	255
+  1375                           
+  1376                           ;Config register CONFIG5L @ 0x300008
+  1377                           ;	Code Protection bit
+  1378                           ;	CP0 = OFF, Block 0 (000200-000FFFh) not code-protected
+  1379                           ;	Code Protection bit
+  1380                           ;	CP1 = OFF, Block 1 (001000-001FFF) not code-protected
+  1381   300008                     	org	3145736
+  1382   300008  0F                 	db	15
+  1383                           
+  1384                           ;Config register CONFIG5H @ 0x300009
+  1385                           ;	Boot Block Code Protection bit
+  1386                           ;	CPB = OFF, Boot Block (000000-0001FFh) not code-protected
+  1387                           ;	Data EEPROM Code Protection bit
+  1388                           ;	CPD = OFF, Data EEPROM not code-protected
+  1389   300009                     	org	3145737
+  1390   300009  C0                 	db	192
   1391                           
-  1392                           ; Padding undefined space
-  1393   300007                     	org	3145735
-  1394   300007  FF                 	db	255
-  1395                           
-  1396                           ;Config register CONFIG5L @ 0x300008
-  1397                           ;	Code Protection bit
-  1398                           ;	CP0 = OFF, Block 0 (000200-000FFFh) not code-protected
-  1399                           ;	Code Protection bit
-  1400                           ;	CP1 = OFF, Block 1 (001000-001FFF) not code-protected
-  1401   300008                     	org	3145736
-  1402   300008  0F                 	db	15
-  1403                           
-  1404                           ;Config register CONFIG5H @ 0x300009
-  1405                           ;	Boot Block Code Protection bit
-  1406                           ;	CPB = OFF, Boot Block (000000-0001FFh) not code-protected
-  1407                           ;	Data EEPROM Code Protection bit
-  1408                           ;	CPD = OFF, Data EEPROM not code-protected
-  1409   300009                     	org	3145737
-  1410   300009  C0                 	db	192
-  1411                           
-  1412                           ;Config register CONFIG6L @ 0x30000A
-  1413                           ;	Write Protection bit
-  1414                           ;	WRT0 = OFF, Block 0 (000200-000FFFh) not write-protected
-  1415                           ;	Write Protection bit
-  1416                           ;	WRT1 = OFF, Block 1 (001000-001FFF) not write-protected
-  1417   30000A                     	org	3145738
-  1418   30000A  0F                 	db	15
-  1419                           
-  1420                           ;Config register CONFIG6H @ 0x30000B
-  1421                           ;	Configuration Register Write Protection bit
-  1422                           ;	WRTC = OFF, Configuration registers (300000-3000FFh) not write-protected
-  1423                           ;	Boot Block Write Protection bit
-  1424                           ;	WRTB = OFF, Boot Block (000000-0001FFh) not write-protected
-  1425                           ;	Data EEPROM Write Protection bit
-  1426                           ;	WRTD = OFF, Data EEPROM not write-protected
-  1427   30000B                     	org	3145739
-  1428   30000B  E0                 	db	224
-  1429                           
-  1430                           ;Config register CONFIG7L @ 0x30000C
-  1431                           ;	Table Read Protection bit
-  1432                           ;	EBTR0 = OFF, Block 0 (000200-000FFFh) not protected from table reads executed in other
+  1392                           ;Config register CONFIG6L @ 0x30000A
+  1393                           ;	Write Protection bit
+  1394                           ;	WRT0 = OFF, Block 0 (000200-000FFFh) not write-protected
+  1395                           ;	Write Protection bit
+  1396                           ;	WRT1 = OFF, Block 1 (001000-001FFF) not write-protected
+  1397   30000A                     	org	3145738
+  1398   30000A  0F                 	db	15
+  1399                           
+  1400                           ;Config register CONFIG6H @ 0x30000B
+  1401                           ;	Configuration Register Write Protection bit
+  1402                           ;	WRTC = OFF, Configuration registers (300000-3000FFh) not write-protected
+  1403                           ;	Boot Block Write Protection bit
+  1404                           ;	WRTB = OFF, Boot Block (000000-0001FFh) not write-protected
+  1405                           ;	Data EEPROM Write Protection bit
+  1406                           ;	WRTD = OFF, Data EEPROM not write-protected
+  1407   30000B                     	org	3145739
+  1408   30000B  E0                 	db	224
+  1409                           
+  1410                           ;Config register CONFIG7L @ 0x30000C
+  1411                           ;	Table Read Protection bit
+  1412                           ;	EBTR0 = OFF, Block 0 (000200-000FFFh) not protected from table reads executed in other
       +                           blocks
-  1433                           ;	Table Read Protection bit
-  1434                           ;	EBTR1 = OFF, Block 1 (001000-001FFF) not protected from table reads executed in other 
+  1413                           ;	Table Read Protection bit
+  1414                           ;	EBTR1 = OFF, Block 1 (001000-001FFF) not protected from table reads executed in other 
       +                          blocks
-  1435   30000C                     	org	3145740
-  1436   30000C  0F                 	db	15
-  1437                           
-  1438                           ;Config register CONFIG7H @ 0x30000D
-  1439                           ;	Boot Block Table Read Protection bit
-  1440                           ;	EBTRB = OFF, Boot Block (000000-0001FFh) not protected from table reads executed in ot
+  1415   30000C                     	org	3145740
+  1416   30000C  0F                 	db	15
+  1417                           
+  1418                           ;Config register CONFIG7H @ 0x30000D
+  1419                           ;	Boot Block Table Read Protection bit
+  1420                           ;	EBTRB = OFF, Boot Block (000000-0001FFh) not protected from table reads executed in ot
       +                          her blocks
-  1441   30000D                     	org	3145741
-  1442   30000D  40                 	db	64
-  1443                           tosu	equ	0xFFF
-  1444                           tosh	equ	0xFFE
-  1445                           tosl	equ	0xFFD
-  1446                           stkptr	equ	0xFFC
-  1447                           pclatu	equ	0xFFB
-  1448                           pclath	equ	0xFFA
-  1449                           pcl	equ	0xFF9
-  1450                           tblptru	equ	0xFF8
-  1451                           tblptrh	equ	0xFF7
-  1452                           tblptrl	equ	0xFF6
-  1453                           tablat	equ	0xFF5
-  1454                           prodh	equ	0xFF4
-  1455                           prodl	equ	0xFF3
-  1456                           indf0	equ	0xFEF
-  1457                           postinc0	equ	0xFEE
-  1458                           postdec0	equ	0xFED
-  1459                           preinc0	equ	0xFEC
-  1460                           plusw0	equ	0xFEB
-  1461                           fsr0h	equ	0xFEA
-  1462                           fsr0l	equ	0xFE9
-  1463                           wreg	equ	0xFE8
-  1464                           indf1	equ	0xFE7
-  1465                           postinc1	equ	0xFE6
-  1466                           postdec1	equ	0xFE5
-  1467                           preinc1	equ	0xFE4
-  1468                           plusw1	equ	0xFE3
-  1469                           fsr1h	equ	0xFE2
-  1470                           fsr1l	equ	0xFE1
-  1471                           bsr	equ	0xFE0
-  1472                           indf2	equ	0xFDF
-  1473                           postinc2	equ	0xFDE
-  1474                           postdec2	equ	0xFDD
-  1475                           preinc2	equ	0xFDC
-  1476                           plusw2	equ	0xFDB
-  1477                           fsr2h	equ	0xFDA
-  1478                           fsr2l	equ	0xFD9
-  1479                           status	equ	0xFD8
+  1421   30000D                     	org	3145741
+  1422   30000D  40                 	db	64
+  1423                           tosu	equ	0xFFF
+  1424                           tosh	equ	0xFFE
+  1425                           tosl	equ	0xFFD
+  1426                           stkptr	equ	0xFFC
+  1427                           pclatu	equ	0xFFB
+  1428                           pclath	equ	0xFFA
+  1429                           pcl	equ	0xFF9
+  1430                           tblptru	equ	0xFF8
+  1431                           tblptrh	equ	0xFF7
+  1432                           tblptrl	equ	0xFF6
+  1433                           tablat	equ	0xFF5
+  1434                           prodh	equ	0xFF4
+  1435                           prodl	equ	0xFF3
+  1436                           indf0	equ	0xFEF
+  1437                           postinc0	equ	0xFEE
+  1438                           postdec0	equ	0xFED
+  1439                           preinc0	equ	0xFEC
+  1440                           plusw0	equ	0xFEB
+  1441                           fsr0h	equ	0xFEA
+  1442                           fsr0l	equ	0xFE9
+  1443                           wreg	equ	0xFE8
+  1444                           indf1	equ	0xFE7
+  1445                           postinc1	equ	0xFE6
+  1446                           postdec1	equ	0xFE5
+  1447                           preinc1	equ	0xFE4
+  1448                           plusw1	equ	0xFE3
+  1449                           fsr1h	equ	0xFE2
+  1450                           fsr1l	equ	0xFE1
+  1451                           bsr	equ	0xFE0
+  1452                           indf2	equ	0xFDF
+  1453                           postinc2	equ	0xFDE
+  1454                           postdec2	equ	0xFDD
+  1455                           preinc2	equ	0xFDC
+  1456                           plusw2	equ	0xFDB
+  1457                           fsr2h	equ	0xFDA
+  1458                           fsr2l	equ	0xFD9
+  1459                           status	equ	0xFD8
 
 Data Sizes:
     Strings     0
     Constant    0
-    Data        0
-    BSS         410
+    Data        3
+    BSS         44
     Persistent  1
     Stack       0
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM           94     13      24
+    COMRAM           94     18      66
     BANK0           160      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -1522,27 +1501,21 @@ Pointer List with Targets:
 
     Register_Callback@config.callback	PTR FTN()void  size(2) Largest target is 0
 
-    S475$callback	PTR FTN()void  size(2) Largest target is 0
+    S463$callback	PTR FTN()void  size(2) Largest target is 0
 
     registered_callbacks.callback	PTR FTN()void  size(2) Largest target is 0
-
-    TimerMiddleware_Init@callback_executive	PTR FTN()void  size(2) Largest target is 1
-		 -> OneSecond_ExecutiveCallback(), 
-
-    CallbackExecutive	PTR FTN()void  size(2) Largest target is 1
-		 -> Absolute function(), OneSecond_ExecutiveCallback(), 
 
 
 Critical Paths under _main in COMRAM
 
     _main->_FSM_begin
     _FSM_begin->_SMS_read_and_set_state
-    _SystemCallbacks_Init->_TimerMiddleware_Init
     _SMS_read_and_set_state->_ADC_Read
 
 Critical Paths under _timer_overflow_isr in COMRAM
 
-    _OneSecond_Timer_Middleware->_OneSecond_ExecutiveCallback
+    _timer_overflow_isr->_Callbacks_Manager
+    _Callbacks_Manager->___lwmod
 
 Critical Paths under _main in BANK0
 
@@ -1573,15 +1546,14 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 0     0      0     210
+ (0) _main                                                 0     0      0     112
                           _FSM_begin
                           _set_state
  ---------------------------------------------------------------------------------
- (1) _FSM_begin                                            2     2      0     195
-                                             11 COMRAM     2     2      0
+ (1) _FSM_begin                                            2     2      0      97
+                                             16 COMRAM     2     2      0
                            _SMS_init
              _SMS_read_and_set_state
-               _SystemCallbacks_Init
                         _Timer0_init
                   _get_current_state
                           _set_state
@@ -1590,22 +1562,16 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (2) _Timer0_init                                          0     0      0       0
  ---------------------------------------------------------------------------------
- (2) _SystemCallbacks_Init                                 0     0      0      98
-               _TimerMiddleware_Init
- ---------------------------------------------------------------------------------
- (3) _TimerMiddleware_Init                                 2     0      2      98
-                                              7 COMRAM     2     0      2
- ---------------------------------------------------------------------------------
  (2) _SMS_read_and_set_state                               2     2      0      82
-                                              9 COMRAM     2     2      0
+                                             14 COMRAM     2     2      0
                            _ADC_Read
                           _set_state
  ---------------------------------------------------------------------------------
  (1) _set_state                                            1     1      0      15
-                                              7 COMRAM     1     1      0
+                                             12 COMRAM     1     1      0
  ---------------------------------------------------------------------------------
  (3) _ADC_Read                                             2     0      2       0
-                                              7 COMRAM     2     0      2
+                                             12 COMRAM     2     0      2
                     _ADC_in_progress
                           _ADC_start
  ---------------------------------------------------------------------------------
@@ -1625,18 +1591,16 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (5) _timer_overflow_isr                                   4     4      0      45
-                                              3 COMRAM     4     4      0
-         _OneSecond_Timer_Middleware
+ (5) _timer_overflow_isr                                   4     4      0     379
+                                              8 COMRAM     4     4      0
+                  _Callbacks_Manager
  ---------------------------------------------------------------------------------
- (6) _OneSecond_Timer_Middleware                           0     0      0      45
-                   Absolute function *
-        _OneSecond_ExecutiveCallback *
+ (6) _Callbacks_Manager                                    3     3      0     379
+                                              5 COMRAM     3     3      0
+                            ___lwmod
  ---------------------------------------------------------------------------------
- (7) _OneSecond_ExecutiveCallback                          3     3      0      45
-                                              0 COMRAM     3     3      0
- ---------------------------------------------------------------------------------
- (7) Absolute function(Fake)                               0     0      0       0
+ (7) ___lwmod                                              5     1      4     311
+                                              0 COMRAM     5     1      4
  ---------------------------------------------------------------------------------
  Estimated maximum stack depth 7
  ---------------------------------------------------------------------------------
@@ -1653,21 +1617,18 @@ Call Graph Tables:
          _ADC_in_progress
          _ADC_start
        _set_state
-     _SystemCallbacks_Init
-       _TimerMiddleware_Init
      _Timer0_init
      _get_current_state
      _set_state
    _set_state
 
  _timer_overflow_isr (ROOT)
-   _OneSecond_Timer_Middleware
-     Absolute function(Fake) *
-     _OneSecond_ExecutiveCallback *
+   _Callbacks_Manager
+     ___lwmod
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
-BIGRAM             2FF      0     190      16       52.2%
+BIGRAM             2FF      0       0      16        0.0%
 EEDATA             100      0       0       0        0.0%
 BITBANK2           100      0       0       7        0.0%
 BANK2              100      0       0       8        0.0%
@@ -1676,7 +1637,7 @@ BANK1              100      0       0       6        0.0%
 BITBANK0            A0      0       0       3        0.0%
 BANK0               A0      0       0       4        0.0%
 BITCOMRAM           5E      0       0       0        0.0%
-COMRAM              5E      D      18       1       25.5%
+COMRAM              5E     12      42       1       70.2%
 BITBIGSFRll         39      0       0      14        0.0%
 BITBIGSFRlhl        1E      0       0      13        0.0%
 BITBIGSFRhhlh       1A      0       0      10        0.0%
@@ -1688,137 +1649,96 @@ BITSFR               0      0       0     200        0.0%
 SFR                  0      0       0     200        0.0%
 STACK                0      0       0       2        0.0%
 NULL                 0      0       0       0        0.0%
-ABS                  0      0      18      15        0.0%
-DATA                 0      0     1A8      17        0.0%
+ABS                  0      0      42      15        0.0%
+DATA                 0      0      42      17        0.0%
 CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.40 build 20220703182018 
-Symbol Table                                                                                   Tue Mar 14 17:52:35 2023
+Symbol Table                                                                                   Wed Mar 15 12:09:48 2023
 
-                 ?_TimerMiddleware_Init 0008                                      l22 02A2  
-                                    l25 0222                                      l33 01F6  
-                                    l34 0206                                      l19 0294  
-                                    l28 0252                                      l72 025E  
-                                    l81 029A                                      l57 026E  
-                                    l92 029E                                      l95 028E  
-                                    l87 015A                                      u10 0250  
-                                    u11 024A                                      u16 0252  
-                                   l120 00FA                                     l125 0286  
-                                   l148 027C                                     _ADC 0016  
-                                   l831 0240                                     l841 0212  
-                                   l851 0220                                     l843 0214  
-                                   l835 0208                                     l827 0290  
-                                   l829 02A0                                     l845 0216  
-                                   l837 020C                                     l861 0262  
-                                   l847 021A                                     l839 0210  
-                                   l863 0296                                     l849 021C  
-                                   l857 028A                                     l963 01DE  
-                                   l971 0108                                     l965 01E2  
-                                   l973 011E                                     l981 0270  
-                                   l877 029C                                     l975 0128  
-                                   l967 027E                                     l991 008A  
-                                   l983 007A                                     l977 013E  
-                                   l969 00FC                                     l993 0094  
-                                   l985 007E                                     l979 0154  
-                                   l995 00AC                                     l987 0082  
-                                   l997 00B4                                     l989 0086  
-                                   u130 01F6                                     u131 01F2  
-                                   u140 011E                                     u141 011A  
-                                   u150 013E                                     u151 013A  
-                                   u160 0154                                     u161 0150  
-                                   u170 00A8                                     u171 00A4  
-                                   tosl 000FFD                                     wreg 000FE8  
-                                  l1001 00BE                                    l1007 0254  
-                                  l1017 00D4                                    l1009 025A  
-                                  i2l54 0062                                    _main 0254  
-                                  fsr1h 000FE2                                    fsr2h 000FDA  
-                                  fsr1l 000FE1                                    fsr2l 000FD9  
-                                  btemp 0019                        __end_of_ADC_Read 0208  
-                                  start 0076                        __end_of_ADC_init 0224  
-                      __end_of_ADC_stop 02A4                            ___param_bank 000000  
-                   _number_of_callbacks 0010                                   ?_main 0001  
-                                 i2l128 023E                                   i2l145 01AE  
-                                 i2l139 0180                                   i2l931 0042  
-                                 i2l923 001A                                   i2l941 005E  
-                                 i2l933 0046                                   i2l925 001E  
-                                 i2l943 0060                                   i2l935 0054  
-                                 i2l927 002E                                   i2l937 0058  
-                                 i2l929 0032                                   i2l883 015C  
-                                 i2l939 005C                                   i2l893 018C  
-                                 i2l885 0160                                   i2l895 0190  
-                                 i2l887 0178                                   i2l889 018C  
-                                 i2l897 0224                                   _TMR0H 000FD7  
-                                 _TMR0L 000FD6                       _CallbackExecutive 0012  
-                                 pclath 000FFA                                   pclatu 000FFB  
-                      __end_of_SMS_init 029C     __end_of_OneSecond_ExecutiveCallback 01B0  
-           _OneSecond_ExecutiveCallback 015C                                   ttemp5 001A  
-                                 ttemp6 001D                                   ttemp7 0021  
-                                 status 000FD8                                   wtemp8 001A  
-          __end_of_SystemCallbacks_Init 027E                       __end_of_ADC_start 0296  
-                ??_TimerMiddleware_Init 000A                         __initialization 01B0  
-                          __end_of_main 0262            ??_OneSecond_Timer_Middleware 0004  
-                                ??_main 000E                           __activetblptr 000002  
-                                _ADRESH 000FC4                                  _ADRESL 000FC3  
-                     __end_of_FSM_begin 00FC                                  i2u6_40 0178  
-                                i2u6_41 0174                                  i2u7_40 01AE  
-                                i2u7_41 01AA                                  i2u8_48 022A  
-                                i2u8_49 023E                           ??_Timer0_init 0008  
-        SMS_read_and_set_state@moisture 000A                                  clear_0 01B8  
-                                clear_1 01CA                                  isa$std 000001  
-                  _registered_callbacks 0170                               ?_ADC_Read 0008  
-                                tblptru 000FF8                               ?_ADC_init 0001  
-                             ?_ADC_stop 0001                              __accesstop 0060  
-               __end_of__initialization 01D0                           ___rparam_used 000001  
-                        __pcstackCOMRAM 0001                            _system_count 000E  
-                   __end_of_Timer0_init 0270              __end_of_timer_overflow_isr 0076  
-                             ?_SMS_init 0001                    _SystemCallbacks_Init 0270  
-                            ??_ADC_Read 000A                              ??_ADC_init 0008  
-                            ??_ADC_stop 0008                              __pnvCOMRAM 0018  
-    __end_of_OneSecond_Timer_Middleware 0240              _OneSecond_Timer_Middleware 0224  
-                 ?_SystemCallbacks_Init 0001                              ??_SMS_init 0008  
-                     ??_ADC_in_progress 0008                                 i2u10_40 002E  
-                               i2u10_41 002A                                 i2u11_40 0042  
-                               i2u11_41 003E                                 i2u12_40 0054  
-                               i2u12_41 0050                               _ADCHSbits 000F99  
-                               __Hparam 0000                                 __Lparam 0000  
-                           _Timer0_init 0262                               _ADC_start 0290  
-                               __pcinit 01B0                                 __ramtop 0300  
-                               __ptext0 0254                                 __ptext1 007A  
-                               __ptext2 029C                                 __ptext3 0262  
-                               __ptext4 0270                                 __ptext5 027E  
-                               __ptext6 00FC                                 __ptext7 0288  
-                               __ptext8 01DE                                 __ptext9 0290  
-                             _T0CONbits 000FD5                ??_SMS_read_and_set_state 000A  
-                  end_of_initialization 01D0                           __Lmediumconst 0000  
-                     __end_of_set_state 0290                               _FSM_begin 007A  
-                             _FSM_state 0018                              ?_ADC_start 0001  
-                               postdec1 000FE5                                 postinc0 000FEE  
-TimerMiddleware_Init@callback_executive 0008    OneSecond_ExecutiveCallback@callbacks 0002  
-                ??_SystemCallbacks_Init 000A                              ?_FSM_begin 0001  
-                   start_initialization 01B0                      _timer_overflow_isr 0008  
-                   ?_timer_overflow_isr 0001                             ??_ADC_start 0008  
-           ?_OneSecond_Timer_Middleware 0001                         _ADC_in_progress 0240  
-                           __pbssBIGRAM 0170                             __pbssCOMRAM 000E  
-                  ??_timer_overflow_isr 0004            ?_OneSecond_ExecutiveCallback 0001  
-                _SMS_read_and_set_state 00FC                             ??_FSM_begin 000C  
-                          ?_Timer0_init 0001                               __pintcode 0008  
-                              _ADC_Read 01DE                                _ADC_init 0208  
-                              _ADC_stop 02A0                 __end_of_ADC_in_progress 0254  
-         ??_OneSecond_ExecutiveCallback 0001                               _set_state 0288  
-                            _ADCON0bits 000FC2                              _ADCON1bits 000FC1  
-                            _ADCON2bits 000FC0                                _SMS_init 0296  
-          __end_of_TimerMiddleware_Init 0288                                __Hrparam 0000  
-                              __Lrparam 0000                              ?_set_state 0001  
-                            _ANSEL0bits 000FB8                                __ptext10 0240  
-                              __ptext11 0296                                __ptext12 0208  
-                              __ptext13 02A0                                __ptext15 0224  
-                              __ptext16 015C                                __ptext17 0000  
-                      ?_ADC_in_progress 0001                                isa$xinst 000000  
-                     _get_current_state 029C                                int$flags 0019  
-                           _tmr0Counter 0014                      ?_get_current_state 0001  
-                   ??_get_current_state 0008                              _INTCONbits 000FF2  
-               ?_SMS_read_and_set_state 0001                                intlevel2 0000  
-             __end_of_get_current_state 02A0                             ??_set_state 0008  
-                  _TimerMiddleware_Init 027E          fp__OneSecond_ExecutiveCallback 0000  
-                 set_state@state_to_set 0008          __end_of_SMS_read_and_set_state 015C  
+                            l22 030A                              l25 02BE                              l33 0292  
+                            l34 02A2                              l19 02FC                              l28 02D2  
+                            l72 02DE                              l81 0302                              l57 02EE  
+                            l92 0306                              l95 02F6                              l87 0240  
+                            u10 02D0                              u11 02CA                              u16 02D2  
+                           l118 017C                             _ADC 002B                             l840 02B0  
+                           l832 02A4                             l824 02F8                             l826 0308  
+                           l842 02B2                             l834 02A8                             l844 02B6  
+                           l836 02AC                             l828 02C0                             l846 02B8  
+                           l838 02AE                             l854 02F2                             l848 02BC  
+                           l856 02E2                             l872 0304                             l858 02FE  
+                           l990 01E2                             l992 01EE                             l986 027A  
+                           l994 0204                             l988 027E                             l996 020E  
+                           l998 0224                             u200 0224                             u201 0220  
+                           u210 023A                             u211 0236                             u180 0292  
+                           u181 028E                             u190 0204                             u191 0200  
+                           u280 012A                             u281 0126                             prod 000FF3  
+                           wreg 000FE8                            l1000 023A                            l1040 0108  
+                          l1042 010C                            l1044 0116                            l1052 0140  
+                          l1036 0100                            l1046 012E                            l1038 0104  
+                          l1048 0136                            l1080 02D4                            l1090 0156  
+                          l1082 02DA                            i2l54 0062                            _main 02D4  
+                          fsr2h 000FDA                            fsr2l 000FD9                            btemp 0043  
+              __end_of_ADC_Read 02A4                            prodh 000FF4                            prodl 000FF3  
+                          start 0076                __end_of_ADC_init 02C0                __end_of_ADC_stop 030C  
+                  ___param_bank 000000      Callbacks_Manager@callbacks 0034             _number_of_callbacks 0041  
+                         ?_main 002D                 __end_of___lwmod 01E2                           i2l136 009E  
+                         i2l138 00FE                           i2l652 01D8                           i2l659 01E0  
+                         _TMR0H 000FD7                           _TMR0L 000FD6                           tablat 000FF5  
+              __end_of_SMS_init 0304                           ttemp5 0044                           ttemp6 0047  
+                         ttemp7 004B                           status 000FD8                           wtemp8 0044  
+             __end_of_ADC_start 02FE                 __initialization 0242                    __end_of_main 02E2  
+                        ??_main 003F                   __activetblptr 000002                          _ADRESH 000FC4  
+                        _ADRESL 000FC3                          i2l1010 01AE                          i2l1002 017E  
+                        i2l1012 01C4                          i2l1004 0190                          i2l1020 007E  
+                        i2l1014 01CC                          i2l1006 0198                          i2l1022 0096  
+                        i2l1016 01D2                          i2l1008 01A0                          i2l1032 00EA  
+                        i2l1034 00EC                          i2l1026 00B2                          i2l1018 007A  
+                        i2l1028 00BA                          i2l1060 001E                          i2l1070 0054  
+                        i2l1062 002E                          i2l1072 0058                          i2l1064 0032  
+                        i2l1074 005C                          i2l1066 0042                          i2l1058 001A  
+                        i2l1076 005E                          i2l1068 0046                          i2l1078 0060  
+             __end_of_FSM_begin 017E                   ??_Timer0_init 0039                       ??___lwmod 0031  
+SMS_read_and_set_state@moisture 003B                          clear_0 0266                          isa$std 000001  
+             _Callbacks_Manager 007A            _registered_callbacks 0001                    __pdataCOMRAM 003F  
+                     ?_ADC_Read 0039              ?_Callbacks_Manager 002D                          tblptrh 000FF7  
+                        tblptrl 000FF6                          tblptru 000FF8                       ?_ADC_init 002D  
+                     ?_ADC_stop 002D             ??_Callbacks_Manager 0032                      __accesstop 0060  
+       __end_of__initialization 026C                   ___rparam_used 000001                  __pcstackCOMRAM 002D  
+                  _system_count 003F       __end_of_Callbacks_Manager 0100             __end_of_Timer0_init 02F0  
+    __end_of_timer_overflow_isr 0076                       ?_SMS_init 002D                      ??_ADC_Read 003B  
+                    ??_ADC_init 0039                      ??_ADC_stop 0039                      __pnvCOMRAM 0042  
+                    ??_SMS_init 0039               ??_ADC_in_progress 0039                         i2u22_40 0190  
+                       i2u30_40 0042                         i2u22_41 018C                         i2u30_41 003E  
+                       i2u23_40 01AE                         i2u31_40 0054                         i2u23_41 01AA  
+                       i2u31_41 0050                         i2u24_40 01C4                         i2u24_41 01C0  
+                       i2u25_40 0096                         i2u25_41 0092                         i2u26_40 00AE  
+                       i2u26_41 00AA                         i2u27_40 00FE                         i2u27_41 00FA  
+                       i2u29_40 002E                         i2u29_41 002A                       _ADCHSbits 000F99  
+                       __Hparam 0000                         __Lparam 0000                     _Timer0_init 02E2  
+                     _ADC_start 02F8                         ___lwmod 017E                         __pcinit 0242  
+                       __ramtop 0300                         __ptext0 02D4                         __ptext1 0100  
+                       __ptext2 0304                         __ptext3 02E2                         __ptext4 01E2  
+                       __ptext5 02F0                         __ptext6 027A                         __ptext7 02F8  
+                       __ptext8 02C0                         __ptext9 02FE                       _T0CONbits 000FD5  
+      ??_SMS_read_and_set_state 003B            end_of_initialization 026C                   __Lmediumconst 0000  
+             __end_of_set_state 02F8                       _FSM_begin 0100                       _FSM_state 0042  
+                    ?_ADC_start 002D                         postdec2 000FDD                         postinc0 000FEE  
+                       postinc2 000FDE                      ?_FSM_begin 002D                   __pidataCOMRAM 030C  
+           start_initialization 0242              _timer_overflow_isr 0008             ?_timer_overflow_isr 002D  
+                   ??_ADC_start 0039                 _ADC_in_progress 02C0                     __pbssCOMRAM 0001  
+          ??_timer_overflow_isr 0035          _SMS_read_and_set_state 01E2                     ??_FSM_begin 003D  
+                  ?_Timer0_init 002D                       __pintcode 0008                        ?___lwmod 002D  
+                      _ADC_Read 027A                        _ADC_init 02A4                        _ADC_stop 0308  
+       __end_of_ADC_in_progress 02D4                       _set_state 02F0                      _ADCON0bits 000FC2  
+                    _ADCON1bits 000FC1                      _ADCON2bits 000FC0                        _SMS_init 02FE  
+                      __Hrparam 0000                        __Lrparam 0000                      ?_set_state 002D  
+                    _ANSEL0bits 000FB8                        __ptext10 02A4                        __ptext11 0308  
+                      __ptext13 007A                        __ptext14 017E                ?_ADC_in_progress 002D  
+                      isa$xinst 000000               _get_current_state 0304                        int$flags 0043  
+                   _tmr0Counter 0029              ?_get_current_state 002D             ??_get_current_state 0039  
+                    _INTCONbits 000FF2         ?_SMS_read_and_set_state 002D                        intlevel2 0000  
+              ___lwmod@dividend 002D       __end_of_get_current_state 0308                     ??_set_state 0039  
+         set_state@state_to_set 0039                 ___lwmod@divisor 002F                 ___lwmod@counter 0031  
+__end_of_SMS_read_and_set_state 0242  
