@@ -1,25 +1,31 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[v F9 `(v ~T0 @X0 0 tf ]
-"15 ./SystemCallbacks.h
-[; ;./SystemCallbacks.h: 15: typedef struct{
-[s S1 `us 1 `*F9 1 ]
-[n S1 . expiry_time callback ]
-[v F27 `(v ~T0 @X0 0 tf ]
-[v F33 `(v ~T0 @X0 0 tf ]
-"7 SystemCallbacks.c
-[; ;SystemCallbacks.c: 7: static U8 number_of_callbacks = 1;
+[v F13 `(v ~T0 @X0 0 tf ]
+"11 SystemCallbacks.c
+[; ;SystemCallbacks.c: 11: static Callback_Config_t registered_callbacks[(10)] = {0};
+[c E6 0 1 .. ]
+[n E6 . OPEN TAKEN  ]
+"22 ./SystemCallbacks.h
+[; ;./SystemCallbacks.h: 22: typedef struct{
+[s S1 `us 1 `*F13 1 `uc 1 `us 1 `E6 1 ]
+[n S1 . expiry_time callback callback_ID count Availablity ]
+[v F38 `(v ~T0 @X0 0 tf ]
+[v F46 `(v ~T0 @X0 0 tf ]
+[v F54 `(v ~T0 @X0 0 tf ]
+[v F62 `(v ~T0 @X0 0 tf ]
+"9 SystemCallbacks.c
+[; ;SystemCallbacks.c: 9: static U8 number_of_callbacks = (1);
 [v _number_of_callbacks `uc ~T0 @X0 1 s ]
 [i _number_of_callbacks
 -> -> 1 `i `uc
 ]
-"8
-[; ;SystemCallbacks.c: 8: static U16 system_count = (2);
+"10
+[; ;SystemCallbacks.c: 10: static U16 system_count = (0);
 [v _system_count `us ~T0 @X0 1 s ]
 [i _system_count
--> -> 2 `i `us
+-> -> 0 `i `us
 ]
-"9
-[; ;SystemCallbacks.c: 9: static Callback_Config_t registered_callbacks[(10)] = {0};
+"11
+[; ;SystemCallbacks.c: 11: static Callback_Config_t registered_callbacks[(10)] = {0};
 [v _registered_callbacks `S1 ~T0 @X0 -> 10 `i s ]
 [i _registered_callbacks
 :U ..
@@ -28,186 +34,360 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ..
 ]
-"11
-[; ;SystemCallbacks.c: 11: void Callbacks_Reset_Counter(void)
-[v _Callbacks_Reset_Counter `(v ~T0 @X0 1 ef ]
-"12
-[; ;SystemCallbacks.c: 12: {
-{
-[e :U _Callbacks_Reset_Counter ]
-[f ]
 "13
-[; ;SystemCallbacks.c: 13:     system_count = (2);
-[e = _system_count -> -> 2 `i `us ]
+[; ;SystemCallbacks.c: 13: void Callbacks_Init(void)
+[v _Callbacks_Init `(v ~T0 @X0 1 ef ]
 "14
-[; ;SystemCallbacks.c: 14: }
-[e :UE 2 ]
-}
-"16
-[; ;SystemCallbacks.c: 16: U16 Callbacks_GetCount(void)
-[v _Callbacks_GetCount `(us ~T0 @X0 1 ef ]
-"17
-[; ;SystemCallbacks.c: 17: {
+[; ;SystemCallbacks.c: 14: {
 {
-[e :U _Callbacks_GetCount ]
+[e :U _Callbacks_Init ]
 [f ]
-"18
-[; ;SystemCallbacks.c: 18:     return system_count;
-[e ) _system_count ]
-[e $UE 3  ]
-"19
-[; ;SystemCallbacks.c: 19: }
-[e :UE 3 ]
-}
-"21
-[; ;SystemCallbacks.c: 21: U8 Callbacks_GetCallbackCount(void)
-[v _Callbacks_GetCallbackCount `(uc ~T0 @X0 1 ef ]
-"22
-[; ;SystemCallbacks.c: 22: {
-{
-[e :U _Callbacks_GetCallbackCount ]
-[f ]
-"23
-[; ;SystemCallbacks.c: 23:     return number_of_callbacks;
-[e ) _number_of_callbacks ]
-[e $UE 4  ]
-"24
-[; ;SystemCallbacks.c: 24: }
-[e :UE 4 ]
-}
-"26
-[; ;SystemCallbacks.c: 26: void Callbacks_Manager(void)
-[v _Callbacks_Manager `(v ~T0 @X0 1 ef ]
-"27
-[; ;SystemCallbacks.c: 27: {
-{
-[e :U _Callbacks_Manager ]
-[f ]
-"32
-[; ;SystemCallbacks.c: 32:     system_count++;
-[e ++ _system_count -> -> 1 `i `us ]
-"33
-[; ;SystemCallbacks.c: 33:     if (system_count == (65000))
-[e $ ! == -> _system_count `l -> 65000 `l 6  ]
-"34
-[; ;SystemCallbacks.c: 34:     {
-{
-"35
-[; ;SystemCallbacks.c: 35:         system_count = (2);
-[e = _system_count -> -> 2 `i `us ]
-"36
-[; ;SystemCallbacks.c: 36:     }
-}
-[e :U 6 ]
-"38
-[; ;SystemCallbacks.c: 38:     if(number_of_callbacks == 0)
-[e $ ! == -> _number_of_callbacks `i -> 0 `i 7  ]
-"39
-[; ;SystemCallbacks.c: 39:     {
-{
-"40
-[; ;SystemCallbacks.c: 40:         return;
-[e $UE 5  ]
-"41
-[; ;SystemCallbacks.c: 41:     }
-}
-[e :U 7 ]
-"43
-[; ;SystemCallbacks.c: 43:     for (U8 callbacks = 0; callbacks < number_of_callbacks; callbacks++)
+"15
+[; ;SystemCallbacks.c: 15:     for(U8 callbacks=0; callbacks<(10); callbacks++)
 {
 [v _callbacks `uc ~T0 @X0 1 a ]
 [e = _callbacks -> -> 0 `i `uc ]
-[e $U 11  ]
-[e :U 8 ]
-"44
-[; ;SystemCallbacks.c: 44:     {
+[e $ < -> _callbacks `i -> 10 `i 3  ]
+[e $U 4  ]
+[e :U 3 ]
+"16
+[; ;SystemCallbacks.c: 16:     {
 {
-"45
-[; ;SystemCallbacks.c: 45:         if (system_count % ((registered_callbacks[callbacks].expiry_time)+(2)) == 0)
-[e $ ! == % -> _system_count `ui + -> . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 0 `ui -> -> 2 `i `ui -> -> 0 `i `ui 12  ]
-"46
-[; ;SystemCallbacks.c: 46:         {
-{
-"47
-[; ;SystemCallbacks.c: 47:             if ((registered_callbacks[callbacks].callback))
-[e $ ! != . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 1 -> -> 0 `i `*F27 13  ]
-"48
-[; ;SystemCallbacks.c: 48:             {
-{
-"49
-[; ;SystemCallbacks.c: 49:                 registered_callbacks[callbacks].callback();
-[e ( *U . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 1 ..  ]
-"50
-[; ;SystemCallbacks.c: 50:             }
-}
-[e :U 13 ]
-"51
-[; ;SystemCallbacks.c: 51:         }
-}
-[e :U 12 ]
-"52
-[; ;SystemCallbacks.c: 52:     }
+"17
+[; ;SystemCallbacks.c: 17:         registered_callbacks[callbacks].Availablity = OPEN;
+[e = . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 4 . `E6 0 ]
+"18
+[; ;SystemCallbacks.c: 18:         registered_callbacks[callbacks].callback_ID = 100;
+[e = . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 2 -> -> 100 `i `uc ]
+"19
+[; ;SystemCallbacks.c: 19:         registered_callbacks[callbacks].callback = ((void*)0);
+[e = . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 1 -> -> -> 0 `i `*v `*F38 ]
+"20
+[; ;SystemCallbacks.c: 20:         registered_callbacks[callbacks].expiry_time = 100;
+[e = . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 0 -> -> 100 `i `us ]
+"21
+[; ;SystemCallbacks.c: 21:         registered_callbacks[callbacks].count = (U16)0;
+[e = . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 3 -> -> 0 `i `us ]
+"22
+[; ;SystemCallbacks.c: 22:         number_of_callbacks = (1);
+[e = _number_of_callbacks -> -> 1 `i `uc ]
+"23
+[; ;SystemCallbacks.c: 23:     }
 }
 [e ++ _callbacks -> -> 1 `i `uc ]
-[e :U 11 ]
-[e $ < -> _callbacks `i -> _number_of_callbacks `i 8  ]
-[e :U 9 ]
+[e $ < -> _callbacks `i -> 10 `i 3  ]
+[e :U 4 ]
 }
-"53
-[; ;SystemCallbacks.c: 53: }
-[e :UE 5 ]
+"24
+[; ;SystemCallbacks.c: 24: }
+[e :UE 2 ]
 }
-"55
-[; ;SystemCallbacks.c: 55: U8 Register_Callback(Callback_Config_t *config)
-[v _Register_Callback `(uc ~T0 @X0 1 ef1`*S1 ]
-"56
-[; ;SystemCallbacks.c: 56: {
+"26
+[; ;SystemCallbacks.c: 26: void Callbacks_Reset_Counter(void)
+[v _Callbacks_Reset_Counter `(v ~T0 @X0 1 ef ]
+"27
+[; ;SystemCallbacks.c: 27: {
 {
-[e :U _Register_Callback ]
-"55
-[; ;SystemCallbacks.c: 55: U8 Register_Callback(Callback_Config_t *config)
-[v _config `*S1 ~T0 @X0 1 r1 ]
-"56
-[; ;SystemCallbacks.c: 56: {
+[e :U _Callbacks_Reset_Counter ]
 [f ]
-"57
-[; ;SystemCallbacks.c: 57:     if (!(config->callback))
-[e $ ! ! != . *U _config 1 -> -> 0 `i `*F33 15  ]
-"58
-[; ;SystemCallbacks.c: 58:     {
+"28
+[; ;SystemCallbacks.c: 28:     system_count = (0);
+[e = _system_count -> -> 0 `i `us ]
+"29
+[; ;SystemCallbacks.c: 29: }
+[e :UE 6 ]
+}
+"31
+[; ;SystemCallbacks.c: 31: U16 Callbacks_GetCount(void)
+[v _Callbacks_GetCount `(us ~T0 @X0 1 ef ]
+"32
+[; ;SystemCallbacks.c: 32: {
 {
+[e :U _Callbacks_GetCount ]
+[f ]
+"33
+[; ;SystemCallbacks.c: 33:     return system_count;
+[e ) _system_count ]
+[e $UE 7  ]
+"34
+[; ;SystemCallbacks.c: 34: }
+[e :UE 7 ]
+}
+"36
+[; ;SystemCallbacks.c: 36: U8 Callbacks_GetCallbackCount(void)
+[v _Callbacks_GetCallbackCount `(uc ~T0 @X0 1 ef ]
+"37
+[; ;SystemCallbacks.c: 37: {
+{
+[e :U _Callbacks_GetCallbackCount ]
+[f ]
+"38
+[; ;SystemCallbacks.c: 38:     return number_of_callbacks-1;
+[e ) -> - -> _number_of_callbacks `i -> 1 `i `uc ]
+[e $UE 8  ]
+"39
+[; ;SystemCallbacks.c: 39: }
+[e :UE 8 ]
+}
+"41
+[; ;SystemCallbacks.c: 41: void Callbacks_Manager(void)
+[v _Callbacks_Manager `(v ~T0 @X0 1 ef ]
+"42
+[; ;SystemCallbacks.c: 42: {
+{
+[e :U _Callbacks_Manager ]
+[f ]
+"47
+[; ;SystemCallbacks.c: 47:     system_count++;
+[e ++ _system_count -> -> 1 `i `us ]
+"48
+[; ;SystemCallbacks.c: 48:     if (system_count == (65000))
+[e $ ! == -> _system_count `l -> 65000 `l 10  ]
+"49
+[; ;SystemCallbacks.c: 49:     {
+{
+"50
+[; ;SystemCallbacks.c: 50:         system_count = 0;
+[e = _system_count -> -> 0 `i `us ]
+"51
+[; ;SystemCallbacks.c: 51:     }
+}
+[e :U 10 ]
+"53
+[; ;SystemCallbacks.c: 53:     for (U8 callbacks = 0; callbacks < 1; callbacks++)
+{
+[v _callbacks `uc ~T0 @X0 1 a ]
+[e = _callbacks -> -> 0 `i `uc ]
+[e $ < -> _callbacks `i -> 1 `i 11  ]
+[e $U 12  ]
+[e :U 11 ]
+"54
+[; ;SystemCallbacks.c: 54:     {
+{
+"55
+[; ;SystemCallbacks.c: 55:         (registered_callbacks[callbacks].count)++;
+[e ++ . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 3 -> -> 1 `i `us ]
+"56
+[; ;SystemCallbacks.c: 56:         if(registered_callbacks[callbacks].count >=
+[e $ ! >= -> . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 3 `ui -> . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 0 `ui 14  ]
+"58
+[; ;SystemCallbacks.c: 58:         {
+{
+"59
+[; ;SystemCallbacks.c: 59:             if(registered_callbacks[callbacks].callback != ((void*)0))
+[e $ ! != . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 1 -> -> -> 0 `i `*v `*F46 15  ]
 "60
-[; ;SystemCallbacks.c: 60:         return 100;
-[e ) -> -> 100 `i `uc ]
-[e $UE 14  ]
+[; ;SystemCallbacks.c: 60:             {
+{
 "61
-[; ;SystemCallbacks.c: 61:     }
+[; ;SystemCallbacks.c: 61:                 registered_callbacks[callbacks].count = 0;
+[e = . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 3 -> -> 0 `i `us ]
+"62
+[; ;SystemCallbacks.c: 62:                 registered_callbacks[callbacks].callback();
+[e ( *U . *U + &U _registered_callbacks * -> _callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 1 ..  ]
+"63
+[; ;SystemCallbacks.c: 63:             }
 }
 [e :U 15 ]
-"62
-[; ;SystemCallbacks.c: 62:     if (number_of_callbacks <= (10))
-[e $ ! <= -> _number_of_callbacks `i -> 10 `i 16  ]
-"63
-[; ;SystemCallbacks.c: 63:     {
-{
-"65
-[; ;SystemCallbacks.c: 65:         registered_callbacks[number_of_callbacks].expiry_time = (config->expiry_time);
-[e = . *U + &U _registered_callbacks * -> _number_of_callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 0 . *U _config 0 ]
-"66
-[; ;SystemCallbacks.c: 66:         registered_callbacks[number_of_callbacks].callback = config->callback;
-[e = . *U + &U _registered_callbacks * -> _number_of_callbacks `ux -> -> # *U &U _registered_callbacks `ui `ux 1 . *U _config 1 ]
-"67
-[; ;SystemCallbacks.c: 67:         number_of_callbacks++;
-[e ++ _number_of_callbacks -> -> 1 `i `uc ]
-"68
-[; ;SystemCallbacks.c: 68:     }
+"64
+[; ;SystemCallbacks.c: 64:         }
 }
-[e :U 16 ]
+[e :U 14 ]
+"67
+[; ;SystemCallbacks.c: 67:     }
+}
+[e ++ _callbacks -> -> 1 `i `uc ]
+[e $ < -> _callbacks `i -> 1 `i 11  ]
+[e :U 12 ]
+}
 "70
-[; ;SystemCallbacks.c: 70:     return 0;
+[; ;SystemCallbacks.c: 70: }
+[e :UE 9 ]
+}
+"72
+[; ;SystemCallbacks.c: 72: static U8 get_next_available_spot(void)
+[v _get_next_available_spot `(uc ~T0 @X0 1 sf ]
+"73
+[; ;SystemCallbacks.c: 73: {
+{
+[e :U _get_next_available_spot ]
+[f ]
+"74
+[; ;SystemCallbacks.c: 74:     for(U8 index=0; index<(10); index++)
+{
+[v _index `uc ~T0 @X0 1 a ]
+[e = _index -> -> 0 `i `uc ]
+[e $ < -> _index `i -> 10 `i 17  ]
+[e $U 18  ]
+[e :U 17 ]
+"75
+[; ;SystemCallbacks.c: 75:     {
+{
+"76
+[; ;SystemCallbacks.c: 76:         if(registered_callbacks[index].Availablity == OPEN)
+[e $ ! == -> . *U + &U _registered_callbacks * -> _index `ux -> -> # *U &U _registered_callbacks `ui `ux 4 `ui -> . `E6 0 `ui 20  ]
+"77
+[; ;SystemCallbacks.c: 77:         {
+{
+"78
+[; ;SystemCallbacks.c: 78:             return index;
+[e ) _index ]
+[e $UE 16  ]
+"79
+[; ;SystemCallbacks.c: 79:             break;
+[e $U 18  ]
+"80
+[; ;SystemCallbacks.c: 80:         }
+}
+[e :U 20 ]
+"81
+[; ;SystemCallbacks.c: 81:     }
+}
+[e ++ _index -> -> 1 `i `uc ]
+[e $ < -> _index `i -> 10 `i 17  ]
+[e :U 18 ]
+}
+"83
+[; ;SystemCallbacks.c: 83:     return 100;
+[e ) -> -> 100 `i `uc ]
+[e $UE 16  ]
+"84
+[; ;SystemCallbacks.c: 84: }
+[e :UE 16 ]
+}
+"87
+[; ;SystemCallbacks.c: 87: U8 Register_Callback(Callback_Config_t *config)
+[v _Register_Callback `(uc ~T0 @X0 1 ef1`*S1 ]
+"88
+[; ;SystemCallbacks.c: 88: {
+{
+[e :U _Register_Callback ]
+"87
+[; ;SystemCallbacks.c: 87: U8 Register_Callback(Callback_Config_t *config)
+[v _config `*S1 ~T0 @X0 1 r1 ]
+"88
+[; ;SystemCallbacks.c: 88: {
+[f ]
+"89
+[; ;SystemCallbacks.c: 89:     if (!(config->callback))
+[e $ ! ! != . *U _config 1 -> -> 0 `i `*F54 22  ]
+"90
+[; ;SystemCallbacks.c: 90:     {
+{
+"92
+[; ;SystemCallbacks.c: 92:         return 100;
+[e ) -> -> 100 `i `uc ]
+[e $UE 21  ]
+"93
+[; ;SystemCallbacks.c: 93:     }
+}
+[e :U 22 ]
+"95
+[; ;SystemCallbacks.c: 95:     U8 available_spot = get_next_available_spot();
+[v _available_spot `uc ~T0 @X0 1 a ]
+[e = _available_spot ( _get_next_available_spot ..  ]
+"97
+[; ;SystemCallbacks.c: 97:     if (number_of_callbacks <= (10))
+[e $ ! <= -> _number_of_callbacks `i -> 10 `i 23  ]
+"98
+[; ;SystemCallbacks.c: 98:     {
+{
+"99
+[; ;SystemCallbacks.c: 99:         if(available_spot != 100 && available_spot< (10))
+[e $ ! && != -> _available_spot `i -> 100 `i < -> _available_spot `i -> 10 `i 24  ]
+"100
+[; ;SystemCallbacks.c: 100:         {
+{
+"101
+[; ;SystemCallbacks.c: 101:             config->callback_ID = available_spot;
+[e = . *U _config 2 _available_spot ]
+"102
+[; ;SystemCallbacks.c: 102:             registered_callbacks[available_spot].Availablity = TAKEN;
+[e = . *U + &U _registered_callbacks * -> _available_spot `ux -> -> # *U &U _registered_callbacks `ui `ux 4 . `E6 1 ]
+"103
+[; ;SystemCallbacks.c: 103:             registered_callbacks[available_spot].expiry_time = (config->expiry_time);
+[e = . *U + &U _registered_callbacks * -> _available_spot `ux -> -> # *U &U _registered_callbacks `ui `ux 0 . *U _config 0 ]
+"104
+[; ;SystemCallbacks.c: 104:             registered_callbacks[available_spot].callback = config->callback;
+[e = . *U + &U _registered_callbacks * -> _available_spot `ux -> -> # *U &U _registered_callbacks `ui `ux 1 . *U _config 1 ]
+"105
+[; ;SystemCallbacks.c: 105:             number_of_callbacks++;
+[e ++ _number_of_callbacks -> -> 1 `i `uc ]
+"106
+[; ;SystemCallbacks.c: 106:         }
+}
+[e :U 24 ]
+"107
+[; ;SystemCallbacks.c: 107:     }
+}
+[e :U 23 ]
+"108
+[; ;SystemCallbacks.c: 108:     return 0;
 [e ) -> -> 0 `i `uc ]
-[e $UE 14  ]
-"71
-[; ;SystemCallbacks.c: 71: }
-[e :UE 14 ]
+[e $UE 21  ]
+"109
+[; ;SystemCallbacks.c: 109: }
+[e :UE 21 ]
+}
+"111
+[; ;SystemCallbacks.c: 111: U8 Delete_Callback(Callback_Config_t *config)
+[v _Delete_Callback `(uc ~T0 @X0 1 ef1`*S1 ]
+"112
+[; ;SystemCallbacks.c: 112: {
+{
+[e :U _Delete_Callback ]
+"111
+[; ;SystemCallbacks.c: 111: U8 Delete_Callback(Callback_Config_t *config)
+[v _config `*S1 ~T0 @X0 1 r1 ]
+"112
+[; ;SystemCallbacks.c: 112: {
+[f ]
+"113
+[; ;SystemCallbacks.c: 113:     if(Callbacks_GetCallbackCount() != 0)
+[e $ ! != -> ( _Callbacks_GetCallbackCount ..  `i -> 0 `i 26  ]
+"114
+[; ;SystemCallbacks.c: 114:     {
+{
+"115
+[; ;SystemCallbacks.c: 115:         registered_callbacks[config->callback_ID].callback = ((void*)0);
+[e = . *U + &U _registered_callbacks * -> . *U _config 2 `ux -> -> # *U &U _registered_callbacks `ui `ux 1 -> -> -> 0 `i `*v `*F62 ]
+"116
+[; ;SystemCallbacks.c: 116:         registered_callbacks[config->callback_ID].callback_ID = 100;
+[e = . *U + &U _registered_callbacks * -> . *U _config 2 `ux -> -> # *U &U _registered_callbacks `ui `ux 2 -> -> 100 `i `uc ]
+"117
+[; ;SystemCallbacks.c: 117:         registered_callbacks[config->callback_ID].expiry_time = 0;
+[e = . *U + &U _registered_callbacks * -> . *U _config 2 `ux -> -> # *U &U _registered_callbacks `ui `ux 0 -> -> 0 `i `us ]
+"118
+[; ;SystemCallbacks.c: 118:         registered_callbacks[config->callback_ID].Availablity = OPEN;
+[e = . *U + &U _registered_callbacks * -> . *U _config 2 `ux -> -> # *U &U _registered_callbacks `ui `ux 4 . `E6 0 ]
+"119
+[; ;SystemCallbacks.c: 119:         number_of_callbacks--;
+[e -- _number_of_callbacks -> -> 1 `i `uc ]
+"120
+[; ;SystemCallbacks.c: 120:     }
+}
+[e $U 27  ]
+"121
+[; ;SystemCallbacks.c: 121:     else if(number_of_callbacks == (1))
+[e :U 26 ]
+[e $ ! == -> _number_of_callbacks `i -> 1 `i 28  ]
+"122
+[; ;SystemCallbacks.c: 122:     {
+{
+"124
+[; ;SystemCallbacks.c: 124:         return 90;
+[e ) -> -> 90 `i `uc ]
+[e $UE 25  ]
+"125
+[; ;SystemCallbacks.c: 125:     }
+}
+[e :U 28 ]
+[e :U 27 ]
+"127
+[; ;SystemCallbacks.c: 127:     return 0;
+[e ) -> -> 0 `i `uc ]
+[e $UE 25  ]
+"128
+[; ;SystemCallbacks.c: 128: }
+[e :UE 25 ]
 }
