@@ -5259,9 +5259,8 @@ typedef struct{
 
 
 void Callbacks_Init(void);
-void Callbacks_Reset_Counter(void);
-U16 Callbacks_GetCount(void);
 U8 Callbacks_GetCallbackCount(void);
+void Reset_Counter(Callback_Config_t * config);
 void Callbacks_Manager(void);
 U8 Register_Callback(Callback_Config_t *config);
 U8 Delete_Callback(Callback_Config_t *config);

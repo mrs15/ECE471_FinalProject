@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "LedDriver.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,15 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-
-
-
-
+# 1 "LedDriver.c" 2
+# 1 "./LedDriver.h" 1
+# 11 "./LedDriver.h"
 # 1 "./SystemConfiguration.h" 1
 # 41 "./SystemConfiguration.h"
 #pragma config OSC = IRCIO
@@ -5290,67 +5284,64 @@ unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
 # 99 "./SystemConfiguration.h" 2
-# 9 "main.c" 2
-
-# 1 "./System_FSM.h" 1
-# 13 "./System_FSM.h"
-void FSM_begin(void);
-# 10 "main.c" 2
-
-# 1 "./FSM_states.h" 1
-# 11 "./FSM_states.h"
-typedef enum{
-    INIT_STATE,
-    IDLE_STATE,
-    WATER_PLANTS,
-    CHECK_MOISTURE
-}STATES;
-
-STATES get_current_state(void);
-void set_state(STATES state_to_set);
-# 11 "main.c" 2
-
-# 1 "./PIC18F4331_Timer.h" 1
-# 16 "./PIC18F4331_Timer.h"
-void Timer0_init(void);
-void Timer0_start(void);
-void Timer0_stop(void);
-# 12 "main.c" 2
+# 11 "./LedDriver.h" 2
 
 
+void init_leds(void);
+void idle_status_led(void);
+void watering_status_led(void);
+void checking_moisture_status_led(void);
+# 1 "LedDriver.c" 2
 
-void main(void) {
+# 1 "./PIC18F4331_HAL_GPIO.h" 1
+# 12 "./PIC18F4331_HAL_GPIO.h"
+# 1 "./PIC18F4331_Internal_IO.h" 1
+# 12 "./PIC18F4331_HAL_GPIO.h" 2
+# 2 "LedDriver.c" 2
+# 12 "LedDriver.c"
+void init_leds()
+{
+    (((TRISC))&=(~((0x02))));
+    (((TRISC))&=(~((0x04))));
+    (((TRISD))&=(~((0x02))));
+    (((TRISD))&=(~((0x01))));
 
+    (((LATC))|=((0x02)));
+    (((LATC))|=((0x04)));
+    (((LATD))|=((0x02)));
+    (((LATD))|=((0x01)));
 
-    OSCCONbits.IRCF0 = 1;
-    OSCCONbits.IRCF1 = 1;
-    OSCCONbits.IRCF2 = 1;
+    _delay((unsigned long)((1000)*(8000000/4000.0)));
 
+    (((LATC))&=(~((0x02))));
+    (((LATC))&=(~((0x04))));
+    (((LATD))&=(~((0x02))));
+    (((LATD))&=(~((0x01))));
 
-    Timer0_stop();
+}
+void idle_status_led()
+{
+    (((LATC))|=((0x04)));
 
+    (((LATC))&=(~((0x02))));
+    (((LATD))&=(~((0x01))));
+    (((LATD))&=(~((0x02))));
+}
+void watering_status_led()
+{
+    (((LATD))|=((0x01)));
 
-    RCONbits.IPEN = 1;
+    (((LATC))&=(~((0x02))));
+    (((LATC))&=(~((0x04))));
+    (((LATD))&=(~((0x02))));
 
+}
+void checking_moisture_status_led()
+{
+    (((LATD))|=((0x02)));
 
-    INTCONbits.TMR0IE = 1;
+    (((LATC))&=(~((0x02))));
+    (((LATC))&=(~((0x04))));
+    (((LATD))&=(~((0x01))));
 
-
-    INTCON2bits.TMR0IP = 1;
-
-
-    Timer0_init();
-
-
-    INTCONbits.GIEH = 1;
-    INTCONbits.GIEL = 1;
-
-    set_state(INIT_STATE);
-    while(1)
-    {
-     FSM_begin();
-    }
-
-
-    return;
 }

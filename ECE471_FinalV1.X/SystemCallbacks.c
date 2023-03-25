@@ -1,56 +1,29 @@
 #include "SystemCallbacks.h"
 #include "stddef.h"
 
-
 #define MAX_COUNT (65000)
-#define COUNT_OFFSET (0)
-#define DEFAULT_NUM_CB_VAL (1)
 
-static U8 number_of_callbacks = DEFAULT_NUM_CB_VAL;
-static U16 system_count = COUNT_OFFSET;
+static U8 callback_count = 0;
 static Callback_Config_t registered_callbacks[MAX_CALLBACKS] = {0};
 
 void Callbacks_Init(void)
 {
-    for(U8 callbacks=0; callbacks<MAX_CALLBACKS; callbacks++)
+    for(U8 callback=0; callback<MAX_CALLBACKS; callback++)
     {
-        registered_callbacks[callbacks].Availablity = OPEN;
-        registered_callbacks[callbacks].callback_ID = 100;
-        registered_callbacks[callbacks].callback = NULL;
-        registered_callbacks[callbacks].expiry_time = 100;
-        registered_callbacks[callbacks].count = (U16)0;
-        number_of_callbacks = DEFAULT_NUM_CB_VAL;
+        registered_callbacks[callback].callback = NULL;
+        registered_callbacks[callback].count = 0;
+        callback_count = 0;
     }
-}
-
-void Callbacks_Reset_Counter(void)
-{ 
-    system_count = COUNT_OFFSET;
-}
-
-U16 Callbacks_GetCount(void)
-{
-    return system_count;
-}
+}//Callbacks_Init
 
 U8 Callbacks_GetCallbackCount(void)
 {
-    return number_of_callbacks-1;
-}
+    return callback_count;
+}//Callbacks_GetCallbackCount
 
 void Callbacks_Manager(void)
-{
-    /**The executive function that loops through the registered
-       callbacks and calls all the callbacks when time */
-       
-    // increment counter
-    system_count++;
-    if (system_count == MAX_COUNT)
-    {
-        system_count = 0;
-    }
-    
-    for (U8 callbacks = 0; callbacks < 1; callbacks++)
+{      
+    for (U8 callbacks = 0; callbacks < MAX_CALLBACKS; callbacks++)
     { 
         (registered_callbacks[callbacks].count)++;
         if(registered_callbacks[callbacks].count >= 
@@ -60,69 +33,38 @@ void Callbacks_Manager(void)
             {
                 registered_callbacks[callbacks].count = 0;
                 registered_callbacks[callbacks].callback();   
-            }
-        }
-
-        
+            }//if not null
+        }//if time 
     }//for
     
+}//Callback_Manager
 
-}
-
-static U8 get_next_available_spot(void)
+void Reset_Counter(Callback_Config_t * config)
 {
-    for(U8 index=0; index<MAX_CALLBACKS; index++)
-    {
-        if(registered_callbacks[index].Availablity == OPEN)
-        {
-            return index; 
-            break;
-        }
-    }
-    
-    return 100;
+    config->count = 0;
 }
-
 
 U8 Register_Callback(Callback_Config_t *config)
 {
-    if (!(config->callback))
-    {
-        // Error code: NULL Callback
-        return 100;
-    }
-    
-    U8 available_spot = get_next_available_spot();
-    
-    if (number_of_callbacks <= MAX_CALLBACKS)
-    {
-        if(available_spot != 100 && available_spot< MAX_CALLBACKS)
+    if(callback_count < MAX_CALLBACKS)
+    {    
+        if(config->callback != NULL && config->expiry_time > 0)
         {
-            config->callback_ID = available_spot;
-            registered_callbacks[available_spot].Availablity = TAKEN;
-            registered_callbacks[available_spot].expiry_time = (config->expiry_time);
-            registered_callbacks[available_spot].callback = config->callback;  
-            number_of_callbacks++;        
-        }        
-    }
-    return 0;
+            /**Register Valid Callback**/
+            registered_callbacks[callback_count] = (*config); 
+            Reset_Counter(config);
+            
+            callback_count++;
+            
+            return 0;
+        }//valid callback
+    }//if callback_count < MAX
+    
+
+    return 100;
 }//Register_Callback
 
 U8 Delete_Callback(Callback_Config_t *config)
 {
-    if(Callbacks_GetCallbackCount() != 0)
-    {
-        registered_callbacks[config->callback_ID].callback = NULL;
-        registered_callbacks[config->callback_ID].callback_ID = 100;
-        registered_callbacks[config->callback_ID].expiry_time = 0;
-        registered_callbacks[config->callback_ID].Availablity = OPEN;
-        number_of_callbacks--;     
-    }
-    else if(number_of_callbacks == DEFAULT_NUM_CB_VAL)
-    {
-        //Error code: cannot delete empty
-        return 90;
-    }
-
     return 0;
-}
+}//Delete_Callback

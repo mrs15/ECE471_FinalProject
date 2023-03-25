@@ -5,4 +5,6 @@ FSM_states.h  \
 SoilMoistureSensor.h  \
 PIC18F4331_Timer.h  \
 SystemCallbacks.h  \
-Types.h 
+Types.h  \
+LedDriver.h  \
+SystemConfiguration.h 

@@ -5288,14 +5288,100 @@ typedef struct{
 
 
 void Callbacks_Init(void);
-void Callbacks_Reset_Counter(void);
-U16 Callbacks_GetCount(void);
 U8 Callbacks_GetCallbackCount(void);
+void Reset_Counter(Callback_Config_t * config);
 void Callbacks_Manager(void);
 U8 Register_Callback(Callback_Config_t *config);
 U8 Delete_Callback(Callback_Config_t *config);
 # 5 "System_FSM.c" 2
 
+# 1 "./LedDriver.h" 1
+# 11 "./LedDriver.h"
+# 1 "./SystemConfiguration.h" 1
+# 41 "./SystemConfiguration.h"
+#pragma config OSC = IRCIO
+#pragma config FCMEN = ON
+#pragma config IESO = ON
+
+
+#pragma config PWRTEN = OFF
+#pragma config BOREN = ON
+
+
+
+#pragma config WDTEN = OFF
+#pragma config WDPS = 32768
+#pragma config WINEN = OFF
+
+
+#pragma config PWMPIN = OFF
+#pragma config LPOL = HIGH
+#pragma config HPOL = HIGH
+#pragma config T1OSCMX = ON
+
+
+#pragma config FLTAMX = RC1
+#pragma config SSPMX = RC7
+#pragma config PWM4MX = RB5
+#pragma config EXCLKMX = RC3
+#pragma config MCLRE = ON
+
+
+#pragma config STVREN = ON
+#pragma config LVP = ON
+
+
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+
+
+#pragma config CPB = OFF
+#pragma config CPD = OFF
+
+
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+
+
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+
+
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+
+
+#pragma config EBTRB = OFF
+# 11 "./LedDriver.h" 2
+
+
+void init_leds(void);
+void idle_status_led(void);
+void watering_status_led(void);
+void checking_moisture_status_led(void);
+# 6 "System_FSM.c" 2
+
+
+static void Check_Moisture_cb(void)
+{
+
+
+
+    if(get_current_state() != WATER_PLANTS)
+    {
+      set_state(CHECK_MOISTURE);
+    }
+}
+
+static void Watering_Done_cb(void)
+{
+
+    if(get_current_state() == WATER_PLANTS)
+    {
+        set_state(IDLE_STATE);
+    }
+}
 
 void FSM_begin(void)
 {
@@ -5304,9 +5390,28 @@ void FSM_begin(void)
         case INIT_STATE:
         {
 
-            SMS_init();
-            Timer0_init();
+
+            Callbacks_Init();
+
+            Callback_Config_t MoistureCB_Config =
+            {
+                .callback = &Check_Moisture_cb,
+                .expiry_time = 1,
+            };
+
+            Callback_Config_t WateringDoneCB_Config =
+            {
+                .callback = &Watering_Done_cb,
+                .expiry_time = 2,
+            };
+
+            Register_Callback(&MoistureCB_Config);
+            Register_Callback(&WateringDoneCB_Config);
+
+            init_leds();
+            Timer0_start();
             set_state(IDLE_STATE);
+
             break;
         }
 
@@ -5315,6 +5420,7 @@ void FSM_begin(void)
             while(get_current_state() == IDLE_STATE)
             {
 
+                idle_status_led();
             }
 
             break;
@@ -5324,7 +5430,11 @@ void FSM_begin(void)
         {
 
 
+            while(get_current_state() == WATER_PLANTS)
+            {
 
+              watering_status_led();
+            }
 
 
             break;
@@ -5334,7 +5444,15 @@ void FSM_begin(void)
         {
 
 
-            SMS_read_and_set_state();
+            while(get_current_state() == CHECK_MOISTURE)
+            {
+              checking_moisture_status_led();
+              _delay((unsigned long)((300)*(8000000/4000.0)));
+              set_state(WATER_PLANTS);
+            }
+
+
+
             break;
         }
 
