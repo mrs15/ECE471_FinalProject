@@ -44,7 +44,7 @@
 
 // CONFIG2L
 #pragma config PWRTEN = OFF     // Power-up Timer Enable bit (PWRT disabled)
-#pragma config BOREN = ON       // Brown-out Reset Enable bits (Brown-out Reset enabled)
+#pragma config BOREN = OFF       // Brown-out Reset Enable bits (Brown-out Reset enabled)
 // BORV = No Setting
 
 // CONFIG2H
@@ -67,7 +67,7 @@
 
 // CONFIG4L
 #pragma config STVREN = ON      // Stack Full/Underflow Reset Enable bit (Stack full/underflow will cause Reset)
-#pragma config LVP = ON         // Low-Voltage ICSP Enable bit (Low-voltage ICSP enabled)
+#pragma config LVP = OFF         // Low-Voltage ICSP Enable bit (Low-voltage ICSP enabled)
 
 // CONFIG5L
 #pragma config CP0 = OFF        // Code Protection bit (Block 0 (000200-000FFFh) not code-protected)

@@ -1,25 +1,96 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"6795 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6795:     struct {
-[s S295 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S295 . T0PS PSA T0SE T0CS T016BIT TMR0ON ]
-"6803
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6803:     struct {
-[s S296 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S296 . T0PS0 T0PS1 T0PS2 T0PS3 ]
-"6794
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6794: typedef union {
-[u S294 `S295 1 `S296 1 ]
-[n S294 . . . ]
-"6810
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6810: extern volatile T0CONbits_t T0CONbits __attribute__((address(0xFD5)));
-[v _T0CONbits `VS294 ~T0 @X0 0 e@4053 ]
+[t ~ __interrupt . k ]
+[t T36 __interrupt ]
+"7314 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7314:     struct {
+[s S308 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S308 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
+"7324
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7324:     struct {
+[s S309 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S309 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
+"7334
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7334:     struct {
+[s S310 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S310 . . GIEL GIEH ]
+"7313
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7313: typedef union {
+[u S307 `S308 1 `S309 1 `S310 1 ]
+[n S307 . . . . ]
+"7340
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7340: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
+[v _INTCONbits `VS307 ~T0 @X0 0 e@4082 ]
 "6872
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6872: extern volatile unsigned char TMR0L __attribute__((address(0xFD6)));
 [v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
 "6879
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6879: extern volatile unsigned char TMR0H __attribute__((address(0xFD7)));
 [v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
+"34 ./SystemCallbacks.h
+[; ;./SystemCallbacks.h: 34: void Callbacks_Manager(void);
+[v _Callbacks_Manager `(v ~T0 @X0 0 ef ]
+"41 ./SystemConfiguration.h
+[p x OSC  =  IRCIO       ]
+"42
+[p x FCMEN  =  ON        ]
+"43
+[p x IESO  =  ON         ]
+"46
+[p x PWRTEN  =  OFF      ]
+"47
+[p x BOREN  =  OFF        ]
+"51
+[p x WDTEN  =  OFF       ]
+"52
+[p x WDPS  =  32768      ]
+"53
+[p x WINEN  =  OFF       ]
+"56
+[p x PWMPIN  =  OFF      ]
+"57
+[p x LPOL  =  HIGH       ]
+"58
+[p x HPOL  =  HIGH       ]
+"59
+[p x T1OSCMX  =  ON      ]
+"62
+[p x FLTAMX  =  RC1      ]
+"63
+[p x SSPMX  =  RC7       ]
+"64
+[p x PWM4MX  =  RB5      ]
+"65
+[p x EXCLKMX  =  RC3     ]
+"66
+[p x MCLRE  =  ON        ]
+"69
+[p x STVREN  =  ON       ]
+"70
+[p x LVP  =  OFF          ]
+"73
+[p x CP0  =  OFF         ]
+"74
+[p x CP1  =  OFF         ]
+"77
+[p x CPB  =  OFF         ]
+"78
+[p x CPD  =  OFF         ]
+"81
+[p x WRT0  =  OFF        ]
+"82
+[p x WRT1  =  OFF        ]
+"85
+[p x WRTC  =  OFF        ]
+"86
+[p x WRTB  =  OFF        ]
+"87
+[p x WRTD  =  OFF        ]
+"90
+[p x EBTR0  =  OFF       ]
+"91
+[p x EBTR1  =  OFF       ]
+"94
+[p x EBTRB  =  OFF       ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 55: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -560,75 +631,76 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7617
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7617: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"8 PIC18F4331_Timer.c
-[; ;PIC18F4331_Timer.c: 8: static volatile uint16_t tmr0Counter=0;
+"6 SystemInterrupts.c
+[; ;SystemInterrupts.c: 6: static volatile uint16_t tmr0Counter=0;
 [v _tmr0Counter `Vus ~T0 @X0 1 s ]
 [i _tmr0Counter
 -> -> 0 `i `us
 ]
-"56
-[; ;PIC18F4331_Timer.c: 56: void Timer0_init(void)
-[v _Timer0_init `(v ~T0 @X0 1 ef ]
-"57
-[; ;PIC18F4331_Timer.c: 57: {
+[v $root$_timer_overflow_isr `(v ~T0 @X0 0 e ]
+"10
+[; ;SystemInterrupts.c: 10: void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
+[v _timer_overflow_isr `(v ~T36 @X0 1 ef ]
+"11
+[; ;SystemInterrupts.c: 11: {
 {
-[e :U _Timer0_init ]
+[e :U _timer_overflow_isr ]
 [f ]
-"67
-[; ;PIC18F4331_Timer.c: 67:     T0CONbits.T0PS0 = 1;
-[e = . . _T0CONbits 1 0 -> -> 1 `i `uc ]
-"68
-[; ;PIC18F4331_Timer.c: 68:     T0CONbits.T0PS1 = 0;
-[e = . . _T0CONbits 1 1 -> -> 0 `i `uc ]
-"69
-[; ;PIC18F4331_Timer.c: 69:     T0CONbits.T0PS2 = 1;
-[e = . . _T0CONbits 1 2 -> -> 1 `i `uc ]
-"72
-[; ;PIC18F4331_Timer.c: 72:     T0CONbits.PSA = 0;
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
-"75
-[; ;PIC18F4331_Timer.c: 75:     T0CONbits.T0CS = 0;
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
-"78
-[; ;PIC18F4331_Timer.c: 78:     T0CONbits.T016BIT = 0;
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
-"80
-[; ;PIC18F4331_Timer.c: 80:     TMR0L = (0x7C);
+"13
+[; ;SystemInterrupts.c: 13:     INTCONbits.GIEH = 0;
+[e = . . _INTCONbits 2 2 -> -> 0 `i `uc ]
+"14
+[; ;SystemInterrupts.c: 14:     INTCONbits.GIEL = 1;
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+"28
+[; ;SystemInterrupts.c: 28:     if(TMR0L < (0x7C))
+[e $ ! < -> _TMR0L `i -> 124 `i 316  ]
+"29
+[; ;SystemInterrupts.c: 29:     {
+{
+"30
+[; ;SystemInterrupts.c: 30:         TMR0L = (0x7C);
 [e = _TMR0L -> -> 124 `i `uc ]
-"81
-[; ;PIC18F4331_Timer.c: 81:     TMR0H = (0xE1);
+"31
+[; ;SystemInterrupts.c: 31:     }
+}
+[e :U 316 ]
+"32
+[; ;SystemInterrupts.c: 32:     if(TMR0H < (0xE1))
+[e $ ! < -> _TMR0H `i -> 225 `i 317  ]
+"33
+[; ;SystemInterrupts.c: 33:     {
+{
+"34
+[; ;SystemInterrupts.c: 34:         TMR0H = (0xE1);
 [e = _TMR0H -> -> 225 `i `uc ]
-"84
-[; ;PIC18F4331_Timer.c: 84: }
+"35
+[; ;SystemInterrupts.c: 35:     }
+}
+[e :U 317 ]
+"38
+[; ;SystemInterrupts.c: 38:     if(INTCONbits.TMR0IF)
+[e $ ! != -> . . _INTCONbits 0 2 `i -> 0 `i 318  ]
+"39
+[; ;SystemInterrupts.c: 39:     {
+{
+"43
+[; ;SystemInterrupts.c: 43:         Callbacks_Manager();
+[e ( _Callbacks_Manager ..  ]
+"46
+[; ;SystemInterrupts.c: 46:         INTCONbits.TMR0IF = 0;
+[e = . . _INTCONbits 0 2 -> -> 0 `i `uc ]
+"47
+[; ;SystemInterrupts.c: 47:     }
+}
+[e :U 318 ]
+"55
+[; ;SystemInterrupts.c: 55:     INTCONbits.GIEH = 1;
+[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
+"56
+[; ;SystemInterrupts.c: 56:     INTCONbits.GIEL = 1;
+[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+"58
+[; ;SystemInterrupts.c: 58: }
 [e :UE 315 ]
-}
-"86
-[; ;PIC18F4331_Timer.c: 86: void Timer0_start(void)
-[v _Timer0_start `(v ~T0 @X0 1 ef ]
-"87
-[; ;PIC18F4331_Timer.c: 87: {
-{
-[e :U _Timer0_start ]
-[f ]
-"88
-[; ;PIC18F4331_Timer.c: 88:     T0CONbits.TMR0ON = 1;
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"90
-[; ;PIC18F4331_Timer.c: 90: }
-[e :UE 316 ]
-}
-"92
-[; ;PIC18F4331_Timer.c: 92: void Timer0_stop(void)
-[v _Timer0_stop `(v ~T0 @X0 1 ef ]
-"93
-[; ;PIC18F4331_Timer.c: 93: {
-{
-[e :U _Timer0_stop ]
-[f ]
-"94
-[; ;PIC18F4331_Timer.c: 94:     T0CONbits.TMR0ON = 0;
-[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
-"95
-[; ;PIC18F4331_Timer.c: 95: }
-[e :UE 317 ]
 }

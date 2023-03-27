@@ -4,6 +4,13 @@
 #include "PIC18F4331_Timer.h"
 #include "SystemCallbacks.h"
 #include "LedDriver.h"
+#include "LCD.h"
+#include "SystemInterrupts.h"
+#include "Types.h"
+
+
+#define CHECK_MOISTURE_PERIOD (10) //this multiply by 2 
+#define WATERING_TIME (5) 
 
 static void Check_Moisture_cb(void)
 {
@@ -32,26 +39,38 @@ void FSM_begin(void)
         case INIT_STATE:
         {
             //TODO: initialization
-            //SMS_init();
+            SMS_init();
             Callbacks_Init();
             
             Callback_Config_t MoistureCB_Config = 
             {
                 .callback = &Check_Moisture_cb,
-                .expiry_time = 1,
+                .expiry_time = CHECK_MOISTURE_PERIOD,
             };
             
             Callback_Config_t WateringDoneCB_Config = 
             {
                 .callback = &Watering_Done_cb,
-                .expiry_time = 2, //5.66 times more fix timer timing
+                .expiry_time = WATERING_TIME,
             };
             
             Register_Callback(&MoistureCB_Config);
             Register_Callback(&WateringDoneCB_Config);
    
             init_leds();
+            
+            LCD_Init();
+            
+            LCD_Clear();
+            LCD_Set_Cursor(1,1);
+            LCD_Write_String(" Plant Watering\0");
+            LCD_Set_Cursor(2,1);
+            LCD_Write_String("System Initial...\0");
+            
+            __delay_ms(200);
+            
             Timer0_start();
+            
             set_state(IDLE_STATE);
             
             break;
@@ -59,9 +78,15 @@ void FSM_begin(void)
         
         case IDLE_STATE:
         {
+            LCD_Clear();
+            LCD_Set_Cursor(1,1);
+            LCD_Write_String(" >IDLE STATE<\0");
+
             while(get_current_state() == IDLE_STATE)
             {
                 //TODO: read IR input
+
+                
                 idle_status_led();
             }
             
@@ -71,6 +96,9 @@ void FSM_begin(void)
         case WATER_PLANTS:
         {
             //TODO: turn on water pump
+            LCD_Clear();
+            LCD_Set_Cursor(1,1);
+            LCD_Write_String(" >WATERING PLANTS<\0");
             
             while(get_current_state() == WATER_PLANTS)
             {
@@ -85,16 +113,21 @@ void FSM_begin(void)
         case CHECK_MOISTURE:
         {
             /*Come here every hour or 30 minutes*/
-            /*But for demo purposes, we will make it every 30 seconds or so*/
-            while(get_current_state() == CHECK_MOISTURE)
-            {
-              checking_moisture_status_led();
-              __delay_ms(300);
-              set_state(WATER_PLANTS);
-            }
+            /*But for demo purposes, we will make it every ~10 seconds*/
+            LCD_Clear();
+            LCD_Set_Cursor(1,1);
+            LCD_Write_String(" >CHECKING MOIST<\0");
             
-            //SMS_read_and_set_state();
+            checking_moisture_status_led();
+            __delay_ms(1000);
             
+            U16 moisture = SMS_Read_Moisture_Value();
+            
+            if(moisture > 65000)
+                moisture = 1000;
+          
+            SMS_Set_State(moisture);
+    
             break;
         }//CHECK_MOISTURE
         
@@ -105,6 +138,6 @@ void FSM_begin(void)
         }
         
         
-    }
+    }//switch
     
-}
+}//FSM_Begin

@@ -5237,7 +5237,7 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config PWRTEN = OFF
-#pragma config BOREN = ON
+#pragma config BOREN = OFF
 
 
 
@@ -5260,7 +5260,7 @@ unsigned char __t3rd16on(void);
 
 
 #pragma config STVREN = ON
-#pragma config LVP = ON
+#pragma config LVP = OFF
 
 
 #pragma config CP0 = OFF

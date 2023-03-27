@@ -5,13 +5,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "11
 [; ;./PIC18F4331_ADC.h: 11: uint16_t ADC_Read(void);
 [v _ADC_Read `(us ~T0 @X0 0 ef ]
-"18 SoilMoistureSensor.c
-[; ;SoilMoistureSensor.c: 18:         set_state(WATER_PLANTS);
-[c E2817 0 1 2 3 .. ]
-[n E2817 . INIT_STATE IDLE_STATE WATER_PLANTS CHECK_MOISTURE  ]
+"23 SoilMoistureSensor.c
+[; ;SoilMoistureSensor.c: 23:         set_state(WATER_PLANTS);
+[c E2821 0 1 2 3 .. ]
+[n E2821 . INIT_STATE IDLE_STATE WATER_PLANTS CHECK_MOISTURE  ]
 "19 ./FSM_states.h
 [; ;./FSM_states.h: 19: void set_state(STATES state_to_set);
-[v _set_state `(v ~T0 @X0 0 ef1`E2817 ]
+[v _set_state `(v ~T0 @X0 0 ef1`E2821 ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 55: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -561,7 +561,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46
 [p x PWRTEN  =  OFF      ]
 "47
-[p x BOREN  =  ON        ]
+[p x BOREN  =  OFF        ]
 "51
 [p x WDTEN  =  OFF       ]
 "52
@@ -589,7 +589,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69
 [p x STVREN  =  ON       ]
 "70
-[p x LVP  =  ON          ]
+[p x LVP  =  OFF          ]
 "73
 [p x CP0  =  OFF         ]
 "74
@@ -630,46 +630,80 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 314 ]
 }
 "13
-[; ;SoilMoistureSensor.c: 13: void SMS_read_and_set_state(void)
-[v _SMS_read_and_set_state `(v ~T0 @X0 1 ef ]
+[; ;SoilMoistureSensor.c: 13: U16 SMS_Read_Moisture_Value(void)
+[v _SMS_Read_Moisture_Value `(us ~T0 @X0 1 ef ]
 "14
 [; ;SoilMoistureSensor.c: 14: {
 {
-[e :U _SMS_read_and_set_state ]
+[e :U _SMS_Read_Moisture_Value ]
 [f ]
 "15
-[; ;SoilMoistureSensor.c: 15:     uint16_t moisture = ADC_Read();
+[; ;SoilMoistureSensor.c: 15:     U16 moisture = ADC_Read();
 [v _moisture `us ~T0 @X0 1 a ]
 [e = _moisture ( _ADC_Read ..  ]
 "16
-[; ;SoilMoistureSensor.c: 16:     if(moisture >= (595))
-[e $ ! >= -> _moisture `ui -> -> 595 `i `ui 316  ]
+[; ;SoilMoistureSensor.c: 16:     return moisture;
+[e ) _moisture ]
+[e $UE 315  ]
 "17
-[; ;SoilMoistureSensor.c: 17:     {
-{
-"18
-[; ;SoilMoistureSensor.c: 18:         set_state(WATER_PLANTS);
-[e ( _set_state (1 . `E2817 2 ]
-"19
-[; ;SoilMoistureSensor.c: 19:     }
+[; ;SoilMoistureSensor.c: 17: }
+[e :UE 315 ]
 }
-[e $U 317  ]
+"19
+[; ;SoilMoistureSensor.c: 19: void SMS_Set_State(U16 moisture)
+[v _SMS_Set_State `(v ~T0 @X0 1 ef1`us ]
 "20
-[; ;SoilMoistureSensor.c: 20:     else if(moisture >= (239) && moisture < (595))
-[e :U 316 ]
-[e $ ! && >= -> _moisture `ui -> -> 239 `i `ui < -> _moisture `ui -> -> 595 `i `ui 318  ]
+[; ;SoilMoistureSensor.c: 20: {
+{
+[e :U _SMS_Set_State ]
+"19
+[; ;SoilMoistureSensor.c: 19: void SMS_Set_State(U16 moisture)
+[v _moisture `us ~T0 @X0 1 r1 ]
+"20
+[; ;SoilMoistureSensor.c: 20: {
+[f ]
 "21
-[; ;SoilMoistureSensor.c: 21:     {
+[; ;SoilMoistureSensor.c: 21:     if(moisture >= (595))
+[e $ ! >= -> _moisture `ui -> -> 595 `i `ui 317  ]
+"22
+[; ;SoilMoistureSensor.c: 22:     {
 {
 "23
-[; ;SoilMoistureSensor.c: 23:         set_state(IDLE_STATE);
-[e ( _set_state (1 . `E2817 1 ]
+[; ;SoilMoistureSensor.c: 23:         set_state(WATER_PLANTS);
+[e ( _set_state (1 . `E2821 2 ]
 "24
 [; ;SoilMoistureSensor.c: 24:     }
 }
-[e :U 318 ]
-[e :U 317 ]
+[e $U 318  ]
 "25
-[; ;SoilMoistureSensor.c: 25: }
-[e :UE 315 ]
+[; ;SoilMoistureSensor.c: 25:     else if(moisture >= (239) && moisture < (595))
+[e :U 317 ]
+[e $ ! && >= -> _moisture `ui -> -> 239 `i `ui < -> _moisture `ui -> -> 595 `i `ui 319  ]
+"26
+[; ;SoilMoistureSensor.c: 26:     {
+{
+"28
+[; ;SoilMoistureSensor.c: 28:         set_state(IDLE_STATE);
+[e ( _set_state (1 . `E2821 1 ]
+"29
+[; ;SoilMoistureSensor.c: 29:     }
+}
+[e $U 320  ]
+"30
+[; ;SoilMoistureSensor.c: 30:     else
+[e :U 319 ]
+"31
+[; ;SoilMoistureSensor.c: 31:     {
+{
+"32
+[; ;SoilMoistureSensor.c: 32:         set_state(IDLE_STATE);
+[e ( _set_state (1 . `E2821 1 ]
+"33
+[; ;SoilMoistureSensor.c: 33:     }
+}
+[e :U 320 ]
+[e :U 318 ]
+"34
+[; ;SoilMoistureSensor.c: 34: }
+[e :UE 316 ]
 }

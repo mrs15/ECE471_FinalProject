@@ -1,4 +1,4 @@
-# 1 "SoilMoistureSensor.c"
+# 1 "I2C_LCD.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,9 +6,7 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "SoilMoistureSensor.c" 2
-# 1 "./SoilMoistureSensor.h" 1
-# 11 "./SoilMoistureSensor.h"
+# 1 "I2C_LCD.c" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5222,41 +5220,10 @@ __attribute__((__unsupported__("The READTIMER" "3" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 11 "./SoilMoistureSensor.h" 2
+# 1 "I2C_LCD.c" 2
 
-# 1 "./Types.h" 1
-# 11 "./Types.h"
-typedef unsigned char U8;
-typedef unsigned short U16;
-# 12 "./SoilMoistureSensor.h" 2
-
-
-
-
-
-void SMS_init(void);
-
-
-
-
-U16 SMS_Read_Moisture_Value(void);
-
-
-
-
-
-
-void SMS_Set_State(U16 moisture);
-# 1 "SoilMoistureSensor.c" 2
-
-# 1 "./PIC18F4331_ADC.h" 1
-
-
-
-
-
-
-
+# 1 "./I2C_LCD.h" 1
+# 13 "./I2C_LCD.h"
 # 1 "./SystemConfiguration.h" 1
 # 41 "./SystemConfiguration.h"
 #pragma config OSC = IRCIO
@@ -5265,7 +5232,7 @@ void SMS_Set_State(U16 moisture);
 
 
 #pragma config PWRTEN = OFF
-#pragma config BOREN = OFF
+#pragma config BOREN = ON
 
 
 
@@ -5288,7 +5255,7 @@ void SMS_Set_State(U16 moisture);
 
 
 #pragma config STVREN = ON
-#pragma config LVP = OFF
+#pragma config LVP = ON
 
 
 #pragma config CP0 = OFF
@@ -5313,54 +5280,202 @@ void SMS_Set_State(U16 moisture);
 
 
 #pragma config EBTRB = OFF
-# 8 "./PIC18F4331_ADC.h" 2
+# 13 "./I2C_LCD.h" 2
+# 45 "./I2C_LCD.h"
+void I2C_Master_Init();
+void I2C_Master_Wait();
+void I2C_Master_Start();
 
+void I2C_Master_Stop();
 
-void ADC_init(void);
-uint16_t ADC_Read(void);
-# 2 "SoilMoistureSensor.c" 2
-
-# 1 "./FSM_states.h" 1
-# 11 "./FSM_states.h"
-typedef enum{
-    INIT_STATE,
-    IDLE_STATE,
-    WATER_PLANTS,
-    CHECK_MOISTURE
-}STATES;
-
-STATES get_current_state(void);
-void set_state(STATES state_to_set);
-# 3 "SoilMoistureSensor.c" 2
+unsigned char I2C_Master_Write(unsigned char data);
 
 
 
 
+void LCD_Init(unsigned char I2C_Add);
+void IO_Expander_Write(unsigned char Data);
+void LCD_Write_4Bit(unsigned char Nibble);
+void LCD_CMD(unsigned char CMD);
+void LCD_Set_Cursor(unsigned char ROW, unsigned char COL);
+void LCD_Write_Char(char);
+void LCD_Write_String(char*);
+void Backlight();
+void noBacklight();
+void LCD_SR();
+void LCD_SL();
+void LCD_Clear();
+# 2 "I2C_LCD.c" 2
 
-void SMS_init(void)
+
+unsigned char RS, BackLight_State = 0x08;
+unsigned char i2c_add;
+
+
+
+void I2C_Master_Init()
 {
-    ADC_init();
+# 41 "I2C_LCD.c"
+    SSPCON = 0x28;
+    SSPSTAT = 0x80;
+    SSPCONbits.SSPEN = 0;
+    PIR1bits.SSPIF = 0;
+
+    SSPADD = 19;
+
+
+    TRISDbits.RD3 = 1;
+    TRISDbits.RD2 = 1;
 }
 
-U16 SMS_Read_Moisture_Value(void)
+void I2C_Master_Wait()
 {
-    U16 moisture = ADC_Read();
-    return moisture;
+  while (SSPSTATbits.P == 1 && SSPSTATbits.P == 1);
+
 }
 
-void SMS_Set_State(U16 moisture)
+void I2C_Master_Start()
 {
-    if(moisture >= (595))
-    {
-        set_state(WATER_PLANTS);
-    }
-    else if(moisture >= (239) && moisture < (595))
-    {
+PIR1bits.SSPIF = 0;
+while (SSPSTATbits.BF );
+SSPCONbits.SSPEN = 1;
+SSPSTATbits.S = 1;
+while (!PIR1bits.SSPIF) ;
+PIR1bits.SSPIF = 0;
+}
 
-        set_state(IDLE_STATE);
-    }
-    else
-    {
-        set_state(IDLE_STATE);
-    }
+void I2C_Master_Stop()
+{
+PIR1bits.SSPIF = 0;
+while ( SSPSTATbits.BF ) ;
+SSPSTATbits.P = 1;
+while (!PIR1bits.SSPIF) ;
+PIR1bits.SSPIF = 0;
+}
+
+
+unsigned char I2C_Master_Write(unsigned char data)
+{
+# 92 "I2C_LCD.c"
+ PIR1bits.SSPIF = 0;
+while ( SSPSTATbits.BF ) ;
+SSPBUF = data;
+while (!PIR1bits.SSPIF) ;
+PIR1bits.SSPIF = 0;
+return (1);
+}
+
+
+
+
+
+
+
+void LCD_Init(unsigned char I2C_Add)
+{
+  i2c_add = I2C_Add;
+  IO_Expander_Write(0x00);
+  _delay((unsigned long)((30)*(8000000/4000.0)));
+  LCD_CMD(0x03);
+  _delay((unsigned long)((5)*(8000000/4000.0)));
+  LCD_CMD(0x03);
+  _delay((unsigned long)((5)*(8000000/4000.0)));
+  LCD_CMD(0x03);
+  _delay((unsigned long)((5)*(8000000/4000.0)));
+  LCD_CMD(0x02);
+  _delay((unsigned long)((5)*(8000000/4000.0)));
+  LCD_CMD(0x20 | (2 << 2));
+  _delay((unsigned long)((50)*(8000000/4000.0)));
+  LCD_CMD(0x0C);
+  _delay((unsigned long)((50)*(8000000/4000.0)));
+  LCD_CMD(0x01);
+  _delay((unsigned long)((50)*(8000000/4000.0)));
+  LCD_CMD(0x04 | 0x02);
+  _delay((unsigned long)((50)*(8000000/4000.0)));
+}
+
+void IO_Expander_Write(unsigned char Data)
+{
+  I2C_Master_Start();
+  I2C_Master_Write(i2c_add);
+  I2C_Master_Write(Data | BackLight_State);
+  I2C_Master_Stop();
+}
+
+void LCD_Write_4Bit(unsigned char Nibble)
+{
+
+  Nibble |= RS;
+  IO_Expander_Write(Nibble | 0x04);
+  IO_Expander_Write(Nibble & 0xFB);
+  _delay((unsigned long)((50)*(8000000/4000000.0)));
+}
+
+void LCD_CMD(unsigned char CMD)
+{
+  RS = 0;
+  LCD_Write_4Bit(CMD & 0xF0);
+  LCD_Write_4Bit((CMD << 4) & 0xF0);
+}
+
+void LCD_Write_Char(char Data)
+{
+  RS = 1;
+  LCD_Write_4Bit(Data & 0xF0);
+  LCD_Write_4Bit((Data << 4) & 0xF0);
+}
+
+void LCD_Write_String(char* Str)
+{
+  for(int i=0; Str[i]!='\0'; i++)
+    LCD_Write_Char(Str[i]);
+}
+
+void LCD_Set_Cursor(unsigned char ROW, unsigned char COL)
+{
+  switch(ROW)
+  {
+    case 2:
+      LCD_CMD(0xC0 + COL-1);
+      break;
+    case 3:
+      LCD_CMD(0x94 + COL-1);
+      break;
+    case 4:
+      LCD_CMD(0xD4 + COL-1);
+      break;
+
+    default:
+      LCD_CMD(0x80 + COL-1);
+  }
+}
+
+void Backlight()
+{
+  BackLight_State = 0x08;
+  IO_Expander_Write(0);
+}
+
+void noBacklight()
+{
+  BackLight_State = 0x00;
+  IO_Expander_Write(0);
+}
+
+void LCD_SL()
+{
+  LCD_CMD(0x18);
+  _delay((unsigned long)((40)*(8000000/4000000.0)));
+}
+
+void LCD_SR()
+{
+  LCD_CMD(0x1C);
+  _delay((unsigned long)((40)*(8000000/4000000.0)));
+}
+
+void LCD_Clear()
+{
+  LCD_CMD(0x01);
+  _delay((unsigned long)((40)*(8000000/4000000.0)));
 }

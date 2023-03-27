@@ -10,6 +10,7 @@
 #include "System_FSM.h"
 #include "FSM_states.h"
 #include "PIC18F4331_Timer.h"
+#include "LCD.h"
 
 
 void main(void) {
@@ -37,6 +38,9 @@ void main(void) {
     //enable global interrupts
     INTCONbits.GIEH = 1;
     INTCONbits.GIEL = 1;
+    
+    
+
     
     set_state(INIT_STATE);
     while(1)

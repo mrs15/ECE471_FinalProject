@@ -5272,46 +5272,12 @@ U8 Delete_Callback(Callback_Config_t *config);
 
 
 static volatile uint16_t tmr0Counter=0;
-
-void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
-{
-
-    INTCONbits.GIEH = 0;
-    INTCONbits.GIEL = 1;
-# 28 "PIC18F4331_Timer.c"
-    if(TMR0L < (0x7C))
-    {
-        TMR0L = (0x7C);
-    }
-    if(TMR0H < (0xE1))
-    {
-        TMR0H = (0xE1);
-    }
-
-
-    if(INTCONbits.TMR0IF)
-    {
-
-        tmr0Counter++;
-
-        Callbacks_Manager();
-
-
-        INTCONbits.TMR0IF = 0;
-    }
-
-
-    INTCONbits.GIEH = 1;
-    INTCONbits.GIEL = 1;
-
-}
-
-
+# 56 "PIC18F4331_Timer.c"
 void Timer0_init(void)
 {
 # 67 "PIC18F4331_Timer.c"
     T0CONbits.T0PS0 = 1;
-    T0CONbits.T0PS1 = 1;
+    T0CONbits.T0PS1 = 0;
     T0CONbits.T0PS2 = 1;
 
 
@@ -5322,6 +5288,9 @@ void Timer0_init(void)
 
 
     T0CONbits.T016BIT = 0;
+
+    TMR0L = (0x7C);
+    TMR0H = (0xE1);
 
 
 }

@@ -5242,15 +5242,30 @@ void set_state(STATES state_to_set);
 # 2 "System_FSM.c" 2
 
 # 1 "./SoilMoistureSensor.h" 1
-# 16 "./SoilMoistureSensor.h"
+# 12 "./SoilMoistureSensor.h"
+# 1 "./Types.h" 1
+# 11 "./Types.h"
+typedef unsigned char U8;
+typedef unsigned short U16;
+# 12 "./SoilMoistureSensor.h" 2
+
+
+
+
+
 void SMS_init(void);
 
 
 
 
+U16 SMS_Read_Moisture_Value(void);
 
 
-void SMS_read_and_set_state(void);
+
+
+
+
+void SMS_Set_State(U16 moisture);
 # 3 "System_FSM.c" 2
 
 # 1 "./PIC18F4331_Timer.h" 1
@@ -5261,16 +5276,7 @@ void Timer0_stop(void);
 # 4 "System_FSM.c" 2
 
 # 1 "./SystemCallbacks.h" 1
-# 11 "./SystemCallbacks.h"
-# 1 "./Types.h" 1
-# 11 "./Types.h"
-typedef unsigned char U8;
-typedef unsigned short U16;
-# 11 "./SystemCallbacks.h" 2
-
-
-
-
+# 15 "./SystemCallbacks.h"
 typedef void (*time_callback_t)(void);
 
 typedef enum{
@@ -5305,7 +5311,7 @@ U8 Delete_Callback(Callback_Config_t *config);
 
 
 #pragma config PWRTEN = OFF
-#pragma config BOREN = ON
+#pragma config BOREN = OFF
 
 
 
@@ -5328,7 +5334,7 @@ U8 Delete_Callback(Callback_Config_t *config);
 
 
 #pragma config STVREN = ON
-#pragma config LVP = ON
+#pragma config LVP = OFF
 
 
 #pragma config CP0 = OFF
@@ -5362,6 +5368,28 @@ void watering_status_led(void);
 void checking_moisture_status_led(void);
 # 6 "System_FSM.c" 2
 
+# 1 "./LCD.h" 1
+# 30 "./LCD.h"
+void LCD_Init(void);
+void LCD_Clear(void);
+void LCD_SL(void);
+void LCD_SR(void);
+
+void LCD_CMD(unsigned char);
+void LCD_DATA(unsigned char);
+void LCD_Set_Cursor(unsigned char, unsigned char);
+void LCD_Write_Char(char);
+void LCD_Write_String(char*);
+# 7 "System_FSM.c" 2
+
+# 1 "./SystemInterrupts.h" 1
+# 8 "System_FSM.c" 2
+
+
+
+
+
+
 
 static void Check_Moisture_cb(void)
 {
@@ -5390,26 +5418,38 @@ void FSM_begin(void)
         case INIT_STATE:
         {
 
-
+            SMS_init();
             Callbacks_Init();
 
             Callback_Config_t MoistureCB_Config =
             {
                 .callback = &Check_Moisture_cb,
-                .expiry_time = 1,
+                .expiry_time = (10),
             };
 
             Callback_Config_t WateringDoneCB_Config =
             {
                 .callback = &Watering_Done_cb,
-                .expiry_time = 2,
+                .expiry_time = (5),
             };
 
             Register_Callback(&MoistureCB_Config);
             Register_Callback(&WateringDoneCB_Config);
 
             init_leds();
+
+            LCD_Init();
+
+            LCD_Clear();
+            LCD_Set_Cursor(1,1);
+            LCD_Write_String(" Plant Watering\0");
+            LCD_Set_Cursor(2,1);
+            LCD_Write_String("System Initial...\0");
+
+            _delay((unsigned long)((200)*(8000000/4000.0)));
+
             Timer0_start();
+
             set_state(IDLE_STATE);
 
             break;
@@ -5417,8 +5457,14 @@ void FSM_begin(void)
 
         case IDLE_STATE:
         {
+            LCD_Clear();
+            LCD_Set_Cursor(1,1);
+            LCD_Write_String(" >IDLE STATE<\0");
+
             while(get_current_state() == IDLE_STATE)
             {
+
+
 
                 idle_status_led();
             }
@@ -5429,6 +5475,9 @@ void FSM_begin(void)
         case WATER_PLANTS:
         {
 
+            LCD_Clear();
+            LCD_Set_Cursor(1,1);
+            LCD_Write_String(" >WATERING PLANTS<\0");
 
             while(get_current_state() == WATER_PLANTS)
             {
@@ -5444,14 +5493,19 @@ void FSM_begin(void)
         {
 
 
-            while(get_current_state() == CHECK_MOISTURE)
-            {
-              checking_moisture_status_led();
-              _delay((unsigned long)((300)*(8000000/4000.0)));
-              set_state(WATER_PLANTS);
-            }
+            LCD_Clear();
+            LCD_Set_Cursor(1,1);
+            LCD_Write_String(" >CHECKING MOIST<\0");
 
+            checking_moisture_status_led();
+            _delay((unsigned long)((1000)*(8000000/4000.0)));
 
+            U16 moisture = SMS_Read_Moisture_Value();
+
+            if(moisture > 65000)
+                moisture = 1000;
+
+            SMS_Set_State(moisture);
 
             break;
         }

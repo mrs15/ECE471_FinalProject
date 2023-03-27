@@ -17,7 +17,7 @@
 
 
 #pragma config PWRTEN = OFF
-#pragma config BOREN = ON
+#pragma config BOREN = OFF
 
 
 
@@ -40,7 +40,7 @@
 
 
 #pragma config STVREN = ON
-#pragma config LVP = ON
+#pragma config LVP = OFF
 
 
 #pragma config CP0 = OFF

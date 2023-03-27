@@ -3,8 +3,10 @@ System_FSM.c  \
 System_FSM.h  \
 FSM_states.h  \
 SoilMoistureSensor.h  \
+Types.h  \
 PIC18F4331_Timer.h  \
 SystemCallbacks.h  \
-Types.h  \
 LedDriver.h  \
-SystemConfiguration.h 
+SystemConfiguration.h  \
+LCD.h  \
+SystemInterrupts.h 

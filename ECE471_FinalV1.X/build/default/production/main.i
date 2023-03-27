@@ -23,7 +23,7 @@
 
 
 #pragma config PWRTEN = OFF
-#pragma config BOREN = ON
+#pragma config BOREN = OFF
 
 
 
@@ -46,7 +46,7 @@
 
 
 #pragma config STVREN = ON
-#pragma config LVP = ON
+#pragma config LVP = OFF
 
 
 #pragma config CP0 = OFF
@@ -5317,6 +5317,20 @@ void Timer0_start(void);
 void Timer0_stop(void);
 # 12 "main.c" 2
 
+# 1 "./LCD.h" 1
+# 30 "./LCD.h"
+void LCD_Init(void);
+void LCD_Clear(void);
+void LCD_SL(void);
+void LCD_SR(void);
+
+void LCD_CMD(unsigned char);
+void LCD_DATA(unsigned char);
+void LCD_Set_Cursor(unsigned char, unsigned char);
+void LCD_Write_Char(char);
+void LCD_Write_String(char*);
+# 13 "main.c" 2
+
 
 
 void main(void) {
@@ -5344,6 +5358,9 @@ void main(void) {
 
     INTCONbits.GIEH = 1;
     INTCONbits.GIEL = 1;
+
+
+
 
     set_state(INIT_STATE);
     while(1)

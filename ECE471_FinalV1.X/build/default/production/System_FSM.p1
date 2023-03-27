@@ -1,6 +1,6 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"13 System_FSM.c
-[; ;System_FSM.c: 13:     if(get_current_state() != WATER_PLANTS)
+"20 System_FSM.c
+[; ;System_FSM.c: 20:     if(get_current_state() != WATER_PLANTS)
 [c E2814 0 1 2 3 .. ]
 [n E2814 . INIT_STATE IDLE_STATE WATER_PLANTS CHECK_MOISTURE  ]
 "18 ./FSM_states.h
@@ -9,17 +9,20 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19
 [; ;./FSM_states.h: 19: void set_state(STATES state_to_set);
 [v _set_state `(v ~T0 @X0 0 ef1`E2814 ]
+"17 ./SoilMoistureSensor.h
+[; ;./SoilMoistureSensor.h: 17: void SMS_init(void);
+[v _SMS_init `(v ~T0 @X0 0 ef ]
 "31 ./SystemCallbacks.h
 [; ;./SystemCallbacks.h: 31: void Callbacks_Init(void);
 [v _Callbacks_Init `(v ~T0 @X0 0 ef ]
-[v F2839 `(v ~T0 @X0 0 tf ]
-"38 System_FSM.c
-[; ;System_FSM.c: 38:             Callback_Config_t MoistureCB_Config =
-[c E2832 0 1 .. ]
-[n E2832 . OPEN TAKEN  ]
+[v F2841 `(v ~T0 @X0 0 tf ]
+"45 System_FSM.c
+[; ;System_FSM.c: 45:             Callback_Config_t MoistureCB_Config =
+[c E2834 0 1 .. ]
+[n E2834 . OPEN TAKEN  ]
 "22 ./SystemCallbacks.h
 [; ;./SystemCallbacks.h: 22: typedef struct{
-[s S314 `us 1 `*F2839 1 `uc 1 `us 1 `E2832 1 ]
+[s S314 `us 1 `*F2841 1 `uc 1 `us 1 `E2834 1 ]
 [n S314 . expiry_time callback callback_ID count Availablity ]
 "35
 [; ;./SystemCallbacks.h: 35: U8 Register_Callback(Callback_Config_t *config);
@@ -27,6 +30,22 @@ Version 4.0 HI-TECH Software Intermediate Code
 "13 ./LedDriver.h
 [; ;./LedDriver.h: 13: void init_leds(void);
 [v _init_leds `(v ~T0 @X0 0 ef ]
+"30 ./LCD.h
+[; ;./LCD.h: 30: void LCD_Init(void);
+[v _LCD_Init `(v ~T0 @X0 0 ef ]
+"31
+[; ;./LCD.h: 31: void LCD_Clear(void);
+[v _LCD_Clear `(v ~T0 @X0 0 ef ]
+"37
+[; ;./LCD.h: 37: void LCD_Set_Cursor(unsigned char, unsigned char);
+[v _LCD_Set_Cursor `(v ~T0 @X0 0 ef2`uc`uc ]
+"39
+[; ;./LCD.h: 39: void LCD_Write_String(char*);
+[v _LCD_Write_String `(v ~T0 @X0 0 ef1`*uc ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
 "17 ./PIC18F4331_Timer.h
 [; ;./PIC18F4331_Timer.h: 17: void Timer0_start(void);
 [v _Timer0_start `(v ~T0 @X0 0 ef ]
@@ -39,10 +58,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16
 [; ;./LedDriver.h: 16: void checking_moisture_status_led(void);
 [v _checking_moisture_status_led `(v ~T0 @X0 0 ef ]
-[v F192 `(v ~T0 @X0 1 tf1`ul ]
-"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
-[v __delay `JF192 ~T0 @X0 0 e ]
-[p i __delay ]
+"22 ./SoilMoistureSensor.h
+[; ;./SoilMoistureSensor.h: 22: U16 SMS_Read_Moisture_Value(void);
+[v _SMS_Read_Moisture_Value `(us ~T0 @X0 0 ef ]
+"29
+[; ;./SoilMoistureSensor.h: 29: void SMS_Set_State(U16 moisture);
+[v _SMS_Set_State `(v ~T0 @X0 0 ef1`us ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 55: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -592,7 +613,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46
 [p x PWRTEN  =  OFF      ]
 "47
-[p x BOREN  =  ON        ]
+[p x BOREN  =  OFF        ]
 "51
 [p x WDTEN  =  OFF       ]
 "52
@@ -620,7 +641,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69
 [p x STVREN  =  ON       ]
 "70
-[p x LVP  =  ON          ]
+[p x LVP  =  OFF          ]
 "73
 [p x CP0  =  OFF         ]
 "74
@@ -645,239 +666,286 @@ Version 4.0 HI-TECH Software Intermediate Code
 [p x EBTR1  =  OFF       ]
 "94
 [p x EBTRB  =  OFF       ]
-"8 System_FSM.c
-[; ;System_FSM.c: 8: static void Check_Moisture_cb(void)
+"15 System_FSM.c
+[; ;System_FSM.c: 15: static void Check_Moisture_cb(void)
 [v _Check_Moisture_cb `(v ~T0 @X0 1 sf ]
-"9
-[; ;System_FSM.c: 9: {
+"16
+[; ;System_FSM.c: 16: {
 {
 [e :U _Check_Moisture_cb ]
 [f ]
-"13
-[; ;System_FSM.c: 13:     if(get_current_state() != WATER_PLANTS)
+"20
+[; ;System_FSM.c: 20:     if(get_current_state() != WATER_PLANTS)
 [e $ ! != -> ( _get_current_state ..  `ui -> . `E2814 2 `ui 316  ]
-"14
-[; ;System_FSM.c: 14:     {
+"21
+[; ;System_FSM.c: 21:     {
 {
-"15
-[; ;System_FSM.c: 15:       set_state(CHECK_MOISTURE);
+"22
+[; ;System_FSM.c: 22:       set_state(CHECK_MOISTURE);
 [e ( _set_state (1 . `E2814 3 ]
-"16
-[; ;System_FSM.c: 16:     }
+"23
+[; ;System_FSM.c: 23:     }
 }
 [e :U 316 ]
-"17
-[; ;System_FSM.c: 17: }
+"24
+[; ;System_FSM.c: 24: }
 [e :UE 315 ]
 }
-"19
-[; ;System_FSM.c: 19: static void Watering_Done_cb(void)
+"26
+[; ;System_FSM.c: 26: static void Watering_Done_cb(void)
 [v _Watering_Done_cb `(v ~T0 @X0 1 sf ]
-"20
-[; ;System_FSM.c: 20: {
+"27
+[; ;System_FSM.c: 27: {
 {
 [e :U _Watering_Done_cb ]
 [f ]
-"22
-[; ;System_FSM.c: 22:     if(get_current_state() == WATER_PLANTS)
+"29
+[; ;System_FSM.c: 29:     if(get_current_state() == WATER_PLANTS)
 [e $ ! == -> ( _get_current_state ..  `ui -> . `E2814 2 `ui 318  ]
-"23
-[; ;System_FSM.c: 23:     {
+"30
+[; ;System_FSM.c: 30:     {
 {
-"24
-[; ;System_FSM.c: 24:         set_state(IDLE_STATE);
+"31
+[; ;System_FSM.c: 31:         set_state(IDLE_STATE);
 [e ( _set_state (1 . `E2814 1 ]
-"25
-[; ;System_FSM.c: 25:     }
+"32
+[; ;System_FSM.c: 32:     }
 }
 [e :U 318 ]
-"26
-[; ;System_FSM.c: 26: }
+"33
+[; ;System_FSM.c: 33: }
 [e :UE 317 ]
 }
-"28
-[; ;System_FSM.c: 28: void FSM_begin(void)
+"35
+[; ;System_FSM.c: 35: void FSM_begin(void)
 [v _FSM_begin `(v ~T0 @X0 1 ef ]
-"29
-[; ;System_FSM.c: 29: {
+"36
+[; ;System_FSM.c: 36: {
 {
 [e :U _FSM_begin ]
 [f ]
-"30
-[; ;System_FSM.c: 30:     switch(get_current_state())
+"37
+[; ;System_FSM.c: 37:     switch(get_current_state())
 [e $U 321  ]
-"31
-[; ;System_FSM.c: 31:     {
-{
-"32
-[; ;System_FSM.c: 32:         case INIT_STATE:
-[e :U 322 ]
-"33
-[; ;System_FSM.c: 33:         {
-{
-"36
-[; ;System_FSM.c: 36:             Callbacks_Init();
-[e ( _Callbacks_Init ..  ]
-[v F2860 `S314 ~T0 @X0 1 s ]
-[i F2860
-:U ..
-:U ..
 "38
-[; ;System_FSM.c: 38:             Callback_Config_t MoistureCB_Config =
--> -> 1 `i `us
+[; ;System_FSM.c: 38:     {
+{
+"39
+[; ;System_FSM.c: 39:         case INIT_STATE:
+[e :U 322 ]
+"40
+[; ;System_FSM.c: 40:         {
+{
+"42
+[; ;System_FSM.c: 42:             SMS_init();
+[e ( _SMS_init ..  ]
+"43
+[; ;System_FSM.c: 43:             Callbacks_Init();
+[e ( _Callbacks_Init ..  ]
+[v F2877 `S314 ~T0 @X0 1 s ]
+[i F2877
+:U ..
+:U ..
+"45
+[; ;System_FSM.c: 45:             Callback_Config_t MoistureCB_Config =
+-> -> 10 `i `us
 &U _Check_Moisture_cb
 ..
 ..
 ]
 [v _MoistureCB_Config `S314 ~T0 @X0 1 a ]
-[e = _MoistureCB_Config F2860 ]
-[v F2863 `S314 ~T0 @X0 1 s ]
-[i F2863
+[e = _MoistureCB_Config F2877 ]
+[v F2880 `S314 ~T0 @X0 1 s ]
+[i F2880
 :U ..
 :U ..
-"44
-[; ;System_FSM.c: 44:             Callback_Config_t WateringDoneCB_Config =
--> -> 2 `i `us
+"51
+[; ;System_FSM.c: 51:             Callback_Config_t WateringDoneCB_Config =
+-> -> 5 `i `us
 &U _Watering_Done_cb
 ..
 ..
 ]
 [v _WateringDoneCB_Config `S314 ~T0 @X0 1 a ]
-[e = _WateringDoneCB_Config F2863 ]
-"50
-[; ;System_FSM.c: 50:             Register_Callback(&MoistureCB_Config);
-[e ( _Register_Callback (1 &U _MoistureCB_Config ]
-"51
-[; ;System_FSM.c: 51:             Register_Callback(&WateringDoneCB_Config);
-[e ( _Register_Callback (1 &U _WateringDoneCB_Config ]
-"53
-[; ;System_FSM.c: 53:             init_leds();
-[e ( _init_leds ..  ]
-"54
-[; ;System_FSM.c: 54:             Timer0_start();
-[e ( _Timer0_start ..  ]
-"55
-[; ;System_FSM.c: 55:             set_state(IDLE_STATE);
-[e ( _set_state (1 . `E2814 1 ]
+[e = _WateringDoneCB_Config F2880 ]
 "57
-[; ;System_FSM.c: 57:             break;
-[e $U 320  ]
+[; ;System_FSM.c: 57:             Register_Callback(&MoistureCB_Config);
+[e ( _Register_Callback (1 &U _MoistureCB_Config ]
 "58
-[; ;System_FSM.c: 58:         }
-}
+[; ;System_FSM.c: 58:             Register_Callback(&WateringDoneCB_Config);
+[e ( _Register_Callback (1 &U _WateringDoneCB_Config ]
 "60
-[; ;System_FSM.c: 60:         case IDLE_STATE:
-[e :U 323 ]
-"61
-[; ;System_FSM.c: 61:         {
-{
+[; ;System_FSM.c: 60:             init_leds();
+[e ( _init_leds ..  ]
 "62
-[; ;System_FSM.c: 62:             while(get_current_state() == IDLE_STATE)
+[; ;System_FSM.c: 62:             LCD_Init();
+[e ( _LCD_Init ..  ]
+"64
+[; ;System_FSM.c: 64:             LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"65
+[; ;System_FSM.c: 65:             LCD_Set_Cursor(1,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"66
+[; ;System_FSM.c: 66:             LCD_Write_String(" Plant Watering\0");
+[e ( _LCD_Write_String (1 :s 1C ]
+"67
+[; ;System_FSM.c: 67:             LCD_Set_Cursor(2,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 2 `i `uc -> -> 1 `i `uc ]
+"68
+[; ;System_FSM.c: 68:             LCD_Write_String("System Initial...\0");
+[e ( _LCD_Write_String (1 :s 2C ]
+"70
+[; ;System_FSM.c: 70:             _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"72
+[; ;System_FSM.c: 72:             Timer0_start();
+[e ( _Timer0_start ..  ]
+"74
+[; ;System_FSM.c: 74:             set_state(IDLE_STATE);
+[e ( _set_state (1 . `E2814 1 ]
+"76
+[; ;System_FSM.c: 76:             break;
+[e $U 320  ]
+"77
+[; ;System_FSM.c: 77:         }
+}
+"79
+[; ;System_FSM.c: 79:         case IDLE_STATE:
+[e :U 323 ]
+"80
+[; ;System_FSM.c: 80:         {
+{
+"81
+[; ;System_FSM.c: 81:             LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"82
+[; ;System_FSM.c: 82:             LCD_Set_Cursor(1,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"83
+[; ;System_FSM.c: 83:             LCD_Write_String(" >IDLE STATE<\0");
+[e ( _LCD_Write_String (1 :s 3C ]
+"85
+[; ;System_FSM.c: 85:             while(get_current_state() == IDLE_STATE)
 [e $U 324  ]
 [e :U 325 ]
-"63
-[; ;System_FSM.c: 63:             {
+"86
+[; ;System_FSM.c: 86:             {
 {
-"65
-[; ;System_FSM.c: 65:                 idle_status_led();
+"90
+[; ;System_FSM.c: 90:                 idle_status_led();
 [e ( _idle_status_led ..  ]
-"66
-[; ;System_FSM.c: 66:             }
+"91
+[; ;System_FSM.c: 91:             }
 }
 [e :U 324 ]
-"62
-[; ;System_FSM.c: 62:             while(get_current_state() == IDLE_STATE)
+"85
+[; ;System_FSM.c: 85:             while(get_current_state() == IDLE_STATE)
 [e $ == -> ( _get_current_state ..  `ui -> . `E2814 1 `ui 325  ]
 [e :U 326 ]
-"68
-[; ;System_FSM.c: 68:             break;
+"93
+[; ;System_FSM.c: 93:             break;
 [e $U 320  ]
-"69
-[; ;System_FSM.c: 69:         }
+"94
+[; ;System_FSM.c: 94:         }
 }
-"71
-[; ;System_FSM.c: 71:         case WATER_PLANTS:
+"96
+[; ;System_FSM.c: 96:         case WATER_PLANTS:
 [e :U 327 ]
-"72
-[; ;System_FSM.c: 72:         {
+"97
+[; ;System_FSM.c: 97:         {
 {
-"75
-[; ;System_FSM.c: 75:             while(get_current_state() == WATER_PLANTS)
+"99
+[; ;System_FSM.c: 99:             LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"100
+[; ;System_FSM.c: 100:             LCD_Set_Cursor(1,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"101
+[; ;System_FSM.c: 101:             LCD_Write_String(" >WATERING PLANTS<\0");
+[e ( _LCD_Write_String (1 :s 4C ]
+"103
+[; ;System_FSM.c: 103:             while(get_current_state() == WATER_PLANTS)
 [e $U 328  ]
 [e :U 329 ]
-"76
-[; ;System_FSM.c: 76:             {
+"104
+[; ;System_FSM.c: 104:             {
 {
-"78
-[; ;System_FSM.c: 78:               watering_status_led();
+"106
+[; ;System_FSM.c: 106:               watering_status_led();
 [e ( _watering_status_led ..  ]
-"79
-[; ;System_FSM.c: 79:             }
+"107
+[; ;System_FSM.c: 107:             }
 }
 [e :U 328 ]
-"75
-[; ;System_FSM.c: 75:             while(get_current_state() == WATER_PLANTS)
+"103
+[; ;System_FSM.c: 103:             while(get_current_state() == WATER_PLANTS)
 [e $ == -> ( _get_current_state ..  `ui -> . `E2814 2 `ui 329  ]
 [e :U 330 ]
-"82
-[; ;System_FSM.c: 82:             break;
+"110
+[; ;System_FSM.c: 110:             break;
 [e $U 320  ]
-"83
-[; ;System_FSM.c: 83:         }
+"111
+[; ;System_FSM.c: 111:         }
 }
-"85
-[; ;System_FSM.c: 85:         case CHECK_MOISTURE:
+"113
+[; ;System_FSM.c: 113:         case CHECK_MOISTURE:
 [e :U 331 ]
-"86
-[; ;System_FSM.c: 86:         {
+"114
+[; ;System_FSM.c: 114:         {
 {
-"89
-[; ;System_FSM.c: 89:             while(get_current_state() == CHECK_MOISTURE)
-[e $U 332  ]
-[e :U 333 ]
-"90
-[; ;System_FSM.c: 90:             {
-{
-"91
-[; ;System_FSM.c: 91:               checking_moisture_status_led();
+"117
+[; ;System_FSM.c: 117:             LCD_Clear();
+[e ( _LCD_Clear ..  ]
+"118
+[; ;System_FSM.c: 118:             LCD_Set_Cursor(1,1);
+[e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
+"119
+[; ;System_FSM.c: 119:             LCD_Write_String(" >CHECKING MOIST<\0");
+[e ( _LCD_Write_String (1 :s 5C ]
+"121
+[; ;System_FSM.c: 121:             checking_moisture_status_led();
 [e ( _checking_moisture_status_led ..  ]
-"92
-[; ;System_FSM.c: 92:               _delay((unsigned long)((300)*(8000000/4000.0)));
-[e ( __delay (1 -> * -> -> 300 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
-"93
-[; ;System_FSM.c: 93:               set_state(WATER_PLANTS);
-[e ( _set_state (1 . `E2814 2 ]
-"94
-[; ;System_FSM.c: 94:             }
-}
+"122
+[; ;System_FSM.c: 122:             _delay((unsigned long)((1000)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"124
+[; ;System_FSM.c: 124:             U16 moisture = SMS_Read_Moisture_Value();
+[v _moisture `us ~T0 @X0 1 a ]
+[e = _moisture ( _SMS_Read_Moisture_Value ..  ]
+"126
+[; ;System_FSM.c: 126:             if(moisture > 65000)
+[e $ ! > -> _moisture `l -> 65000 `l 332  ]
+"127
+[; ;System_FSM.c: 127:                 moisture = 1000;
+[e = _moisture -> -> 1000 `i `us ]
 [e :U 332 ]
-"89
-[; ;System_FSM.c: 89:             while(get_current_state() == CHECK_MOISTURE)
-[e $ == -> ( _get_current_state ..  `ui -> . `E2814 3 `ui 333  ]
-[e :U 334 ]
-"98
-[; ;System_FSM.c: 98:             break;
+"129
+[; ;System_FSM.c: 129:             SMS_Set_State(moisture);
+[e ( _SMS_Set_State (1 _moisture ]
+"131
+[; ;System_FSM.c: 131:             break;
 [e $U 320  ]
-"99
-[; ;System_FSM.c: 99:         }
+"132
+[; ;System_FSM.c: 132:         }
 }
-"101
-[; ;System_FSM.c: 101:         default:
-[e :U 335 ]
-"102
-[; ;System_FSM.c: 102:         {
+"134
+[; ;System_FSM.c: 134:         default:
+[e :U 333 ]
+"135
+[; ;System_FSM.c: 135:         {
 {
-"103
-[; ;System_FSM.c: 103:             set_state(INIT_STATE);
+"136
+[; ;System_FSM.c: 136:             set_state(INIT_STATE);
 [e ( _set_state (1 . `E2814 0 ]
-"104
-[; ;System_FSM.c: 104:             break;
+"137
+[; ;System_FSM.c: 137:             break;
 [e $U 320  ]
-"105
-[; ;System_FSM.c: 105:         }
+"138
+[; ;System_FSM.c: 138:         }
 }
-"108
-[; ;System_FSM.c: 108:     }
+"141
+[; ;System_FSM.c: 141:     }
 }
 [e $U 320  ]
 [e :U 321 ]
@@ -885,9 +953,14 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E2814 1 `ui 323
  , $ -> . `E2814 2 `ui 327
  , $ -> . `E2814 3 `ui 331
- 335 ]
+ 333 ]
 [e :U 320 ]
-"110
-[; ;System_FSM.c: 110: }
+"143
+[; ;System_FSM.c: 143: }
 [e :UE 319 ]
 }
+[a 1C 32 80 108 97 110 116 32 87 97 116 101 114 105 110 103 0 0 ]
+[a 5C 32 62 67 72 69 67 75 73 78 71 32 77 79 73 83 84 60 0 0 ]
+[a 4C 32 62 87 65 84 69 82 73 78 71 32 80 76 65 78 84 83 60 0 0 ]
+[a 3C 32 62 73 68 76 69 32 83 84 65 84 69 60 0 0 ]
+[a 2C 83 121 115 116 101 109 32 73 110 105 116 105 97 108 46 46 46 0 0 ]

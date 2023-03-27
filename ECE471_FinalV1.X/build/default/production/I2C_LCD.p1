@@ -1,25 +1,130 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"6795 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6795:     struct {
-[s S295 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S295 . T0PS PSA T0SE T0CS T016BIT TMR0ON ]
-"6803
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6803:     struct {
-[s S296 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S296 . T0PS0 T0PS1 T0PS2 T0PS3 ]
-"6794
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6794: typedef union {
-[u S294 `S295 1 `S296 1 ]
-[n S294 . . . ]
-"6810
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6810: extern volatile T0CONbits_t T0CONbits __attribute__((address(0xFD5)));
-[v _T0CONbits `VS294 ~T0 @X0 0 e@4053 ]
-"6872
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6872: extern volatile unsigned char TMR0L __attribute__((address(0xFD6)));
-[v _TMR0L `Vuc ~T0 @X0 0 e@4054 ]
-"6879
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6879: extern volatile unsigned char TMR0H __attribute__((address(0xFD7)));
-[v _TMR0H `Vuc ~T0 @X0 0 e@4055 ]
+"5747 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5747: extern volatile unsigned char SSPCON __attribute__((address(0xFC6)));
+[v _SSPCON `Vuc ~T0 @X0 0 e@4038 ]
+"5885
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5885: extern volatile unsigned char SSPSTAT __attribute__((address(0xFC7)));
+[v _SSPSTAT `Vuc ~T0 @X0 0 e@4039 ]
+"5758
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5758:     struct {
+[s S236 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S236 . SSPM CKP SSPEN SSPOV WCOL ]
+"5765
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5765:     struct {
+[s S237 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S237 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"5757
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5757: typedef union {
+[u S235 `S236 1 `S237 1 ]
+[n S235 . . . ]
+"5772
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5772: extern volatile SSPCONbits_t SSPCONbits __attribute__((address(0xFC6)));
+[v _SSPCONbits `VS235 ~T0 @X0 0 e@4038 ]
+"3618
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 3618:     struct {
+[s S130 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S130 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"3627
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 3627:     struct {
+[s S131 :4 `uc 1 :1 `uc 1 ]
+[n S131 . . TBIF ]
+"3631
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 3631:     struct {
+[s S132 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S132 . . TX1IF RC1IF ]
+"3617
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 3617: typedef union {
+[u S129 `S130 1 `S131 1 `S132 1 ]
+[n S129 . . . . ]
+"3637
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 3637: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
+[v _PIR1bits `VS129 ~T0 @X0 0 e@3998 ]
+"6106
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6106: extern volatile unsigned char SSPADD __attribute__((address(0xFC8)));
+[v _SSPADD `Vuc ~T0 @X0 0 e@4040 ]
+"2951
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 2951:     struct {
+[s S104 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S104 . TRISD0 TRISD1 TRISD2 TRISD3 TRISD4 TRISD5 TRISD6 TRISD7 ]
+"2961
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 2961:     struct {
+[s S105 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S105 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
+"2950
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 2950: typedef union {
+[u S103 `S104 1 `S105 1 ]
+[n S103 . . . ]
+"2972
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 2972: extern volatile TRISDbits_t TRISDbits __attribute__((address(0xF95)));
+[v _TRISDbits `VS103 ~T0 @X0 0 e@3989 ]
+"5891
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5891:     struct {
+[s S242 :2 `uc 1 :1 `uc 1 ]
+[n S242 . . R_NOT_W ]
+"5895
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5895:     struct {
+[s S243 :5 `uc 1 :1 `uc 1 ]
+[n S243 . . D_NOT_A ]
+"5899
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5899:     struct {
+[s S244 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S244 . BF UA R_nW S P D_nA CKE SMP ]
+"5909
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5909:     struct {
+[s S245 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S245 . . R_W . D_A ]
+"5915
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5915:     struct {
+[s S246 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S246 . . nW . nA ]
+"5921
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5921:     struct {
+[s S247 :2 `uc 1 :1 `uc 1 ]
+[n S247 . . NOT_WRITE ]
+"5925
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5925:     struct {
+[s S248 :5 `uc 1 :1 `uc 1 ]
+[n S248 . . NOT_ADDRESS ]
+"5929
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5929:     struct {
+[s S249 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S249 . . nWRITE . nADDRESS ]
+"5935
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5935:     struct {
+[s S250 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S250 . . READ_WRITE . DATA_ADDRESS ]
+"5941
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5941:     struct {
+[s S251 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S251 . . R . D ]
+"5947
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5947:     struct {
+[s S252 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S252 . . RW START STOP DA ]
+"5954
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5954:     struct {
+[s S253 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
+[n S253 . . NOT_W . NOT_A ]
+"5890
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5890: typedef union {
+[u S241 `S242 1 `S243 1 `S244 1 `S245 1 `S246 1 `S247 1 `S248 1 `S249 1 `S250 1 `S251 1 `S252 1 `S253 1 ]
+[n S241 . . . . . . . . . . . . . ]
+"5961
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 5961: extern volatile SSPSTATbits_t SSPSTATbits __attribute__((address(0xFC7)));
+[v _SSPSTATbits `VS241 ~T0 @X0 0 e@4039 ]
+"6113
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6113: extern volatile unsigned char SSPBUF __attribute__((address(0xFC9)));
+[v _SSPBUF `Vuc ~T0 @X0 0 e@4041 ]
+"57 ./I2C_LCD.h
+[; ;./I2C_LCD.h: 57: void IO_Expander_Write(unsigned char Data);
+[v _IO_Expander_Write `(v ~T0 @X0 0 ef1`uc ]
+[v F192 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\builtins.h
+[v __delay `JF192 ~T0 @X0 0 e ]
+[p i __delay ]
+"59 ./I2C_LCD.h
+[; ;./I2C_LCD.h: 59: void LCD_CMD(unsigned char CMD);
+[v _LCD_CMD `(v ~T0 @X0 0 ef1`uc ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 55: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -560,75 +665,617 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7617
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7617: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"8 PIC18F4331_Timer.c
-[; ;PIC18F4331_Timer.c: 8: static volatile uint16_t tmr0Counter=0;
-[v _tmr0Counter `Vus ~T0 @X0 1 s ]
-[i _tmr0Counter
--> -> 0 `i `us
-]
+"41 ./SystemConfiguration.h
+[p x OSC  =  IRCIO       ]
+"42
+[p x FCMEN  =  ON        ]
+"43
+[p x IESO  =  ON         ]
+"46
+[p x PWRTEN  =  OFF      ]
+"47
+[p x BOREN  =  ON        ]
+"51
+[p x WDTEN  =  OFF       ]
+"52
+[p x WDPS  =  32768      ]
+"53
+[p x WINEN  =  OFF       ]
 "56
-[; ;PIC18F4331_Timer.c: 56: void Timer0_init(void)
-[v _Timer0_init `(v ~T0 @X0 1 ef ]
+[p x PWMPIN  =  OFF      ]
 "57
-[; ;PIC18F4331_Timer.c: 57: {
-{
-[e :U _Timer0_init ]
-[f ]
-"67
-[; ;PIC18F4331_Timer.c: 67:     T0CONbits.T0PS0 = 1;
-[e = . . _T0CONbits 1 0 -> -> 1 `i `uc ]
-"68
-[; ;PIC18F4331_Timer.c: 68:     T0CONbits.T0PS1 = 0;
-[e = . . _T0CONbits 1 1 -> -> 0 `i `uc ]
+[p x LPOL  =  HIGH       ]
+"58
+[p x HPOL  =  HIGH       ]
+"59
+[p x T1OSCMX  =  ON      ]
+"62
+[p x FLTAMX  =  RC1      ]
+"63
+[p x SSPMX  =  RC7       ]
+"64
+[p x PWM4MX  =  RB5      ]
+"65
+[p x EXCLKMX  =  RC3     ]
+"66
+[p x MCLRE  =  ON        ]
 "69
-[; ;PIC18F4331_Timer.c: 69:     T0CONbits.T0PS2 = 1;
-[e = . . _T0CONbits 1 2 -> -> 1 `i `uc ]
-"72
-[; ;PIC18F4331_Timer.c: 72:     T0CONbits.PSA = 0;
-[e = . . _T0CONbits 0 1 -> -> 0 `i `uc ]
-"75
-[; ;PIC18F4331_Timer.c: 75:     T0CONbits.T0CS = 0;
-[e = . . _T0CONbits 0 3 -> -> 0 `i `uc ]
+[p x STVREN  =  ON       ]
+"70
+[p x LVP  =  ON          ]
+"73
+[p x CP0  =  OFF         ]
+"74
+[p x CP1  =  OFF         ]
+"77
+[p x CPB  =  OFF         ]
 "78
-[; ;PIC18F4331_Timer.c: 78:     T0CONbits.T016BIT = 0;
-[e = . . _T0CONbits 0 4 -> -> 0 `i `uc ]
-"80
-[; ;PIC18F4331_Timer.c: 80:     TMR0L = (0x7C);
-[e = _TMR0L -> -> 124 `i `uc ]
+[p x CPD  =  OFF         ]
 "81
-[; ;PIC18F4331_Timer.c: 81:     TMR0H = (0xE1);
-[e = _TMR0H -> -> 225 `i `uc ]
-"84
-[; ;PIC18F4331_Timer.c: 84: }
+[p x WRT0  =  OFF        ]
+"82
+[p x WRT1  =  OFF        ]
+"85
+[p x WRTC  =  OFF        ]
+"86
+[p x WRTB  =  OFF        ]
+"87
+[p x WRTD  =  OFF        ]
+"90
+[p x EBTR0  =  OFF       ]
+"91
+[p x EBTR1  =  OFF       ]
+"94
+[p x EBTRB  =  OFF       ]
+"4 I2C_LCD.c
+[; ;I2C_LCD.c: 4: unsigned char RS, BackLight_State = 0x08;
+[v _RS `uc ~T0 @X0 1 e ]
+[v _BackLight_State `uc ~T0 @X0 1 e ]
+[i _BackLight_State
+-> -> 8 `i `uc
+]
+"5
+[; ;I2C_LCD.c: 5: unsigned char i2c_add;
+[v _i2c_add `uc ~T0 @X0 1 e ]
+"9
+[; ;I2C_LCD.c: 9: void I2C_Master_Init()
+[v _I2C_Master_Init `(v ~T0 @X0 1 ef ]
+"10
+[; ;I2C_LCD.c: 10: {
+{
+[e :U _I2C_Master_Init ]
+[f ]
+"41
+[; ;I2C_LCD.c: 41:     SSPCON = 0x28;
+[e = _SSPCON -> -> 40 `i `uc ]
+"42
+[; ;I2C_LCD.c: 42:     SSPSTAT = 0x80;
+[e = _SSPSTAT -> -> 128 `i `uc ]
+"43
+[; ;I2C_LCD.c: 43:     SSPCONbits.SSPEN = 0;
+[e = . . _SSPCONbits 0 2 -> -> 0 `i `uc ]
+"44
+[; ;I2C_LCD.c: 44:     PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"46
+[; ;I2C_LCD.c: 46:     SSPADD = 19;
+[e = _SSPADD -> -> 19 `i `uc ]
+"49
+[; ;I2C_LCD.c: 49:     TRISDbits.RD3 = 1;
+[e = . . _TRISDbits 1 3 -> -> 1 `i `uc ]
+"50
+[; ;I2C_LCD.c: 50:     TRISDbits.RD2 = 1;
+[e = . . _TRISDbits 1 2 -> -> 1 `i `uc ]
+"51
+[; ;I2C_LCD.c: 51: }
+[e :UE 314 ]
+}
+"53
+[; ;I2C_LCD.c: 53: void I2C_Master_Wait()
+[v _I2C_Master_Wait `(v ~T0 @X0 1 ef ]
+"54
+[; ;I2C_LCD.c: 54: {
+{
+[e :U _I2C_Master_Wait ]
+[f ]
+"55
+[; ;I2C_LCD.c: 55:   while (SSPSTATbits.P == 1 && SSPSTATbits.P == 1);
+[e $U 316  ]
+[e :U 317 ]
+[e :U 316 ]
+[e $ && == -> . . _SSPSTATbits 2 4 `i -> 1 `i == -> . . _SSPSTATbits 2 4 `i -> 1 `i 317  ]
+[e :U 318 ]
+"57
+[; ;I2C_LCD.c: 57: }
 [e :UE 315 ]
 }
-"86
-[; ;PIC18F4331_Timer.c: 86: void Timer0_start(void)
-[v _Timer0_start `(v ~T0 @X0 1 ef ]
-"87
-[; ;PIC18F4331_Timer.c: 87: {
+"59
+[; ;I2C_LCD.c: 59: void I2C_Master_Start()
+[v _I2C_Master_Start `(v ~T0 @X0 1 ef ]
+"60
+[; ;I2C_LCD.c: 60: {
 {
-[e :U _Timer0_start ]
+[e :U _I2C_Master_Start ]
 [f ]
-"88
-[; ;PIC18F4331_Timer.c: 88:     T0CONbits.TMR0ON = 1;
-[e = . . _T0CONbits 0 5 -> -> 1 `i `uc ]
-"90
-[; ;PIC18F4331_Timer.c: 90: }
-[e :UE 316 ]
+"61
+[; ;I2C_LCD.c: 61: PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"62
+[; ;I2C_LCD.c: 62: while (SSPSTATbits.BF );
+[e $U 320  ]
+[e :U 321 ]
+[e :U 320 ]
+[e $ != -> . . _SSPSTATbits 2 0 `i -> 0 `i 321  ]
+[e :U 322 ]
+"63
+[; ;I2C_LCD.c: 63: SSPCONbits.SSPEN = 1;
+[e = . . _SSPCONbits 0 2 -> -> 1 `i `uc ]
+"64
+[; ;I2C_LCD.c: 64: SSPSTATbits.S = 1;
+[e = . . _SSPSTATbits 2 3 -> -> 1 `i `uc ]
+"65
+[; ;I2C_LCD.c: 65: while (!PIR1bits.SSPIF) ;
+[e $U 323  ]
+[e :U 324 ]
+[e :U 323 ]
+[e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 324  ]
+[e :U 325 ]
+"66
+[; ;I2C_LCD.c: 66: PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"67
+[; ;I2C_LCD.c: 67: }
+[e :UE 319 ]
 }
-"92
-[; ;PIC18F4331_Timer.c: 92: void Timer0_stop(void)
-[v _Timer0_stop `(v ~T0 @X0 1 ef ]
-"93
-[; ;PIC18F4331_Timer.c: 93: {
+"69
+[; ;I2C_LCD.c: 69: void I2C_Master_Stop()
+[v _I2C_Master_Stop `(v ~T0 @X0 1 ef ]
+"70
+[; ;I2C_LCD.c: 70: {
 {
-[e :U _Timer0_stop ]
+[e :U _I2C_Master_Stop ]
 [f ]
+"71
+[; ;I2C_LCD.c: 71: PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"72
+[; ;I2C_LCD.c: 72: while ( SSPSTATbits.BF ) ;
+[e $U 327  ]
+[e :U 328 ]
+[e :U 327 ]
+[e $ != -> . . _SSPSTATbits 2 0 `i -> 0 `i 328  ]
+[e :U 329 ]
+"73
+[; ;I2C_LCD.c: 73: SSPSTATbits.P = 1;
+[e = . . _SSPSTATbits 2 4 -> -> 1 `i `uc ]
+"74
+[; ;I2C_LCD.c: 74: while (!PIR1bits.SSPIF) ;
+[e $U 330  ]
+[e :U 331 ]
+[e :U 330 ]
+[e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 331  ]
+[e :U 332 ]
+"75
+[; ;I2C_LCD.c: 75: PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"76
+[; ;I2C_LCD.c: 76: }
+[e :UE 326 ]
+}
+"79
+[; ;I2C_LCD.c: 79: unsigned char I2C_Master_Write(unsigned char data)
+[v _I2C_Master_Write `(uc ~T0 @X0 1 ef1`uc ]
+"80
+[; ;I2C_LCD.c: 80: {
+{
+[e :U _I2C_Master_Write ]
+"79
+[; ;I2C_LCD.c: 79: unsigned char I2C_Master_Write(unsigned char data)
+[v _data `uc ~T0 @X0 1 r1 ]
+"80
+[; ;I2C_LCD.c: 80: {
+[f ]
+"92
+[; ;I2C_LCD.c: 92:  PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"93
+[; ;I2C_LCD.c: 93: while ( SSPSTATbits.BF ) ;
+[e $U 334  ]
+[e :U 335 ]
+[e :U 334 ]
+[e $ != -> . . _SSPSTATbits 2 0 `i -> 0 `i 335  ]
+[e :U 336 ]
 "94
-[; ;PIC18F4331_Timer.c: 94:     T0CONbits.TMR0ON = 0;
-[e = . . _T0CONbits 0 5 -> -> 0 `i `uc ]
+[; ;I2C_LCD.c: 94: SSPBUF = data;
+[e = _SSPBUF _data ]
 "95
-[; ;PIC18F4331_Timer.c: 95: }
-[e :UE 317 ]
+[; ;I2C_LCD.c: 95: while (!PIR1bits.SSPIF) ;
+[e $U 337  ]
+[e :U 338 ]
+[e :U 337 ]
+[e $ ! != -> . . _PIR1bits 0 3 `i -> 0 `i 338  ]
+[e :U 339 ]
+"96
+[; ;I2C_LCD.c: 96: PIR1bits.SSPIF = 0;
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+"97
+[; ;I2C_LCD.c: 97: return (1);
+[e ) -> -> 1 `i `uc ]
+[e $UE 333  ]
+"98
+[; ;I2C_LCD.c: 98: }
+[e :UE 333 ]
+}
+"106
+[; ;I2C_LCD.c: 106: void LCD_Init(unsigned char I2C_Add)
+[v _LCD_Init `(v ~T0 @X0 1 ef1`uc ]
+"107
+[; ;I2C_LCD.c: 107: {
+{
+[e :U _LCD_Init ]
+"106
+[; ;I2C_LCD.c: 106: void LCD_Init(unsigned char I2C_Add)
+[v _I2C_Add `uc ~T0 @X0 1 r1 ]
+"107
+[; ;I2C_LCD.c: 107: {
+[f ]
+"108
+[; ;I2C_LCD.c: 108:   i2c_add = I2C_Add;
+[e = _i2c_add _I2C_Add ]
+"109
+[; ;I2C_LCD.c: 109:   IO_Expander_Write(0x00);
+[e ( _IO_Expander_Write (1 -> -> 0 `i `uc ]
+"110
+[; ;I2C_LCD.c: 110:   _delay((unsigned long)((30)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 30 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"111
+[; ;I2C_LCD.c: 111:   LCD_CMD(0x03);
+[e ( _LCD_CMD (1 -> -> 3 `i `uc ]
+"112
+[; ;I2C_LCD.c: 112:   _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"113
+[; ;I2C_LCD.c: 113:   LCD_CMD(0x03);
+[e ( _LCD_CMD (1 -> -> 3 `i `uc ]
+"114
+[; ;I2C_LCD.c: 114:   _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"115
+[; ;I2C_LCD.c: 115:   LCD_CMD(0x03);
+[e ( _LCD_CMD (1 -> -> 3 `i `uc ]
+"116
+[; ;I2C_LCD.c: 116:   _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"117
+[; ;I2C_LCD.c: 117:   LCD_CMD(0x02);
+[e ( _LCD_CMD (1 -> -> 2 `i `uc ]
+"118
+[; ;I2C_LCD.c: 118:   _delay((unsigned long)((5)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"119
+[; ;I2C_LCD.c: 119:   LCD_CMD(0x20 | (2 << 2));
+[e ( _LCD_CMD (1 -> | -> 32 `i << -> 2 `i -> 2 `i `uc ]
+"120
+[; ;I2C_LCD.c: 120:   _delay((unsigned long)((50)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"121
+[; ;I2C_LCD.c: 121:   LCD_CMD(0x0C);
+[e ( _LCD_CMD (1 -> -> 12 `i `uc ]
+"122
+[; ;I2C_LCD.c: 122:   _delay((unsigned long)((50)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"123
+[; ;I2C_LCD.c: 123:   LCD_CMD(0x01);
+[e ( _LCD_CMD (1 -> -> 1 `i `uc ]
+"124
+[; ;I2C_LCD.c: 124:   _delay((unsigned long)((50)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"125
+[; ;I2C_LCD.c: 125:   LCD_CMD(0x04 | 0x02);
+[e ( _LCD_CMD (1 -> | -> 4 `i -> 2 `i `uc ]
+"126
+[; ;I2C_LCD.c: 126:   _delay((unsigned long)((50)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"127
+[; ;I2C_LCD.c: 127: }
+[e :UE 340 ]
+}
+"129
+[; ;I2C_LCD.c: 129: void IO_Expander_Write(unsigned char Data)
+[v _IO_Expander_Write `(v ~T0 @X0 1 ef1`uc ]
+"130
+[; ;I2C_LCD.c: 130: {
+{
+[e :U _IO_Expander_Write ]
+"129
+[; ;I2C_LCD.c: 129: void IO_Expander_Write(unsigned char Data)
+[v _Data `uc ~T0 @X0 1 r1 ]
+"130
+[; ;I2C_LCD.c: 130: {
+[f ]
+"131
+[; ;I2C_LCD.c: 131:   I2C_Master_Start();
+[e ( _I2C_Master_Start ..  ]
+"132
+[; ;I2C_LCD.c: 132:   I2C_Master_Write(i2c_add);
+[e ( _I2C_Master_Write (1 _i2c_add ]
+"133
+[; ;I2C_LCD.c: 133:   I2C_Master_Write(Data | BackLight_State);
+[e ( _I2C_Master_Write (1 -> | -> _Data `i -> _BackLight_State `i `uc ]
+"134
+[; ;I2C_LCD.c: 134:   I2C_Master_Stop();
+[e ( _I2C_Master_Stop ..  ]
+"135
+[; ;I2C_LCD.c: 135: }
+[e :UE 341 ]
+}
+"137
+[; ;I2C_LCD.c: 137: void LCD_Write_4Bit(unsigned char Nibble)
+[v _LCD_Write_4Bit `(v ~T0 @X0 1 ef1`uc ]
+"138
+[; ;I2C_LCD.c: 138: {
+{
+[e :U _LCD_Write_4Bit ]
+"137
+[; ;I2C_LCD.c: 137: void LCD_Write_4Bit(unsigned char Nibble)
+[v _Nibble `uc ~T0 @X0 1 r1 ]
+"138
+[; ;I2C_LCD.c: 138: {
+[f ]
+"140
+[; ;I2C_LCD.c: 140:   Nibble |= RS;
+[e =| _Nibble -> _RS `uc ]
+"141
+[; ;I2C_LCD.c: 141:   IO_Expander_Write(Nibble | 0x04);
+[e ( _IO_Expander_Write (1 -> | -> _Nibble `i -> 4 `i `uc ]
+"142
+[; ;I2C_LCD.c: 142:   IO_Expander_Write(Nibble & 0xFB);
+[e ( _IO_Expander_Write (1 -> & -> _Nibble `i -> 251 `i `uc ]
+"143
+[; ;I2C_LCD.c: 143:   _delay((unsigned long)((50)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"144
+[; ;I2C_LCD.c: 144: }
+[e :UE 342 ]
+}
+"146
+[; ;I2C_LCD.c: 146: void LCD_CMD(unsigned char CMD)
+[v _LCD_CMD `(v ~T0 @X0 1 ef1`uc ]
+"147
+[; ;I2C_LCD.c: 147: {
+{
+[e :U _LCD_CMD ]
+"146
+[; ;I2C_LCD.c: 146: void LCD_CMD(unsigned char CMD)
+[v _CMD `uc ~T0 @X0 1 r1 ]
+"147
+[; ;I2C_LCD.c: 147: {
+[f ]
+"148
+[; ;I2C_LCD.c: 148:   RS = 0;
+[e = _RS -> -> 0 `i `uc ]
+"149
+[; ;I2C_LCD.c: 149:   LCD_Write_4Bit(CMD & 0xF0);
+[e ( _LCD_Write_4Bit (1 -> & -> _CMD `i -> 240 `i `uc ]
+"150
+[; ;I2C_LCD.c: 150:   LCD_Write_4Bit((CMD << 4) & 0xF0);
+[e ( _LCD_Write_4Bit (1 -> & << -> _CMD `i -> 4 `i -> 240 `i `uc ]
+"151
+[; ;I2C_LCD.c: 151: }
+[e :UE 343 ]
+}
+"153
+[; ;I2C_LCD.c: 153: void LCD_Write_Char(char Data)
+[v _LCD_Write_Char `(v ~T0 @X0 1 ef1`uc ]
+"154
+[; ;I2C_LCD.c: 154: {
+{
+[e :U _LCD_Write_Char ]
+"153
+[; ;I2C_LCD.c: 153: void LCD_Write_Char(char Data)
+[v _Data `uc ~T0 @X0 1 r1 ]
+"154
+[; ;I2C_LCD.c: 154: {
+[f ]
+"155
+[; ;I2C_LCD.c: 155:   RS = 1;
+[e = _RS -> -> 1 `i `uc ]
+"156
+[; ;I2C_LCD.c: 156:   LCD_Write_4Bit(Data & 0xF0);
+[e ( _LCD_Write_4Bit (1 -> & -> _Data `i -> 240 `i `uc ]
+"157
+[; ;I2C_LCD.c: 157:   LCD_Write_4Bit((Data << 4) & 0xF0);
+[e ( _LCD_Write_4Bit (1 -> & << -> _Data `i -> 4 `i -> 240 `i `uc ]
+"158
+[; ;I2C_LCD.c: 158: }
+[e :UE 344 ]
+}
+"160
+[; ;I2C_LCD.c: 160: void LCD_Write_String(char* Str)
+[v _LCD_Write_String `(v ~T0 @X0 1 ef1`*uc ]
+"161
+[; ;I2C_LCD.c: 161: {
+{
+[e :U _LCD_Write_String ]
+"160
+[; ;I2C_LCD.c: 160: void LCD_Write_String(char* Str)
+[v _Str `*uc ~T0 @X0 1 r1 ]
+"161
+[; ;I2C_LCD.c: 161: {
+[f ]
+"162
+[; ;I2C_LCD.c: 162:   for(int i=0; Str[i]!='\0'; i++)
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 349  ]
+[e :U 346 ]
+"163
+[; ;I2C_LCD.c: 163:     LCD_Write_Char(Str[i]);
+[e ( _LCD_Write_Char (1 *U + _Str * -> _i `x -> -> # *U _Str `i `x ]
+[e ++ _i -> 1 `i ]
+[e :U 349 ]
+[e $ != -> *U + _Str * -> _i `x -> -> # *U _Str `i `x `ui -> 0 `ui 346  ]
+[e :U 347 ]
+}
+"164
+[; ;I2C_LCD.c: 164: }
+[e :UE 345 ]
+}
+"166
+[; ;I2C_LCD.c: 166: void LCD_Set_Cursor(unsigned char ROW, unsigned char COL)
+[v _LCD_Set_Cursor `(v ~T0 @X0 1 ef2`uc`uc ]
+"167
+[; ;I2C_LCD.c: 167: {
+{
+[e :U _LCD_Set_Cursor ]
+"166
+[; ;I2C_LCD.c: 166: void LCD_Set_Cursor(unsigned char ROW, unsigned char COL)
+[v _ROW `uc ~T0 @X0 1 r1 ]
+[v _COL `uc ~T0 @X0 1 r2 ]
+"167
+[; ;I2C_LCD.c: 167: {
+[f ]
+"168
+[; ;I2C_LCD.c: 168:   switch(ROW)
+[e $U 352  ]
+"169
+[; ;I2C_LCD.c: 169:   {
+{
+"170
+[; ;I2C_LCD.c: 170:     case 2:
+[e :U 353 ]
+"171
+[; ;I2C_LCD.c: 171:       LCD_CMD(0xC0 + COL-1);
+[e ( _LCD_CMD (1 -> - + -> 192 `i -> _COL `i -> 1 `i `uc ]
+"172
+[; ;I2C_LCD.c: 172:       break;
+[e $U 351  ]
+"173
+[; ;I2C_LCD.c: 173:     case 3:
+[e :U 354 ]
+"174
+[; ;I2C_LCD.c: 174:       LCD_CMD(0x94 + COL-1);
+[e ( _LCD_CMD (1 -> - + -> 148 `i -> _COL `i -> 1 `i `uc ]
+"175
+[; ;I2C_LCD.c: 175:       break;
+[e $U 351  ]
+"176
+[; ;I2C_LCD.c: 176:     case 4:
+[e :U 355 ]
+"177
+[; ;I2C_LCD.c: 177:       LCD_CMD(0xD4 + COL-1);
+[e ( _LCD_CMD (1 -> - + -> 212 `i -> _COL `i -> 1 `i `uc ]
+"178
+[; ;I2C_LCD.c: 178:       break;
+[e $U 351  ]
+"180
+[; ;I2C_LCD.c: 180:     default:
+[e :U 356 ]
+"181
+[; ;I2C_LCD.c: 181:       LCD_CMD(0x80 + COL-1);
+[e ( _LCD_CMD (1 -> - + -> 128 `i -> _COL `i -> 1 `i `uc ]
+"182
+[; ;I2C_LCD.c: 182:   }
+}
+[e $U 351  ]
+[e :U 352 ]
+[e [\ -> _ROW `i , $ -> 2 `i 353
+ , $ -> 3 `i 354
+ , $ -> 4 `i 355
+ 356 ]
+[e :U 351 ]
+"183
+[; ;I2C_LCD.c: 183: }
+[e :UE 350 ]
+}
+"185
+[; ;I2C_LCD.c: 185: void Backlight()
+[v _Backlight `(v ~T0 @X0 1 ef ]
+"186
+[; ;I2C_LCD.c: 186: {
+{
+[e :U _Backlight ]
+[f ]
+"187
+[; ;I2C_LCD.c: 187:   BackLight_State = 0x08;
+[e = _BackLight_State -> -> 8 `i `uc ]
+"188
+[; ;I2C_LCD.c: 188:   IO_Expander_Write(0);
+[e ( _IO_Expander_Write (1 -> -> 0 `i `uc ]
+"189
+[; ;I2C_LCD.c: 189: }
+[e :UE 357 ]
+}
+"191
+[; ;I2C_LCD.c: 191: void noBacklight()
+[v _noBacklight `(v ~T0 @X0 1 ef ]
+"192
+[; ;I2C_LCD.c: 192: {
+{
+[e :U _noBacklight ]
+[f ]
+"193
+[; ;I2C_LCD.c: 193:   BackLight_State = 0x00;
+[e = _BackLight_State -> -> 0 `i `uc ]
+"194
+[; ;I2C_LCD.c: 194:   IO_Expander_Write(0);
+[e ( _IO_Expander_Write (1 -> -> 0 `i `uc ]
+"195
+[; ;I2C_LCD.c: 195: }
+[e :UE 358 ]
+}
+"197
+[; ;I2C_LCD.c: 197: void LCD_SL()
+[v _LCD_SL `(v ~T0 @X0 1 ef ]
+"198
+[; ;I2C_LCD.c: 198: {
+{
+[e :U _LCD_SL ]
+[f ]
+"199
+[; ;I2C_LCD.c: 199:   LCD_CMD(0x18);
+[e ( _LCD_CMD (1 -> -> 24 `i `uc ]
+"200
+[; ;I2C_LCD.c: 200:   _delay((unsigned long)((40)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"201
+[; ;I2C_LCD.c: 201: }
+[e :UE 359 ]
+}
+"203
+[; ;I2C_LCD.c: 203: void LCD_SR()
+[v _LCD_SR `(v ~T0 @X0 1 ef ]
+"204
+[; ;I2C_LCD.c: 204: {
+{
+[e :U _LCD_SR ]
+[f ]
+"205
+[; ;I2C_LCD.c: 205:   LCD_CMD(0x1C);
+[e ( _LCD_CMD (1 -> -> 28 `i `uc ]
+"206
+[; ;I2C_LCD.c: 206:   _delay((unsigned long)((40)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"207
+[; ;I2C_LCD.c: 207: }
+[e :UE 360 ]
+}
+"209
+[; ;I2C_LCD.c: 209: void LCD_Clear()
+[v _LCD_Clear `(v ~T0 @X0 1 ef ]
+"210
+[; ;I2C_LCD.c: 210: {
+{
+[e :U _LCD_Clear ]
+[f ]
+"211
+[; ;I2C_LCD.c: 211:   LCD_CMD(0x01);
+[e ( _LCD_CMD (1 -> -> 1 `i `uc ]
+"212
+[; ;I2C_LCD.c: 212:   _delay((unsigned long)((40)*(8000000/4000000.0)));
+[e ( __delay (1 -> * -> -> 40 `i `d / -> -> 8000000 `l `d .4000000.0 `ul ]
+"213
+[; ;I2C_LCD.c: 213: }
+[e :UE 361 ]
 }

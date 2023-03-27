@@ -24,7 +24,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "46
 [p x PWRTEN  =  OFF      ]
 "47
-[p x BOREN  =  ON        ]
+[p x BOREN  =  OFF        ]
 "51
 [p x WDTEN  =  OFF       ]
 "52
@@ -52,7 +52,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "69
 [p x STVREN  =  ON       ]
 "70
-[p x LVP  =  ON          ]
+[p x LVP  =  OFF          ]
 "73
 [p x CP0  =  OFF         ]
 "74

@@ -1,4 +1,4 @@
-# 1 "SoilMoistureSensor.c"
+# 1 "SystemInterrupts.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,9 +6,70 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "SoilMoistureSensor.c" 2
-# 1 "./SoilMoistureSensor.h" 1
-# 11 "./SoilMoistureSensor.h"
+# 1 "SystemInterrupts.c" 2
+# 1 "./SystemInterrupts.h" 1
+# 11 "./SystemInterrupts.h"
+# 1 "./SystemConfiguration.h" 1
+# 41 "./SystemConfiguration.h"
+#pragma config OSC = IRCIO
+#pragma config FCMEN = ON
+#pragma config IESO = ON
+
+
+#pragma config PWRTEN = OFF
+#pragma config BOREN = OFF
+
+
+
+#pragma config WDTEN = OFF
+#pragma config WDPS = 32768
+#pragma config WINEN = OFF
+
+
+#pragma config PWMPIN = OFF
+#pragma config LPOL = HIGH
+#pragma config HPOL = HIGH
+#pragma config T1OSCMX = ON
+
+
+#pragma config FLTAMX = RC1
+#pragma config SSPMX = RC7
+#pragma config PWM4MX = RB5
+#pragma config EXCLKMX = RC3
+#pragma config MCLRE = ON
+
+
+#pragma config STVREN = ON
+#pragma config LVP = OFF
+
+
+#pragma config CP0 = OFF
+#pragma config CP1 = OFF
+
+
+#pragma config CPB = OFF
+#pragma config CPD = OFF
+
+
+#pragma config WRT0 = OFF
+#pragma config WRT1 = OFF
+
+
+#pragma config WRTC = OFF
+#pragma config WRTB = OFF
+#pragma config WRTD = OFF
+
+
+#pragma config EBTR0 = OFF
+#pragma config EBTR1 = OFF
+
+
+#pragma config EBTRB = OFF
+
+
+
+
+
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5222,145 +5283,94 @@ __attribute__((__unsupported__("The READTIMER" "3" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 11 "./SoilMoistureSensor.h" 2
+# 99 "./SystemConfiguration.h" 2
+# 11 "./SystemInterrupts.h" 2
 
+# 1 "./PIC18F4331_Timer.h" 1
+# 16 "./PIC18F4331_Timer.h"
+void Timer0_init(void);
+void Timer0_start(void);
+void Timer0_stop(void);
+# 12 "./SystemInterrupts.h" 2
+
+# 1 "./SystemCallbacks.h" 1
+# 11 "./SystemCallbacks.h"
 # 1 "./Types.h" 1
 # 11 "./Types.h"
 typedef unsigned char U8;
 typedef unsigned short U16;
-# 12 "./SoilMoistureSensor.h" 2
+# 11 "./SystemCallbacks.h" 2
 
 
 
 
+typedef void (*time_callback_t)(void);
 
-void SMS_init(void);
-
-
-
-
-U16 SMS_Read_Moisture_Value(void);
-
-
-
-
-
-
-void SMS_Set_State(U16 moisture);
-# 1 "SoilMoistureSensor.c" 2
-
-# 1 "./PIC18F4331_ADC.h" 1
-
-
-
-
-
-
-
-# 1 "./SystemConfiguration.h" 1
-# 41 "./SystemConfiguration.h"
-#pragma config OSC = IRCIO
-#pragma config FCMEN = ON
-#pragma config IESO = ON
-
-
-#pragma config PWRTEN = OFF
-#pragma config BOREN = OFF
-
-
-
-#pragma config WDTEN = OFF
-#pragma config WDPS = 32768
-#pragma config WINEN = OFF
-
-
-#pragma config PWMPIN = OFF
-#pragma config LPOL = HIGH
-#pragma config HPOL = HIGH
-#pragma config T1OSCMX = ON
-
-
-#pragma config FLTAMX = RC1
-#pragma config SSPMX = RC7
-#pragma config PWM4MX = RB5
-#pragma config EXCLKMX = RC3
-#pragma config MCLRE = ON
-
-
-#pragma config STVREN = ON
-#pragma config LVP = OFF
-
-
-#pragma config CP0 = OFF
-#pragma config CP1 = OFF
-
-
-#pragma config CPB = OFF
-#pragma config CPD = OFF
-
-
-#pragma config WRT0 = OFF
-#pragma config WRT1 = OFF
-
-
-#pragma config WRTC = OFF
-#pragma config WRTB = OFF
-#pragma config WRTD = OFF
-
-
-#pragma config EBTR0 = OFF
-#pragma config EBTR1 = OFF
-
-
-#pragma config EBTRB = OFF
-# 8 "./PIC18F4331_ADC.h" 2
-
-
-void ADC_init(void);
-uint16_t ADC_Read(void);
-# 2 "SoilMoistureSensor.c" 2
-
-# 1 "./FSM_states.h" 1
-# 11 "./FSM_states.h"
 typedef enum{
-    INIT_STATE,
-    IDLE_STATE,
-    WATER_PLANTS,
-    CHECK_MOISTURE
-}STATES;
+    OPEN,
+    TAKEN
+}AVAILABLITY;
 
-STATES get_current_state(void);
-void set_state(STATES state_to_set);
-# 3 "SoilMoistureSensor.c" 2
+typedef struct{
+    U16 expiry_time;
+    time_callback_t callback;
+    U8 callback_ID;
+    U16 count;
+    AVAILABLITY Availablity;
+}Callback_Config_t;
+
+
+void Callbacks_Init(void);
+U8 Callbacks_GetCallbackCount(void);
+void Reset_Counter(Callback_Config_t * config);
+void Callbacks_Manager(void);
+U8 Register_Callback(Callback_Config_t *config);
+U8 Delete_Callback(Callback_Config_t *config);
+# 13 "./SystemInterrupts.h" 2
+# 1 "SystemInterrupts.c" 2
 
 
 
 
 
-void SMS_init(void)
+static volatile uint16_t tmr0Counter=0;
+
+
+
+void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
 {
-    ADC_init();
-}
 
-U16 SMS_Read_Moisture_Value(void)
-{
-    U16 moisture = ADC_Read();
-    return moisture;
-}
+    INTCONbits.GIEH = 0;
+    INTCONbits.GIEL = 1;
+# 28 "SystemInterrupts.c"
+    if(TMR0L < (0x7C))
+    {
+        TMR0L = (0x7C);
+    }
+    if(TMR0H < (0xE1))
+    {
+        TMR0H = (0xE1);
+    }
 
-void SMS_Set_State(U16 moisture)
-{
-    if(moisture >= (595))
-    {
-        set_state(WATER_PLANTS);
-    }
-    else if(moisture >= (239) && moisture < (595))
+
+    if(INTCONbits.TMR0IF)
     {
 
-        set_state(IDLE_STATE);
+
+
+        Callbacks_Manager();
+
+
+        INTCONbits.TMR0IF = 0;
     }
-    else
-    {
-        set_state(IDLE_STATE);
-    }
+
+
+
+
+
+
+
+    INTCONbits.GIEH = 1;
+    INTCONbits.GIEL = 1;
+
 }
