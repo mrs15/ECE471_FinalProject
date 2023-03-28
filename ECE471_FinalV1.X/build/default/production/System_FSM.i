@@ -5386,6 +5386,15 @@ void LCD_Write_String(char*);
 # 8 "System_FSM.c" 2
 
 
+# 1 "./WaterPump_Driver.h" 1
+# 12 "./WaterPump_Driver.h"
+void WaterPump_Init(void);
+
+void WaterPump_ON(void);
+void WaterPump_OFF(void);
+void WaterPump_Toggle(void);
+# 10 "System_FSM.c" 2
+
 
 
 
@@ -5417,9 +5426,9 @@ void FSM_begin(void)
     {
         case INIT_STATE:
         {
-
             SMS_init();
             Callbacks_Init();
+            WaterPump_Init();
 
             Callback_Config_t MoistureCB_Config =
             {
@@ -5461,10 +5470,12 @@ void FSM_begin(void)
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >IDLE STATE<\0");
 
+            WaterPump_OFF();
+
+
+
             while(get_current_state() == IDLE_STATE)
             {
-
-
 
                 idle_status_led();
             }
@@ -5474,10 +5485,12 @@ void FSM_begin(void)
 
         case WATER_PLANTS:
         {
-
+            WaterPump_ON();
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >WATERING PLANTS<\0");
+
+
 
             while(get_current_state() == WATER_PLANTS)
             {
@@ -5496,6 +5509,7 @@ void FSM_begin(void)
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >CHECKING MOIST<\0");
+            WaterPump_OFF();
 
             checking_moisture_status_led();
             _delay((unsigned long)((1000)*(8000000/4000.0)));
@@ -5506,6 +5520,8 @@ void FSM_begin(void)
                 moisture = 1000;
 
             SMS_Set_State(moisture);
+
+
 
             break;
         }

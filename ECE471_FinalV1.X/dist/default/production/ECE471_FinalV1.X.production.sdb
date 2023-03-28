@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F4331 ]
 [d frameptr 4065 ]
-"45 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\main.c
+"43 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\main.c
 [e E2814 . `uc
 INIT_STATE 0
 IDLE_STATE 1
@@ -24,14 +24,14 @@ IDLE_STATE 1
 WATER_PLANTS 2
 CHECK_MOISTURE 3
 ]
-"20 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+"21 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
 [e E2814 . `uc
 INIT_STATE 0
 IDLE_STATE 1
 WATER_PLANTS 2
 CHECK_MOISTURE 3
 ]
-"45
+"46
 [e E2834 . `uc
 OPEN 0
 TAKEN 1
@@ -40,6 +40,11 @@ TAKEN 1
 [e E6 . `uc
 OPEN 0
 TAKEN 1
+]
+"21 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\WaterPump_Driver.c
+[e E2819 . `uc
+PUMP_ON 0
+PUMP_OFF 1
 ]
 "4 C:\Program Files\Microchip\xc8\v2.40\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -117,11 +122,11 @@ TAKEN 1
 [v _SMS_Read_Moisture_Value SMS_Read_Moisture_Value `(us  1 e 2 0 ]
 "19
 [v _SMS_Set_State SMS_Set_State `(v  1 e 1 0 ]
-"15 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+"16 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
 [v _Check_Moisture_cb Check_Moisture_cb `(v  1 s 1 Check_Moisture_cb ]
-"26
+"27
 [v _Watering_Done_cb Watering_Done_cb `(v  1 s 1 Watering_Done_cb ]
-"35
+"36
 [v _FSM_begin FSM_begin `(v  1 e 1 0 ]
 "9 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemCallbacks.c
 [v _Callbacks_Init Callbacks_Init `(v  1 e 1 0 ]
@@ -133,7 +138,13 @@ TAKEN 1
 [v _Register_Callback Register_Callback `(uc  1 e 1 0 ]
 "10 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemInterrupts.c
 [v _timer_overflow_isr timer_overflow_isr `IIH(v  1 e 1 0 ]
-[s S827 . 1 `uc 1 RB0 1 0 :1:0 
+"17 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\WaterPump_Driver.c
+[v _WaterPump_Init WaterPump_Init `(v  1 e 1 0 ]
+"25
+[v _WaterPump_ON WaterPump_ON `(v  1 e 1 0 ]
+"31
+[v _WaterPump_OFF WaterPump_OFF `(v  1 e 1 0 ]
+[s S347 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -143,18 +154,18 @@ TAKEN 1
 `uc 1 RB7 1 0 :1:7 
 ]
 "1219 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
-[s S879 . 1 `uc 1 . 1 0 :3:0 
+[s S403 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S882 . 1 `S827 1 . 1 0 `S879 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES882  1 e 1 @3969 ]
+[u S406 . 1 `S347 1 . 1 0 `S403 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES406  1 e 1 @3969 ]
 "1977
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
 "2089
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "2496
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-[s S818 . 1 `uc 1 TRISB0 1 0 :1:0 
+[s S338 . 1 `uc 1 TRISB0 1 0 :1:0 
 `uc 1 TRISB1 1 0 :1:1 
 `uc 1 TRISB2 1 0 :1:2 
 `uc 1 TRISB3 1 0 :1:3 
@@ -164,8 +175,8 @@ TAKEN 1
 `uc 1 TRISB7 1 0 :1:7 
 ]
 "2528
-[u S836 . 1 `S818 1 . 1 0 `S827 1 . 1 0 ]
-[v _TRISBbits TRISBbits `VES836  1 e 1 @3987 ]
+[u S356 . 1 `S338 1 . 1 0 `S347 1 . 1 0 ]
+[v _TRISBbits TRISBbits `VES356  1 e 1 @3987 ]
 "2718
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "2940
@@ -282,22 +293,22 @@ TAKEN 1
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "5740
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-[s S375 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S498 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "6516
-[s S377 . 1 `uc 1 . 1 0 :1:0 
+[s S500 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S380 . 1 `uc 1 . 1 0 :2:0 
+[s S503 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S383 . 1 `uc 1 . 1 0 :3:0 
+[s S506 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S386 . 1 `uc 1 . 1 0 :4:0 
+[s S509 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S389 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S512 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -305,10 +316,10 @@ TAKEN 1
 `uc 1 . 1 0 :2:5 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S397 . 1 `uc 1 . 1 0 :7:0 
+[s S520 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_IPEN 1 0 :1:7 
 ]
-[s S400 . 1 `uc 1 BOR 1 0 :1:0 
+[s S523 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
@@ -316,27 +327,27 @@ TAKEN 1
 `uc 1 . 1 0 :2:5 
 `uc 1 nIPEN 1 0 :1:7 
 ]
-[u S408 . 1 `S375 1 . 1 0 `S377 1 . 1 0 `S380 1 . 1 0 `S383 1 . 1 0 `S386 1 . 1 0 `S389 1 . 1 0 `S397 1 . 1 0 `S400 1 . 1 0 ]
-[v _RCONbits RCONbits `VES408  1 e 1 @4048 ]
-[s S337 . 1 `uc 1 SCS 1 0 :2:0 
+[u S531 . 1 `S498 1 . 1 0 `S500 1 . 1 0 `S503 1 . 1 0 `S506 1 . 1 0 `S509 1 . 1 0 `S512 1 . 1 0 `S520 1 . 1 0 `S523 1 . 1 0 ]
+[v _RCONbits RCONbits `VES531  1 e 1 @4048 ]
+[s S460 . 1 `uc 1 SCS 1 0 :2:0 
 `uc 1 IOFS 1 0 :1:2 
 `uc 1 OSTS 1 0 :1:3 
 `uc 1 IRCF 1 0 :3:4 
 `uc 1 IDLEN 1 0 :1:7 
 ]
 "6729
-[s S343 . 1 `uc 1 SCS0 1 0 :1:0 
+[s S466 . 1 `uc 1 SCS0 1 0 :1:0 
 `uc 1 SCS1 1 0 :1:1 
 `uc 1 . 1 0 :2:2 
 `uc 1 IRCF0 1 0 :1:4 
 `uc 1 IRCF1 1 0 :1:5 
 `uc 1 IRCF2 1 0 :1:6 
 ]
-[s S350 . 1 `uc 1 . 1 0 :2:0 
+[s S473 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 FLTS 1 0 :1:2 
 ]
-[u S353 . 1 `S337 1 . 1 0 `S343 1 . 1 0 `S350 1 . 1 0 ]
-[v _OSCCONbits OSCCONbits `VES353  1 e 1 @4051 ]
+[u S476 . 1 `S460 1 . 1 0 `S466 1 . 1 0 `S473 1 . 1 0 ]
+[v _OSCCONbits OSCCONbits `VES476  1 e 1 @4051 ]
 [s S293 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
@@ -356,11 +367,11 @@ TAKEN 1
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "6879
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S500 . 1 `uc 1 . 1 0 :7:0 
+[s S623 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "7258
-[s S503 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S626 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -369,14 +380,14 @@ TAKEN 1
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S512 . 1 `uc 1 . 1 0 :2:0 
+[s S635 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 T0IP 1 0 :1:2 
 `uc 1 . 1 0 :4:3 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S517 . 1 `S500 1 . 1 0 `S503 1 . 1 0 `S512 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES517  1 e 1 @4081 ]
-[s S451 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S640 . 1 `S623 1 . 1 0 `S626 1 . 1 0 `S635 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES640  1 e 1 @4081 ]
+[s S574 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -386,7 +397,7 @@ TAKEN 1
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "7340
-[s S460 . 1 `uc 1 . 1 0 :1:0 
+[s S583 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -395,12 +406,12 @@ TAKEN 1
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S469 . 1 `uc 1 . 1 0 :6:0 
+[s S592 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S473 . 1 `S451 1 . 1 0 `S460 1 . 1 0 `S469 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES473  1 e 1 @4082 ]
+[u S596 . 1 `S574 1 . 1 0 `S583 1 . 1 0 `S592 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES596  1 e 1 @4082 ]
 "3 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\FSM_states.c
 [v _FSM_state FSM_state `E2  1 s 1 FSM_state ]
 [s S24 . 2 `uc 1 result_low 1 0 `uc 1 result_high 1 1 ]
@@ -411,15 +422,17 @@ TAKEN 1
 [v _tmr0Counter tmr0Counter `VEus  1 s 2 tmr0Counter ]
 "6 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemCallbacks.c
 [v _callback_count callback_count `uc  1 s 1 callback_count ]
-[s S633 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
+[s S760 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
 "7
-[v _registered_callbacks registered_callbacks `[5]S633  1 s 40 registered_callbacks ]
+[v _registered_callbacks registered_callbacks `[5]S760  1 s 40 registered_callbacks ]
 "6 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemInterrupts.c
-[v _tmr0Counter@SystemInterrupts$F810 tmr0Counter `VEus  1 s 2 tmr0Counter ]
+[v _tmr0Counter@SystemInterrupts$F930 tmr0Counter `VEus  1 s 2 tmr0Counter ]
+"15 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\WaterPump_Driver.c
+[v _pump_status pump_status `uc  1 s 1 pump_status ]
 "16 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"53
+"51
 } 0
 "92 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_Timer.c
 [v _Timer0_stop Timer0_stop `(v  1 e 1 0 ]
@@ -431,21 +444,21 @@ TAKEN 1
 {
 "84
 } 0
-"35 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+"36 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
 [v _FSM_begin FSM_begin `(v  1 e 1 0 ]
 {
-"124
+"130
 [v FSM_begin@moisture moisture `us  1 a 2 42 ]
-[s S633 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
-"51
-[v FSM_begin@WateringDoneCB_Config WateringDoneCB_Config `S633  1 a 8 34 ]
-"45
-[v FSM_begin@MoistureCB_Config MoistureCB_Config `S633  1 a 8 26 ]
-"43
-[v FSM_begin@F2877 F2877 `S633  1 s 8 F2877 ]
-"45
-[v FSM_begin@F2880 F2880 `S633  1 s 8 F2880 ]
-"143
+[s S760 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
+"52
+[v FSM_begin@WateringDoneCB_Config WateringDoneCB_Config `S760  1 a 8 34 ]
+"46
+[v FSM_begin@MoistureCB_Config MoistureCB_Config `S760  1 a 8 26 ]
+"44
+[v FSM_begin@F2881 F2881 `S760  1 s 8 F2881 ]
+"46
+[v FSM_begin@F2884 F2884 `S760  1 s 8 F2884 ]
+"151
 } 0
 "40 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\LedDriver.c
 [v _watering_status_led watering_status_led `(v  1 e 1 0 ]
@@ -471,6 +484,21 @@ TAKEN 1
 [v _checking_moisture_status_led checking_moisture_status_led `(v  1 e 1 0 ]
 {
 "57
+} 0
+"25 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\WaterPump_Driver.c
+[v _WaterPump_ON WaterPump_ON `(v  1 e 1 0 ]
+{
+"29
+} 0
+"31
+[v _WaterPump_OFF WaterPump_OFF `(v  1 e 1 0 ]
+{
+"35
+} 0
+"17
+[v _WaterPump_Init WaterPump_Init `(v  1 e 1 0 ]
+{
+"23
 } 0
 "86 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_Timer.c
 [v _Timer0_start Timer0_start `(v  1 e 1 0 ]
@@ -532,15 +560,15 @@ TAKEN 1
 "47 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemCallbacks.c
 [v _Register_Callback Register_Callback `(uc  1 e 1 0 ]
 {
-[s S633 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
-[v Register_Callback@config config `*.39S633  1 p 2 16 ]
+[s S760 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
+[v Register_Callback@config config `*.39S760  1 p 2 16 ]
 "65
 } 0
 "42
 [v _Reset_Counter Reset_Counter `(v  1 e 1 0 ]
 {
-[s S633 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
-[v Reset_Counter@config config `*.39S633  1 p 2 14 ]
+[s S760 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
+[v Reset_Counter@config config `*.39S760  1 p 2 14 ]
 "45
 } 0
 "120 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\LCD.c
@@ -627,15 +655,15 @@ TAKEN 1
 [v Callbacks_Manager@callbacks callbacks `uc  1 a 1 5 ]
 "40
 } 0
-"15 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+"16 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
 [v _Check_Moisture_cb Check_Moisture_cb `(v  1 s 1 Check_Moisture_cb ]
 {
-"24
+"25
 } 0
-"26
+"27
 [v _Watering_Done_cb Watering_Done_cb `(v  1 s 1 Watering_Done_cb ]
 {
-"33
+"34
 } 0
 "9 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\FSM_states.c
 [v i2_set_state set_state `(v  1 e 1 0 ]

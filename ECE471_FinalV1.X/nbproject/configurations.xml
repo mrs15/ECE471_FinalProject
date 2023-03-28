@@ -39,6 +39,8 @@
       <itemPath>LedDriver.c</itemPath>
       <itemPath>SystemInterrupts.h</itemPath>
       <itemPath>SystemInterrupts.c</itemPath>
+      <itemPath>WaterPump_Driver.h</itemPath>
+      <itemPath>WaterPump_Driver.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

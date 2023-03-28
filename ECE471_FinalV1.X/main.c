@@ -20,7 +20,7 @@ void main(void) {
     OSCCONbits.IRCF1 = 1;
     OSCCONbits.IRCF2 = 1;
     
-        //stop timer to begin with
+    //stop timer to begin with
     Timer0_stop();
          
     //enable interrupt priority
@@ -39,9 +39,7 @@ void main(void) {
     INTCONbits.GIEH = 1;
     INTCONbits.GIEL = 1;
     
-    
-
-    
+  
     set_state(INIT_STATE);
     while(1)
     {

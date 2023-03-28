@@ -7,6 +7,7 @@
 #include "LCD.h"
 #include "SystemInterrupts.h"
 #include "Types.h"
+#include "WaterPump_Driver.h"
 
 
 #define CHECK_MOISTURE_PERIOD (10) //this multiply by 2 
@@ -38,9 +39,9 @@ void FSM_begin(void)
     {
         case INIT_STATE:
         {
-            //TODO: initialization
             SMS_init();
             Callbacks_Init();
+            WaterPump_Init();
             
             Callback_Config_t MoistureCB_Config = 
             {
@@ -81,12 +82,14 @@ void FSM_begin(void)
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >IDLE STATE<\0");
+            
+            WaterPump_OFF();
 
+            //TODO: send UART command to LoRa
+            
             while(get_current_state() == IDLE_STATE)
             {
-                //TODO: read IR input
-
-                
+                //TODO: check UART input coming from LoRa
                 idle_status_led();
             }
             
@@ -95,14 +98,16 @@ void FSM_begin(void)
         
         case WATER_PLANTS:
         {
-            //TODO: turn on water pump
+            WaterPump_ON();
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >WATERING PLANTS<\0");
             
+            //TODO: send UART command to LoRa
+            
             while(get_current_state() == WATER_PLANTS)
-            {
-              //TODO: poll for IR input while watering period is not over
+            {     
+              //TODO: check UART input coming from LoRa
               watering_status_led();  
             }
             
@@ -117,6 +122,7 @@ void FSM_begin(void)
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >CHECKING MOIST<\0");
+            WaterPump_OFF();
             
             checking_moisture_status_led();
             __delay_ms(1000);
@@ -127,6 +133,8 @@ void FSM_begin(void)
                 moisture = 1000;
           
             SMS_Set_State(moisture);
+            
+            //TODO: send UART command to LoRa
     
             break;
         }//CHECK_MOISTURE
