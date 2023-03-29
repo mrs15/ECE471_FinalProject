@@ -30,7 +30,7 @@ void WaterPump_ON(void)
 
 void WaterPump_OFF(void)
 {
-    CHANNEL_BIT_HIGH(PD, PUMP);
+    CHANNEL_BIT_LOW(PD, PUMP);
     pump_status = PUMP_OFF;
 }//OFF
 

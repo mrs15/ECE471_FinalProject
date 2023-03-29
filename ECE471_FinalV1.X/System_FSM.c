@@ -8,6 +8,7 @@
 #include "SystemInterrupts.h"
 #include "Types.h"
 #include "WaterPump_Driver.h"
+#include "PIC18F4331_UART2.h"
 
 
 #define CHECK_MOISTURE_PERIOD (10) //this multiply by 2 
@@ -42,7 +43,7 @@ void FSM_begin(void)
             SMS_init();
             Callbacks_Init();
             WaterPump_Init();
-            
+      
             Callback_Config_t MoistureCB_Config = 
             {
                 .callback = &Check_Moisture_cb,
@@ -68,7 +69,7 @@ void FSM_begin(void)
             LCD_Set_Cursor(2,1);
             LCD_Write_String("System Initial...\0");
             
-            __delay_ms(200);
+            __delay_ms(1000);
             
             Timer0_start();
             
@@ -79,13 +80,16 @@ void FSM_begin(void)
         
         case IDLE_STATE:
         {
+            //TODO: send UART command to LoRa
+            UART_send('S'); //235 is the idle code
+            
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >IDLE STATE<\0");
             
             WaterPump_OFF();
 
-            //TODO: send UART command to LoRa
+
             
             while(get_current_state() == IDLE_STATE)
             {
@@ -98,12 +102,16 @@ void FSM_begin(void)
         
         case WATER_PLANTS:
         {
+            //TODO: send UART command to LoRa
+            UART_send('W'); //103 is the watering code
+            UART_send('W');
+
             WaterPump_ON();
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >WATERING PLANTS<\0");
             
-            //TODO: send UART command to LoRa
+
             
             while(get_current_state() == WATER_PLANTS)
             {     
@@ -119,6 +127,9 @@ void FSM_begin(void)
         {
             /*Come here every hour or 30 minutes*/
             /*But for demo purposes, we will make it every ~10 seconds*/
+            //TODO: send UART command to LoRa
+            UART_send('M'); //56 is the check moisture code
+            
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >CHECKING MOIST<\0");
@@ -134,7 +145,7 @@ void FSM_begin(void)
           
             SMS_Set_State(moisture);
             
-            //TODO: send UART command to LoRa
+
     
             break;
         }//CHECK_MOISTURE

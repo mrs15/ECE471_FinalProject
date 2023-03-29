@@ -665,8 +665,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _WaterPump_OFF ]
 [f ]
 "33
-[; ;WaterPump_Driver.c: 33:     (((LATD))|=((0x04)));
-[e =| _LATD -> -> 4 `i `Vuc ]
+[; ;WaterPump_Driver.c: 33:     (((LATD))&=(~((0x04))));
+[e =& _LATD -> ~ -> 4 `i `Vuc ]
 "34
 [; ;WaterPump_Driver.c: 34:     pump_status = PUMP_OFF;
 [e = _pump_status -> . `E2819 1 `uc ]

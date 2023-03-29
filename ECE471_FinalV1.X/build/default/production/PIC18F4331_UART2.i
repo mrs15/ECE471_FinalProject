@@ -1,4 +1,4 @@
-# 1 "System_FSM.c"
+# 1 "PIC18F4331_UART2.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,9 +6,9 @@
 # 1 "<built-in>" 2
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "System_FSM.c" 2
-# 1 "./System_FSM.h" 1
-# 11 "./System_FSM.h"
+# 1 "PIC18F4331_UART2.c" 2
+# 1 "./PIC18F4331_UART2.h" 1
+# 11 "./PIC18F4331_UART2.h"
 # 1 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -5222,87 +5222,25 @@ __attribute__((__unsupported__("The READTIMER" "3" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\\pic\\include\\xc.h" 2 3
-# 11 "./System_FSM.h" 2
+# 11 "./PIC18F4331_UART2.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdbool.h" 1 3
+# 12 "./PIC18F4331_UART2.h" 2
 
 
-void FSM_begin(void);
-# 1 "System_FSM.c" 2
-
-# 1 "./FSM_states.h" 1
-# 11 "./FSM_states.h"
-typedef enum{
-    INIT_STATE,
-    IDLE_STATE,
-    WATER_PLANTS,
-    CHECK_MOISTURE
-}STATES;
-
-STATES get_current_state(void);
-void set_state(STATES state_to_set);
-# 2 "System_FSM.c" 2
-
-# 1 "./SoilMoistureSensor.h" 1
-# 12 "./SoilMoistureSensor.h"
-# 1 "./Types.h" 1
-# 11 "./Types.h"
-typedef unsigned char U8;
-typedef unsigned short U16;
-# 12 "./SoilMoistureSensor.h" 2
+extern volatile _Bool rx_flag;
+extern volatile uint8_t rx_data;
 
 
+void UART_init(void);
+void UART_send(uint8_t data);
+uint8_t UART_read(void);
+
+char getch(void);
+void putch(char txData);
+# 1 "PIC18F4331_UART2.c" 2
 
 
-
-void SMS_init(void);
-
-
-
-
-U16 SMS_Read_Moisture_Value(void);
-
-
-
-
-
-
-void SMS_Set_State(U16 moisture);
-# 3 "System_FSM.c" 2
-
-# 1 "./PIC18F4331_Timer.h" 1
-# 16 "./PIC18F4331_Timer.h"
-void Timer0_init(void);
-void Timer0_start(void);
-void Timer0_stop(void);
-# 4 "System_FSM.c" 2
-
-# 1 "./SystemCallbacks.h" 1
-# 15 "./SystemCallbacks.h"
-typedef void (*time_callback_t)(void);
-
-typedef enum{
-    OPEN,
-    TAKEN
-}AVAILABLITY;
-
-typedef struct{
-    U16 expiry_time;
-    time_callback_t callback;
-    U8 callback_ID;
-    U16 count;
-    AVAILABLITY Availablity;
-}Callback_Config_t;
-
-
-void Callbacks_Init(void);
-U8 Callbacks_GetCallbackCount(void);
-void Reset_Counter(Callback_Config_t * config);
-void Callbacks_Manager(void);
-U8 Register_Callback(Callback_Config_t *config);
-U8 Delete_Callback(Callback_Config_t *config);
-# 5 "System_FSM.c" 2
-
-# 1 "./LedDriver.h" 1
-# 11 "./LedDriver.h"
 # 1 "./SystemConfiguration.h" 1
 # 41 "./SystemConfiguration.h"
 #pragma config OSC = IRCIO
@@ -5359,59 +5297,7 @@ U8 Delete_Callback(Callback_Config_t *config);
 
 
 #pragma config EBTRB = OFF
-# 11 "./LedDriver.h" 2
-
-
-void init_leds(void);
-void idle_status_led(void);
-void watering_status_led(void);
-void checking_moisture_status_led(void);
-# 6 "System_FSM.c" 2
-
-# 1 "./LCD.h" 1
-# 30 "./LCD.h"
-void LCD_Init(void);
-void LCD_Clear(void);
-void LCD_SL(void);
-void LCD_SR(void);
-
-void LCD_CMD(unsigned char);
-void LCD_DATA(unsigned char);
-void LCD_Set_Cursor(unsigned char, unsigned char);
-void LCD_Write_Char(char);
-void LCD_Write_String(char*);
-# 7 "System_FSM.c" 2
-
-# 1 "./SystemInterrupts.h" 1
-# 14 "./SystemInterrupts.h"
-# 1 "./PIC18F4331_UART2.h" 1
-# 12 "./PIC18F4331_UART2.h"
-# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdbool.h" 1 3
-# 12 "./PIC18F4331_UART2.h" 2
-
-
-extern volatile _Bool rx_flag;
-extern volatile uint8_t rx_data;
-
-
-void UART_init(void);
-void UART_send(uint8_t data);
-uint8_t UART_read(void);
-
-char getch(void);
-void putch(char txData);
-# 14 "./SystemInterrupts.h" 2
-# 8 "System_FSM.c" 2
-
-
-# 1 "./WaterPump_Driver.h" 1
-# 12 "./WaterPump_Driver.h"
-void WaterPump_Init(void);
-
-void WaterPump_ON(void);
-void WaterPump_OFF(void);
-void WaterPump_Toggle(void);
-# 10 "System_FSM.c" 2
+# 3 "PIC18F4331_UART2.c" 2
 
 
 
@@ -5419,152 +5305,56 @@ void WaterPump_Toggle(void);
 
 
 
-static void Check_Moisture_cb(void)
+volatile _Bool rx_flag = 0;
+volatile uint8_t rx_data = 0;
+
+
+void UART_init(void)
 {
+# 34 "PIC18F4331_UART2.c"
+    TRISCbits.RC6 = 0;
+    TRISCbits.RC7 = 1;
+
+
+    BAUDCONbits.BRG16 = 1;
+
+    SPBRG = (int)51;
+    SPBRGH = (int)0;
+    RCSTAbits.SPEN = 1;
+    TXSTAbits.TXEN = 1;
+    TXSTAbits.BRGH = 1;
+    RCSTAbits.CREN = 1;
 
 
 
-    if(get_current_state() != WATER_PLANTS)
+}
+void UART_send(uint8_t data)
+{
+    while(0 == PIR1bits.TXIF)
     {
-      set_state(CHECK_MOISTURE);
+        ;
     }
+
+    TXREG = data;
+
 }
 
-static void Watering_Done_cb(void)
+uint8_t UART_read()
 {
-
-    if(get_current_state() == WATER_PLANTS)
+    while(0 == PIR1bits.RCIF)
     {
-        set_state(IDLE_STATE);
+        ;
     }
+
+    return RCREG;
 }
 
-void FSM_begin(void)
+char getch(void)
 {
-    switch(get_current_state())
-    {
-        case INIT_STATE:
-        {
-            SMS_init();
-            Callbacks_Init();
-            WaterPump_Init();
+    return UART_read();
+}
 
-            Callback_Config_t MoistureCB_Config =
-            {
-                .callback = &Check_Moisture_cb,
-                .expiry_time = (10),
-            };
-
-            Callback_Config_t WateringDoneCB_Config =
-            {
-                .callback = &Watering_Done_cb,
-                .expiry_time = (5),
-            };
-
-            Register_Callback(&MoistureCB_Config);
-            Register_Callback(&WateringDoneCB_Config);
-
-            init_leds();
-
-            LCD_Init();
-
-            LCD_Clear();
-            LCD_Set_Cursor(1,1);
-            LCD_Write_String(" Plant Watering\0");
-            LCD_Set_Cursor(2,1);
-            LCD_Write_String("System Initial...\0");
-
-            _delay((unsigned long)((1000)*(8000000/4000.0)));
-
-            Timer0_start();
-
-            set_state(IDLE_STATE);
-
-            break;
-        }
-
-        case IDLE_STATE:
-        {
-
-            UART_send(235);
-
-            LCD_Clear();
-            LCD_Set_Cursor(1,1);
-            LCD_Write_String(" >IDLE STATE<\0");
-
-            WaterPump_OFF();
-
-
-
-            while(get_current_state() == IDLE_STATE)
-            {
-
-                idle_status_led();
-            }
-
-            break;
-        }
-
-        case WATER_PLANTS:
-        {
-
-            UART_send('W');
-            UART_send('W');
-            UART_send('W');
-            UART_send('W');
-            UART_send('W');
-            UART_send('W');
-            WaterPump_ON();
-            LCD_Clear();
-            LCD_Set_Cursor(1,1);
-            LCD_Write_String(" >WATERING PLANTS<\0");
-
-
-
-            while(get_current_state() == WATER_PLANTS)
-            {
-
-              watering_status_led();
-            }
-
-
-            break;
-        }
-
-        case CHECK_MOISTURE:
-        {
-
-
-
-            UART_send('A');
-
-            LCD_Clear();
-            LCD_Set_Cursor(1,1);
-            LCD_Write_String(" >CHECKING MOIST<\0");
-            WaterPump_OFF();
-
-            checking_moisture_status_led();
-            _delay((unsigned long)((1000)*(8000000/4000.0)));
-
-            U16 moisture = SMS_Read_Moisture_Value();
-
-            if(moisture > 65000)
-                moisture = 1000;
-
-            SMS_Set_State(moisture);
-
-
-
-            break;
-        }
-
-        default:
-        {
-            set_state(INIT_STATE);
-            break;
-        }
-
-
-    }
-
+void putch(char txData)
+{
+    UART_send(txData);
 }

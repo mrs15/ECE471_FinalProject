@@ -11,6 +11,8 @@
 #include "SystemConfiguration.h"
 #include "PIC18F4331_Timer.h"
 #include "SystemCallbacks.h"
+#include "PIC18F4331_UART2.h"
+#include "FSM_states.h"
 
 
 

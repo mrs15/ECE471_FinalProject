@@ -1,25 +1,5 @@
 Version 4.0 HI-TECH Software Intermediate Code
-[p mainexit ]
-"6709 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6709:     struct {
-[s S291 :2 `uc 1 :1 `uc 1 :1 `uc 1 :3 `uc 1 :1 `uc 1 ]
-[n S291 . SCS IOFS OSTS IRCF IDLEN ]
-"6716
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6716:     struct {
-[s S292 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S292 . SCS0 SCS1 . IRCF0 IRCF1 IRCF2 ]
-"6724
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6724:     struct {
-[s S293 :2 `uc 1 :1 `uc 1 ]
-[n S293 . . FLTS ]
-"6708
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6708: typedef union {
-[u S290 `S291 1 `S292 1 `S293 1 ]
-[n S290 . . . . ]
-"6729
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6729: extern volatile OSCCONbits_t OSCCONbits __attribute__((address(0xFD3)));
-[v _OSCCONbits `VS290 ~T0 @X0 0 e@4051 ]
-"2729
+"2729 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 2729:     struct {
 [s S98 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S98 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
@@ -34,164 +14,114 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2750
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 2750: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
 [v _TRISCbits `VS97 ~T0 @X0 0 e@3988 ]
-"18 ./PIC18F4331_Timer.h
-[; ;./PIC18F4331_Timer.h: 18: void Timer0_stop(void);
-[v _Timer0_stop `(v ~T0 @X0 0 ef ]
-"6474 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6474:     struct {
-[s S277 :1 `uc 1 ]
-[n S277 . NOT_BOR ]
-"6477
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6477:     struct {
-[s S278 :1 `uc 1 :1 `uc 1 ]
-[n S278 . . NOT_POR ]
-"6481
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6481:     struct {
-[s S279 :2 `uc 1 :1 `uc 1 ]
-[n S279 . . NOT_PD ]
-"6485
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6485:     struct {
-[s S280 :3 `uc 1 :1 `uc 1 ]
-[n S280 . . NOT_TO ]
-"6489
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6489:     struct {
-[s S281 :4 `uc 1 :1 `uc 1 ]
-[n S281 . . NOT_RI ]
-"6493
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6493:     struct {
-[s S282 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S282 . nBOR nPOR nPD nTO nRI . IPEN ]
-"6502
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6502:     struct {
-[s S283 :7 `uc 1 :1 `uc 1 ]
-[n S283 . . NOT_IPEN ]
-"6506
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6506:     struct {
-[s S284 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S284 . BOR POR PD TO RI . nIPEN ]
-"6473
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6473: typedef union {
-[u S276 `S277 1 `S278 1 `S279 1 `S280 1 `S281 1 `S282 1 `S283 1 `S284 1 ]
-[n S276 . . . . . . . . . ]
-"6516
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 6516: extern volatile RCONbits_t RCONbits __attribute__((address(0xFD0)));
-[v _RCONbits `VS276 ~T0 @X0 0 e@4048 ]
-"7314
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7314:     struct {
-[s S308 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S308 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
-"7324
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7324:     struct {
-[s S309 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S309 . . INT0F T0IF . INT0E T0IE PEIE GIE ]
-"7334
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7334:     struct {
-[s S310 :6 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S310 . . GIEL GIEH ]
-"7313
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7313: typedef union {
-[u S307 `S308 1 `S309 1 `S310 1 ]
-[n S307 . . . . ]
-"7340
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7340: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
-[v _INTCONbits `VS307 ~T0 @X0 0 e@4082 ]
-"7237
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7237:     struct {
-[s S304 :7 `uc 1 :1 `uc 1 ]
-[n S304 . . NOT_RBPU ]
-"7241
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7241:     struct {
-[s S305 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S305 . RBIP . TMR0IP . INTEDG2 INTEDG1 INTEDG0 nRBPU ]
-"7251
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7251:     struct {
-[s S306 :2 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 ]
-[n S306 . . T0IP . RBPU ]
-"7236
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7236: typedef union {
-[u S303 `S304 1 `S305 1 `S306 1 ]
-[n S303 . . . . ]
-"7258
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7258: extern volatile INTCON2bits_t INTCON2bits __attribute__((address(0xFF1)));
-[v _INTCON2bits `VS303 ~T0 @X0 0 e@4081 ]
-"16 ./PIC18F4331_Timer.h
-[; ;./PIC18F4331_Timer.h: 16: void Timer0_init(void);
-[v _Timer0_init `(v ~T0 @X0 0 ef ]
-"18 ./PIC18F4331_UART2.h
-[; ;./PIC18F4331_UART2.h: 18: void UART_init(void);
-[v _UART_init `(v ~T0 @X0 0 ef ]
-"59 main.c
-[; ;main.c: 59:     set_state(INIT_STATE);
-[c E2814 0 1 2 3 .. ]
-[n E2814 . INIT_STATE IDLE_STATE WATER_PLANTS CHECK_MOISTURE  ]
-"19 ./FSM_states.h
-[; ;./FSM_states.h: 19: void set_state(STATES state_to_set);
-[v _set_state `(v ~T0 @X0 0 ef1`E2814 ]
-"13 ./System_FSM.h
-[; ;./System_FSM.h: 13: void FSM_begin(void);
-[v _FSM_begin `(v ~T0 @X0 0 ef ]
-"41 ./SystemConfiguration.h
-[p x OSC  =  IRCIO       ]
-"42
-[p x FCMEN  =  ON        ]
-"43
-[p x IESO  =  ON         ]
-"46
-[p x PWRTEN  =  OFF      ]
-"47
-[p x BOREN  =  OFF        ]
-"51
-[p x WDTEN  =  OFF       ]
-"52
-[p x WDPS  =  32768      ]
-"53
-[p x WINEN  =  OFF       ]
-"56
-[p x PWMPIN  =  OFF      ]
-"57
-[p x LPOL  =  HIGH       ]
-"58
-[p x HPOL  =  HIGH       ]
-"59
-[p x T1OSCMX  =  ON      ]
-"62
-[p x FLTAMX  =  RC1      ]
-"63
-[p x SSPMX  =  RC7       ]
-"64
-[p x PWM4MX  =  RB5      ]
-"65
-[p x EXCLKMX  =  RC3     ]
-"66
-[p x MCLRE  =  ON        ]
-"69
-[p x STVREN  =  ON       ]
-"70
-[p x LVP  =  OFF          ]
-"73
-[p x CP0  =  OFF         ]
-"74
-[p x CP1  =  OFF         ]
-"77
-[p x CPB  =  OFF         ]
-"78
-[p x CPD  =  OFF         ]
-"81
-[p x WRT0  =  OFF        ]
-"82
-[p x WRT1  =  OFF        ]
-"85
-[p x WRTC  =  OFF        ]
-"86
-[p x WRTB  =  OFF        ]
-"87
-[p x WRTD  =  OFF        ]
-"90
-[p x EBTR0  =  OFF       ]
-"91
-[p x EBTR1  =  OFF       ]
-"94
-[p x EBTRB  =  OFF       ]
+"4205
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4205:     struct {
+[s S157 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S157 . ABDEN WUE . BRG16 TXCKP RXDTP RCIDL ABDOVF ]
+"4215
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4215:     struct {
+[s S158 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S158 . . SCKP . RCMT ]
+"4221
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4221:     struct {
+[s S159 :5 `uc 1 :1 `uc 1 ]
+[n S159 . . RXCKP ]
+"4225
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4225:     struct {
+[s S160 :1 `uc 1 :1 `uc 1 ]
+[n S160 . . W4E ]
+"4204
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4204: typedef union {
+[u S156 `S157 1 `S158 1 `S159 1 `S160 1 ]
+[n S156 . . . . . ]
+"4230
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4230: extern volatile BAUDCONbits_t BAUDCONbits __attribute__((address(0xFAA)));
+[v _BAUDCONbits `VS156 ~T0 @X0 0 e@4010 ]
+"4864
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4864: extern volatile unsigned char SPBRG __attribute__((address(0xFAF)));
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
+"4876
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4876: extern volatile unsigned char SPBRGH __attribute__((address(0xFB0)));
+[v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
+"4385
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4385:     struct {
+[s S167 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S167 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"4395
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4395:     struct {
+[s S168 :3 `uc 1 :1 `uc 1 ]
+[n S168 . . ADEN ]
+"4399
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4399:     struct {
+[s S169 :5 `uc 1 :1 `uc 1 ]
+[n S169 . . SRENA ]
+"4403
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4403:     struct {
+[s S170 :6 `uc 1 :1 `uc 1 ]
+[n S170 . . RC8_9 ]
+"4407
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4407:     struct {
+[s S171 :6 `uc 1 :1 `uc 1 ]
+[n S171 . . RC9 ]
+"4411
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4411:     struct {
+[s S172 :1 `uc 1 ]
+[n S172 . RCD8 ]
+"4384
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4384: typedef union {
+[u S166 `S167 1 `S168 1 `S169 1 `S170 1 `S171 1 `S172 1 ]
+[n S166 . . . . . . . ]
+"4415
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4415: extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0xFAB)));
+[v _RCSTAbits `VS166 ~T0 @X0 0 e@4011 ]
+"4595
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4595:     struct {
+[s S181 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S181 . TX9D TRMT BRGH SENDB SYNC TXEN TX9 CSRC ]
+"4605
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4605:     struct {
+[s S182 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S182 . TX9D1 TRMT1 BRGH1 SENDB1 SYNC1 TXEN1 TX91 CSRC1 ]
+"4615
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4615:     struct {
+[s S183 :6 `uc 1 :1 `uc 1 ]
+[n S183 . . TX8_9 ]
+"4619
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4619:     struct {
+[s S184 :1 `uc 1 ]
+[n S184 . TXD8 ]
+"4594
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4594: typedef union {
+[u S180 `S181 1 `S182 1 `S183 1 `S184 1 ]
+[n S180 . . . . . ]
+"4623
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4623: extern volatile TXSTAbits_t TXSTAbits __attribute__((address(0xFAC)));
+[v _TXSTAbits `VS180 ~T0 @X0 0 e@4012 ]
+"3618
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 3618:     struct {
+[s S130 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S130 . TMR1IF TMR2IF CCP1IF SSPIF TXIF RCIF ADIF ]
+"3627
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 3627:     struct {
+[s S131 :4 `uc 1 :1 `uc 1 ]
+[n S131 . . TBIF ]
+"3631
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 3631:     struct {
+[s S132 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S132 . . TX1IF RC1IF ]
+"3617
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 3617: typedef union {
+[u S129 `S130 1 `S131 1 `S132 1 ]
+[n S129 . . . . ]
+"3637
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 3637: extern volatile PIR1bits_t PIR1bits __attribute__((address(0xF9E)));
+[v _PIR1bits `VS129 ~T0 @X0 0 e@3998 ]
+"4840
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4840: extern volatile unsigned char TXREG __attribute__((address(0xFAD)));
+[v _TXREG `Vuc ~T0 @X0 0 e@4013 ]
+"4852
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4852: extern volatile unsigned char RCREG __attribute__((address(0xFAE)));
+[v _RCREG `Vuc ~T0 @X0 0 e@4014 ]
 "55 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 55: __asm("DFLTCON equ 0F60h");
 [; <" DFLTCON equ 0F60h ;# ">
@@ -732,77 +662,218 @@ Version 4.0 HI-TECH Software Intermediate Code
 "7617
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 7617: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-[v $root$_main `(v ~T0 @X0 0 e ]
-"17 main.c
-[; ;main.c: 17: void main(void) {
-[v _main `(v ~T0 @X0 1 ef ]
-{
-[e :U _main ]
-[f ]
-"20
-[; ;main.c: 20:     OSCCONbits.IRCF0 = 1;
-[e = . . _OSCCONbits 1 3 -> -> 1 `i `uc ]
-"21
-[; ;main.c: 21:     OSCCONbits.IRCF1 = 1;
-[e = . . _OSCCONbits 1 4 -> -> 1 `i `uc ]
-"22
-[; ;main.c: 22:     OSCCONbits.IRCF2 = 1;
-[e = . . _OSCCONbits 1 5 -> -> 1 `i `uc ]
-"25
-[; ;main.c: 25:     TRISCbits.RC3 = 1;
-[e = . . _TRISCbits 1 3 -> -> 1 `i `uc ]
-"28
-[; ;main.c: 28:     Timer0_stop();
-[e ( _Timer0_stop ..  ]
-"31
-[; ;main.c: 31:     RCONbits.IPEN = 1;
-[e = . . _RCONbits 5 6 -> -> 1 `i `uc ]
-"34
-[; ;main.c: 34:     INTCONbits.TMR0IE = 1;
-[e = . . _INTCONbits 0 5 -> -> 1 `i `uc ]
-"37
-[; ;main.c: 37:     INTCONbits.INT0IE = 1;
-[e = . . _INTCONbits 0 4 -> -> 1 `i `uc ]
-"40
-[; ;main.c: 40:     INTCON2bits.TMR0IP = 1;
-[e = . . _INTCON2bits 1 2 -> -> 1 `i `uc ]
+"41 ./SystemConfiguration.h
+[p x OSC  =  IRCIO       ]
+"42
+[p x FCMEN  =  ON        ]
 "43
-[; ;main.c: 43:     Timer0_init();
-[e ( _Timer0_init ..  ]
+[p x IESO  =  ON         ]
 "46
-[; ;main.c: 46:     INTCON2bits.INTEDG0 = 1;
-[e = . . _INTCON2bits 1 6 -> -> 1 `i `uc ]
+[p x PWRTEN  =  OFF      ]
+"47
+[p x BOREN  =  OFF        ]
+"51
+[p x WDTEN  =  OFF       ]
 "52
-[; ;main.c: 52:     UART_init();
-[e ( _UART_init ..  ]
-"55
-[; ;main.c: 55:     INTCONbits.GIEH = 1;
-[e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
+[p x WDPS  =  32768      ]
+"53
+[p x WINEN  =  OFF       ]
 "56
-[; ;main.c: 56:     INTCONbits.GIEL = 1;
-[e = . . _INTCONbits 2 1 -> -> 1 `i `uc ]
+[p x PWMPIN  =  OFF      ]
+"57
+[p x LPOL  =  HIGH       ]
+"58
+[p x HPOL  =  HIGH       ]
 "59
-[; ;main.c: 59:     set_state(INIT_STATE);
-[e ( _set_state (1 . `E2814 0 ]
-"60
-[; ;main.c: 60:     while(1)
-[e :U 316 ]
-"61
-[; ;main.c: 61:     {
-{
+[p x T1OSCMX  =  ON      ]
 "62
-[; ;main.c: 62:      FSM_begin();
-[e ( _FSM_begin ..  ]
+[p x FLTAMX  =  RC1      ]
 "63
-[; ;main.c: 63:     }
+[p x SSPMX  =  RC7       ]
+"64
+[p x PWM4MX  =  RB5      ]
+"65
+[p x EXCLKMX  =  RC3     ]
+"66
+[p x MCLRE  =  ON        ]
+"69
+[p x STVREN  =  ON       ]
+"70
+[p x LVP  =  OFF          ]
+"73
+[p x CP0  =  OFF         ]
+"74
+[p x CP1  =  OFF         ]
+"77
+[p x CPB  =  OFF         ]
+"78
+[p x CPD  =  OFF         ]
+"81
+[p x WRT0  =  OFF        ]
+"82
+[p x WRT1  =  OFF        ]
+"85
+[p x WRTC  =  OFF        ]
+"86
+[p x WRTB  =  OFF        ]
+"87
+[p x WRTD  =  OFF        ]
+"90
+[p x EBTR0  =  OFF       ]
+"91
+[p x EBTR1  =  OFF       ]
+"94
+[p x EBTRB  =  OFF       ]
+"10 PIC18F4331_UART2.c
+[; ;PIC18F4331_UART2.c: 10: volatile _Bool rx_flag = 0;
+[v _rx_flag `Va ~T0 @X0 1 e ]
+[i _rx_flag
+-> -> 0 `i `a
+]
+"11
+[; ;PIC18F4331_UART2.c: 11: volatile uint8_t rx_data = 0;
+[v _rx_data `Vuc ~T0 @X0 1 e ]
+[i _rx_data
+-> -> 0 `i `uc
+]
+"14
+[; ;PIC18F4331_UART2.c: 14: void UART_init(void)
+[v _UART_init `(v ~T0 @X0 1 ef ]
+"15
+[; ;PIC18F4331_UART2.c: 15: {
+{
+[e :U _UART_init ]
+[f ]
+"34
+[; ;PIC18F4331_UART2.c: 34:     TRISCbits.RC6 = 0;
+[e = . . _TRISCbits 1 6 -> -> 0 `i `uc ]
+"35
+[; ;PIC18F4331_UART2.c: 35:     TRISCbits.RC7 = 1;
+[e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
+"38
+[; ;PIC18F4331_UART2.c: 38:     BAUDCONbits.BRG16 = 1;
+[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
+"40
+[; ;PIC18F4331_UART2.c: 40:     SPBRG = (int)51;
+[e = _SPBRG -> -> 51 `i `uc ]
+"41
+[; ;PIC18F4331_UART2.c: 41:     SPBRGH = (int)0;
+[e = _SPBRGH -> -> 0 `i `uc ]
+"42
+[; ;PIC18F4331_UART2.c: 42:     RCSTAbits.SPEN = 1;
+[e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
+"43
+[; ;PIC18F4331_UART2.c: 43:     TXSTAbits.TXEN = 1;
+[e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
+"44
+[; ;PIC18F4331_UART2.c: 44:     TXSTAbits.BRGH = 1;
+[e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
+"45
+[; ;PIC18F4331_UART2.c: 45:     RCSTAbits.CREN = 1;
+[e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
+"49
+[; ;PIC18F4331_UART2.c: 49: }
+[e :UE 314 ]
 }
-[e :U 315 ]
+"50
+[; ;PIC18F4331_UART2.c: 50: void UART_send(uint8_t data)
+[v _UART_send `(v ~T0 @X0 1 ef1`uc ]
+"51
+[; ;PIC18F4331_UART2.c: 51: {
+{
+[e :U _UART_send ]
+"50
+[; ;PIC18F4331_UART2.c: 50: void UART_send(uint8_t data)
+[v _data `uc ~T0 @X0 1 r1 ]
+"51
+[; ;PIC18F4331_UART2.c: 51: {
+[f ]
+"52
+[; ;PIC18F4331_UART2.c: 52:     while(0 == PIR1bits.TXIF)
 [e $U 316  ]
 [e :U 317 ]
+"53
+[; ;PIC18F4331_UART2.c: 53:     {
+{
+"55
+[; ;PIC18F4331_UART2.c: 55:     }
+}
+[e :U 316 ]
+"52
+[; ;PIC18F4331_UART2.c: 52:     while(0 == PIR1bits.TXIF)
+[e $ == -> 0 `i -> . . _PIR1bits 0 4 `i 317  ]
+[e :U 318 ]
+"57
+[; ;PIC18F4331_UART2.c: 57:     TXREG = data;
+[e = _TXREG _data ]
+"59
+[; ;PIC18F4331_UART2.c: 59: }
+[e :UE 315 ]
+}
+"61
+[; ;PIC18F4331_UART2.c: 61: uint8_t UART_read()
+[v _UART_read `(uc ~T0 @X0 1 ef ]
+"62
+[; ;PIC18F4331_UART2.c: 62: {
+{
+[e :U _UART_read ]
+[f ]
+"63
+[; ;PIC18F4331_UART2.c: 63:     while(0 == PIR1bits.RCIF)
+[e $U 320  ]
+[e :U 321 ]
+"64
+[; ;PIC18F4331_UART2.c: 64:     {
+{
 "66
-[; ;main.c: 66:     return;
-[e $UE 314  ]
-"67
-[; ;main.c: 67: }
-[e :UE 314 ]
+[; ;PIC18F4331_UART2.c: 66:     }
+}
+[e :U 320 ]
+"63
+[; ;PIC18F4331_UART2.c: 63:     while(0 == PIR1bits.RCIF)
+[e $ == -> 0 `i -> . . _PIR1bits 0 5 `i 321  ]
+[e :U 322 ]
+"68
+[; ;PIC18F4331_UART2.c: 68:     return RCREG;
+[e ) _RCREG ]
+[e $UE 319  ]
+"69
+[; ;PIC18F4331_UART2.c: 69: }
+[e :UE 319 ]
+}
+"71
+[; ;PIC18F4331_UART2.c: 71: char getch(void)
+[v _getch `(uc ~T0 @X0 1 ef ]
+"72
+[; ;PIC18F4331_UART2.c: 72: {
+{
+[e :U _getch ]
+[f ]
+"73
+[; ;PIC18F4331_UART2.c: 73:     return UART_read();
+[e ) -> ( _UART_read ..  `uc ]
+[e $UE 323  ]
+"74
+[; ;PIC18F4331_UART2.c: 74: }
+[e :UE 323 ]
+}
+"76
+[; ;PIC18F4331_UART2.c: 76: void putch(char txData)
+[v _putch `(v ~T0 @X0 1 ef1`uc ]
+"77
+[; ;PIC18F4331_UART2.c: 77: {
+{
+[e :U _putch ]
+"76
+[; ;PIC18F4331_UART2.c: 76: void putch(char txData)
+[v _txData `uc ~T0 @X0 1 r1 ]
+"77
+[; ;PIC18F4331_UART2.c: 77: {
+[f ]
+"78
+[; ;PIC18F4331_UART2.c: 78:     UART_send(txData);
+[e ( _UART_send (1 -> _txData `uc ]
+"79
+[; ;PIC18F4331_UART2.c: 79: }
+[e :UE 324 ]
 }

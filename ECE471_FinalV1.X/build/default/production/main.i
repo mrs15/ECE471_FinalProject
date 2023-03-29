@@ -5317,6 +5317,24 @@ void Timer0_start(void);
 void Timer0_stop(void);
 # 12 "main.c" 2
 
+# 1 "./PIC18F4331_UART2.h" 1
+# 12 "./PIC18F4331_UART2.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdbool.h" 1 3
+# 12 "./PIC18F4331_UART2.h" 2
+
+
+extern volatile _Bool rx_flag;
+extern volatile uint8_t rx_data;
+
+
+void UART_init(void);
+void UART_send(uint8_t data);
+uint8_t UART_read(void);
+
+char getch(void);
+void putch(char txData);
+# 13 "main.c" 2
+
 # 1 "./LCD.h" 1
 # 30 "./LCD.h"
 void LCD_Init(void);
@@ -5329,7 +5347,7 @@ void LCD_DATA(unsigned char);
 void LCD_Set_Cursor(unsigned char, unsigned char);
 void LCD_Write_Char(char);
 void LCD_Write_String(char*);
-# 13 "main.c" 2
+# 14 "main.c" 2
 
 
 
@@ -5341,6 +5359,9 @@ void main(void) {
     OSCCONbits.IRCF2 = 1;
 
 
+    TRISCbits.RC3 = 1;
+
+
     Timer0_stop();
 
 
@@ -5350,10 +5371,22 @@ void main(void) {
     INTCONbits.TMR0IE = 1;
 
 
+    INTCONbits.INT0IE = 1;
+
+
     INTCON2bits.TMR0IP = 1;
 
 
     Timer0_init();
+
+
+    INTCON2bits.INTEDG0 = 1;
+
+
+
+
+
+    UART_init();
 
 
     INTCONbits.GIEH = 1;

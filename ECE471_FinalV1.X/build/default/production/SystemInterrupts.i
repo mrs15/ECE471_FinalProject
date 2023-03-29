@@ -5327,15 +5327,46 @@ void Callbacks_Manager(void);
 U8 Register_Callback(Callback_Config_t *config);
 U8 Delete_Callback(Callback_Config_t *config);
 # 13 "./SystemInterrupts.h" 2
+
+# 1 "./PIC18F4331_UART2.h" 1
+# 12 "./PIC18F4331_UART2.h"
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.40\\pic\\include\\c99\\stdbool.h" 1 3
+# 12 "./PIC18F4331_UART2.h" 2
+
+
+extern volatile _Bool rx_flag;
+extern volatile uint8_t rx_data;
+
+
+void UART_init(void);
+void UART_send(uint8_t data);
+uint8_t UART_read(void);
+
+char getch(void);
+void putch(char txData);
+# 14 "./SystemInterrupts.h" 2
+
+# 1 "./FSM_states.h" 1
+# 11 "./FSM_states.h"
+typedef enum{
+    INIT_STATE,
+    IDLE_STATE,
+    WATER_PLANTS,
+    CHECK_MOISTURE
+}STATES;
+
+STATES get_current_state(void);
+void set_state(STATES state_to_set);
+# 15 "./SystemInterrupts.h" 2
 # 1 "SystemInterrupts.c" 2
 
 
 
 
 
+
+
 static volatile uint16_t tmr0Counter=0;
-
-
 
 void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
 {
@@ -5356,8 +5387,6 @@ void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
     if(INTCONbits.TMR0IF)
     {
 
-
-
         Callbacks_Manager();
 
 
@@ -5365,11 +5394,15 @@ void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
     }
 
 
+    if(INTCONbits.INT0IF)
+    {
+
+        set_state(WATER_PLANTS);
 
 
-
-
-
+        INTCONbits.INT0IF = 0;
+    }
+# 67 "SystemInterrupts.c"
     INTCONbits.GIEH = 1;
     INTCONbits.GIEL = 1;
 

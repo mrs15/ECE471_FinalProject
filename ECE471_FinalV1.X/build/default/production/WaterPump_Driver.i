@@ -5333,7 +5333,7 @@ void WaterPump_ON(void)
 
 void WaterPump_OFF(void)
 {
-    (((LATD))|=((0x04)));
+    (((LATD))&=(~((0x04))));
     pump_status = PUMP_OFF;
 }
 
