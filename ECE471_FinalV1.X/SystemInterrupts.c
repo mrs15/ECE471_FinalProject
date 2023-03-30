@@ -1,5 +1,6 @@
 #include "SystemInterrupts.h"
 #include "stdbool.h"
+#include "WaterPump_Driver.h"
 
 
 #define TIMER0_LOW_OFFSET  (0x7C)
@@ -48,34 +49,18 @@ void __interrupt() timer_overflow_isr(void)
     if(INTCONbits.INT0IF)
     {
         //set state to WATER PLANTS
-        set_state(WATER_PLANTS);
+        if(get_current_state() != WATER_PLANTS)
+        {
+          set_state(WATER_PLANTS);  
+        }
         
         //clear the flag
         INTCONbits.INT0IF = 0;
     }//external interrupt
-    
-//    /*Check UART rx for LoRa Communications*/
-//    if(PIR1bits.RCIF)
-//    {
-//       rx_flag = true;
-//       rx_data = RCREG;
-//       
-//       PIR1bits.RCIF=0;
-//    }//UART
-    
+        
     //re-enable interrupts
     INTCONbits.GIEH = 1;
     INTCONbits.GIEL = 1;
     
 }// RTI ISR
 
-//void __interrupt(low_priority) low_isr(void){
-//    INTCONbits.GIEH = 0;
-//    INTCONbits.GIEL = 0;
-//    
-//    if(PIR1bits.TXIF){
-//        PIR1bits.TXIF=0;
-//    }
-//    INTCONbits.GIEH = 1;
-//    INTCONbits.GIEL = 1;
-//}

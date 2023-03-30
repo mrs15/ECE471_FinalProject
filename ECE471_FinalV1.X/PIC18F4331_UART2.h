@@ -15,9 +15,9 @@ extern volatile bool rx_flag;
 extern volatile uint8_t rx_data;
 
 
-void UART_init(void);
-void UART_send(uint8_t data);
-uint8_t UART_read(void);
+void UART2_init(void);
+void UART2_send(uint8_t data);
+uint8_t UART2_read(void);
 
 char getch(void);
 void putch(char txData);

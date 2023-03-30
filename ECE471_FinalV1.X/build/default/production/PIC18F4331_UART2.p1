@@ -14,35 +14,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2750
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 2750: extern volatile TRISCbits_t TRISCbits __attribute__((address(0xF94)));
 [v _TRISCbits `VS97 ~T0 @X0 0 e@3988 ]
-"4205
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4205:     struct {
-[s S157 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S157 . ABDEN WUE . BRG16 TXCKP RXDTP RCIDL ABDOVF ]
-"4215
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4215:     struct {
-[s S158 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S158 . . SCKP . RCMT ]
-"4221
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4221:     struct {
-[s S159 :5 `uc 1 :1 `uc 1 ]
-[n S159 . . RXCKP ]
-"4225
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4225:     struct {
-[s S160 :1 `uc 1 :1 `uc 1 ]
-[n S160 . . W4E ]
-"4204
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4204: typedef union {
-[u S156 `S157 1 `S158 1 `S159 1 `S160 1 ]
-[n S156 . . . . . ]
-"4230
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4230: extern volatile BAUDCONbits_t BAUDCONbits __attribute__((address(0xFAA)));
-[v _BAUDCONbits `VS156 ~T0 @X0 0 e@4010 ]
-"4864
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4864: extern volatile unsigned char SPBRG __attribute__((address(0xFAF)));
-[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
-"4876
-[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4876: extern volatile unsigned char SPBRGH __attribute__((address(0xFB0)));
-[v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
 "4385
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4385:     struct {
 [s S167 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -74,6 +45,12 @@ Version 4.0 HI-TECH Software Intermediate Code
 "4415
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4415: extern volatile RCSTAbits_t RCSTAbits __attribute__((address(0xFAB)));
 [v _RCSTAbits `VS166 ~T0 @X0 0 e@4011 ]
+"4876
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4876: extern volatile unsigned char SPBRGH __attribute__((address(0xFB0)));
+[v _SPBRGH `Vuc ~T0 @X0 0 e@4016 ]
+"4864
+[; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4864: extern volatile unsigned char SPBRG __attribute__((address(0xFAF)));
+[v _SPBRG `Vuc ~T0 @X0 0 e@4015 ]
 "4595
 [; ;C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18Fxxxx_DFP/1.3.36/xc8\pic\include\proc\pic18f4331.h: 4595:     struct {
 [s S181 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -737,143 +714,149 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> -> 0 `i `uc
 ]
 "14
-[; ;PIC18F4331_UART2.c: 14: void UART_init(void)
-[v _UART_init `(v ~T0 @X0 1 ef ]
+[; ;PIC18F4331_UART2.c: 14: void UART2_init(void)
+[v _UART2_init `(v ~T0 @X0 1 ef ]
 "15
 [; ;PIC18F4331_UART2.c: 15: {
 {
-[e :U _UART_init ]
+[e :U _UART2_init ]
 [f ]
-"34
-[; ;PIC18F4331_UART2.c: 34:     TRISCbits.RC6 = 0;
+"16
+[; ;PIC18F4331_UART2.c: 16:     TRISCbits.RC6 = 0;
 [e = . . _TRISCbits 1 6 -> -> 0 `i `uc ]
-"35
-[; ;PIC18F4331_UART2.c: 35:     TRISCbits.RC7 = 1;
+"17
+[; ;PIC18F4331_UART2.c: 17:     TRISCbits.RC7 = 1;
 [e = . . _TRISCbits 1 7 -> -> 1 `i `uc ]
-"38
-[; ;PIC18F4331_UART2.c: 38:     BAUDCONbits.BRG16 = 1;
-[e = . . _BAUDCONbits 0 3 -> -> 1 `i `uc ]
-"40
-[; ;PIC18F4331_UART2.c: 40:     SPBRG = (int)51;
-[e = _SPBRG -> -> 51 `i `uc ]
-"41
-[; ;PIC18F4331_UART2.c: 41:     SPBRGH = (int)0;
-[e = _SPBRGH -> -> 0 `i `uc ]
-"42
-[; ;PIC18F4331_UART2.c: 42:     RCSTAbits.SPEN = 1;
+"20
+[; ;PIC18F4331_UART2.c: 20:     RCSTAbits.SPEN = 1;
 [e = . . _RCSTAbits 0 7 -> -> 1 `i `uc ]
-"43
-[; ;PIC18F4331_UART2.c: 43:     TXSTAbits.TXEN = 1;
+"23
+[; ;PIC18F4331_UART2.c: 23:     SPBRGH = 0;
+[e = _SPBRGH -> -> 0 `i `uc ]
+"24
+[; ;PIC18F4331_UART2.c: 24:     SPBRG = 51;
+[e = _SPBRG -> -> 51 `i `uc ]
+"27
+[; ;PIC18F4331_UART2.c: 27:     TXSTAbits.TX9 = 0;
+[e = . . _TXSTAbits 0 6 -> -> 0 `i `uc ]
+"28
+[; ;PIC18F4331_UART2.c: 28:     TXSTAbits.TXEN = 1;
 [e = . . _TXSTAbits 0 5 -> -> 1 `i `uc ]
-"44
-[; ;PIC18F4331_UART2.c: 44:     TXSTAbits.BRGH = 1;
+"29
+[; ;PIC18F4331_UART2.c: 29:     TXSTAbits.SYNC = 0;
+[e = . . _TXSTAbits 0 4 -> -> 0 `i `uc ]
+"30
+[; ;PIC18F4331_UART2.c: 30:     TXSTAbits.BRGH = 1;
 [e = . . _TXSTAbits 0 2 -> -> 1 `i `uc ]
-"45
-[; ;PIC18F4331_UART2.c: 45:     RCSTAbits.CREN = 1;
+"31
+[; ;PIC18F4331_UART2.c: 31:     RCSTAbits.RX9 = 0;
+[e = . . _RCSTAbits 0 6 -> -> 0 `i `uc ]
+"32
+[; ;PIC18F4331_UART2.c: 32:     RCSTAbits.CREN = 1;
 [e = . . _RCSTAbits 0 4 -> -> 1 `i `uc ]
-"49
-[; ;PIC18F4331_UART2.c: 49: }
+"34
+[; ;PIC18F4331_UART2.c: 34: }
 [e :UE 314 ]
 }
-"50
-[; ;PIC18F4331_UART2.c: 50: void UART_send(uint8_t data)
-[v _UART_send `(v ~T0 @X0 1 ef1`uc ]
-"51
-[; ;PIC18F4331_UART2.c: 51: {
+"35
+[; ;PIC18F4331_UART2.c: 35: void UART2_send(uint8_t data)
+[v _UART2_send `(v ~T0 @X0 1 ef1`uc ]
+"36
+[; ;PIC18F4331_UART2.c: 36: {
 {
-[e :U _UART_send ]
-"50
-[; ;PIC18F4331_UART2.c: 50: void UART_send(uint8_t data)
+[e :U _UART2_send ]
+"35
+[; ;PIC18F4331_UART2.c: 35: void UART2_send(uint8_t data)
 [v _data `uc ~T0 @X0 1 r1 ]
-"51
-[; ;PIC18F4331_UART2.c: 51: {
+"36
+[; ;PIC18F4331_UART2.c: 36: {
 [f ]
-"52
-[; ;PIC18F4331_UART2.c: 52:     while(0 == PIR1bits.TXIF)
+"37
+[; ;PIC18F4331_UART2.c: 37:     while(0 == PIR1bits.TXIF)
 [e $U 316  ]
 [e :U 317 ]
-"53
-[; ;PIC18F4331_UART2.c: 53:     {
+"38
+[; ;PIC18F4331_UART2.c: 38:     {
 {
-"55
-[; ;PIC18F4331_UART2.c: 55:     }
+"40
+[; ;PIC18F4331_UART2.c: 40:     }
 }
 [e :U 316 ]
-"52
-[; ;PIC18F4331_UART2.c: 52:     while(0 == PIR1bits.TXIF)
+"37
+[; ;PIC18F4331_UART2.c: 37:     while(0 == PIR1bits.TXIF)
 [e $ == -> 0 `i -> . . _PIR1bits 0 4 `i 317  ]
 [e :U 318 ]
-"57
-[; ;PIC18F4331_UART2.c: 57:     TXREG = data;
+"42
+[; ;PIC18F4331_UART2.c: 42:     TXREG = data;
 [e = _TXREG _data ]
-"59
-[; ;PIC18F4331_UART2.c: 59: }
+"44
+[; ;PIC18F4331_UART2.c: 44: }
 [e :UE 315 ]
 }
-"61
-[; ;PIC18F4331_UART2.c: 61: uint8_t UART_read()
-[v _UART_read `(uc ~T0 @X0 1 ef ]
-"62
-[; ;PIC18F4331_UART2.c: 62: {
+"46
+[; ;PIC18F4331_UART2.c: 46: uint8_t UART2_read()
+[v _UART2_read `(uc ~T0 @X0 1 ef ]
+"47
+[; ;PIC18F4331_UART2.c: 47: {
 {
-[e :U _UART_read ]
+[e :U _UART2_read ]
 [f ]
-"63
-[; ;PIC18F4331_UART2.c: 63:     while(0 == PIR1bits.RCIF)
+"48
+[; ;PIC18F4331_UART2.c: 48:     while(0 == PIR1bits.RCIF)
 [e $U 320  ]
 [e :U 321 ]
-"64
-[; ;PIC18F4331_UART2.c: 64:     {
+"49
+[; ;PIC18F4331_UART2.c: 49:     {
 {
-"66
-[; ;PIC18F4331_UART2.c: 66:     }
+"51
+[; ;PIC18F4331_UART2.c: 51:     }
 }
 [e :U 320 ]
-"63
-[; ;PIC18F4331_UART2.c: 63:     while(0 == PIR1bits.RCIF)
+"48
+[; ;PIC18F4331_UART2.c: 48:     while(0 == PIR1bits.RCIF)
 [e $ == -> 0 `i -> . . _PIR1bits 0 5 `i 321  ]
 [e :U 322 ]
-"68
-[; ;PIC18F4331_UART2.c: 68:     return RCREG;
+"53
+[; ;PIC18F4331_UART2.c: 53:     return RCREG;
 [e ) _RCREG ]
 [e $UE 319  ]
-"69
-[; ;PIC18F4331_UART2.c: 69: }
+"54
+[; ;PIC18F4331_UART2.c: 54: }
 [e :UE 319 ]
 }
-"71
-[; ;PIC18F4331_UART2.c: 71: char getch(void)
+"56
+[; ;PIC18F4331_UART2.c: 56: char getch(void)
 [v _getch `(uc ~T0 @X0 1 ef ]
-"72
-[; ;PIC18F4331_UART2.c: 72: {
+"57
+[; ;PIC18F4331_UART2.c: 57: {
 {
 [e :U _getch ]
 [f ]
-"73
-[; ;PIC18F4331_UART2.c: 73:     return UART_read();
-[e ) -> ( _UART_read ..  `uc ]
+"58
+[; ;PIC18F4331_UART2.c: 58:     return UART2_read();
+[e ) -> ( _UART2_read ..  `uc ]
 [e $UE 323  ]
-"74
-[; ;PIC18F4331_UART2.c: 74: }
+"59
+[; ;PIC18F4331_UART2.c: 59: }
 [e :UE 323 ]
 }
-"76
-[; ;PIC18F4331_UART2.c: 76: void putch(char txData)
+"61
+[; ;PIC18F4331_UART2.c: 61: void putch(char txData)
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
-"77
-[; ;PIC18F4331_UART2.c: 77: {
+"62
+[; ;PIC18F4331_UART2.c: 62: {
 {
 [e :U _putch ]
-"76
-[; ;PIC18F4331_UART2.c: 76: void putch(char txData)
+"61
+[; ;PIC18F4331_UART2.c: 61: void putch(char txData)
 [v _txData `uc ~T0 @X0 1 r1 ]
-"77
-[; ;PIC18F4331_UART2.c: 77: {
+"62
+[; ;PIC18F4331_UART2.c: 62: {
 [f ]
-"78
-[; ;PIC18F4331_UART2.c: 78:     UART_send(txData);
-[e ( _UART_send (1 -> _txData `uc ]
-"79
-[; ;PIC18F4331_UART2.c: 79: }
+"63
+[; ;PIC18F4331_UART2.c: 63:     UART2_send(txData);
+[e ( _UART2_send (1 -> _txData `uc ]
+"64
+[; ;PIC18F4331_UART2.c: 64: }
 [e :UE 324 ]
 }

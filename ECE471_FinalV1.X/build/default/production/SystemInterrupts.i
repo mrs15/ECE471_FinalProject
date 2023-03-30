@@ -5338,9 +5338,9 @@ extern volatile _Bool rx_flag;
 extern volatile uint8_t rx_data;
 
 
-void UART_init(void);
-void UART_send(uint8_t data);
-uint8_t UART_read(void);
+void UART2_init(void);
+void UART2_send(uint8_t data);
+uint8_t UART2_read(void);
 
 char getch(void);
 void putch(char txData);
@@ -5361,6 +5361,15 @@ void set_state(STATES state_to_set);
 # 1 "SystemInterrupts.c" 2
 
 
+# 1 "./WaterPump_Driver.h" 1
+# 12 "./WaterPump_Driver.h"
+void WaterPump_Init(void);
+
+void WaterPump_ON(void);
+void WaterPump_OFF(void);
+void WaterPump_Toggle(void);
+# 3 "SystemInterrupts.c" 2
+
 
 
 
@@ -5373,7 +5382,7 @@ void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
 
     INTCONbits.GIEH = 0;
     INTCONbits.GIEL = 1;
-# 28 "SystemInterrupts.c"
+# 29 "SystemInterrupts.c"
     if(TMR0L < (0x7C))
     {
         TMR0L = (0x7C);
@@ -5397,12 +5406,16 @@ void __attribute__((picinterrupt(("")))) timer_overflow_isr(void)
     if(INTCONbits.INT0IF)
     {
 
-        set_state(WATER_PLANTS);
+        if(get_current_state() != WATER_PLANTS)
+        {
+          set_state(WATER_PLANTS);
+        }
 
 
         INTCONbits.INT0IF = 0;
     }
-# 67 "SystemInterrupts.c"
+
+
     INTCONbits.GIEH = 1;
     INTCONbits.GIEL = 1;
 

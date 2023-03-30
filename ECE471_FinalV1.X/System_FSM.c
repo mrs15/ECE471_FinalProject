@@ -11,8 +11,8 @@
 #include "PIC18F4331_UART2.h"
 
 
-#define CHECK_MOISTURE_PERIOD (10) //this multiply by 2 
-#define WATERING_TIME (5) 
+#define CHECK_MOISTURE_PERIOD (4) //this multiply by 2 
+#define WATERING_TIME (2) 
 
 static void Check_Moisture_cb(void)
 {
@@ -81,20 +81,21 @@ void FSM_begin(void)
         case IDLE_STATE:
         {
             //TODO: send UART command to LoRa
-            UART_send('S'); //235 is the idle code
+            UART2_send('S'); //235 is the idle code
             
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >IDLE STATE<\0");
             
             WaterPump_OFF();
-
+            idle_status_led();
 
             
             while(get_current_state() == IDLE_STATE)
             {
                 //TODO: check UART input coming from LoRa
-                idle_status_led();
+
+                
             }
             
             break;
@@ -103,8 +104,7 @@ void FSM_begin(void)
         case WATER_PLANTS:
         {
             //TODO: send UART command to LoRa
-            UART_send('W'); //103 is the watering code
-            UART_send('W');
+            UART2_send('W'); //103 is the watering code
 
             WaterPump_ON();
             LCD_Clear();
@@ -116,6 +116,8 @@ void FSM_begin(void)
             while(get_current_state() == WATER_PLANTS)
             {     
               //TODO: check UART input coming from LoRa
+
+
               watering_status_led();  
             }
             
@@ -128,7 +130,8 @@ void FSM_begin(void)
             /*Come here every hour or 30 minutes*/
             /*But for demo purposes, we will make it every ~10 seconds*/
             //TODO: send UART command to LoRa
-            UART_send('M'); //56 is the check moisture code
+            UART2_send('M'); //56 is the check moisture code
+
             
             LCD_Clear();
             LCD_Set_Cursor(1,1);
@@ -142,7 +145,8 @@ void FSM_begin(void)
             
             if(moisture > 65000)
                 moisture = 1000;
-          
+            
+            UART2_send((U8)moisture);
             SMS_Set_State(moisture);
             
 

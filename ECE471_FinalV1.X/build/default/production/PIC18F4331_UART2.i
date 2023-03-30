@@ -5232,9 +5232,9 @@ extern volatile _Bool rx_flag;
 extern volatile uint8_t rx_data;
 
 
-void UART_init(void);
-void UART_send(uint8_t data);
-uint8_t UART_read(void);
+void UART2_init(void);
+void UART2_send(uint8_t data);
+uint8_t UART2_read(void);
 
 char getch(void);
 void putch(char txData);
@@ -5309,26 +5309,28 @@ volatile _Bool rx_flag = 0;
 volatile uint8_t rx_data = 0;
 
 
-void UART_init(void)
+void UART2_init(void)
 {
-# 34 "PIC18F4331_UART2.c"
     TRISCbits.RC6 = 0;
     TRISCbits.RC7 = 1;
 
 
-    BAUDCONbits.BRG16 = 1;
-
-    SPBRG = (int)51;
-    SPBRGH = (int)0;
     RCSTAbits.SPEN = 1;
+
+
+    SPBRGH = 0;
+    SPBRG = 51;
+
+
+    TXSTAbits.TX9 = 0;
     TXSTAbits.TXEN = 1;
+    TXSTAbits.SYNC = 0;
     TXSTAbits.BRGH = 1;
+    RCSTAbits.RX9 = 0;
     RCSTAbits.CREN = 1;
 
-
-
 }
-void UART_send(uint8_t data)
+void UART2_send(uint8_t data)
 {
     while(0 == PIR1bits.TXIF)
     {
@@ -5339,7 +5341,7 @@ void UART_send(uint8_t data)
 
 }
 
-uint8_t UART_read()
+uint8_t UART2_read()
 {
     while(0 == PIR1bits.RCIF)
     {
@@ -5351,10 +5353,10 @@ uint8_t UART_read()
 
 char getch(void)
 {
-    return UART_read();
+    return UART2_read();
 }
 
 void putch(char txData)
 {
-    UART_send(txData);
+    UART2_send(txData);
 }

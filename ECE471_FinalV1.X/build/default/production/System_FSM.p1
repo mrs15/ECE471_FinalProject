@@ -53,8 +53,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./PIC18F4331_Timer.h: 17: void Timer0_start(void);
 [v _Timer0_start `(v ~T0 @X0 0 ef ]
 "19 ./PIC18F4331_UART2.h
-[; ;./PIC18F4331_UART2.h: 19: void UART_send(uint8_t data);
-[v _UART_send `(v ~T0 @X0 0 ef1`uc ]
+[; ;./PIC18F4331_UART2.h: 19: void UART2_send(uint8_t data);
+[v _UART2_send `(v ~T0 @X0 0 ef1`uc ]
 "15 ./WaterPump_Driver.h
 [; ;./WaterPump_Driver.h: 15: void WaterPump_OFF(void);
 [v _WaterPump_OFF `(v ~T0 @X0 0 ef ]
@@ -763,7 +763,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 "47
 [; ;System_FSM.c: 47:             Callback_Config_t MoistureCB_Config =
--> -> 10 `i `us
+-> -> 4 `i `us
 &U _Check_Moisture_cb
 ..
 ..
@@ -776,7 +776,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 :U ..
 "53
 [; ;System_FSM.c: 53:             Callback_Config_t WateringDoneCB_Config =
--> -> 5 `i `us
+-> -> 2 `i `us
 &U _Watering_Done_cb
 ..
 ..
@@ -832,8 +832,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;System_FSM.c: 82:         {
 {
 "84
-[; ;System_FSM.c: 84:             UART_send(235);
-[e ( _UART_send (1 -> -> 235 `i `uc ]
+[; ;System_FSM.c: 84:             UART2_send('S');
+[e ( _UART2_send (1 -> -> 83 `ui `uc ]
 "86
 [; ;System_FSM.c: 86:             LCD_Clear();
 [e ( _LCD_Clear ..  ]
@@ -846,6 +846,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "90
 [; ;System_FSM.c: 90:             WaterPump_OFF();
 [e ( _WaterPump_OFF ..  ]
+"91
+[; ;System_FSM.c: 91:             idle_status_led();
+[e ( _idle_status_led ..  ]
 "94
 [; ;System_FSM.c: 94:             while(get_current_state() == IDLE_STATE)
 [e $U 324  ]
@@ -853,92 +856,74 @@ Version 4.0 HI-TECH Software Intermediate Code
 "95
 [; ;System_FSM.c: 95:             {
 {
-"97
-[; ;System_FSM.c: 97:                 idle_status_led();
-[e ( _idle_status_led ..  ]
-"98
-[; ;System_FSM.c: 98:             }
+"99
+[; ;System_FSM.c: 99:             }
 }
 [e :U 324 ]
 "94
 [; ;System_FSM.c: 94:             while(get_current_state() == IDLE_STATE)
 [e $ == -> ( _get_current_state ..  `ui -> . `E2814 1 `ui 325  ]
 [e :U 326 ]
-"100
-[; ;System_FSM.c: 100:             break;
-[e $U 320  ]
 "101
-[; ;System_FSM.c: 101:         }
+[; ;System_FSM.c: 101:             break;
+[e $U 320  ]
+"102
+[; ;System_FSM.c: 102:         }
 }
-"103
-[; ;System_FSM.c: 103:         case WATER_PLANTS:
-[e :U 327 ]
 "104
-[; ;System_FSM.c: 104:         {
+[; ;System_FSM.c: 104:         case WATER_PLANTS:
+[e :U 327 ]
+"105
+[; ;System_FSM.c: 105:         {
 {
-"106
-[; ;System_FSM.c: 106:             UART_send('W');
-[e ( _UART_send (1 -> -> 87 `ui `uc ]
 "107
-[; ;System_FSM.c: 107:             UART_send('W');
-[e ( _UART_send (1 -> -> 87 `ui `uc ]
-"108
-[; ;System_FSM.c: 108:             UART_send('W');
-[e ( _UART_send (1 -> -> 87 `ui `uc ]
+[; ;System_FSM.c: 107:             UART2_send('W');
+[e ( _UART2_send (1 -> -> 87 `ui `uc ]
 "109
-[; ;System_FSM.c: 109:             UART_send('W');
-[e ( _UART_send (1 -> -> 87 `ui `uc ]
-"110
-[; ;System_FSM.c: 110:             UART_send('W');
-[e ( _UART_send (1 -> -> 87 `ui `uc ]
-"111
-[; ;System_FSM.c: 111:             UART_send('W');
-[e ( _UART_send (1 -> -> 87 `ui `uc ]
-"112
-[; ;System_FSM.c: 112:             WaterPump_ON();
+[; ;System_FSM.c: 109:             WaterPump_ON();
 [e ( _WaterPump_ON ..  ]
-"113
-[; ;System_FSM.c: 113:             LCD_Clear();
+"110
+[; ;System_FSM.c: 110:             LCD_Clear();
 [e ( _LCD_Clear ..  ]
-"114
-[; ;System_FSM.c: 114:             LCD_Set_Cursor(1,1);
+"111
+[; ;System_FSM.c: 111:             LCD_Set_Cursor(1,1);
 [e ( _LCD_Set_Cursor (2 , -> -> 1 `i `uc -> -> 1 `i `uc ]
-"115
-[; ;System_FSM.c: 115:             LCD_Write_String(" >WATERING PLANTS<\0");
+"112
+[; ;System_FSM.c: 112:             LCD_Write_String(" >WATERING PLANTS<\0");
 [e ( _LCD_Write_String (1 :s 4C ]
-"119
-[; ;System_FSM.c: 119:             while(get_current_state() == WATER_PLANTS)
+"116
+[; ;System_FSM.c: 116:             while(get_current_state() == WATER_PLANTS)
 [e $U 328  ]
 [e :U 329 ]
-"120
-[; ;System_FSM.c: 120:             {
+"117
+[; ;System_FSM.c: 117:             {
 {
-"122
-[; ;System_FSM.c: 122:               watering_status_led();
+"121
+[; ;System_FSM.c: 121:               watering_status_led();
 [e ( _watering_status_led ..  ]
-"123
-[; ;System_FSM.c: 123:             }
+"122
+[; ;System_FSM.c: 122:             }
 }
 [e :U 328 ]
-"119
-[; ;System_FSM.c: 119:             while(get_current_state() == WATER_PLANTS)
+"116
+[; ;System_FSM.c: 116:             while(get_current_state() == WATER_PLANTS)
 [e $ == -> ( _get_current_state ..  `ui -> . `E2814 2 `ui 329  ]
 [e :U 330 ]
-"126
-[; ;System_FSM.c: 126:             break;
+"125
+[; ;System_FSM.c: 125:             break;
 [e $U 320  ]
-"127
-[; ;System_FSM.c: 127:         }
+"126
+[; ;System_FSM.c: 126:         }
 }
-"129
-[; ;System_FSM.c: 129:         case CHECK_MOISTURE:
+"128
+[; ;System_FSM.c: 128:         case CHECK_MOISTURE:
 [e :U 331 ]
-"130
-[; ;System_FSM.c: 130:         {
+"129
+[; ;System_FSM.c: 129:         {
 {
-"134
-[; ;System_FSM.c: 134:             UART_send('A');
-[e ( _UART_send (1 -> -> 65 `ui `uc ]
+"133
+[; ;System_FSM.c: 133:             UART2_send('M');
+[e ( _UART2_send (1 -> -> 77 `ui `uc ]
 "136
 [; ;System_FSM.c: 136:             LCD_Clear();
 [e ( _LCD_Clear ..  ]
@@ -969,31 +954,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _moisture -> -> 1000 `i `us ]
 [e :U 332 ]
 "149
-[; ;System_FSM.c: 149:             SMS_Set_State(moisture);
+[; ;System_FSM.c: 149:             UART2_send((U8)moisture);
+[e ( _UART2_send (1 -> _moisture `uc ]
+"150
+[; ;System_FSM.c: 150:             SMS_Set_State(moisture);
 [e ( _SMS_Set_State (1 _moisture ]
-"153
-[; ;System_FSM.c: 153:             break;
-[e $U 320  ]
 "154
-[; ;System_FSM.c: 154:         }
-}
-"156
-[; ;System_FSM.c: 156:         default:
-[e :U 333 ]
-"157
-[; ;System_FSM.c: 157:         {
-{
-"158
-[; ;System_FSM.c: 158:             set_state(INIT_STATE);
-[e ( _set_state (1 . `E2814 0 ]
-"159
-[; ;System_FSM.c: 159:             break;
+[; ;System_FSM.c: 154:             break;
 [e $U 320  ]
-"160
-[; ;System_FSM.c: 160:         }
+"155
+[; ;System_FSM.c: 155:         }
 }
-"163
-[; ;System_FSM.c: 163:     }
+"157
+[; ;System_FSM.c: 157:         default:
+[e :U 333 ]
+"158
+[; ;System_FSM.c: 158:         {
+{
+"159
+[; ;System_FSM.c: 159:             set_state(INIT_STATE);
+[e ( _set_state (1 . `E2814 0 ]
+"160
+[; ;System_FSM.c: 160:             break;
+[e $U 320  ]
+"161
+[; ;System_FSM.c: 161:         }
+}
+"164
+[; ;System_FSM.c: 164:     }
 }
 [e $U 320  ]
 [e :U 321 ]
@@ -1003,8 +991,8 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> . `E2814 3 `ui 331
  333 ]
 [e :U 320 ]
-"165
-[; ;System_FSM.c: 165: }
+"166
+[; ;System_FSM.c: 166: }
 [e :UE 319 ]
 }
 [a 1C 32 80 108 97 110 116 32 87 97 116 101 114 105 110 103 0 0 ]

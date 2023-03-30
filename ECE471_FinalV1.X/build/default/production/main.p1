@@ -118,8 +118,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./PIC18F4331_Timer.h: 16: void Timer0_init(void);
 [v _Timer0_init `(v ~T0 @X0 0 ef ]
 "18 ./PIC18F4331_UART2.h
-[; ;./PIC18F4331_UART2.h: 18: void UART_init(void);
-[v _UART_init `(v ~T0 @X0 0 ef ]
+[; ;./PIC18F4331_UART2.h: 18: void UART2_init(void);
+[v _UART2_init `(v ~T0 @X0 0 ef ]
 "59 main.c
 [; ;main.c: 59:     set_state(INIT_STATE);
 [c E2814 0 1 2 3 .. ]
@@ -127,6 +127,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19 ./FSM_states.h
 [; ;./FSM_states.h: 19: void set_state(STATES state_to_set);
 [v _set_state `(v ~T0 @X0 0 ef1`E2814 ]
+"19 ./PIC18F4331_UART2.h
+[; ;./PIC18F4331_UART2.h: 19: void UART2_send(uint8_t data);
+[v _UART2_send `(v ~T0 @X0 0 ef1`uc ]
 "13 ./System_FSM.h
 [; ;./System_FSM.h: 13: void FSM_begin(void);
 [v _FSM_begin `(v ~T0 @X0 0 ef ]
@@ -773,8 +776,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 46:     INTCON2bits.INTEDG0 = 1;
 [e = . . _INTCON2bits 1 6 -> -> 1 `i `uc ]
 "52
-[; ;main.c: 52:     UART_init();
-[e ( _UART_init ..  ]
+[; ;main.c: 52:     UART2_init();
+[e ( _UART2_init ..  ]
 "55
 [; ;main.c: 55:     INTCONbits.GIEH = 1;
 [e = . . _INTCONbits 2 2 -> -> 1 `i `uc ]
@@ -785,24 +788,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 59:     set_state(INIT_STATE);
 [e ( _set_state (1 . `E2814 0 ]
 "60
-[; ;main.c: 60:     while(1)
-[e :U 316 ]
+[; ;main.c: 60:     UART2_send('S');
+[e ( _UART2_send (1 -> -> 83 `ui `uc ]
 "61
-[; ;main.c: 61:     {
-{
+[; ;main.c: 61:     while(1)
+[e :U 316 ]
 "62
-[; ;main.c: 62:      FSM_begin();
-[e ( _FSM_begin ..  ]
+[; ;main.c: 62:     {
+{
 "63
-[; ;main.c: 63:     }
+[; ;main.c: 63:      FSM_begin();
+[e ( _FSM_begin ..  ]
+"64
+[; ;main.c: 64:     }
 }
 [e :U 315 ]
 [e $U 316  ]
 [e :U 317 ]
-"66
-[; ;main.c: 66:     return;
-[e $UE 314  ]
 "67
-[; ;main.c: 67: }
+[; ;main.c: 67:     return;
+[e $UE 314  ]
+"68
+[; ;main.c: 68: }
 [e :UE 314 ]
 }

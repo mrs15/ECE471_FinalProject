@@ -5394,9 +5394,9 @@ extern volatile _Bool rx_flag;
 extern volatile uint8_t rx_data;
 
 
-void UART_init(void);
-void UART_send(uint8_t data);
-uint8_t UART_read(void);
+void UART2_init(void);
+void UART2_send(uint8_t data);
+uint8_t UART2_read(void);
 
 char getch(void);
 void putch(char txData);
@@ -5452,13 +5452,13 @@ void FSM_begin(void)
             Callback_Config_t MoistureCB_Config =
             {
                 .callback = &Check_Moisture_cb,
-                .expiry_time = (10),
+                .expiry_time = (4),
             };
 
             Callback_Config_t WateringDoneCB_Config =
             {
                 .callback = &Watering_Done_cb,
-                .expiry_time = (5),
+                .expiry_time = (2),
             };
 
             Register_Callback(&MoistureCB_Config);
@@ -5486,20 +5486,21 @@ void FSM_begin(void)
         case IDLE_STATE:
         {
 
-            UART_send(235);
+            UART2_send('S');
 
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >IDLE STATE<\0");
 
             WaterPump_OFF();
-
+            idle_status_led();
 
 
             while(get_current_state() == IDLE_STATE)
             {
 
-                idle_status_led();
+
+
             }
 
             break;
@@ -5508,12 +5509,8 @@ void FSM_begin(void)
         case WATER_PLANTS:
         {
 
-            UART_send('W');
-            UART_send('W');
-            UART_send('W');
-            UART_send('W');
-            UART_send('W');
-            UART_send('W');
+            UART2_send('W');
+
             WaterPump_ON();
             LCD_Clear();
             LCD_Set_Cursor(1,1);
@@ -5523,6 +5520,8 @@ void FSM_begin(void)
 
             while(get_current_state() == WATER_PLANTS)
             {
+
+
 
               watering_status_led();
             }
@@ -5536,7 +5535,8 @@ void FSM_begin(void)
 
 
 
-            UART_send('A');
+            UART2_send('M');
+
 
             LCD_Clear();
             LCD_Set_Cursor(1,1);
@@ -5551,6 +5551,7 @@ void FSM_begin(void)
             if(moisture > 65000)
                 moisture = 1000;
 
+            UART2_send((U8)moisture);
             SMS_Set_State(moisture);
 
 

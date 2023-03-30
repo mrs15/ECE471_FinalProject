@@ -5327,9 +5327,9 @@ extern volatile _Bool rx_flag;
 extern volatile uint8_t rx_data;
 
 
-void UART_init(void);
-void UART_send(uint8_t data);
-uint8_t UART_read(void);
+void UART2_init(void);
+void UART2_send(uint8_t data);
+uint8_t UART2_read(void);
 
 char getch(void);
 void putch(char txData);
@@ -5386,7 +5386,7 @@ void main(void) {
 
 
 
-    UART_init();
+    UART2_init();
 
 
     INTCONbits.GIEH = 1;
@@ -5394,6 +5394,7 @@ void main(void) {
 
 
     set_state(INIT_STATE);
+    UART2_send('S');
     while(1)
     {
      FSM_begin();

@@ -49,7 +49,7 @@ void main(void) {
     //UART RX as digital input
     
     //Initialize UART
-    UART_init();
+    UART2_init();
     
     //enable global interrupts
     INTCONbits.GIEH = 1;
@@ -57,6 +57,7 @@ void main(void) {
     
   
     set_state(INIT_STATE);
+    UART2_send('S');
     while(1)
     {
      FSM_begin();   
