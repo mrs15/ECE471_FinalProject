@@ -6,10 +6,10 @@ Linker command line:
   --edf=C:\Program Files\Microchip\xc8\v2.40\pic\dat\20220703182018_en.msgs \
   -cn -h+dist/default/production\ECE471_FinalV1.X.production.sym \
   --cmf=dist/default/production\ECE471_FinalV1.X.production.cmf -z \
-  -Q18F4331 -oC:\Users\rafay\AppData\Local\Temp\xcAsj80.4 \
+  -Q18F4331 -oC:\Users\rafay\AppData\Local\Temp\xcAsco0.4 \
   --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
   -Mdist/default/production/ECE471_FinalV1.X.production.map \
-  --md=C:\Users\rafay\AppData\Local\Temp\xcAsj80.dat -E1 -ver=XC8 Compiler \
+  --md=C:\Users\rafay\AppData\Local\Temp\xcAsco0.dat -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ACODE=00h-01FFFh -ACONST=00h-01FFFh \
   -ASMALLCONST=0300h-03FFhx29 -AMEDIUMCONST=0300h-01FFFh -ACOMRAM=01h-05Fh \
   -AABS1=00h-02FFh -ABIGRAM=01h-02FFh -ARAM=060h-0FFh,0100h-01FFhx2 \
@@ -23,7 +23,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\rafay\AppData\Local\Temp\xcAsj80.o \
+  C:\Users\rafay\AppData\Local\Temp\xcAsco0.o \
   dist/default/production\ECE471_FinalV1.X.production.o 
 
 Object code version is 3.11
@@ -33,7 +33,7 @@ Machine type is 18F4331
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\rafay\AppData\Local\Temp\xcAsj80.o
+C:\Users\rafay\AppData\Local\Temp\xcAsco0.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                 BC       BC        4        4       0
@@ -43,105 +43,105 @@ dist/default/production\ECE471_FinalV1.X.production.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 temp                                 48       48        1        1       1
-                smallconst                          300      300       5C      180       0
-                text39                              B5E      B5E        4      1AE       0
-                text38                              B3A      B3A        8      1AE       0
-                text37                              A3C      A3C       1C      1AE       0
-                text36                              A20      A20       1C      1AE       0
-                text35                              54E      54E       C8      1AE       0
-                text33                              87A      87A       4C      1AE       0
-                text32                              7C8      7C8       5C      1AE       0
-                text31                              A58      A58       18      1AE       0
-                text30                              AEC      AEC        E      1AE       0
-                text29                              690      690       78      1AE       0
-                text28                              708      708       62      1AE       0
-                text27                              8C6      8C6       48      1AE       0
-                text26                              824      824       56      1AE       0
-                text25                              AB2      AB2       16      1AE       0
-                text24                              616      616       7A      1AE       0
-                text23                              AC8      AC8       14      1AE       0
-                text22                              B48      B48        6      1AE       0
-                text21                              9BE      9BE       2A      1AE       0
-                text20                              A9C      A9C       16      1AE       0
-                text19                              B32      B32        8      1AE       0
-                text18                              76A      76A       5E      1AE       0
-                text17                              B5A      B5A        4      1AE       0
-                text16                              A04      A04       1C      1AE       0
-                text15                              B42      B42        6      1AE       0
-                text14                              B56      B56        4      1AE       0
-                text13                              A86      A86       16      1AE       0
-                text12                              B18      B18        A      1AE       0
-                text11                              B2A      B2A        8      1AE       0
-                text10                              B22      B22        8      1AE       0
-                text9                               B0E      B0E        A      1AE       0
-                text8                               B52      B52        4      1AE       0
-                text7                               B04      B04        A      1AE       0
-                text6                               98E      98E       30      1AE       0
-                text5                               AFA      AFA        A      1AE       0
-                text4                               35C      35C      1F2      1AE       0
-                text3                               A70      A70       16      1AE       0
-                text2                               B4E      B4E        4      1AE       0
-                text1                               9E8      9E8       1C      1AE       0
-                text0                               954      954       3A      1AE       0
+                smallconst                          300      300       5A      180       0
+                text39                              B56      B56        4      1AD       0
+                text38                              B32      B32        8      1AD       0
+                text37                              A34      A34       1C      1AD       0
+                text36                              A18      A18       1C      1AD       0
+                text35                              54C      54C       C8      1AD       0
+                text33                              878      878       4C      1AD       0
+                text32                              7C6      7C6       5C      1AD       0
+                text31                              A50      A50       18      1AD       0
+                text30                              AE4      AE4        E      1AD       0
+                text29                              68E      68E       78      1AD       0
+                text28                              706      706       62      1AD       0
+                text27                              8C4      8C4       48      1AD       0
+                text26                              822      822       56      1AD       0
+                text25                              AAA      AAA       16      1AD       0
+                text24                              614      614       7A      1AD       0
+                text23                              AC0      AC0       14      1AD       0
+                text22                              B40      B40        6      1AD       0
+                text21                              9B6      9B6       2A      1AD       0
+                text20                              A94      A94       16      1AD       0
+                text19                              B2A      B2A        8      1AD       0
+                text18                              768      768       5E      1AD       0
+                text17                              B52      B52        4      1AD       0
+                text16                              9FC      9FC       1C      1AD       0
+                text15                              B3A      B3A        6      1AD       0
+                text14                              B4E      B4E        4      1AD       0
+                text13                              A7E      A7E       16      1AD       0
+                text12                              B10      B10        A      1AD       0
+                text11                              B22      B22        8      1AD       0
+                text10                              B1A      B1A        8      1AD       0
+                text9                               B06      B06        A      1AD       0
+                text8                               B4A      B4A        4      1AD       0
+                text7                               AFC      AFC        A      1AD       0
+                text6                               986      986       30      1AD       0
+                text5                               AF2      AF2        A      1AD       0
+                text4                               35A      35A      1F2      1AD       0
+                text3                               A68      A68       16      1AD       0
+                text2                               B46      B46        4      1AD       0
+                text1                               9E0      9E0       1C      1AD       0
+                text0                               952      952       34      1AD       0
                 cstackCOMRAM                          1        1       2C        1       1
                 bssBANK0                             60       60       28       60       1
                 dataCOMRAM                           2D       2D       10        1       1
                 bssCOMRAM                            3D       3D        A        1       1
-                cinit                               90E      90E       46      1AE       0
+                cinit                               90C      90C       46      1AD       0
                 nvCOMRAM                             47       47        1        1       1
-                idataCOMRAM                         ADC      ADC       10      1AE       0
+                idataCOMRAM                         AD4      AD4       10      1AD       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 intcode                               8        8       B4         0
                 init                                 BC       BC        4         0
                 reset_vec                             0        0        4         0
-                text39                              B5E      B5E        4         0
-                text38                              B3A      B3A        8         0
-                text37                              A3C      A3C       1C         0
-                text36                              A20      A20       1C         0
-                text35                              54E      54E       C8         0
-                text33                              87A      87A       4C         0
-                text32                              7C8      7C8       5C         0
-                text31                              A58      A58       18         0
-                text30                              AEC      AEC        E         0
-                text29                              690      690       78         0
-                text28                              708      708       62         0
-                text27                              8C6      8C6       48         0
-                text26                              824      824       56         0
-                text25                              AB2      AB2       16         0
-                text24                              616      616       7A         0
-                text23                              AC8      AC8       14         0
-                text22                              B48      B48        6         0
-                text21                              9BE      9BE       2A         0
-                text20                              A9C      A9C       16         0
-                text19                              B32      B32        8         0
-                text18                              76A      76A       5E         0
-                text17                              B5A      B5A        4         0
-                text16                              A04      A04       1C         0
-                text15                              B42      B42        6         0
-                text14                              B56      B56        4         0
-                text13                              A86      A86       16         0
-                text12                              B18      B18        A         0
-                text11                              B2A      B2A        8         0
-                text10                              B22      B22        8         0
-                text9                               B0E      B0E        A         0
-                text8                               B52      B52        4         0
-                text7                               B04      B04        A         0
-                text6                               98E      98E       30         0
-                text5                               AFA      AFA        A         0
-                text4                               35C      35C      1F2         0
-                text3                               A70      A70       16         0
-                text2                               B4E      B4E        4         0
-                text1                               9E8      9E8       1C         0
-                text0                               954      954       3A         0
-                cinit                               90E      90E       46         0
-                idataCOMRAM                         ADC      ADC       10         0
+                text39                              B56      B56        4         0
+                text38                              B32      B32        8         0
+                text37                              A34      A34       1C         0
+                text36                              A18      A18       1C         0
+                text35                              54C      54C       C8         0
+                text33                              878      878       4C         0
+                text32                              7C6      7C6       5C         0
+                text31                              A50      A50       18         0
+                text30                              AE4      AE4        E         0
+                text29                              68E      68E       78         0
+                text28                              706      706       62         0
+                text27                              8C4      8C4       48         0
+                text26                              822      822       56         0
+                text25                              AAA      AAA       16         0
+                text24                              614      614       7A         0
+                text23                              AC0      AC0       14         0
+                text22                              B40      B40        6         0
+                text21                              9B6      9B6       2A         0
+                text20                              A94      A94       16         0
+                text19                              B2A      B2A        8         0
+                text18                              768      768       5E         0
+                text17                              B52      B52        4         0
+                text16                              9FC      9FC       1C         0
+                text15                              B3A      B3A        6         0
+                text14                              B4E      B4E        4         0
+                text13                              A7E      A7E       16         0
+                text12                              B10      B10        A         0
+                text11                              B22      B22        8         0
+                text10                              B1A      B1A        8         0
+                text9                               B06      B06        A         0
+                text8                               B4A      B4A        4         0
+                text7                               AFC      AFC        A         0
+                text6                               986      986       30         0
+                text5                               AF2      AF2        A         0
+                text4                               35A      35A      1F2         0
+                text3                               A68      A68       16         0
+                text2                               B46      B46        4         0
+                text1                               9E0      9E0       1C         0
+                text0                               952      952       34         0
+                cinit                               90C      90C       46         0
+                idataCOMRAM                         AD4      AD4       10         0
 
         CLASS   CONST          
 
         CLASS   SMALLCONST     
-                smallconst                          300      300       5C         0
+                smallconst                          300      300       5A         0
 
         CLASS   MEDIUMCONST    
 
@@ -191,8 +191,8 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
                 cstackCOMRAM                   000001  000048  000049         1       1  COMRAM  
                 intcode                        000008  0000B8  0000C0         4       0  CODE    
                 bssBANK0                       000060  000028  000088        60       1  BANK0   
-                smallconst                     000300  00005C  00035C       180       0  SMALLCON
-                text4                          00035C  000806  000B62       1AE       0  CODE    
+                smallconst                     000300  00005A  00035A       180       0  SMALLCON
+                text4                          00035A  000800  000B5A       1AD       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -206,16 +206,16 @@ UNUSED ADDRESS RANGES
         BIGSFR           000F60-000FFF               A0
         CODE             000004-000007                4
                          0000C0-0002FF              240
-                         000B62-001FFF             149E
+                         000B5A-001FFF             14A6
         COMRAM           000049-00005F               17
         CONST            000004-000007                4
                          0000C0-0002FF              240
-                         000B62-001FFF             149E
+                         000B5A-001FFF             14A6
         EEDATA           F00000-F000FF              100
-        MEDIUMCONST      000B62-001FFF             149E
+        MEDIUMCONST      000B5A-001FFF             14A6
         RAM              000088-0002FF              100
         SFR              000F60-000FFF               A0
-        SMALLCONST       000B62-001FFF              100
+        SMALLCONST       000B5A-001FFF              100
 
                                   Symbol Table
 
@@ -250,41 +250,41 @@ _ADCHSbits                            (abs)        000F99
 _ADCON0bits                           (abs)        000FC2
 _ADCON1bits                           (abs)        000FC1
 _ADCON2bits                           (abs)        000FC0
-_ADC_Read                             text21       0009BE
-_ADC_in_progress                      text23       000AC8
-_ADC_init                             text16       000A04
-_ADC_start                            text22       000B48
-_ADC_stop                             text17       000B5A
+_ADC_Read                             text21       0009B6
+_ADC_in_progress                      text23       000AC0
+_ADC_init                             text16       0009FC
+_ADC_start                            text22       000B40
+_ADC_stop                             text17       000B52
 _ADRESH                               (abs)        000FC4
 _ADRESL                               (abs)        000FC3
 _ANSEL0bits                           (abs)        000FB8
-_Callbacks_Init                       text33       00087A
-_Callbacks_Manager                    text35       00054E
-_Check_Moisture_cb                    text36       000A20
-_FSM_begin                            text4        00035C
+_Callbacks_Init                       text33       000878
+_Callbacks_Manager                    text35       00054C
+_Check_Moisture_cb                    text36       000A18
+_FSM_begin                            text4        00035A
 _FSM_state                            nvCOMRAM     000047
 _INTCON2bits                          (abs)        000FF1
 _INTCONbits                           (abs)        000FF2
 _LATC                                 (abs)        000F8B
 _LATD                                 (abs)        000F8C
-_LCD_CMD                              text31       000A58
-_LCD_Clear                            text30       000AEC
-_LCD_DATA                             text32       0007C8
-_LCD_Init                             text29       000690
-_LCD_Set_Cursor                       text28       000708
-_LCD_Write_Char                       text27       0008C6
-_LCD_Write_String                     text26       000824
+_LCD_CMD                              text31       000A50
+_LCD_Clear                            text30       000AE4
+_LCD_DATA                             text32       0007C6
+_LCD_Init                             text29       00068E
+_LCD_Set_Cursor                       text28       000706
+_LCD_Write_Char                       text27       0008C4
+_LCD_Write_String                     text26       000822
 _OSCCONbits                           (abs)        000FD3
 _PIR1bits                             (abs)        000F9E
 _PORTBbits                            (abs)        000F81
 _RCONbits                             (abs)        000FD0
 _RCREG                                (abs)        000FAE
 _RCSTAbits                            (abs)        000FAB
-_Register_Callback                    text24       000616
-_Reset_Counter                        text25       000AB2
-_SMS_Read_Moisture_Value              text20       000A9C
-_SMS_Set_State                        text18       00076A
-_SMS_init                             text15       000B42
+_Register_Callback                    text24       000614
+_Reset_Counter                        text25       000AAA
+_SMS_Read_Moisture_Value              text20       000A94
+_SMS_Set_State                        text18       000768
+_SMS_init                             text15       000B3A
 _SPBRG                                (abs)        000FAF
 _SPBRGH                               (abs)        000FB0
 _T0CONbits                            (abs)        000FD5
@@ -297,15 +297,15 @@ _TRISCbits                            (abs)        000F94
 _TRISD                                (abs)        000F95
 _TXREG                                (abs)        000FAD
 _TXSTAbits                            (abs)        000FAC
-_Timer0_init                          text3        000A70
-_Timer0_start                         text14       000B56
-_Timer0_stop                          text2        000B4E
-_UART2_init                           text1        0009E8
-_UART2_send                           text13       000A86
-_WaterPump_Init                       text12       000B18
-_WaterPump_OFF                        text11       000B2A
-_WaterPump_ON                         text10       000B22
-_Watering_Done_cb                     text37       000A3C
+_Timer0_init                          text3        000A68
+_Timer0_start                         text14       000B4E
+_Timer0_stop                          text2        000B46
+_UART2_init                           text1        0009E0
+_UART2_send                           text13       000A7E
+_WaterPump_Init                       text12       000B10
+_WaterPump_OFF                        text11       000B22
+_WaterPump_ON                         text10       000B1A
+_Watering_Done_cb                     text37       000A34
 __HRAM                                (abs)        000000
 __Habs1                               abs1         000000
 __Hbank0                              bank0        000000
@@ -358,8 +358,8 @@ __Hrdata                              rdata        000000
 __Hreset_vec                          reset_vec    000004
 __Hrparam                             rparam       000000
 __Hsfr                                sfr          000000
-__Hsmallconst                         smallconst   00035C
-__Hspace_0                            (abs)        000B62
+__Hsmallconst                         smallconst   00035A
+__Hspace_0                            (abs)        000B5A
 __Hspace_1                            (abs)        000088
 __Hspace_2                            (abs)        000000
 __Hspace_4                            (abs)        60000E
@@ -508,7 +508,7 @@ __Ltext6                              text6        000000
 __Ltext7                              text7        000000
 __Ltext8                              text8        000000
 __Ltext9                              text9        000000
-__S0                                  (abs)        000B62
+__S0                                  (abs)        000B5A
 __S1                                  (abs)        000088
 __S4                                  (abs)        000000
 __S5                                  (abs)        000000
@@ -521,119 +521,119 @@ ___rparam_used                        (abs)        000001
 ___sp                                 stack        000000
 __accesstop                           (abs)        000060
 __activetblptr                        (abs)        000002
-__end_of_ADC_Read                     text21       0009E8
-__end_of_ADC_in_progress              text23       000ADC
-__end_of_ADC_init                     text16       000A20
-__end_of_ADC_start                    text22       000B4E
-__end_of_ADC_stop                     text17       000B5E
-__end_of_Callbacks_Init               text33       0008C6
-__end_of_Callbacks_Manager            text35       000616
-__end_of_Check_Moisture_cb            text36       000A3C
-__end_of_FSM_begin                    text4        00054E
-__end_of_LCD_CMD                      text31       000A70
-__end_of_LCD_Clear                    text30       000AFA
-__end_of_LCD_DATA                     text32       000824
-__end_of_LCD_Init                     text29       000708
-__end_of_LCD_Set_Cursor               text28       00076A
-__end_of_LCD_Write_Char               text27       00090E
-__end_of_LCD_Write_String             text26       00087A
-__end_of_Register_Callback            text24       000690
-__end_of_Reset_Counter                text25       000AC8
-__end_of_SMS_Read_Moisture_Value      text20       000AB2
-__end_of_SMS_Set_State                text18       0007C8
-__end_of_SMS_init                     text15       000B48
-__end_of_Timer0_init                  text3        000A86
-__end_of_Timer0_start                 text14       000B5A
-__end_of_Timer0_stop                  text2        000B52
-__end_of_UART2_init                   text1        000A04
-__end_of_UART2_send                   text13       000A9C
-__end_of_WaterPump_Init               text12       000B22
-__end_of_WaterPump_OFF                text11       000B32
-__end_of_WaterPump_ON                 text10       000B2A
-__end_of_Watering_Done_cb             text37       000A58
-__end_of__initialization              cinit        000946
-__end_of_checking_moisture_status_led text9        000B18
-__end_of_get_current_state            text8        000B56
-__end_of_idle_status_led              text7        000B0E
-__end_of_init_leds                    text6        0009BE
-__end_of_main                         text0        00098E
-__end_of_set_state                    text19       000B3A
+__end_of_ADC_Read                     text21       0009E0
+__end_of_ADC_in_progress              text23       000AD4
+__end_of_ADC_init                     text16       000A18
+__end_of_ADC_start                    text22       000B46
+__end_of_ADC_stop                     text17       000B56
+__end_of_Callbacks_Init               text33       0008C4
+__end_of_Callbacks_Manager            text35       000614
+__end_of_Check_Moisture_cb            text36       000A34
+__end_of_FSM_begin                    text4        00054C
+__end_of_LCD_CMD                      text31       000A68
+__end_of_LCD_Clear                    text30       000AF2
+__end_of_LCD_DATA                     text32       000822
+__end_of_LCD_Init                     text29       000706
+__end_of_LCD_Set_Cursor               text28       000768
+__end_of_LCD_Write_Char               text27       00090C
+__end_of_LCD_Write_String             text26       000878
+__end_of_Register_Callback            text24       00068E
+__end_of_Reset_Counter                text25       000AC0
+__end_of_SMS_Read_Moisture_Value      text20       000AAA
+__end_of_SMS_Set_State                text18       0007C6
+__end_of_SMS_init                     text15       000B40
+__end_of_Timer0_init                  text3        000A7E
+__end_of_Timer0_start                 text14       000B52
+__end_of_Timer0_stop                  text2        000B4A
+__end_of_UART2_init                   text1        0009FC
+__end_of_UART2_send                   text13       000A94
+__end_of_WaterPump_Init               text12       000B1A
+__end_of_WaterPump_OFF                text11       000B2A
+__end_of_WaterPump_ON                 text10       000B22
+__end_of_Watering_Done_cb             text37       000A50
+__end_of__initialization              cinit        000944
+__end_of_checking_moisture_status_led text9        000B10
+__end_of_get_current_state            text8        000B4E
+__end_of_idle_status_led              text7        000B06
+__end_of_init_leds                    text6        0009B6
+__end_of_main                         text0        000986
+__end_of_set_state                    text19       000B32
 __end_of_timer_overflow_isr           intcode      0000BC
-__end_of_watering_status_led          text5        000B04
-__end_ofi2_get_current_state          text39       000B62
-__end_ofi2_set_state                  text38       000B42
-__initialization                      cinit        00090E
+__end_of_watering_status_led          text5        000AFC
+__end_ofi2_get_current_state          text39       000B5A
+__end_ofi2_set_state                  text38       000B3A
+__initialization                      cinit        00090C
 __mediumconst                         mediumconst  000000
 __pbssBANK0                           bssBANK0     000060
 __pbssCOMRAM                          bssCOMRAM    00003D
-__pcinit                              cinit        00090E
+__pcinit                              cinit        00090C
 __pcstackCOMRAM                       cstackCOMRAM 000001
 __pdataCOMRAM                         dataCOMRAM   00002D
-__pidataCOMRAM                        idataCOMRAM  000ADC
+__pidataCOMRAM                        idataCOMRAM  000AD4
 __pintcode                            intcode      000008
 __pnvCOMRAM                           nvCOMRAM     000047
 __psmallconst                         smallconst   000300
-__ptext0                              text0        000954
-__ptext1                              text1        0009E8
-__ptext10                             text10       000B22
-__ptext11                             text11       000B2A
-__ptext12                             text12       000B18
-__ptext13                             text13       000A86
-__ptext14                             text14       000B56
-__ptext15                             text15       000B42
-__ptext16                             text16       000A04
-__ptext17                             text17       000B5A
-__ptext18                             text18       00076A
-__ptext19                             text19       000B32
-__ptext2                              text2        000B4E
-__ptext20                             text20       000A9C
-__ptext21                             text21       0009BE
-__ptext22                             text22       000B48
-__ptext23                             text23       000AC8
-__ptext24                             text24       000616
-__ptext25                             text25       000AB2
-__ptext26                             text26       000824
-__ptext27                             text27       0008C6
-__ptext28                             text28       000708
-__ptext29                             text29       000690
-__ptext3                              text3        000A70
-__ptext30                             text30       000AEC
-__ptext31                             text31       000A58
-__ptext32                             text32       0007C8
-__ptext33                             text33       00087A
-__ptext35                             text35       00054E
-__ptext36                             text36       000A20
-__ptext37                             text37       000A3C
-__ptext38                             text38       000B3A
-__ptext39                             text39       000B5E
-__ptext4                              text4        00035C
+__ptext0                              text0        000952
+__ptext1                              text1        0009E0
+__ptext10                             text10       000B1A
+__ptext11                             text11       000B22
+__ptext12                             text12       000B10
+__ptext13                             text13       000A7E
+__ptext14                             text14       000B4E
+__ptext15                             text15       000B3A
+__ptext16                             text16       0009FC
+__ptext17                             text17       000B52
+__ptext18                             text18       000768
+__ptext19                             text19       000B2A
+__ptext2                              text2        000B46
+__ptext20                             text20       000A94
+__ptext21                             text21       0009B6
+__ptext22                             text22       000B40
+__ptext23                             text23       000AC0
+__ptext24                             text24       000614
+__ptext25                             text25       000AAA
+__ptext26                             text26       000822
+__ptext27                             text27       0008C4
+__ptext28                             text28       000706
+__ptext29                             text29       00068E
+__ptext3                              text3        000A68
+__ptext30                             text30       000AE4
+__ptext31                             text31       000A50
+__ptext32                             text32       0007C6
+__ptext33                             text33       000878
+__ptext35                             text35       00054C
+__ptext36                             text36       000A18
+__ptext37                             text37       000A34
+__ptext38                             text38       000B32
+__ptext39                             text39       000B56
+__ptext4                              text4        00035A
 __ptext40                             text40       000000
-__ptext5                              text5        000AFA
-__ptext6                              text6        00098E
-__ptext7                              text7        000B04
-__ptext8                              text8        000B52
-__ptext9                              text9        000B0E
+__ptext5                              text5        000AF2
+__ptext6                              text6        000986
+__ptext7                              text7        000AFC
+__ptext8                              text8        000B4A
+__ptext9                              text9        000B06
 __ramtop                              ramtop       000300
 __smallconst                          smallconst   000300
 _callback_count                       bssCOMRAM    000046
-_checking_moisture_status_led         text9        000B0E
-_get_current_state                    text8        000B52
-_idle_status_led                      text7        000B04
-_init_leds                            text6        00098E
-_main                                 text0        000954
+_checking_moisture_status_led         text9        000B06
+_get_current_state                    text8        000B4A
+_idle_status_led                      text7        000AFC
+_init_leds                            text6        000986
+_main                                 text0        000952
 _pump_status                          bssCOMRAM    000045
 _registered_callbacks                 bssBANK0     000060
 _rx_data                              bssCOMRAM    000043
 _rx_flag                              bssCOMRAM    000044
-_set_state                            text19       000B32
+_set_state                            text19       000B2A
 _timer_overflow_isr                   intcode      000008
 _tmr0Counter                          bssCOMRAM    00003F
-_tmr0Counter@SystemInterrupts$F995    bssCOMRAM    00003D
-_watering_status_led                  text5        000AFA
+_tmr0Counter@SystemInterrupts$F994    bssCOMRAM    00003D
+_watering_status_led                  text5        000AF2
 btemp                                 temp         000048
-end_of_initialization                 cinit        000946
-i2_get_current_state                  text39       000B5E
-i2_set_state                          text38       000B3A
+end_of_initialization                 cinit        000944
+i2_get_current_state                  text39       000B56
+i2_set_state                          text38       000B32
 i2set_state@state_to_set              cstackCOMRAM 000001
 int$flags                             temp         000048
 intlevel0                             text         000000
@@ -646,7 +646,7 @@ set_state@state_to_set                cstackCOMRAM 00000F
 stackhi                               (abs)        000000
 stacklo                               (abs)        000000
 start                                 init         0000BC
-start_initialization                  cinit        00090E
+start_initialization                  cinit        00090C
 ttemp5                                temp         000049
 ttemp6                                temp         00004C
 ttemp7                                temp         000050
@@ -657,17 +657,17 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 SystemCallbacks.c
-		_Callbacks_Init		CODE           	087A	0000	76
-		_Callbacks_Manager		CODE           	054E	0000	200
-		_Reset_Counter 		CODE           	0AB2	0000	22
-		_Register_Callback		CODE           	0616	0000	122
+		_Callbacks_Init		CODE           	0878	0000	76
+		_Callbacks_Manager		CODE           	054C	0000	200
+		_Reset_Counter 		CODE           	0AAA	0000	22
+		_Register_Callback		CODE           	0614	0000	122
 
 SystemCallbacks.c estimated size: 420
 
 System_FSM.c
-		_Check_Moisture_cb		CODE           	0A20	0000	28
-		_Watering_Done_cb		CODE           	0A3C	0000	28
-		_FSM_begin     		CODE           	035C	0000	498
+		_Check_Moisture_cb		CODE           	0A18	0000	28
+		_Watering_Done_cb		CODE           	0A34	0000	28
+		_FSM_begin     		CODE           	035A	0000	498
 
 System_FSM.c estimated size: 554
 
@@ -677,75 +677,75 @@ SystemInterrupts.c
 SystemInterrupts.c estimated size: 180
 
 WaterPump_Driver.c
-		_WaterPump_ON  		CODE           	0B22	0000	8
-		_WaterPump_OFF 		CODE           	0B2A	0000	8
-		_WaterPump_Init		CODE           	0B18	0000	10
+		_WaterPump_ON  		CODE           	0B1A	0000	8
+		_WaterPump_OFF 		CODE           	0B22	0000	8
+		_WaterPump_Init		CODE           	0B10	0000	10
 
 WaterPump_Driver.c estimated size: 26
 
 LedDriver.c
-		_init_leds     		CODE           	098E	0000	48
-		_watering_status_led		CODE           	0AFA	0000	10
-		_checking_moisture_status_led		CODE           	0B0E	0000	10
-		_idle_status_led		CODE           	0B04	0000	10
+		_init_leds     		CODE           	0986	0000	48
+		_watering_status_led		CODE           	0AF2	0000	10
+		_checking_moisture_status_led		CODE           	0B06	0000	10
+		_idle_status_led		CODE           	0AFC	0000	10
 
 LedDriver.c estimated size: 78
 
 shared
-		i2_set_state   		CODE           	0B3A	0000	8
-		__initialization		CODE           	090E	0000	56
-		i2_get_current_state		CODE           	0B5E	0000	4
+		i2_set_state   		CODE           	0B32	0000	8
+		__initialization		CODE           	090C	0000	56
+		i2_get_current_state		CODE           	0B56	0000	4
 
 shared estimated size: 68
 
 FSM_states.c
-		_set_state     		CODE           	0B32	0000	8
-		_get_current_state		CODE           	0B52	0000	4
+		_set_state     		CODE           	0B2A	0000	8
+		_get_current_state		CODE           	0B4A	0000	4
 
 FSM_states.c estimated size: 12
 
 PIC18F4331_Timer.c
-		_Timer0_init   		CODE           	0A70	0000	22
-		_Timer0_stop   		CODE           	0B4E	0000	4
-		_Timer0_start  		CODE           	0B56	0000	4
+		_Timer0_init   		CODE           	0A68	0000	22
+		_Timer0_stop   		CODE           	0B46	0000	4
+		_Timer0_start  		CODE           	0B4E	0000	4
 
 PIC18F4331_Timer.c estimated size: 30
 
 PIC18F4331_ADC.c
-		_ADC_in_progress		CODE           	0AC8	0000	20
-		_ADC_stop      		CODE           	0B5A	0000	4
-		_ADC_init      		CODE           	0A04	0000	28
-		_ADC_start     		CODE           	0B48	0000	6
-		_ADC_Read      		CODE           	09BE	0000	42
+		_ADC_in_progress		CODE           	0AC0	0000	20
+		_ADC_stop      		CODE           	0B52	0000	4
+		_ADC_init      		CODE           	09FC	0000	28
+		_ADC_start     		CODE           	0B40	0000	6
+		_ADC_Read      		CODE           	09B6	0000	42
 
 PIC18F4331_ADC.c estimated size: 100
 
 SoilMoistureSensor.c
-		_SMS_Set_State 		CODE           	076A	0000	94
-		_SMS_init      		CODE           	0B42	0000	6
-		_SMS_Read_Moisture_Value		CODE           	0A9C	0000	22
+		_SMS_Set_State 		CODE           	0768	0000	94
+		_SMS_init      		CODE           	0B3A	0000	6
+		_SMS_Read_Moisture_Value		CODE           	0A94	0000	22
 
 SoilMoistureSensor.c estimated size: 122
 
 PIC18F4331_UART2.c
-		_UART2_send    		CODE           	0A86	0000	22
-		_UART2_init    		CODE           	09E8	0000	28
+		_UART2_send    		CODE           	0A7E	0000	22
+		_UART2_init    		CODE           	09E0	0000	28
 
 PIC18F4331_UART2.c estimated size: 50
 
 main.c
-		_main          		CODE           	0954	0000	58
+		_main          		CODE           	0952	0000	52
 
-main.c estimated size: 58
+main.c estimated size: 52
 
 LCD.c
-		_LCD_Init      		CODE           	0690	0000	120
-		_LCD_Write_Char		CODE           	08C6	0000	72
-		_LCD_CMD       		CODE           	0A58	0000	24
-		_LCD_DATA      		CODE           	07C8	0000	92
-		_LCD_Set_Cursor		CODE           	0708	0000	98
-		_LCD_Clear     		CODE           	0AEC	0000	14
-		_LCD_Write_String		CODE           	0824	0000	86
+		_LCD_Init      		CODE           	068E	0000	120
+		_LCD_Write_Char		CODE           	08C4	0000	72
+		_LCD_CMD       		CODE           	0A50	0000	24
+		_LCD_DATA      		CODE           	07C6	0000	92
+		_LCD_Set_Cursor		CODE           	0706	0000	98
+		_LCD_Clear     		CODE           	0AE4	0000	14
+		_LCD_Write_String		CODE           	0822	0000	86
 
 LCD.c estimated size: 506
 

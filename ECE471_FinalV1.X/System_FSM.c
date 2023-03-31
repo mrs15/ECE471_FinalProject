@@ -11,19 +11,19 @@
 #include "PIC18F4331_UART2.h"
 
 
-#define CHECK_MOISTURE_PERIOD (4) //this multiply by 2 
+#define CHECK_MOISTURE_PERIOD (4) //this multiply by 2 = actual time
 #define WATERING_TIME (2) 
 
 static void Check_Moisture_cb(void)
 {
-    /**Come here every 30 seconds and change the state to 
+    /**Come here every CHECK_MOISTURE_PERIOD seconds and change the state to 
        check soil moisture.
      **/
     if(get_current_state() != WATER_PLANTS)
     {
       set_state(CHECK_MOISTURE);  
     }   
-}
+}//Check_Moisture_Callback
 
 static void Watering_Done_cb(void)
 {
@@ -32,7 +32,7 @@ static void Watering_Done_cb(void)
     {
         set_state(IDLE_STATE);
     }
-}
+}//Watering_Done_Callback
 
 void FSM_begin(void)
 {
@@ -40,10 +40,15 @@ void FSM_begin(void)
     {
         case INIT_STATE:
         {
-            SMS_init();
-            Callbacks_Init();
-            WaterPump_Init();
+            SMS_init(); /*Initialize Soil Moisture Sensor - SMS*/
+            Callbacks_Init(); /*Initialize Callbacks*/
+            WaterPump_Init(); 
+            init_leds();
+            LCD_Init();
       
+            /*Create two callbacks for periodic moisture sensing and 
+              timed watering.
+             */
             Callback_Config_t MoistureCB_Config = 
             {
                 .callback = &Check_Moisture_cb,
@@ -59,20 +64,18 @@ void FSM_begin(void)
             Register_Callback(&MoistureCB_Config);
             Register_Callback(&WateringDoneCB_Config);
    
-            init_leds();
-            
-            LCD_Init();
-            
+            /*Display boot up data*/
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" Plant Watering\0");
             LCD_Set_Cursor(2,1);
-            LCD_Write_String("System Initial...\0");
+            LCD_Write_String("System Init...\0");
             
             __delay_ms(1000);
             
             Timer0_start();
             
+            /*Initialization done and timer started, go to IDLE state*/
             set_state(IDLE_STATE);
             
             break;
@@ -80,8 +83,8 @@ void FSM_begin(void)
         
         case IDLE_STATE:
         {
-            //TODO: send UART command to LoRa
-            UART2_send('S'); //235 is the idle code
+            /*send this command to the WiFi co-processor to update connected clients*/
+            UART2_send('S'); 
             
             LCD_Clear();
             LCD_Set_Cursor(1,1);
@@ -93,9 +96,7 @@ void FSM_begin(void)
             
             while(get_current_state() == IDLE_STATE)
             {
-                //TODO: check UART input coming from LoRa
-
-                
+                /*IDLE - do nothing*/
             }
             
             break;
@@ -103,25 +104,19 @@ void FSM_begin(void)
         
         case WATER_PLANTS:
         {
-            //TODO: send UART command to LoRa
-            UART2_send('W'); //103 is the watering code
+            /*send this command to the WiFi co-processor to update connected clients*/
+            UART2_send('W'); 
 
             WaterPump_ON();
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >WATERING PLANTS<\0");
-            
 
-            
             while(get_current_state() == WATER_PLANTS)
             {     
-              //TODO: check UART input coming from LoRa
-
-
               watering_status_led();  
             }
-            
-            
+                       
             break;
         }//WATER_PLANTS
         
@@ -129,10 +124,8 @@ void FSM_begin(void)
         {
             /*Come here every hour or 30 minutes*/
             /*But for demo purposes, we will make it every ~10 seconds*/
-            //TODO: send UART command to LoRa
-            UART2_send('M'); //56 is the check moisture code
-
-            
+            UART2_send('M'); 
+  
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >CHECKING MOIST<\0");
@@ -143,14 +136,15 @@ void FSM_begin(void)
             
             U16 moisture = SMS_Read_Moisture_Value();
             
+            /*Error checking*/
             if(moisture > 65000)
                 moisture = 1000;
-            
+            /*Send Moisture value to WiFi-CoProcessor*/
             UART2_send((U8)moisture);
+            
+            /*Decide if watering is required or not based on the moisture value*/
             SMS_Set_State(moisture);
             
-
-    
             break;
         }//CHECK_MOISTURE
         
@@ -159,8 +153,7 @@ void FSM_begin(void)
             set_state(INIT_STATE);
             break;
         }
-        
-        
+  
     }//switch
     
 }//FSM_Begin

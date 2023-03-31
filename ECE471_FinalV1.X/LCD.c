@@ -8,7 +8,7 @@ void LCD_Init()
   LCD_DATA_PORT_D = 0x00;
   LCD_RS_D = 0;
   LCD_EN_D = 0;
-    //TRISB = 0;
+
   // The Init. Procedure
   LCD_DATA(0x00);
   __delay_ms(30);
@@ -48,7 +48,7 @@ void LCD_SR()
  
 void LCD_CMD(unsigned char CMD)
 {
-      // Select Command Register
+  // Select Command Register
   RS = 0;
   // Move The Command Data To LCD
   LCD_DATA(CMD);

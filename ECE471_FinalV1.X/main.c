@@ -44,10 +44,7 @@ void main(void) {
      
     //rising edge interrupt
     INTCON2bits.INTEDG0 = 1;
-        
-    
-    //UART RX as digital input
-    
+         
     //Initialize UART
     UART2_init();
     
@@ -55,11 +52,12 @@ void main(void) {
     INTCONbits.GIEH = 1;
     INTCONbits.GIEL = 1;
     
-  
+    /*Entry level initializtion done, now goto INIT_STATE*/
     set_state(INIT_STATE);
-    UART2_send('S');
+    
     while(1)
     {
+     /*Give control to System_FSM*/
      FSM_begin();   
     }
     

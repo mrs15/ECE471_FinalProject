@@ -5240,7 +5240,6 @@ char getch(void);
 void putch(char txData);
 # 1 "PIC18F4331_UART2.c" 2
 
-
 # 1 "./SystemConfiguration.h" 1
 # 41 "./SystemConfiguration.h"
 #pragma config OSC = IRCIO
@@ -5297,8 +5296,7 @@ void putch(char txData);
 
 
 #pragma config EBTRB = OFF
-# 3 "PIC18F4331_UART2.c" 2
-
+# 2 "PIC18F4331_UART2.c" 2
 
 
 

@@ -11,13 +11,15 @@
  Intel Hex-file ranges:
   0h - 3h		(dist/default/production\ECE471_FinalV1.X.production.hex)
   8h - BFh		(dist/default/production\ECE471_FinalV1.X.production.hex)
-  300h - B61h		(dist/default/production\ECE471_FinalV1.X.production.hex)
+  300h - 358h		(dist/default/production\ECE471_FinalV1.X.production.hex)
+  35Ah - B59h		(dist/default/production\ECE471_FinalV1.X.production.hex)
   200000h - 200007h		(dist/default/production\ECE471_FinalV1.X.production.hex)
   300000h - 30000Dh		(dist/default/production\ECE471_FinalV1.X.production.hex)
  Unused ranges:
   4h - 7h
   C0h - 2FFh
-  B62h - 1FFFFFh
+  359h - 359h
+  B5Ah - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -45,7 +47,7 @@
 00000320 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000330 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000340 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000350 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000350 | H1 H1 H1 H1 H1 H1 H1 H1 H1 -- H1 H1 H1 H1 H1 H1
 00000360 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000370 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000380 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
@@ -173,8 +175,7 @@
 00000B20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000B30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000B40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000B50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000B60 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+00000B50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------

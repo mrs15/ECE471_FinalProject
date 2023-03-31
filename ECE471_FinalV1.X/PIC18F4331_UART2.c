@@ -1,7 +1,5 @@
 #include "PIC18F4331_UART2.h"
-//#include "stdbool.h"
 #include "SystemConfiguration.h"
-//#include "xc.h"
 
 #define FREQ 8000000
 #define BAUD_RATE 9600

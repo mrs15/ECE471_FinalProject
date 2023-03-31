@@ -5383,9 +5383,6 @@ void main(void) {
     INTCON2bits.INTEDG0 = 1;
 
 
-
-
-
     UART2_init();
 
 
@@ -5394,9 +5391,10 @@ void main(void) {
 
 
     set_state(INIT_STATE);
-    UART2_send('S');
+
     while(1)
     {
+
      FSM_begin();
     }
 

@@ -5448,6 +5448,11 @@ void FSM_begin(void)
             SMS_init();
             Callbacks_Init();
             WaterPump_Init();
+            init_leds();
+            LCD_Init();
+
+
+
 
             Callback_Config_t MoistureCB_Config =
             {
@@ -5464,19 +5469,17 @@ void FSM_begin(void)
             Register_Callback(&MoistureCB_Config);
             Register_Callback(&WateringDoneCB_Config);
 
-            init_leds();
-
-            LCD_Init();
 
             LCD_Clear();
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" Plant Watering\0");
             LCD_Set_Cursor(2,1);
-            LCD_Write_String("System Initial...\0");
+            LCD_Write_String("System Init...\0");
 
             _delay((unsigned long)((1000)*(8000000/4000.0)));
 
             Timer0_start();
+
 
             set_state(IDLE_STATE);
 
@@ -5499,8 +5502,6 @@ void FSM_begin(void)
             while(get_current_state() == IDLE_STATE)
             {
 
-
-
             }
 
             break;
@@ -5516,16 +5517,10 @@ void FSM_begin(void)
             LCD_Set_Cursor(1,1);
             LCD_Write_String(" >WATERING PLANTS<\0");
 
-
-
             while(get_current_state() == WATER_PLANTS)
             {
-
-
-
               watering_status_led();
             }
-
 
             break;
         }
@@ -5534,9 +5529,7 @@ void FSM_begin(void)
         {
 
 
-
             UART2_send('M');
-
 
             LCD_Clear();
             LCD_Set_Cursor(1,1);
@@ -5548,13 +5541,14 @@ void FSM_begin(void)
 
             U16 moisture = SMS_Read_Moisture_Value();
 
+
             if(moisture > 65000)
                 moisture = 1000;
 
             UART2_send((U8)moisture);
+
+
             SMS_Set_State(moisture);
-
-
 
             break;
         }
@@ -5564,7 +5558,6 @@ void FSM_begin(void)
             set_state(INIT_STATE);
             break;
         }
-
 
     }
 

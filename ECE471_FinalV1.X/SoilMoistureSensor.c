@@ -8,13 +8,13 @@
 void SMS_init(void)
 {
     ADC_init();
-}
+}//SMS_init
 
 U16 SMS_Read_Moisture_Value(void)
 {
     U16 moisture = ADC_Read();
     return moisture;  
-}
+}//SMS_read_moisture
 
 void SMS_Set_State(U16 moisture)
 {
@@ -31,4 +31,4 @@ void SMS_Set_State(U16 moisture)
     {
         set_state(IDLE_STATE);
     }
-}
+}//SMS_set_state

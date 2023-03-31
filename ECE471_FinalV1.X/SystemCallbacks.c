@@ -60,11 +60,11 @@ U8 Register_Callback(Callback_Config_t *config)
         }//valid callback
     }//if callback_count < MAX
     
-
     return 100;
 }//Register_Callback
 
 U8 Delete_Callback(Callback_Config_t *config)
 {
+    /*Not implemented for this application*/
     return 0;
 }//Delete_Callback

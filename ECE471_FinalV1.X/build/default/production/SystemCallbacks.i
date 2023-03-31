@@ -123,11 +123,11 @@ U8 Register_Callback(Callback_Config_t *config)
         }
     }
 
-
     return 100;
 }
 
 U8 Delete_Callback(Callback_Config_t *config)
 {
+
     return 0;
 }

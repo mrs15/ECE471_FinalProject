@@ -207,26 +207,26 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;SystemCallbacks.c: 61:     }
 }
 [e :U 15 ]
-"64
-[; ;SystemCallbacks.c: 64:     return 100;
+"63
+[; ;SystemCallbacks.c: 63:     return 100;
 [e ) -> -> 100 `i `uc ]
 [e $UE 14  ]
-"65
-[; ;SystemCallbacks.c: 65: }
+"64
+[; ;SystemCallbacks.c: 64: }
 [e :UE 14 ]
 }
-"67
-[; ;SystemCallbacks.c: 67: U8 Delete_Callback(Callback_Config_t *config)
+"66
+[; ;SystemCallbacks.c: 66: U8 Delete_Callback(Callback_Config_t *config)
 [v _Delete_Callback `(uc ~T0 @X0 1 ef1`*S1 ]
-"68
-[; ;SystemCallbacks.c: 68: {
+"67
+[; ;SystemCallbacks.c: 67: {
 {
 [e :U _Delete_Callback ]
-"67
-[; ;SystemCallbacks.c: 67: U8 Delete_Callback(Callback_Config_t *config)
+"66
+[; ;SystemCallbacks.c: 66: U8 Delete_Callback(Callback_Config_t *config)
 [v _config `*S1 ~T0 @X0 1 r1 ]
-"68
-[; ;SystemCallbacks.c: 68: {
+"67
+[; ;SystemCallbacks.c: 67: {
 [f ]
 "69
 [; ;SystemCallbacks.c: 69:     return 0;
