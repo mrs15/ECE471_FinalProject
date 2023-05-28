@@ -17,20 +17,20 @@ static U8 pump_status = 0;
 void WaterPump_Init(void)
 {
     CHANNEL_BIT_AS_OUTPUT(PD, PUMP);
-    CHANNEL_BIT_LOW(PD, PUMP);
+    CHANNEL_BIT_HIGH(PD, PUMP); //relay is inverted in logic
     pump_status = PUMP_OFF;
     
 }//WaterPump_Init
 
 void WaterPump_ON(void)
 {
-    CHANNEL_BIT_HIGH(PD, PUMP);
+    CHANNEL_BIT_LOW(PD, PUMP);
     pump_status = PUMP_ON;
 }//ON
 
 void WaterPump_OFF(void)
 {
-    CHANNEL_BIT_LOW(PD, PUMP);
+    CHANNEL_BIT_HIGH(PD, PUMP);
     pump_status = PUMP_OFF;
 }//OFF
 

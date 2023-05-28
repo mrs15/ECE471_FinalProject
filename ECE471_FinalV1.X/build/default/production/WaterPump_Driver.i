@@ -5320,20 +5320,20 @@ static U8 pump_status = 0;
 void WaterPump_Init(void)
 {
     (((TRISD))&=(~((0x04))));
-    (((LATD))&=(~((0x04))));
+    (((LATD))|=((0x04)));
     pump_status = PUMP_OFF;
 
 }
 
 void WaterPump_ON(void)
 {
-    (((LATD))|=((0x04)));
+    (((LATD))&=(~((0x04))));
     pump_status = PUMP_ON;
 }
 
 void WaterPump_OFF(void)
 {
-    (((LATD))&=(~((0x04))));
+    (((LATD))|=((0x04)));
     pump_status = PUMP_OFF;
 }
 

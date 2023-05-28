@@ -24,17 +24,17 @@ IDLE_STATE 1
 WATER_PLANTS 2
 CHECK_MOISTURE 3
 ]
-"22 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+"23 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+[e E2834 . `uc
+OPEN 0
+TAKEN 1
+]
+"62
 [e E2814 . `uc
 INIT_STATE 0
 IDLE_STATE 1
 WATER_PLANTS 2
 CHECK_MOISTURE 3
-]
-"52
-[e E2834 . `uc
-OPEN 0
-TAKEN 1
 ]
 "7 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemCallbacks.c
 [e E6 . `uc
@@ -135,18 +135,19 @@ PUMP_OFF 1
 [v _SMS_Read_Moisture_Value SMS_Read_Moisture_Value `(us  1 e 2 0 ]
 "19
 [v _SMS_Set_State SMS_Set_State `(v  1 e 1 0 ]
-"17 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
-[v _Check_Moisture_cb Check_Moisture_cb `(v  1 s 1 Check_Moisture_cb ]
-"28
-[v _Watering_Done_cb Watering_Done_cb `(v  1 s 1 Watering_Done_cb ]
-"37
+"35 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
 [v _FSM_begin FSM_begin `(v  1 e 1 0 ]
+"148
+[v _Check_Moisture_cb Check_Moisture_cb `(v  1 s 1 Check_Moisture_cb ]
+"160
+[v _Watering_Done_cb Watering_Done_cb `(v  1 s 1 Watering_Done_cb ]
 "9 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemCallbacks.c
 [v _Callbacks_Init Callbacks_Init `(v  1 e 1 0 ]
 "24
 [v _Callbacks_Manager Callbacks_Manager `(v  1 e 1 0 ]
 "42
 [v _Reset_Counter Reset_Counter `(v  1 e 1 0 ]
+[v i2_Reset_Counter Reset_Counter `(v  1 e 1 0 ]
 "47
 [v _Register_Callback Register_Callback `(uc  1 e 1 0 ]
 "11 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemInterrupts.c
@@ -536,11 +537,15 @@ PUMP_OFF 1
 [v _rx_flag rx_flag `VEa  1 e 1 0 ]
 "9
 [v _rx_data rx_data `VEuc  1 e 1 0 ]
+[s S796 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
+"23 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+[v _MoistureCB_Config MoistureCB_Config `S796  1 s 8 MoistureCB_Config ]
+"29
+[v _WateringDoneCB_Config WateringDoneCB_Config `S796  1 s 8 WateringDoneCB_Config ]
 "6 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemCallbacks.c
 [v _callback_count callback_count `uc  1 s 1 callback_count ]
-[s S817 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
 "7
-[v _registered_callbacks registered_callbacks `[5]S817  1 s 40 registered_callbacks ]
+[v _registered_callbacks registered_callbacks `[5]S796  1 s 40 registered_callbacks ]
 "9 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemInterrupts.c
 [v _tmr0Counter@SystemInterrupts$F994 tmr0Counter `VEus  1 s 2 tmr0Counter ]
 "15 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\WaterPump_Driver.c
@@ -565,21 +570,12 @@ PUMP_OFF 1
 {
 "84
 } 0
-"37 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+"35 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
 [v _FSM_begin FSM_begin `(v  1 e 1 0 ]
 {
-"137
-[v FSM_begin@moisture moisture `us  1 a 2 42 ]
-[s S817 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
-"58
-[v FSM_begin@WateringDoneCB_Config WateringDoneCB_Config `S817  1 a 8 34 ]
-"52
-[v FSM_begin@MoistureCB_Config MoistureCB_Config `S817  1 a 8 26 ]
-"47
-[v FSM_begin@F2890 F2890 `S817  1 s 8 F2890 ]
-"52
-[v FSM_begin@F2893 F2893 `S817  1 s 8 F2893 ]
-"159
+"123
+[v FSM_begin@moisture moisture `us  1 a 2 27 ]
+"145
 } 0
 "40 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\LedDriver.c
 [v _watering_status_led watering_status_led `(v  1 e 1 0 ]
@@ -626,7 +622,7 @@ PUMP_OFF 1
 {
 [v UART2_send@data data `uc  1 a 1 wreg ]
 [v UART2_send@data data `uc  1 a 1 wreg ]
-[v UART2_send@data data `uc  1 a 1 14 ]
+[v UART2_send@data data `uc  1 a 1 15 ]
 "42
 } 0
 "86 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_Timer.c
@@ -652,7 +648,7 @@ PUMP_OFF 1
 "19 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SoilMoistureSensor.c
 [v _SMS_Set_State SMS_Set_State `(v  1 e 1 0 ]
 {
-[v SMS_Set_State@moisture moisture `us  1 p 2 15 ]
+[v SMS_Set_State@moisture moisture `us  1 p 2 16 ]
 "34
 } 0
 "9 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\FSM_states.c
@@ -661,14 +657,14 @@ PUMP_OFF 1
 [v set_state@state_to_set state_to_set `E2  1 a 1 wreg ]
 [v set_state@state_to_set state_to_set `E2  1 a 1 wreg ]
 "11
-[v set_state@state_to_set state_to_set `E2  1 a 1 14 ]
+[v set_state@state_to_set state_to_set `E2  1 a 1 15 ]
 "12
 } 0
 "13 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SoilMoistureSensor.c
 [v _SMS_Read_Moisture_Value SMS_Read_Moisture_Value `(us  1 e 2 0 ]
 {
 "15
-[v SMS_Read_Moisture_Value@moisture moisture `us  1 a 2 18 ]
+[v SMS_Read_Moisture_Value@moisture moisture `us  1 a 2 19 ]
 "17
 } 0
 "60 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\PIC18F4331_ADC.c
@@ -689,24 +685,24 @@ PUMP_OFF 1
 "47 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemCallbacks.c
 [v _Register_Callback Register_Callback `(uc  1 e 1 0 ]
 {
-[s S817 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
-[v Register_Callback@config config `*.39S817  1 p 2 16 ]
+[s S796 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
+[v Register_Callback@config config `*.39S796  1 p 2 17 ]
 "64
 } 0
 "42
 [v _Reset_Counter Reset_Counter `(v  1 e 1 0 ]
 {
-[s S817 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
-[v Reset_Counter@config config `*.39S817  1 p 2 14 ]
+[s S796 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
+[v Reset_Counter@config config `*.39S796  1 p 2 15 ]
 "45
 } 0
 "120 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\LCD.c
 [v _LCD_Write_String LCD_Write_String `(v  1 e 1 0 ]
 {
 "122
-[v LCD_Write_String@i i `i  1 a 2 22 ]
+[v LCD_Write_String@i i `i  1 a 2 23 ]
 "120
-[v LCD_Write_String@str str `*.25uc  1 p 2 18 ]
+[v LCD_Write_String@str str `*.25uc  1 p 2 19 ]
 "126
 } 0
 "102
@@ -714,12 +710,12 @@ PUMP_OFF 1
 {
 [v LCD_Write_Char@Data Data `uc  1 a 1 wreg ]
 "104
-[v LCD_Write_Char@High4 High4 `uc  1 a 1 16 ]
-[v LCD_Write_Char@Low4 Low4 `uc  1 a 1 15 ]
+[v LCD_Write_Char@High4 High4 `uc  1 a 1 17 ]
+[v LCD_Write_Char@Low4 Low4 `uc  1 a 1 16 ]
 "102
 [v LCD_Write_Char@Data Data `uc  1 a 1 wreg ]
 "105
-[v LCD_Write_Char@Data Data `uc  1 a 1 17 ]
+[v LCD_Write_Char@Data Data `uc  1 a 1 18 ]
 "119
 } 0
 "81
@@ -727,14 +723,14 @@ PUMP_OFF 1
 {
 [v LCD_Set_Cursor@r r `uc  1 a 1 wreg ]
 "83
-[v LCD_Set_Cursor@Temp Temp `uc  1 a 1 20 ]
-[v LCD_Set_Cursor@High4 High4 `uc  1 a 1 19 ]
-[v LCD_Set_Cursor@Low4 Low4 `uc  1 a 1 18 ]
+[v LCD_Set_Cursor@Temp Temp `uc  1 a 1 21 ]
+[v LCD_Set_Cursor@High4 High4 `uc  1 a 1 20 ]
+[v LCD_Set_Cursor@Low4 Low4 `uc  1 a 1 19 ]
 "81
 [v LCD_Set_Cursor@r r `uc  1 a 1 wreg ]
-[v LCD_Set_Cursor@c c `uc  1 p 1 16 ]
+[v LCD_Set_Cursor@c c `uc  1 p 1 17 ]
 "84
-[v LCD_Set_Cursor@r r `uc  1 a 1 17 ]
+[v LCD_Set_Cursor@r r `uc  1 a 1 18 ]
 "101
 } 0
 "5
@@ -753,7 +749,7 @@ PUMP_OFF 1
 [v LCD_CMD@CMD CMD `uc  1 a 1 wreg ]
 [v LCD_CMD@CMD CMD `uc  1 a 1 wreg ]
 "52
-[v LCD_CMD@CMD CMD `uc  1 a 1 15 ]
+[v LCD_CMD@CMD CMD `uc  1 a 1 16 ]
 "60
 } 0
 "61
@@ -762,14 +758,14 @@ PUMP_OFF 1
 [v LCD_DATA@Data Data `uc  1 a 1 wreg ]
 [v LCD_DATA@Data Data `uc  1 a 1 wreg ]
 "63
-[v LCD_DATA@Data Data `uc  1 a 1 14 ]
+[v LCD_DATA@Data Data `uc  1 a 1 15 ]
 "80
 } 0
 "9 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemCallbacks.c
 [v _Callbacks_Init Callbacks_Init `(v  1 e 1 0 ]
 {
 "11
-[v Callbacks_Init@callback callback `uc  1 a 1 14 ]
+[v Callbacks_Init@callback callback `uc  1 a 1 15 ]
 "17
 } 0
 "11 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemInterrupts.c
@@ -781,18 +777,18 @@ PUMP_OFF 1
 [v _Callbacks_Manager Callbacks_Manager `(v  1 e 1 0 ]
 {
 "26
-[v Callbacks_Manager@callbacks callbacks `uc  1 a 1 5 ]
+[v Callbacks_Manager@callbacks callbacks `uc  1 a 1 6 ]
 "40
 } 0
-"17 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
+"148 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\System_FSM.c
 [v _Check_Moisture_cb Check_Moisture_cb `(v  1 s 1 Check_Moisture_cb ]
 {
-"26
+"158
 } 0
-"28
+"160
 [v _Watering_Done_cb Watering_Done_cb `(v  1 s 1 Watering_Done_cb ]
 {
-"35
+"168
 } 0
 "9 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\FSM_states.c
 [v i2_set_state set_state `(v  1 e 1 0 ]
@@ -807,4 +803,11 @@ PUMP_OFF 1
 [v i2_get_current_state get_current_state `(E2  1 e 1 0 ]
 {
 "8
+} 0
+"42 C:\Users\rafay\MPLABXProjects\ECE471_FinalV1.X\SystemCallbacks.c
+[v i2_Reset_Counter Reset_Counter `(v  1 e 1 0 ]
+{
+[s S796 . 8 `us 1 expiry_time 2 0 `*.37(v 1 callback 2 2 `uc 1 callback_ID 1 4 `us 1 count 2 5 `E2834 1 Availablity 1 7 ]
+[v i2Reset_Counter@config config `*.39S796  1 p 2 0 ]
+"45
 } 0

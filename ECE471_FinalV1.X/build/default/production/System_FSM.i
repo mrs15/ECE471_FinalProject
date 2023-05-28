@@ -5419,25 +5419,23 @@ void WaterPump_Toggle(void);
 
 
 
-static void Check_Moisture_cb(void)
+static void Check_Moisture_cb(void);
+static void Watering_Done_cb(void);
+
+
+
+
+static Callback_Config_t MoistureCB_Config =
 {
+    .callback = &Check_Moisture_cb,
+    .expiry_time = (4),
+};
 
-
-
-    if(get_current_state() != WATER_PLANTS)
-    {
-      set_state(CHECK_MOISTURE);
-    }
-}
-
-static void Watering_Done_cb(void)
+static Callback_Config_t WateringDoneCB_Config =
 {
-
-    if(get_current_state() == WATER_PLANTS)
-    {
-        set_state(IDLE_STATE);
-    }
-}
+    .callback = &Watering_Done_cb,
+    .expiry_time = (2),
+};
 
 void FSM_begin(void)
 {
@@ -5450,21 +5448,6 @@ void FSM_begin(void)
             WaterPump_Init();
             init_leds();
             LCD_Init();
-
-
-
-
-            Callback_Config_t MoistureCB_Config =
-            {
-                .callback = &Check_Moisture_cb,
-                .expiry_time = (4),
-            };
-
-            Callback_Config_t WateringDoneCB_Config =
-            {
-                .callback = &Watering_Done_cb,
-                .expiry_time = (2),
-            };
 
             Register_Callback(&MoistureCB_Config);
             Register_Callback(&WateringDoneCB_Config);
@@ -5509,6 +5492,9 @@ void FSM_begin(void)
 
         case WATER_PLANTS:
         {
+            Reset_Counter(&WateringDoneCB_Config);
+            Reset_Counter(&MoistureCB_Config);
+
 
             UART2_send('W');
 
@@ -5561,4 +5547,27 @@ void FSM_begin(void)
 
     }
 
+}
+
+
+static void Check_Moisture_cb(void)
+{
+
+
+
+    if(get_current_state() != WATER_PLANTS)
+    {
+      Reset_Counter(&WateringDoneCB_Config);
+      set_state(CHECK_MOISTURE);
+    }
+}
+
+static void Watering_Done_cb(void)
+{
+
+    if(get_current_state() == WATER_PLANTS)
+    {
+        Reset_Counter(&MoistureCB_Config);
+        set_state(IDLE_STATE);
+    }
 }

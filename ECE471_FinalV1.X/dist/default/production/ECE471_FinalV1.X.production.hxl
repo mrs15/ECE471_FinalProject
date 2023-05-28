@@ -12,14 +12,14 @@
   0h - 3h		(dist/default/production\ECE471_FinalV1.X.production.hex)
   8h - BFh		(dist/default/production\ECE471_FinalV1.X.production.hex)
   300h - 358h		(dist/default/production\ECE471_FinalV1.X.production.hex)
-  35Ah - B59h		(dist/default/production\ECE471_FinalV1.X.production.hex)
+  35Ah - B7Bh		(dist/default/production\ECE471_FinalV1.X.production.hex)
   200000h - 200007h		(dist/default/production\ECE471_FinalV1.X.production.hex)
   300000h - 30000Dh		(dist/default/production\ECE471_FinalV1.X.production.hex)
  Unused ranges:
   4h - 7h
   C0h - 2FFh
   359h - 359h
-  B5Ah - 1FFFFFh
+  B7Ch - 1FFFFFh
   200008h - 2FFFFFh
 
 ### Hex Memory Map ###
@@ -175,7 +175,9 @@
 00000B20 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000B30 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
 00000B40 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
-00000B50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- --
+00000B50 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000B60 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000B70 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- --
 ----------------------------------------------------------
 00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
 ----------------------------------------------------------

@@ -14,25 +14,23 @@
 #define CHECK_MOISTURE_PERIOD (4) //this multiply by 2 = actual time
 #define WATERING_TIME (2) 
 
-static void Check_Moisture_cb(void)
-{
-    /**Come here every CHECK_MOISTURE_PERIOD seconds and change the state to 
-       check soil moisture.
-     **/
-    if(get_current_state() != WATER_PLANTS)
-    {
-      set_state(CHECK_MOISTURE);  
-    }   
-}//Check_Moisture_Callback
+static void Check_Moisture_cb(void);
+static void Watering_Done_cb(void);
 
-static void Watering_Done_cb(void)
+/*Create two callbacks for periodic moisture sensing and 
+  timed watering.
+ */
+static Callback_Config_t MoistureCB_Config = 
 {
-    /**If watering in progress, and time is up; go back to IDLE*/
-    if(get_current_state() == WATER_PLANTS)
-    {
-        set_state(IDLE_STATE);
-    }
-}//Watering_Done_Callback
+    .callback = &Check_Moisture_cb,
+    .expiry_time = CHECK_MOISTURE_PERIOD,
+};
+
+static Callback_Config_t WateringDoneCB_Config = 
+{
+    .callback = &Watering_Done_cb,
+    .expiry_time = WATERING_TIME,
+};
 
 void FSM_begin(void)
 {
@@ -45,22 +43,7 @@ void FSM_begin(void)
             WaterPump_Init(); 
             init_leds();
             LCD_Init();
-      
-            /*Create two callbacks for periodic moisture sensing and 
-              timed watering.
-             */
-            Callback_Config_t MoistureCB_Config = 
-            {
-                .callback = &Check_Moisture_cb,
-                .expiry_time = CHECK_MOISTURE_PERIOD,
-            };
-            
-            Callback_Config_t WateringDoneCB_Config = 
-            {
-                .callback = &Watering_Done_cb,
-                .expiry_time = WATERING_TIME,
-            };
-            
+                  
             Register_Callback(&MoistureCB_Config);
             Register_Callback(&WateringDoneCB_Config);
    
@@ -104,6 +87,9 @@ void FSM_begin(void)
         
         case WATER_PLANTS:
         {
+            Reset_Counter(&WateringDoneCB_Config);
+            Reset_Counter(&MoistureCB_Config);
+            
             /*send this command to the WiFi co-processor to update connected clients*/
             UART2_send('W'); 
 
@@ -141,7 +127,7 @@ void FSM_begin(void)
                 moisture = 1000;
             /*Send Moisture value to WiFi-CoProcessor*/
             UART2_send((U8)moisture);
-            
+                   
             /*Decide if watering is required or not based on the moisture value*/
             SMS_Set_State(moisture);
             
@@ -157,3 +143,26 @@ void FSM_begin(void)
     }//switch
     
 }//FSM_Begin
+
+
+static void Check_Moisture_cb(void)
+{
+    /**Come here every CHECK_MOISTURE_PERIOD seconds and change the state to 
+       check soil moisture.
+     **/
+    if(get_current_state() != WATER_PLANTS)
+    {
+      Reset_Counter(&WateringDoneCB_Config);
+      set_state(CHECK_MOISTURE);  
+    }   
+}//Check_Moisture_Callback
+
+static void Watering_Done_cb(void)
+{
+    /**If watering in progress, and time is up; go back to IDLE*/
+    if(get_current_state() == WATER_PLANTS)
+    {
+        Reset_Counter(&MoistureCB_Config);
+        set_state(IDLE_STATE);
+    }
+}//Watering_Done_Callback
